@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -13,8 +13,8 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import getSiteFeatures from '../services/featureToggle';
+import SiteFeature from '../common/SiteFeature';
 
 function Navigation(): JSX.Element {
     const useStyles = makeStyles((theme: Theme) =>
@@ -37,26 +37,11 @@ function Navigation(): JSX.Element {
         }),
     );
 
-    const [navigationOptions, setnavigationOptions] = useState([
-        {
-            option: 'Home',
-            enabled: true,
-            path: '/',
-            icon: <InboxIcon />,
-        },
-        {
-            option: 'Mission Board',
-            enabled: true,
-            path: '/mb',
-            icon: <MailIcon />,
-        },
-        {
-            option: 'About',
-            enabled: true,
-            path: '/about',
-            icon: <MailIcon />,
-        },
-    ]);
+    const [siteFeatures, setSiteFeatures] = useState<SiteFeature[]>([]);
+
+    useEffect(() => {
+        setSiteFeatures(getSiteFeatures);
+    }, []);
 
     const classes = useStyles();
 
@@ -83,11 +68,11 @@ function Navigation(): JSX.Element {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {navigationOptions.map((option) => (
-                    <ListItem button key={option.option}>
-                        <Link to={option.path}>
-                            <ListItemIcon>{option.icon}</ListItemIcon>
-                            <ListItemText primary={option.option} />
+                {siteFeatures.map((feature) => (
+                    <ListItem button key={feature.id}>
+                        <Link to={feature.path}>
+                            <ListItemIcon>{feature.icon}</ListItemIcon>
+                            <ListItemText primary={feature.displayName} />
                         </Link>
                     </ListItem>
                 ))}
