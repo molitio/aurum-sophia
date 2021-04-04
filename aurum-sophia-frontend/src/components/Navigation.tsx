@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { Props, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -17,13 +17,16 @@ import getSiteFeatures from '../services/featureToggle';
 import SiteFeature from '../common/SiteFeature';
 
 function Navigation(): JSX.Element {
+    const theme = useTheme();
+
     const useStyles = makeStyles((theme: Theme) =>
         createStyles({
             root: {
+                background: theme.palette.primary.main,
                 flexGrow: 1,
             },
             menuButton: {
-                marginRight: theme.spacing(2),
+                marginRight: 2,
             },
             title: {
                 flexGrow: 1,
@@ -33,6 +36,10 @@ function Navigation(): JSX.Element {
             },
             fullList: {
                 width: 'auto',
+            },
+            drawer: {
+                backgroundColor: theme.palette.primary.main,
+                height: '100vh',
             },
         }),
     );
@@ -62,15 +69,15 @@ function Navigation(): JSX.Element {
 
     const navigationList = (anchor: 'left') => (
         <div
-            className=""
+            className={classes.drawer}
             role="presentation"
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
                 {siteFeatures.map((feature) => (
-                    <ListItem button key={feature.id}>
-                        <Link to={feature.path}>
+                    <ListItem button key={feature.id} color="primary">
+                        <Link color="primary" to={feature.path}>
                             <ListItemIcon>{feature.icon}</ListItemIcon>
                             <ListItemText primary={feature.displayName} />
                         </Link>
@@ -84,7 +91,7 @@ function Navigation(): JSX.Element {
     return (
         <>
             <div className={classes.root}>
-                <AppBar position="static">
+                <AppBar position="static" color="primary">
                     <Toolbar>
                         <IconButton
                             edge="start"
@@ -114,23 +121,3 @@ function Navigation(): JSX.Element {
 }
 
 export default Navigation;
-/* 
-<button mat-button [matMenuTriggerFor]="menu">
-<mat-icon aria-hidden="false" aria-label="menu">
-    menu
-</mat-icon>
-</button>
-<mat-menu #menu="matMenu">
-<button mat-menu-item>
-    <a routerLink="/mission-board">mission board</a>
-</button>
-<button mat-menu-item>
-    <a routerLink="/about">about</a>
-</button>
-<button mat-menu-item>
-    <a routerLink="/community-hub">community hub</a>
-</button>
-<button mat-menu-item>
-    <a routerLink="/resource-management">resource management</a>
-</button>
-</mat-menu> */

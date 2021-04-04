@@ -7,37 +7,43 @@ import AboutPage from './components/pages/AboutPage';
 import LandingPage from './components/pages/LandingPage';
 import PageNotFound from './components/pages/PageNotFound';
 import background from './images/background.jpg';
+import { ThemeProvider } from '@material-ui/core';
+import siteThemeCollection from './styles/siteThemeCollection';
+
+const themeCollection = siteThemeCollection();
 
 function App(): JSX.Element {
     return (
         <>
-            <div
-                className="app-container"
-                style={{
-                    backgroundImage: `url(${background})`,
-                }}
-            >
-                <Router>
-                    <div className="app-content">
-                        <div className="app-header">
-                            <Navigation />
+            <ThemeProvider theme={themeCollection.defaultSiteTheme}>
+                <div
+                    className="app-container"
+                    style={{
+                        backgroundImage: `url(${background})`,
+                    }}
+                >
+                    <Router>
+                        <div className="app-content">
+                            <div className="app-header">
+                                <Navigation />
+                            </div>
+                            <Switch>
+                                <Route exact path="/about">
+                                    <AboutPage />
+                                </Route>
+                                <Route exact path="/">
+                                    <LandingPage />
+                                </Route>
+                                <Route path="/404">
+                                    <PageNotFound />
+                                </Route>
+                                <Redirect to="/404" />
+                            </Switch>
                         </div>
-                        <Switch>
-                            <Route exact path="/about">
-                                <AboutPage />
-                            </Route>
-                            <Route exact path="/">
-                                <LandingPage />
-                            </Route>
-                            <Route path="/404">
-                                <PageNotFound />
-                            </Route>
-                            <Redirect to="/404" />
-                        </Switch>
-                    </div>
-                    <Footer />
-                </Router>
-            </div>
+                        <Footer />
+                    </Router>
+                </div>
+            </ThemeProvider>
         </>
     );
 }
