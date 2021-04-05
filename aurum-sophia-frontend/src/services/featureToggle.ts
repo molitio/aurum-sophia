@@ -4,19 +4,21 @@ const getSiteFeatures = (): SiteFeature[] => {
     const siteEmabledFeatures: SiteFeature[] = [];
     const inactive: SiteFeature[] = [];
 
+    /*     icon repository: https://fonts.google.com/icons?selected=Material+Icons */
+
     siteEmabledFeatures.push(
         new SiteFeature('null1', {
             name: 'actual',
             displayName: 'Aktuális',
-            path: '/actual',
-            icon: 'actual',
+            path: '/actuals',
+            icon: 'new_releases',
             isEnabled: true,
         }),
         new SiteFeature('null2', {
             name: 'about',
             displayName: 'Bemutatkozás',
             path: '/about',
-            icon: 'about',
+            icon: 'info',
             isEnabled: true,
         }),
         new SiteFeature('null3', {
@@ -27,12 +29,22 @@ const getSiteFeatures = (): SiteFeature[] => {
             isEnabled: true,
         }),
         new SiteFeature('null4', {
-            name: 'support',
+            name: 'donation',
             displayName: 'Támogatás',
-            path: '/support',
-            icon: 'support',
+            path: '/donation',
+            icon: 'payments',
             isEnabled: true,
         }),
+        new SiteFeature('null6', {
+            name: 'contact',
+            displayName: 'Kapcsolat',
+            path: '/contact',
+            icon: 'contact_support',
+            isEnabled: true,
+        }),
+    );
+
+    inactive.push(
         new SiteFeature('null5', {
             name: 'downloads',
             displayName: 'Letöltések',
@@ -40,16 +52,6 @@ const getSiteFeatures = (): SiteFeature[] => {
             icon: 'downloads',
             isEnabled: true,
         }),
-        new SiteFeature('null6', {
-            name: 'contact',
-            displayName: 'Kapcsolat',
-            path: '/contact',
-            icon: 'contact',
-            isEnabled: true,
-        }),
-    );
-
-    inactive.push(
         new SiteFeature('null', {
             name: 'media',
             displayName: 'Médiatár',
@@ -59,23 +61,23 @@ const getSiteFeatures = (): SiteFeature[] => {
         }),
         new SiteFeature('null', {
             name: 'classes',
-            displayName: 'Rólunk',
-            path: '/about',
-            icon: 'about',
+            displayName: 'Tanfolyamok',
+            path: '/classes',
+            icon: 'classes',
             isEnabled: false,
         }),
         new SiteFeature('null', {
             name: 'publications',
-            displayName: 'Rólunk',
-            path: '/about',
-            icon: 'about',
+            displayName: 'Kiadványok',
+            path: '/publications',
+            icon: 'publications',
             isEnabled: false,
         }),
         new SiteFeature('null', {
             name: 'webshop',
-            displayName: 'Rólunk',
-            path: '/about',
-            icon: 'about',
+            displayName: 'Webáruház',
+            path: '/webshop',
+            icon: 'webshop',
             isEnabled: false,
         }),
     );
