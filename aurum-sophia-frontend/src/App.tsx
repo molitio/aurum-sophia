@@ -13,6 +13,7 @@ import ActualsPage from './components/pages/ActualsPage';
 import EventsPage from './components/pages/EventsPage';
 import DonationPage from './components/pages/DonationPage';
 import ContactPage from './components/pages/ContactPage';
+import getSiteFeatures from './services/featureToggle';
 
 const themeCollection = siteThemeCollection();
 
@@ -37,17 +38,24 @@ function App(): JSX.Element {
 
     const pageStyle = useStyles();
 
+    const siteFeatures = getSiteFeatures();
+
     return (
         <>
             <ThemeProvider theme={themeCollection.defaultSiteTheme}>
                 <div className={pageStyle.appContainer}>
                     <Router>
                         <div className="app-content">
-                            <Navigation />
                             <Switch>
-                                <Route exact path="/actuals">
-                                    <ActualsPage />
-                                </Route>
+                                {siteFeatures.map((feature) => (
+                                    <div key={feature.id}>
+                                        {feature.isEnabled && (
+                                            <Route exact path={feature.path}>
+                                                {feature.component}
+                                            </Route>
+                                        )}
+                                    </div>
+                                ))}
                                 <Route exact path="/about">
                                     <AboutPage />
                                 </Route>

@@ -4,13 +4,21 @@ export default class SiteFeature {
     displayName: string;
     path: string;
     icon: string;
-    isEnambled: boolean;
-    constructor(id: string, { name = '', displayName = '', path = '', icon = '', isEnabled = false } = {}) {
+    isEnabled: boolean;
+    isNavOption: boolean;
+    component: () => JSX.Element | undefined;
+    constructor(
+        id: string,
+        compononet: () => JSX.Element | undefined,
+        { name = '', displayName = '', path = '', icon = '', isEnabled = false, isNavOpion = false } = {},
+    ) {
         this.id = id;
+        this.component = compononet;
         this.name = name;
         this.displayName = displayName;
         this.path = path;
         this.icon = icon;
-        this.isEnambled = isEnabled;
+        this.isEnabled = isEnabled;
+        this.isNavOption = isNavOpion;
     }
 }

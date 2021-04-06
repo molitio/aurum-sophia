@@ -70,16 +70,20 @@ function Navigation(): JSX.Element {
         >
             <List>
                 {siteFeatures.map((feature) => (
-                    <ListItem button key={feature.id}>
-                        <Button
-                            className={pageStyle.menuButton}
-                            component={RouterLink}
-                            to={feature.path}
-                            startIcon={<Icon>{feature.icon}</Icon>}
-                        >
-                            {feature.displayName}
-                        </Button>
-                    </ListItem>
+                    <div key={feature.id}>
+                        {feature.isNavOption && (
+                            <ListItem button key={feature.id}>
+                                <Button
+                                    className={pageStyle.menuButton}
+                                    component={RouterLink}
+                                    to={feature.path}
+                                    startIcon={<Icon>{feature.icon}</Icon>}
+                                >
+                                    {feature.displayName}
+                                </Button>
+                            </ListItem>
+                        )}
+                    </div>
                 ))}
             </List>
             <Divider />
