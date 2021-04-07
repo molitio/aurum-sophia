@@ -1,4 +1,4 @@
-export default class SiteFeature {
+class SiteFeature {
     id: string;
     name: string;
     displayName: string;
@@ -22,3 +22,5 @@ export default class SiteFeature {
         this.isNavOption = isNavOpion;
     }
 }
+
+export default SiteFeature;

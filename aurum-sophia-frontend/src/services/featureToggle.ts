@@ -4,7 +4,6 @@ import ActualsPage from '../components/pages/ActualsPage';
 import ContactPage from '../components/pages/ContactPage';
 import DonationPage from '../components/pages/DonationPage';
 import EventsPage from '../components/pages/EventsPage';
-import LandingPage from '../components/pages/LandingPage';
 import PageNotFound from '../components/pages/PageNotFound';
 
 const getSiteFeatures = (): SiteFeature[] => {
@@ -14,22 +13,6 @@ const getSiteFeatures = (): SiteFeature[] => {
     /*     icon repository: https://fonts.google.com/icons?selected=Material+Icons */
 
     siteEmabledFeatures.push(
-        new SiteFeature('null0', LandingPage, {
-            name: 'landing',
-            displayName: '',
-            path: '/',
-            icon: 'site_logo',
-            isEnabled: true,
-            isNavOpion: false,
-        }),
-        new SiteFeature('null404', PageNotFound, {
-            name: 'landing',
-            displayName: 'Az oldal nem található',
-            path: '/404',
-            icon: 'page_not_found',
-            isEnabled: true,
-            isNavOpion: false,
-        }),
         new SiteFeature('null1', ActualsPage, {
             name: 'actual',
             displayName: 'Aktuális',

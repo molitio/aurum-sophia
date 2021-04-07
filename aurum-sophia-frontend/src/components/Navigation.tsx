@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link as RouterLink, LinkProps as RouterLinkProps } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
