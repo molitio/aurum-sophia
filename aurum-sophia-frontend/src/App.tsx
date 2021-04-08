@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import React from 'react';
 import Footer from './components/Footer';
-import Navigation from './components/Navigation';
-import LandingPage from './components/pages/LandingPage';
-import PageNotFound from './components/pages/PageNotFound';
+import Navigation from './components/navigation/Navigation';
 import { createStyles, makeStyles, ThemeProvider } from '@material-ui/core';
 import siteThemeCollection from './styles/siteThemeCollection';
-import getSiteFeatures from './services/featureToggle';
-import SiteFeature from './common/SiteFeature';
+import SiteRoutes from './components/SiteRoutes';
 
 const themeCollection = siteThemeCollection;
 
@@ -38,34 +34,13 @@ function App(): JSX.Element {
 
     const pageStyle = useStyles();
 
-    const [siteFeatures, setSiteFeatures] = useState<SiteFeature[]>([]);
-
-    useEffect(() => {
-        setSiteFeatures(getSiteFeatures);
-    }, []);
-
     return (
         <>
             <ThemeProvider theme={themeCollection.defaultSiteTheme}>
                 <div className={pageStyle.appContainer}>
                     <Navigation />
                     <div className={pageStyle.appContent}>
-                        <Switch>
-                            <Route exact path="/">
-                                <LandingPage />
-                            </Route>
-                            {siteFeatures
-                                .filter(({ isEnabled }) => isEnabled)
-                                .map((feature) => (
-                                    <Route key={feature.id} path={feature.path}>
-                                        {feature.component}
-                                    </Route>
-                                ))}
-                            <Route path="/404">
-                                <PageNotFound />
-                            </Route>
-                            <Redirect to="/404" />
-                        </Switch>
+                        <SiteRoutes />
                     </div>
                     <Footer />
                 </div>

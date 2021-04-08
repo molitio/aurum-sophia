@@ -1,7 +1,8 @@
 import React from 'react';
 import { createStyles, makeStyles, Paper, Theme, Typography } from '@material-ui/core';
+import SiteError from '../../common/SiteError';
 
-function PageNotFound(): JSX.Element {
+function ErrorPage({ error: error }: SiteError): JSX.Element {
     const useStyles = makeStyles((theme: Theme) =>
         createStyles({
             root: {
@@ -37,13 +38,13 @@ function PageNotFound(): JSX.Element {
             <div className={pageStyle.root}>
                 <Paper className={pageStyle.paper}>
                     <div className={pageStyle.pageContent}>
-                        <Typography variant="h5">Ooops, navigációs hiba...</Typography>
-                        <Typography variant="h1">404</Typography>
-                        <Typography variant="h4">Az oldal nem található</Typography>
+                        <Typography variant="h5">Ooops, {error.description}</Typography>
+                        <Typography variant="h1">{error.code}</Typography>
+                        <Typography variant="h4">{error.message}</Typography>
                     </div>
                 </Paper>
             </div>
         </>
     );
 }
-export default PageNotFound;
+export default ErrorPage;

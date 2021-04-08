@@ -4,15 +4,13 @@ import ActualsPage from '../components/pages/ActualsPage';
 import ContactPage from '../components/pages/ContactPage';
 import DonationPage from '../components/pages/DonationPage';
 import EventsPage from '../components/pages/EventsPage';
-import PageNotFound from '../components/pages/PageNotFound';
 
 const getSiteFeatures = (): SiteFeature[] => {
-    const siteEmabledFeatures: SiteFeature[] = [];
-    const inactive: SiteFeature[] = [];
+    const siteEnabledFeatures: SiteFeature[] = [];
 
     /*     icon repository: https://fonts.google.com/icons?selected=Material+Icons */
 
-    siteEmabledFeatures.push(
+    siteEnabledFeatures.push(
         {
             id: 'null1',
             component: ActualsPage(),
@@ -110,7 +108,7 @@ const getSiteFeatures = (): SiteFeature[] => {
         },
     );
 
-    return siteEmabledFeatures;
+    return siteEnabledFeatures;
 };
 
 export default getSiteFeatures;
