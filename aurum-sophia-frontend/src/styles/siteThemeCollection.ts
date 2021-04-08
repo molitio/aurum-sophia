@@ -2,8 +2,8 @@ import { createMuiTheme } from '@material-ui/core';
 import { amber, blue, cyan, red, yellow } from '@material-ui/core/colors';
 import SiteThemeCollection from '../common/SiteThemeCollection';
 
-const siteThemeCollection: SiteThemeCollection = new SiteThemeCollection(
-    createMuiTheme({
+const siteThemeCollection: SiteThemeCollection = {
+    defaultSiteTheme: createMuiTheme({
         palette: {
             primary: {
                 main: amber[200],
@@ -21,7 +21,7 @@ const siteThemeCollection: SiteThemeCollection = new SiteThemeCollection(
             },
         },
     }),
-    createMuiTheme({
+    alternativeSiteTheme: createMuiTheme({
         palette: {
             primary: {
                 main: blue[300],
@@ -39,6 +39,6 @@ const siteThemeCollection: SiteThemeCollection = new SiteThemeCollection(
             },
         },
     }),
-);
+};
 
 export default siteThemeCollection;

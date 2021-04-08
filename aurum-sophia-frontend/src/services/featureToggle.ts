@@ -13,89 +13,101 @@ const getSiteFeatures = (): SiteFeature[] => {
     /*     icon repository: https://fonts.google.com/icons?selected=Material+Icons */
 
     siteEmabledFeatures.push(
-        new SiteFeature('null1', ActualsPage, {
+        {
+            id: 'null1',
+            component: ActualsPage(),
             name: 'actual',
             displayName: 'Aktuális',
             path: '/actuals',
             icon: 'new_releases',
             isEnabled: true,
-            isNavOpion: true,
-        }),
-        new SiteFeature('null2', AboutPage, {
+            isNavOption: true,
+        },
+        {
+            id: 'null2',
+            component: AboutPage(),
             name: 'about',
             displayName: 'Bemutatkozás',
             path: '/about',
             icon: 'info',
             isEnabled: true,
-            isNavOpion: true,
-        }),
-        new SiteFeature('null3', EventsPage, {
+            isNavOption: true,
+        },
+        {
+            id: 'null3',
+            component: EventsPage(),
             name: 'events',
             displayName: 'Események',
             path: '/events',
             icon: 'events',
             isEnabled: true,
-            isNavOpion: true,
-        }),
-        new SiteFeature('null4', DonationPage, {
+            isNavOption: true,
+        },
+        {
+            id: 'null4',
+            component: DonationPage(),
             name: 'donation',
             displayName: 'Támogatás',
             path: '/donation',
             icon: 'payments',
             isEnabled: true,
-            isNavOpion: true,
-        }),
-        new SiteFeature('null6', ContactPage, {
+            isNavOption: true,
+        },
+        {
+            id: 'null6',
+            component: ContactPage(),
             name: 'contact',
             displayName: 'Kapcsolat',
             path: '/contact',
             icon: 'contact_support',
             isEnabled: true,
-            isNavOpion: true,
-        }),
-    );
-
-    inactive.push(
-        new SiteFeature('null5', PageNotFound, {
+            isNavOption: true,
+        },
+        {
+            id: 'null5',
             name: 'downloads',
             displayName: 'Letöltések',
             path: '/downloads',
             icon: 'downloads',
             isEnabled: false,
-            isNavOpion: true,
-        }),
-        new SiteFeature('null7', PageNotFound, {
+            isNavOption: false,
+        },
+        {
+            id: 'null7',
             name: 'media',
             displayName: 'Médiatár',
             path: '/media',
             icon: 'media',
             isEnabled: false,
-            isNavOpion: true,
-        }),
-        new SiteFeature('null8', PageNotFound, {
+            isNavOption: false,
+        },
+        {
+            id: 'null8',
             name: 'classes',
             displayName: 'Tanfolyamok',
             path: '/classes',
             icon: 'classes',
             isEnabled: false,
-            isNavOpion: true,
-        }),
-        new SiteFeature('null9', PageNotFound, {
+            isNavOption: false,
+        },
+        {
+            id: 'null9',
             name: 'publications',
             displayName: 'Kiadványok',
             path: '/publications',
             icon: 'publications',
             isEnabled: false,
-            isNavOpion: true,
-        }),
-        new SiteFeature('null10', PageNotFound, {
+            isNavOption: false,
+        },
+        {
+            id: 'null10',
             name: 'webshop',
             displayName: 'Webáruház',
             path: '/webshop',
             icon: 'webshop',
             isEnabled: false,
-            isNavOpion: true,
-        }),
+            isNavOption: false,
+        },
     );
 
     return siteEmabledFeatures;
