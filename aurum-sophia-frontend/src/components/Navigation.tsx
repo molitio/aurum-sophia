@@ -19,11 +19,22 @@ function Navigation(): JSX.Element {
     const useStyles = makeStyles((theme: Theme) =>
         createStyles({
             root: {
-                flexGrow: 1,
+                zIndex: 100,
             },
             menuButton: {
                 marginRight: 2,
                 color: theme.palette.secondary.main,
+            },
+            navLinkButton: {
+                color: theme.palette.secondary.main,
+                width: '100%',
+                height: '100%',
+                justifyContent: 'left',
+                marginLeft: 5,
+            },
+            navListItem: {
+                margin: 0,
+                padding: 0,
             },
             title: {
                 flexGrow: 1,
@@ -69,22 +80,20 @@ function Navigation(): JSX.Element {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {siteFeatures.map((feature) => (
-                    <div key={feature.id}>
-                        {feature.isNavOption && (
-                            <ListItem button key={feature.id}>
-                                <Button
-                                    className={pageStyle.menuButton}
-                                    component={RouterLink}
-                                    to={feature.path}
-                                    startIcon={<Icon>{feature.icon}</Icon>}
-                                >
-                                    {feature.displayName}
-                                </Button>
-                            </ListItem>
-                        )}
-                    </div>
-                ))}
+                {siteFeatures
+                    .filter(({ isNavOption }) => isNavOption)
+                    .map((feature) => (
+                        <ListItem button key={feature.id} className={pageStyle.navListItem}>
+                            <Button
+                                className={pageStyle.navLinkButton}
+                                component={RouterLink}
+                                to={feature.path}
+                                startIcon={<Icon>{feature.icon}</Icon>}
+                            >
+                                {feature.displayName}
+                            </Button>
+                        </ListItem>
+                    ))}
             </List>
             <Divider />
         </div>

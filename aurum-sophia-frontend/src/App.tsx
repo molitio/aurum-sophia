@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import './styles/App.scss';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 import LandingPage from './components/pages/LandingPage';
@@ -15,17 +14,27 @@ const themeCollection = siteThemeCollection;
 function App(): JSX.Element {
     const useStyles = makeStyles(() =>
         createStyles({
-            root: {
-                flexGrow: 1,
-            },
+            root: {},
             appContainer: {
                 display: 'flex',
                 flexDirection: 'column',
+                alignItems: 'stretch',
                 minHeight: '100vh',
-                opacity: 1,
+                width: '100vw',
+            },
+            appContent: {
+                flex: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'stretch',
             },
         }),
     );
+
+    /* var(--space) var(--space) 
+    var(--space)
+    content: '\00a0',
+    */
 
     const pageStyle = useStyles();
 
@@ -39,8 +48,8 @@ function App(): JSX.Element {
         <>
             <ThemeProvider theme={themeCollection.defaultSiteTheme}>
                 <div className={pageStyle.appContainer}>
-                    <div className="app-content">
-                        <Navigation />
+                    <Navigation />
+                    <div className={pageStyle.appContent}>
                         <Switch>
                             <Route exact path="/">
                                 <LandingPage />

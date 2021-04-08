@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core';
-import { amber, red, yellow } from '@material-ui/core/colors';
+import { amber, blue, cyan, red, yellow } from '@material-ui/core/colors';
 import SiteThemeCollection from '../common/SiteThemeCollection';
 
 const siteThemeCollection: SiteThemeCollection = new SiteThemeCollection(
@@ -13,9 +13,10 @@ const siteThemeCollection: SiteThemeCollection = new SiteThemeCollection(
             },
             error: {
                 main: red[500],
+                light: red[300],
             },
             background: {
-                paper: yellow[50],
+                paper: amber[100],
                 default: yellow[50],
             },
         },
@@ -23,7 +24,18 @@ const siteThemeCollection: SiteThemeCollection = new SiteThemeCollection(
     createMuiTheme({
         palette: {
             primary: {
-                main: '#6699ff',
+                main: blue[300],
+            },
+            secondary: {
+                main: cyan[900],
+            },
+            error: {
+                main: red[500],
+                light: red[300],
+            },
+            background: {
+                paper: blue[100],
+                default: blue[50],
             },
         },
     }),
