@@ -9,7 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Drawer from '@material-ui/core/Drawer';
 import NavigationSidePanel from './NavigationSidePanel';
 
-interface Panel {
+export interface Panel {
     sidePanel: boolean;
 }
 
@@ -40,8 +40,6 @@ function Navigation(): JSX.Element {
             },
         }),
     );
-    
-   
 
     const componentStyle = useStyles();
 
@@ -54,17 +52,14 @@ function Navigation(): JSX.Element {
             event.type === 'keydown' &&
             ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
         ) {
-            return;
+            toggleSidePanel();
         }
     };
 
-    function toggleSidePanel():void{
-        this.setnavigationState(state: Panel) => ({
-            sidePanel: !state
-        }))
-    }
-    
-    this.
+    const toggleSidePanel = (): void => {
+        console.log(navigationState.sidePanel);
+        setnavigationState({ sidePanel: !navigationState.sidePanel });
+    };
 
     return (
         <>
@@ -76,7 +71,7 @@ function Navigation(): JSX.Element {
                             className={componentStyle.menuButton}
                             color="secondary"
                             aria-label="menu"
-                            onClick={toggleDrawer()}
+                            onClick={toggleSidePanel}
                         >
                             <MenuIcon />
                         </IconButton>
@@ -87,12 +82,12 @@ function Navigation(): JSX.Element {
                 </AppBar>
                 {
                     <React.Fragment>
-                        <Drawer anchor={'left'} open={panel} onClose={toggleDrawer()}>
+                        <Drawer anchor={'left'} open={navigationState.sidePanel} onClose={toggleDrawer()}>
                             <div
                                 className={componentStyle.drawer}
                                 role="presentation"
-                                onClick={toggleDrawer()}
-                                onKeyDown={toggleDrawer()}
+                                onClick={toggleSidePanel}
+                                onKeyDown={toggleDrawer}
                             >
                                 <NavigationSidePanel />
                             </div>
