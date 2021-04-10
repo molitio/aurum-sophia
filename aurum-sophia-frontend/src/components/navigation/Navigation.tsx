@@ -16,20 +16,22 @@ function Navigation(): JSX.Element {
                 zIndex: 100,
             },
             menuButton: {
-                marginRight: 2,
                 color: theme.palette.secondary.main,
-                boxShadow: theme.shadows[0],
-                '& :hover': {
-                    boxShadow: theme.shadows[0],
-                },
             },
             menuButtonContainer: {
+                marginRight: 5,
                 '& :hover': {
-                    boxShadow: theme.shadows[0],
+                    boxShadow: theme.shadows[10],
+                    '& span': {
+                        boxShadow: theme.shadows[0],
+                    },
                 },
             },
             title: {
                 flexGrow: 1,
+                '& a': {
+                    padding: 5,
+                },
                 '& :link, :visited': {
                     textDecoration: 'none',
                     color: theme.palette.secondary.main,
@@ -57,14 +59,16 @@ function Navigation(): JSX.Element {
             <div className={componentStyle.root}>
                 <AppBar position="static">
                     <Toolbar>
-                        <IconButton
-                            edge="start"
-                            className={componentStyle.menuButton}
-                            aria-label="menu"
-                            onClick={toggleSidePanel}
-                        >
-                            <Icon>{siteIconService.menu.fontIcon}</Icon>
-                        </IconButton>
+                        <div className={componentStyle.menuButtonContainer}>
+                            <IconButton
+                                edge="start"
+                                className={componentStyle.menuButton}
+                                aria-label="menu"
+                                onClick={toggleSidePanel}
+                            >
+                                <Icon>{siteIconService.menu.fontIcon}</Icon>
+                            </IconButton>
+                        </div>
                         <Typography variant="h5" className={componentStyle.title}>
                             <RouterLink to="/">Aurum Sophia</RouterLink>
                         </Typography>

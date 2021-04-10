@@ -18,15 +18,19 @@ function NavigationSidePanel({ navigationState, toggle }: TogglePanel): JSX.Elem
                 height: '100%',
                 justifyContent: 'left',
                 marginLeft: 5,
+                marginRight: 5,
             },
             navListItem: {
                 margin: 0,
                 padding: 0,
+                '& :hover': {
+                    background: `linear-gradient(135deg, ${theme.palette.background.default} 20%, ${theme.palette.secondary.main} 80%)`,
+                    '& a, span': {
+                        background: 'rgba(0,0,0,0)',
+                    },
+                },
             },
-            drawer: {
-                backgroundColor: theme.palette.background.default,
-                height: '100vh',
-            },
+            drawer: {},
         }),
     );
 
@@ -41,30 +45,31 @@ function NavigationSidePanel({ navigationState, toggle }: TogglePanel): JSX.Elem
     return (
         <>
             <div className={componentStyle.root}>
-                <Drawer anchor={'left'} open={navigationState.sidePanel} onClose={toggle}>
-                    <div
-                        className={componentStyle.drawer}
-                        role="presentation"
-                        onClick={toggle}
-                        onKeyDown={toggle}
-                    ></div>
-                    <List>
-                        {siteFeatures
-                            .filter(({ isNavOption }) => isNavOption)
-                            .map((feature) => (
-                                <ListItem button key={feature.id} className={componentStyle.navListItem}>
-                                    <Button
-                                        className={componentStyle.navLinkButton}
-                                        component={RouterLink}
-                                        to={feature.path}
-                                        startIcon={<Icon>{feature.icon}</Icon>}
-                                    >
-                                        {feature.displayName}
-                                    </Button>
-                                </ListItem>
-                            ))}
-                    </List>
-                    <Divider />
+                <Drawer
+                    className={componentStyle.drawer}
+                    anchor={'left'}
+                    open={navigationState.sidePanel}
+                    onClose={toggle}
+                >
+                    <div role="presentation" onClick={toggle} onKeyDown={toggle}>
+                        <List>
+                            {siteFeatures
+                                .filter(({ isNavOption }) => isNavOption)
+                                .map((feature) => (
+                                    <ListItem button key={feature.id} className={componentStyle.navListItem}>
+                                        <Button
+                                            className={componentStyle.navLinkButton}
+                                            component={RouterLink}
+                                            to={feature.path}
+                                            startIcon={<Icon>{feature.icon}</Icon>}
+                                        >
+                                            {feature.displayName}
+                                        </Button>
+                                    </ListItem>
+                                ))}
+                        </List>
+                        <Divider />
+                    </div>
                 </Drawer>
             </div>
         </>

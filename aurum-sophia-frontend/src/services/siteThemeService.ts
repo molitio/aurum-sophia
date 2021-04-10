@@ -41,7 +41,7 @@ const siteThemeCollection: SiteThemeCollection = {
             },
         },
         hooverAction: {
-            padding: 5,
+            padding: 0,
             border: 0,
             borderRadius: 5,
             boxShadow:
