@@ -5,13 +5,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Drawer from '@material-ui/core/Drawer';
 import NavigationSidePanel from './NavigationSidePanel';
-
-export interface Panel {
-    sidePanel: boolean;
-}
+import { Icon } from '@material-ui/core';
+import siteIconService from '../../services/siteIconService';
 
 function Navigation(): JSX.Element {
     const useStyles = makeStyles((theme: Theme) =>
@@ -22,6 +18,15 @@ function Navigation(): JSX.Element {
             menuButton: {
                 marginRight: 2,
                 color: theme.palette.secondary.main,
+                boxShadow: theme.shadows[0],
+                '& :hover': {
+                    boxShadow: theme.shadows[0],
+                },
+            },
+            menuButtonContainer: {
+                '& :hover': {
+                    boxShadow: theme.shadows[0],
+                },
             },
             title: {
                 flexGrow: 1,
@@ -30,13 +35,8 @@ function Navigation(): JSX.Element {
                     color: theme.palette.secondary.main,
                 },
                 '& :hover': {
-                    textDecoration: 'none',
-                    color: theme.palette.action.hover,
+                    ...theme.hooverAction,
                 },
-            },
-            drawer: {
-                backgroundColor: theme.palette.background.default,
-                height: '100vh',
             },
         }),
     );
@@ -46,15 +46,6 @@ function Navigation(): JSX.Element {
     const [navigationState, setnavigationState] = useState({
         sidePanel: false,
     });
-
-    const toggleDrawer = () => (event: React.KeyboardEvent | React.MouseEvent) => {
-        if (
-            event.type === 'keydown' &&
-            ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
-        ) {
-            toggleSidePanel();
-        }
-    };
 
     const toggleSidePanel = (): void => {
         console.log(navigationState.sidePanel);
@@ -69,31 +60,17 @@ function Navigation(): JSX.Element {
                         <IconButton
                             edge="start"
                             className={componentStyle.menuButton}
-                            color="secondary"
                             aria-label="menu"
                             onClick={toggleSidePanel}
                         >
-                            <MenuIcon />
+                            <Icon>{siteIconService.menu.fontIcon}</Icon>
                         </IconButton>
                         <Typography variant="h5" className={componentStyle.title}>
                             <RouterLink to="/">Aurum Sophia</RouterLink>
                         </Typography>
                     </Toolbar>
+                    <NavigationSidePanel navigationState={navigationState} toggle={toggleSidePanel} />
                 </AppBar>
-                {
-                    <React.Fragment>
-                        <Drawer anchor={'left'} open={navigationState.sidePanel} onClose={toggleDrawer()}>
-                            <div
-                                className={componentStyle.drawer}
-                                role="presentation"
-                                onClick={toggleSidePanel}
-                                onKeyDown={toggleDrawer}
-                            >
-                                <NavigationSidePanel />
-                            </div>
-                        </Drawer>
-                    </React.Fragment>
-                }
             </div>
         </>
     );

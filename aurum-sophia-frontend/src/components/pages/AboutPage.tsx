@@ -1,10 +1,10 @@
 import React from 'react';
-import DefaultPageBackground from '../DefaultPageBackground';
+import ThemePageBackground from '../ThemePageBackground';
 
 function AboutPage(): JSX.Element {
     return (
         <>
-            <DefaultPageBackground />
+            <ThemePageBackground />
             <div>about page</div>
         </>
     );

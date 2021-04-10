@@ -1,13 +1,13 @@
 import React from 'react';
-import { createStyles, makeStyles, Paper, Theme, Typography } from '@material-ui/core';
+import { createStyles, makeStyles, Paper, SvgIcon, Theme, Typography } from '@material-ui/core';
 import SiteError from '../../common/SiteError';
+import ThemePageBackground from '../ThemePageBackground';
 
 function ErrorPage({ error: error }: SiteError): JSX.Element {
     const useStyles = makeStyles((theme: Theme) =>
         createStyles({
             root: {
                 flex: 1,
-                backgroundColor: theme.palette.background.default,
                 display: 'flex',
                 flexDirection: 'column',
             },
@@ -18,16 +18,26 @@ function ErrorPage({ error: error }: SiteError): JSX.Element {
                 justifyContent: 'center',
                 alignItems: 'center',
                 textAlign: 'center',
-                background: theme.palette.background.paper,
-
+                background: `linear-gradient(135deg, ${theme.palette.primary.light} 10%, ${theme.palette.background.default} 100%)`,
                 [theme.breakpoints.up('sm')]: {
                     marginLeft: '15vw',
                     marginRight: '15vw',
-                    marginBottom: '10vh',
                 },
             },
             pageContent: {
+                margin: '0px 20px',
+                border: 1,
+                borderStyle: 'solid',
+                borderRadius: 10,
+                borderColor: theme.palette.secondary.main,
+                boxShadow: theme.shadows[5],
+            },
+            errorInfo: {
+                padding: '15px',
+                borderRadius: 10,
                 color: theme.palette.error.light,
+                outline: theme.palette.error.light,
+                background: `linear-gradient(135deg, ${theme.palette.background.default} 0%, ${theme.palette.secondary.main} 80%)`,
             },
         }),
     );
@@ -35,12 +45,22 @@ function ErrorPage({ error: error }: SiteError): JSX.Element {
     const pageStyle = useStyles();
     return (
         <>
+            <ThemePageBackground />
             <div className={pageStyle.root}>
                 <Paper className={pageStyle.paper}>
                     <div className={pageStyle.pageContent}>
-                        <Typography variant="h5">Ooops, {error.description}</Typography>
-                        <Typography variant="h1">{error.code}</Typography>
-                        <Typography variant="h4">{error.message}</Typography>
+                        <Paper className={pageStyle.errorInfo}>
+                            <SvgIcon fontSize="large">
+                                <path d="M0 0h24v24H0V0z" fill="none" />
+                                <path d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z" />
+                            </SvgIcon>
+                            <Typography variant="subtitle1">
+                                {error.code}
+                                <br />
+                                Ooops, {error.description}
+                            </Typography>
+                            <Typography variant="subtitle2">{error.message}</Typography>
+                        </Paper>
                     </div>
                 </Paper>
             </div>

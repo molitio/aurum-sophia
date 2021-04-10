@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from './components/Footer';
 import Navigation from './components/navigation/Navigation';
 import { createStyles, makeStyles, ThemeProvider } from '@material-ui/core';
-import siteThemeCollection from './styles/siteThemeCollection';
+import siteThemeCollection from './services/siteThemeService';
 import SiteRoutes from './components/SiteRoutes';
 
 const themeCollection = siteThemeCollection;
