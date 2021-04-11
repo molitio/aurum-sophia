@@ -5,21 +5,21 @@ const getSiteErrors = (): SiteError[] => {
 
     errors.push(
         {
-            error: {
+            errorData: {
                 code: 404,
                 description: 'Navigációs hiba',
                 message: 'A keresett oldal nem található...',
             },
         },
         {
-            error: {
+            errorData: {
                 code: 500,
                 description: 'Belső hiba',
                 message: 'Hiba lépett fel az alkalmazás működésében...',
             },
         },
         {
-            error: {
+            errorData: {
                 code: 401,
                 description: 'Hiányzó jogosultság',
                 message: 'Nincs jogosultság az oldal eléréséhez',

@@ -7,6 +7,15 @@ const siteIconCollection: SiteIconCollection = {
     menu: {
         fontIcon: 'menu',
     },
+    wbSunny: {
+        fontIcon: 'wb_sunny',
+    },
+    water: {
+        fontIcon: 'water',
+    },
+    cloudQueue: {
+        fontIcon: 'cloud_queue',
+    },
 };
 
 export default siteIconCollection;

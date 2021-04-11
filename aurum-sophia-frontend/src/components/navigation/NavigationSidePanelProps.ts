@@ -2,11 +2,11 @@ export interface Panel {
     sidePanel: boolean;
 }
 
-interface TogglePanel {
+interface NavigationSidePanelProps {
     navigationState: Panel;
     toggle: {
         (): void;
     };
 }
 
-export default TogglePanel;
+export default NavigationSidePanelProps;

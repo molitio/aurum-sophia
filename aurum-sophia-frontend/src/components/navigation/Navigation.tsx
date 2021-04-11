@@ -1,43 +1,35 @@
 import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import NavigationSidePanel from './NavigationSidePanel';
-import { Icon } from '@material-ui/core';
+import NavigationProps from './NavigationProps';
+import TitleComponent from '../TitleComponent';
+import { Button, FormControl, Icon, InputLabel, MenuItem, Select } from '@material-ui/core';
 import siteIconService from '../../services/siteIconService';
+import SiteThemeCollection from '../../common/SiteThemeCollection';
 
-function Navigation(): JSX.Element {
+function Navigation({ themeCollection, setSelectedTheme }: NavigationProps): JSX.Element {
     const useStyles = makeStyles((theme: Theme) =>
         createStyles({
             root: {
                 zIndex: 100,
             },
+            appBar: {
+                color: theme.palette.text.primary,
+                background: theme.palette.primary.main,
+            },
             menuButton: {
-                color: theme.palette.secondary.main,
+                color: theme.palette.text.primary,
             },
             menuButtonContainer: {
                 marginRight: 5,
                 '& :hover': {
-                    boxShadow: theme.shadows[10],
+                    ...theme.hooverActionOn,
                     '& span': {
-                        boxShadow: theme.shadows[0],
+                        ...theme.hooverActionOff,
                     },
-                },
-            },
-            title: {
-                flexGrow: 1,
-                '& a': {
-                    padding: 5,
-                },
-                '& :link, :visited': {
-                    textDecoration: 'none',
-                    color: theme.palette.secondary.main,
-                },
-                '& :hover': {
-                    ...theme.hooverAction,
                 },
             },
         }),
@@ -49,15 +41,36 @@ function Navigation(): JSX.Element {
         sidePanel: false,
     });
 
+    const [theme, setTheme] = useState('');
+
     const toggleSidePanel = (): void => {
-        console.log(navigationState.sidePanel);
         setnavigationState({ sidePanel: !navigationState.sidePanel });
+    };
+
+    const handleChange = (event: React.ChangeEvent<{ value: string }>) => {
+        setTheme(event.target.value as string);
+    };
+
+    const themeButtons = (): JSX.Element => {
+        return (
+            <>
+                <Button onClick={() => setSelectedTheme(themeCollection.cloudsSiteTheme)}>
+                    <Icon>{siteIconService.cloudQueue.fontIcon}</Icon>
+                </Button>
+                <Button onClick={() => setSelectedTheme(themeCollection.waterSiteTheme)}>
+                    <Icon>{siteIconService.water.fontIcon}</Icon>
+                </Button>
+                <Button onClick={() => setSelectedTheme(themeCollection.sunSiteTheme)}>
+                    <Icon>{siteIconService.wbSunny.fontIcon}</Icon>
+                </Button>
+            </>
+        );
     };
 
     return (
         <>
             <div className={componentStyle.root}>
-                <AppBar position="static">
+                <AppBar className={componentStyle.appBar} position="static">
                     <Toolbar>
                         <div className={componentStyle.menuButtonContainer}>
                             <IconButton
@@ -69,9 +82,24 @@ function Navigation(): JSX.Element {
                                 <Icon>{siteIconService.menu.fontIcon}</Icon>
                             </IconButton>
                         </div>
-                        <Typography variant="h5" className={componentStyle.title}>
-                            <RouterLink to="/">Aurum Sophia</RouterLink>
-                        </Typography>
+                        {!navigationState.sidePanel && <TitleComponent />}
+                        {!navigationState.sidePanel && themeButtons()}
+
+                        {/*             <FormControl variant="filled">
+                            <InputLabel id="theme-select-label">{theme}</InputLabel>
+                            <Select
+                                labelId="theme-select-label"
+                                id="theme-select"
+                                value={theme}
+                                onChange={(selectedTheme) => handleChange}
+                            >
+                                {Object.entries(themeCollection).map(([key, value]) => {
+                                    <MenuItem key={key} value={key}>
+                                        t<Icon>{value.themeIcon.fontIcon}</Icon>
+                                    </MenuItem>;
+                                })}
+                            </Select>
+                        </FormControl> */}
                     </Toolbar>
                     <NavigationSidePanel navigationState={navigationState} toggle={toggleSidePanel} />
                 </AppBar>

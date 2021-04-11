@@ -1,29 +1,47 @@
 import { createMuiTheme } from '@material-ui/core';
-import { amber, blue, cyan, orange, red, yellow } from '@material-ui/core/colors';
+import { amber, blue, blueGrey, cyan, grey, orange, red, yellow } from '@material-ui/core/colors';
 import SiteThemeCollection from '../common/SiteThemeCollection';
+import sunThemeBackground from '../images/sunThemeBackground.jpg';
+import cloudsThemeBackground from '../images/cloudsThemeBackground.jpg';
+import waterThemeBackground from '../images/waterThemeBackground.jpg';
+import siteIconCollection from './siteIconService';
 
 declare module '@material-ui/core/styles/createMuiTheme' {
     interface Theme {
-        hooverAction: {
-            padding: number;
-            border: number;
-            borderRadius: number;
+        hooverActionOn?: {
             boxShadow: string;
+        };
+        hooverActionOff?: {
+            boxShadow: string;
+        };
+        themeBackgroundImage: {
+            imageUrl: string;
+            opacity: number;
+        };
+        themeIcon: {
+            fontIcon: string;
         };
     }
     // allow configuration using `createMuiTheme`
     interface ThemeOptions {
         hooverAction?: {
-            padding: number;
-            border: number;
-            borderRadius: number;
             boxShadow: string;
+        };
+        nonHovered?: {
+            boxShadow: string;
+        };
+        themeBackgroundImage: {
+            imageUrl: string;
+            opacity: number;
+        };
+        themeIcon: {
+            fontIcon: string;
         };
     }
 }
 
 const siteThemeCollection: SiteThemeCollection = {
-    defaultSiteTheme: createMuiTheme({
+    sunSiteTheme: createMuiTheme({
         palette: {
             primary: {
                 main: orange[500],
@@ -35,35 +53,97 @@ const siteThemeCollection: SiteThemeCollection = {
                 main: red[500],
                 light: red[300],
             },
+            text: {
+                primary: grey[50],
+            },
             background: {
                 paper: amber[100],
-                default: yellow[50],
+                default: orange[200],
             },
         },
         hooverAction: {
-            padding: 0,
-            border: 0,
-            borderRadius: 5,
             boxShadow:
                 '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
         },
+        nonHovered: {
+            boxShadow: 'none',
+        },
+        themeBackgroundImage: {
+            imageUrl: sunThemeBackground,
+            opacity: 0.3,
+        },
+        themeIcon: {
+            fontIcon: siteIconCollection.wbSunny.fontIcon,
+        },
     }),
-    alternativeSiteTheme: createMuiTheme({
+    cloudsSiteTheme: createMuiTheme({
         palette: {
             primary: {
-                main: cyan[900],
+                main: cyan[300],
             },
             secondary: {
-                main: blue[300],
+                main: blue[50],
+            },
+            text: {
+                primary: blueGrey[50],
+            },
+            error: {
+                main: red[300],
+                light: red[200],
+            },
+            background: {
+                paper: blue[50],
+                default: cyan[200],
+            },
+        },
+        hooverAction: {
+            boxShadow:
+                '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+        },
+        nonHovered: {
+            boxShadow: 'none',
+        },
+        themeBackgroundImage: {
+            imageUrl: cloudsThemeBackground,
+            opacity: 0.3,
+        },
+        themeIcon: {
+            fontIcon: siteIconCollection.cloudQueue.fontIcon,
+        },
+    }),
+    waterSiteTheme: createMuiTheme({
+        palette: {
+            primary: {
+                main: cyan[600],
+            },
+            secondary: {
+                main: blue[100],
+            },
+            text: {
+                primary: blueGrey[700],
             },
             error: {
                 main: red[500],
                 light: red[300],
             },
             background: {
-                paper: blue[100],
-                default: blue[50],
+                paper: blue[50],
+                default: cyan[300],
             },
+        },
+        hooverAction: {
+            boxShadow:
+                '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+        },
+        nonHovered: {
+            boxShadow: 'none',
+        },
+        themeBackgroundImage: {
+            imageUrl: waterThemeBackground,
+            opacity: 0.8,
+        },
+        themeIcon: {
+            fontIcon: siteIconCollection.water.fontIcon,
         },
     }),
 };

@@ -3,7 +3,7 @@ import { createStyles, makeStyles, Paper, SvgIcon, Theme, Typography } from '@ma
 import SiteError from '../../common/SiteError';
 import ThemePageBackground from '../ThemePageBackground';
 
-function ErrorPage({ error: error }: SiteError): JSX.Element {
+function ErrorPage({ errorData: error }: SiteError): JSX.Element {
     const useStyles = makeStyles((theme: Theme) =>
         createStyles({
             root: {
@@ -18,7 +18,7 @@ function ErrorPage({ error: error }: SiteError): JSX.Element {
                 justifyContent: 'center',
                 alignItems: 'center',
                 textAlign: 'center',
-                background: `linear-gradient(135deg, ${theme.palette.primary.light} 10%, ${theme.palette.background.default} 100%)`,
+                background: `linear-gradient(138deg, ${theme.palette.primary.light} 10%, ${theme.palette.background.default} 100%)`,
                 [theme.breakpoints.up('sm')]: {
                     marginLeft: '15vw',
                     marginRight: '15vw',
@@ -37,7 +37,7 @@ function ErrorPage({ error: error }: SiteError): JSX.Element {
                 borderRadius: 10,
                 color: theme.palette.error.light,
                 outline: theme.palette.error.light,
-                background: `linear-gradient(135deg, ${theme.palette.background.default} 0%, ${theme.palette.secondary.main} 80%)`,
+                background: `linear-gradient(138deg, ${theme.palette.background.default} 0%, ${theme.palette.secondary.main} 80%)`,
             },
         }),
     );

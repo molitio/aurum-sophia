@@ -1,5 +1,5 @@
 interface SiteError {
-    error: {
+    errorData: {
         code: number;
         description: string;
         message: string;

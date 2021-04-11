@@ -1,8 +1,9 @@
 import { Theme } from '@material-ui/core';
 
 interface SiteThemeCollection {
-    defaultSiteTheme: Theme;
-    alternativeSiteTheme: Theme;
+    sunSiteTheme: Theme;
+    cloudsSiteTheme: Theme;
+    waterSiteTheme: Theme;
 }
 
 export default SiteThemeCollection;

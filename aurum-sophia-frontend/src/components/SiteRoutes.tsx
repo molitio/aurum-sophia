@@ -30,8 +30,8 @@ function SiteRoutes(): JSX.Element {
                         </Route>
                     ))}
                 {siteErrors.map((errorType, index) => (
-                    <Route key={index} exact path={`/error/${errorType.error.code}`}>
-                        <ErrorPage error={errorType.error} />
+                    <Route key={index} exact path={`/error/${errorType.errorData.code}`}>
+                        <ErrorPage errorData={errorType.errorData} />
                     </Route>
                 ))}
                 <Redirect to="/error/404" />
