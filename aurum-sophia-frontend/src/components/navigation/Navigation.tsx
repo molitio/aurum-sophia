@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import NavigationSidePanel from './NavigationSidePanel';
-import NavigationProps from './NavigationProps';
-import TitleComponent from '../TitleComponent';
-import { Button, FormControl, Icon, InputLabel, MenuItem, Select } from '@material-ui/core';
+import NavigationProps from './interface/NavigationProps';
+import TitleComponent from '../common/TitleComponent';
+import { Button, Icon } from '@material-ui/core';
 import siteIconService from '../../services/siteIconService';
-import SiteThemeCollection from '../../common/SiteThemeCollection';
 
 function Navigation({ themeCollection, setSelectedTheme }: NavigationProps): JSX.Element {
-    const useStyles = makeStyles((theme: Theme) =>
+    const theme = useTheme();
+    const useStyles = makeStyles(() =>
         createStyles({
             root: {
                 zIndex: 100,
@@ -19,6 +19,11 @@ function Navigation({ themeCollection, setSelectedTheme }: NavigationProps): JSX
             appBar: {
                 color: theme.palette.text.primary,
                 background: theme.palette.primary.main,
+            },
+            themeIcons: {
+                '& span': {
+                    color: theme.palette.text.primary,
+                },
             },
             menuButton: {
                 color: theme.palette.text.primary,
@@ -41,19 +46,13 @@ function Navigation({ themeCollection, setSelectedTheme }: NavigationProps): JSX
         sidePanel: false,
     });
 
-    const [theme, setTheme] = useState('');
-
     const toggleSidePanel = (): void => {
         setnavigationState({ sidePanel: !navigationState.sidePanel });
     };
 
-    const handleChange = (event: React.ChangeEvent<{ value: string }>) => {
-        setTheme(event.target.value as string);
-    };
-
     const themeButtons = (): JSX.Element => {
         return (
-            <>
+            <div className={componentStyle.themeIcons}>
                 <Button onClick={() => setSelectedTheme(themeCollection.cloudsSiteTheme)}>
                     <Icon>{siteIconService.cloudQueue.fontIcon}</Icon>
                 </Button>
@@ -63,7 +62,7 @@ function Navigation({ themeCollection, setSelectedTheme }: NavigationProps): JSX
                 <Button onClick={() => setSelectedTheme(themeCollection.sunSiteTheme)}>
                     <Icon>{siteIconService.wbSunny.fontIcon}</Icon>
                 </Button>
-            </>
+            </div>
         );
     };
 
@@ -84,22 +83,6 @@ function Navigation({ themeCollection, setSelectedTheme }: NavigationProps): JSX
                         </div>
                         {!navigationState.sidePanel && <TitleComponent />}
                         {!navigationState.sidePanel && themeButtons()}
-
-                        {/*             <FormControl variant="filled">
-                            <InputLabel id="theme-select-label">{theme}</InputLabel>
-                            <Select
-                                labelId="theme-select-label"
-                                id="theme-select"
-                                value={theme}
-                                onChange={(selectedTheme) => handleChange}
-                            >
-                                {Object.entries(themeCollection).map(([key, value]) => {
-                                    <MenuItem key={key} value={key}>
-                                        t<Icon>{value.themeIcon.fontIcon}</Icon>
-                                    </MenuItem>;
-                                })}
-                            </Select>
-                        </FormControl> */}
                     </Toolbar>
                     <NavigationSidePanel navigationState={navigationState} toggle={toggleSidePanel} />
                 </AppBar>

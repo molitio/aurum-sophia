@@ -1,10 +1,11 @@
 import React from 'react';
-import { createStyles, makeStyles, Paper, SvgIcon, Theme, Typography } from '@material-ui/core';
-import SiteError from '../../common/SiteError';
-import ThemePageBackground from '../ThemePageBackground';
+import { createStyles, makeStyles, Paper, SvgIcon, useTheme, Typography } from '@material-ui/core';
+import SiteError from '../components/common/interface/SiteError';
+import ThemePageBackground from '../components/background/ThemePageBackground';
 
 function ErrorPage({ errorData: error }: SiteError): JSX.Element {
-    const useStyles = makeStyles((theme: Theme) =>
+    const theme = useTheme();
+    const useStyles = makeStyles(() =>
         createStyles({
             root: {
                 flex: 1,

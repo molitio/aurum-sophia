@@ -1,4 +1,4 @@
-import SiteError from '../common/SiteError';
+import SiteError from '../components/common/interface/SiteError';
 
 const getSiteErrors = (): SiteError[] => {
     const errors: SiteError[] = [];

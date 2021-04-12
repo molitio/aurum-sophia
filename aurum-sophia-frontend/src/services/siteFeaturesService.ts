@@ -1,9 +1,9 @@
-import SiteFeature from '../common/SiteFeature';
-import AboutPage from '../components/pages/AboutPage';
-import ActualsPage from '../components/pages/ActualsPage';
-import ContactPage from '../components/pages/ContactPage';
-import DonationPage from '../components/pages/DonationPage';
-import EventsPage from '../components/pages/EventsPage';
+import SiteFeature from '../components/common/interface/SiteFeature';
+import AboutPage from '../pages/AboutPage';
+import ActualsPage from '../pages/ActualsPage';
+import ContactPage from '../pages/ContactPage';
+import DonationPage from '../pages/DonationPage';
+import EventsPage from '../pages/EventsPage';
 
 const getSiteFeatures = (): SiteFeature[] => {
     const siteEnabledFeatures: SiteFeature[] = [];

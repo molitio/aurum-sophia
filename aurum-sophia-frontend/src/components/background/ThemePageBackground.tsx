@@ -1,8 +1,9 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 
 function ThemePageBackground(): JSX.Element {
-    const useStyles = makeStyles((theme: Theme) =>
+    const theme = useTheme();
+    const useStyles = makeStyles(() =>
         createStyles({
             root: {
                 flexGrow: 1,

@@ -1,9 +1,9 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import sunThemeBackground from '../images/sunThemeBackground.jpg';
+import { createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 
-function DefaultPageBackground(): JSX.Element {
-    const useStyles = makeStyles((theme: Theme) =>
+function ImagePageBackground(): JSX.Element {
+    const theme = useTheme();
+    const useStyles = makeStyles(() =>
         createStyles({
             root: {
                 flexGrow: 1,
@@ -32,4 +32,4 @@ function DefaultPageBackground(): JSX.Element {
     );
 }
 
-export default DefaultPageBackground;
+export default ImagePageBackground;

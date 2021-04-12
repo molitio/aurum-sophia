@@ -1,10 +1,10 @@
 import React from 'react';
-import DefaultPageBackground from '../DefaultPageBackground';
+import ImagePageBackground from '../components/background/ImagePageBackground';
 
 function DonationPage(): JSX.Element {
     return (
         <>
-            <DefaultPageBackground />
+            <ImagePageBackground />
             <div>donation page</div>
         </>
     );

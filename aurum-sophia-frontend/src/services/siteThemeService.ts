@@ -1,6 +1,6 @@
 import { createMuiTheme } from '@material-ui/core';
 import { amber, blue, blueGrey, cyan, grey, orange, red, yellow } from '@material-ui/core/colors';
-import SiteThemeCollection from '../common/SiteThemeCollection';
+import SiteThemeCollection from '../components/common/interface/SiteThemeCollection';
 import sunThemeBackground from '../images/sunThemeBackground.jpg';
 import cloudsThemeBackground from '../images/cloudsThemeBackground.jpg';
 import waterThemeBackground from '../images/waterThemeBackground.jpg';

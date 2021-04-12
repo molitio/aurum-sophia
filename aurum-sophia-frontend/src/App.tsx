@@ -1,12 +1,12 @@
 import React from 'react';
-import FooterComponent from './components/FooterComponent';
+import FooterComponent from './components/common/FooterComponent';
 import Navigation from './components/navigation/Navigation';
 import { createStyles, makeStyles, Theme, ThemeProvider } from '@material-ui/core';
 import siteThemeCollection from './services/siteThemeService';
-import SiteRoutes from './components/SiteRoutes';
+import SiteRoutes from './components/common/SiteRoutes';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import SiteThemeCollection from './common/SiteThemeCollection';
+import SiteThemeCollection from './components/common/interface/SiteThemeCollection';
 
 function App(): JSX.Element {
     const useStyles = makeStyles(() =>

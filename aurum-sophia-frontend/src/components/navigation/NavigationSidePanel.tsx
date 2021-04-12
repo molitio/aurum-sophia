@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { List, ListItem, Button, Icon, Divider, createStyles, makeStyles, Theme, Drawer } from '@material-ui/core';
+import { List, ListItem, Button, Icon, Divider, createStyles, makeStyles, Drawer, useTheme } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
-import SiteFeature from '../../common/SiteFeature';
+import SiteFeature from '../common/interface/SiteFeature';
 import getSiteFeatures from '../../services/siteFeaturesService';
-import NavigationSidePanelProps from './NavigationSidePanelProps';
-import TitleComponent from '../TitleComponent';
+import NavigationSidePanelProps from './interface/NavigationSidePanelProps';
+import TitleComponent from '../common/TitleComponent';
 
 function NavigationSidePanel({ navigationState, toggle }: NavigationSidePanelProps): JSX.Element {
     type Anchor = 'top' | 'left' | 'bottom' | 'right';
@@ -18,7 +18,9 @@ function NavigationSidePanel({ navigationState, toggle }: NavigationSidePanelPro
         setSelectedAnchor('left');
     }, []);
 
-    const useStyles = makeStyles((theme: Theme) =>
+    const theme = useTheme();
+
+    const useStyles = makeStyles(() =>
         createStyles({
             root: {
                 zIndex: 100,

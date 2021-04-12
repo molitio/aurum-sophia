@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
+import { createStyles, makeStyles, Typography, useTheme } from '@material-ui/core';
 
 function TitleComponent(): JSX.Element {
-    const useStyles = makeStyles((theme: Theme) =>
+    const theme = useTheme();
+    const useStyles = makeStyles(() =>
         createStyles({
             root: {
                 zIndex: 100,

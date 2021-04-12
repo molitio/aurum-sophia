@@ -1,4 +1,4 @@
-import SiteIconCollection from '../common/SiteIconCollection';
+import SiteIconCollection from '../components/common/interface/SiteIconCollection';
 
 const siteIconCollection: SiteIconCollection = {
     reportProblem: {
