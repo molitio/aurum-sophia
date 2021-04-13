@@ -40,6 +40,9 @@ declare module '@material-ui/core/styles/createMuiTheme' {
     }
 }
 
+const hooverActionEffect =
+    '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)';
+
 const siteThemeCollection: SiteThemeCollection = {
     sunSiteTheme: createMuiTheme({
         palette: {
@@ -62,15 +65,14 @@ const siteThemeCollection: SiteThemeCollection = {
             },
         },
         hooverAction: {
-            boxShadow:
-                '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+            boxShadow: hooverActionEffect,
         },
         nonHovered: {
             boxShadow: 'none',
         },
         themeBackgroundImage: {
             imageUrl: sunThemeBackground,
-            opacity: 0.3,
+            opacity: 0.5,
         },
         themeIcon: {
             fontIcon: siteIconCollection.wbSunny.fontIcon,
@@ -97,8 +99,7 @@ const siteThemeCollection: SiteThemeCollection = {
             },
         },
         hooverAction: {
-            boxShadow:
-                '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+            boxShadow: hooverActionEffect,
         },
         nonHovered: {
             boxShadow: 'none',
@@ -132,8 +133,7 @@ const siteThemeCollection: SiteThemeCollection = {
             },
         },
         hooverAction: {
-            boxShadow:
-                '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+            boxShadow: hooverActionEffect,
         },
         nonHovered: {
             boxShadow: 'none',

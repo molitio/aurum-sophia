@@ -1,4 +1,5 @@
 import React from 'react';
+import ImagePageBackground from '../components/background/ImagePageBackground';
 import ThemePageBackground from '../components/background/ThemePageBackground';
 
 function AboutPage(): JSX.Element {

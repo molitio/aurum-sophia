@@ -10,6 +10,7 @@ function ImagePageBackground(): JSX.Element {
             },
             pageBackground: {
                 position: 'fixed',
+                top: '48px',
                 backgroundImage: `url(${theme.themeBackgroundImage.imageUrl})`,
                 backgroundColor: 'transparent',
                 backgroundPosition: 'center',

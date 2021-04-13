@@ -29,7 +29,7 @@ function Navigation({ themeCollection, setSelectedTheme }: NavigationProps): JSX
                 color: theme.palette.text.primary,
             },
             menuButtonContainer: {
-                marginRight: 5,
+                marginRight: 0,
                 '& :hover': {
                     ...theme.hooverActionOn,
                     '& span': {
@@ -70,7 +70,7 @@ function Navigation({ themeCollection, setSelectedTheme }: NavigationProps): JSX
         <>
             <div className={componentStyle.root}>
                 <AppBar className={componentStyle.appBar} position="static">
-                    <Toolbar>
+                    <Toolbar variant="dense">
                         <div className={componentStyle.menuButtonContainer}>
                             <IconButton
                                 edge="start"
