@@ -9,7 +9,7 @@ import TitleComponent from '../common/TitleComponent';
 import { Button, Icon } from '@material-ui/core';
 import siteIconService from '../../services/siteIconService';
 
-function Navigation({ themeCollection, setSelectedTheme }: NavigationProps): JSX.Element {
+function NavigationComponent({ themeCollection, setSelectedTheme }: NavigationProps): JSX.Element {
     const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({
@@ -91,4 +91,4 @@ function Navigation({ themeCollection, setSelectedTheme }: NavigationProps): JSX
     );
 }
 
-export default Navigation;
+export default NavigationComponent;

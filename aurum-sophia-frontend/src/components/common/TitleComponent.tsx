@@ -2,7 +2,7 @@ import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { createStyles, makeStyles, Typography, useTheme } from '@material-ui/core';
 import siteLogo from '../../images/drawing.svg';
-import SiteLogo from './SiteLogo';
+import SiteLogoComponent from './SiteLogoComponent';
 
 function TitleComponent(): JSX.Element {
     const theme = useTheme();
@@ -47,7 +47,7 @@ function TitleComponent(): JSX.Element {
     return (
         <div className={componentStyle.titleContainer}>
             <div className={componentStyle.logoContainer}>
-                <SiteLogo />
+                <SiteLogoComponent />
             </div>
             <Typography variant="h5" className={componentStyle.title}>
                 <RouterLink to="/">Aurum Sophia</RouterLink>

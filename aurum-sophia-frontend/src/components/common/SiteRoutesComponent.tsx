@@ -7,7 +7,7 @@ import getSiteFeatures from '../../services/siteFeaturesService';
 import ErrorPage from '../../pages/ErrorPage';
 import LandingPage from '../../pages/LandingPage';
 
-function SiteRoutes(): JSX.Element {
+function SiteRoutesComponent(): JSX.Element {
     const [siteFeatures, setSiteFeatures] = useState<SiteFeature[]>([]);
     const [siteErrors, setSiteErrors] = useState<SiteError[]>([]);
 
@@ -40,4 +40,4 @@ function SiteRoutes(): JSX.Element {
     );
 }
 
-export default SiteRoutes;
+export default SiteRoutesComponent;

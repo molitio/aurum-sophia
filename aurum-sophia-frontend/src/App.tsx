@@ -1,9 +1,9 @@
 import React from 'react';
 import FooterComponent from './components/common/FooterComponent';
-import Navigation from './components/navigation/Navigation';
+import NavigationComponent from './components/navigation/NavigationComponent';
 import { createStyles, makeStyles, Theme, ThemeProvider } from '@material-ui/core';
 import siteThemeCollection from './services/siteThemeService';
-import SiteRoutes from './components/common/SiteRoutes';
+import SiteRoutesComponent from './components/common/SiteRoutesComponent';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import SiteThemeCollection from './components/common/interface/SiteThemeCollection';
@@ -47,9 +47,9 @@ function App(): JSX.Element {
         <>
             <ThemeProvider theme={selectedTheme}>
                 <div className={pageStyle.appContainer}>
-                    <Navigation themeCollection={themeCollection} setSelectedTheme={setSelctedTheme} />
+                    <NavigationComponent themeCollection={themeCollection} setSelectedTheme={setSelctedTheme} />
                     <div className={pageStyle.appContent}>
-                        <SiteRoutes />
+                        <SiteRoutesComponent />
                     </div>
                     <FooterComponent />
                 </div>
