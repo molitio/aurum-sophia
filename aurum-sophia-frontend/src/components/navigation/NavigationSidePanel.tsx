@@ -2,19 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { List, ListItem, Button, Icon, Divider, createStyles, makeStyles, Drawer, useTheme } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
 import SiteFeature from '../common/interface/SiteFeature';
-import getSiteFeatures from '../../services/siteFeaturesService';
+import { getSiteFeatureComponents } from '../../services/siteFeaturesService';
 import NavigationSidePanelProps from './interface/NavigationSidePanelProps';
 import TitleComponent from '../common/TitleComponent';
+import { SiteFeatureComponent } from '../common/interface/SiteFeatureComponent';
 
 function NavigationSidePanel({ navigationState, toggle }: NavigationSidePanelProps): JSX.Element {
     type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
     const [selectedAnchor, setSelectedAnchor] = useState<Anchor>('left');
 
-    const [siteFeatures, setSiteFeatures] = useState<SiteFeature[]>([]);
+    const [siteFeatures, setSiteFeatures] = useState<SiteFeatureComponent[]>([]);
 
     useEffect(() => {
-        setSiteFeatures(getSiteFeatures);
+        setSiteFeatures(getSiteFeatureComponents);
         setSelectedAnchor('left');
     }, []);
 

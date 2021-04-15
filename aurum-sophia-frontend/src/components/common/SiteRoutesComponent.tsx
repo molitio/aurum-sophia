@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import getSiteErrors from '../../services/siteErrorsService';
 import SiteError from './interface/SiteError';
-import SiteFeature from './interface/SiteFeature';
-import getSiteFeatures from '../../services/siteFeaturesService';
+import { getSiteFeatureComponents } from '../../services/siteFeaturesService';
 import ErrorPage from '../../pages/ErrorPage';
 import LandingPage from '../../pages/LandingPage';
+import { SiteFeatureComponent } from './interface/SiteFeatureComponent';
 
 function SiteRoutesComponent(): JSX.Element {
-    const [siteFeatures, setSiteFeatures] = useState<SiteFeature[]>([]);
+    const [siteFeatures, setSiteFeatures] = useState<SiteFeatureComponent[]>([]);
     const [siteErrors, setSiteErrors] = useState<SiteError[]>([]);
 
     useEffect(() => {
-        setSiteFeatures(getSiteFeatures);
+        setSiteFeatures(getSiteFeatureComponents);
         setSiteErrors(getSiteErrors);
     }, []);
 

@@ -6,8 +6,9 @@ import IconButton from '@material-ui/core/IconButton';
 import NavigationSidePanel from './NavigationSidePanel';
 import NavigationProps from './interface/NavigationProps';
 import TitleComponent from '../common/TitleComponent';
-import { Button, Icon } from '@material-ui/core';
-import siteIconService from '../../services/siteIconService';
+import { Button, Icon, Slide } from '@material-ui/core';
+import { siteIconCollection } from '../../services/siteIconService';
+import { useScrollTrigger } from '@material-ui/core';
 
 function NavigationComponent({ themeCollection, setSelectedTheme }: NavigationProps): JSX.Element {
     const theme = useTheme();
@@ -15,6 +16,8 @@ function NavigationComponent({ themeCollection, setSelectedTheme }: NavigationPr
         createStyles({
             root: {
                 zIndex: 100,
+                position: 'sticky',
+                top: 0,
             },
             appBar: {
                 color: theme.palette.text.primary,
@@ -50,17 +53,19 @@ function NavigationComponent({ themeCollection, setSelectedTheme }: NavigationPr
         setnavigationState({ sidePanel: !navigationState.sidePanel });
     };
 
+    const trigger = useScrollTrigger();
+
     const themeButtons = (): JSX.Element => {
         return (
             <div className={componentStyle.themeIcons}>
                 <Button onClick={() => setSelectedTheme(themeCollection.cloudsSiteTheme)}>
-                    <Icon>{siteIconService.cloudQueue.fontIcon}</Icon>
+                    <Icon>{siteIconCollection.cloudQueue.fontIcon}</Icon>
                 </Button>
                 <Button onClick={() => setSelectedTheme(themeCollection.waterSiteTheme)}>
-                    <Icon>{siteIconService.water.fontIcon}</Icon>
+                    <Icon>{siteIconCollection.water.fontIcon}</Icon>
                 </Button>
                 <Button onClick={() => setSelectedTheme(themeCollection.sunSiteTheme)}>
-                    <Icon>{siteIconService.wbSunny.fontIcon}</Icon>
+                    <Icon>{siteIconCollection.wbSunny.fontIcon}</Icon>
                 </Button>
             </div>
         );
@@ -68,25 +73,27 @@ function NavigationComponent({ themeCollection, setSelectedTheme }: NavigationPr
 
     return (
         <>
-            <div className={componentStyle.root}>
-                <AppBar className={componentStyle.appBar} position="static">
-                    <Toolbar variant="dense">
-                        <div className={componentStyle.menuButtonContainer}>
-                            <IconButton
-                                edge="start"
-                                className={componentStyle.menuButton}
-                                aria-label="menu"
-                                onClick={toggleSidePanel}
-                            >
-                                <Icon>{siteIconService.menu.fontIcon}</Icon>
-                            </IconButton>
-                        </div>
-                        {!navigationState.sidePanel && <TitleComponent />}
-                        {!navigationState.sidePanel && themeButtons()}
-                    </Toolbar>
-                    <NavigationSidePanel navigationState={navigationState} toggle={toggleSidePanel} />
-                </AppBar>
-            </div>
+            <Slide appear={true} direction="down" in={!trigger}>
+                <div className={componentStyle.root}>
+                    <AppBar className={componentStyle.appBar} position="static">
+                        <Toolbar variant="dense">
+                            <div className={componentStyle.menuButtonContainer}>
+                                <IconButton
+                                    edge="start"
+                                    className={componentStyle.menuButton}
+                                    aria-label="menu"
+                                    onClick={toggleSidePanel}
+                                >
+                                    <Icon>{siteIconCollection.menu.fontIcon}</Icon>
+                                </IconButton>
+                            </div>
+                            {!navigationState.sidePanel && <TitleComponent />}
+                            {!navigationState.sidePanel && themeButtons()}
+                        </Toolbar>
+                        <NavigationSidePanel navigationState={navigationState} toggle={toggleSidePanel} />
+                    </AppBar>
+                </div>
+            </Slide>
         </>
     );
 }

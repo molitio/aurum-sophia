@@ -5,8 +5,6 @@ interface SiteFeature {
     isEnabled: boolean;
     isNavOption: boolean;
     path: string;
-    icon?: string;
-    component?: JSX.Element;
 }
 
 export default SiteFeature;

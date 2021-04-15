@@ -1,63 +1,65 @@
+import { ComponentCollection } from '../components/common/interface/ComponentCollection';
 import SiteFeature from '../components/common/interface/SiteFeature';
+import { SiteFeatureComponent } from '../components/common/interface/SiteFeatureComponent';
 import AboutPage from '../pages/AboutPage';
 import ActualsPage from '../pages/ActualsPage';
 import ContactPage from '../pages/ContactPage';
 import DonationPage from '../pages/DonationPage';
 import EventsPage from '../pages/EventsPage';
 
-const getSiteFeatures = (): SiteFeature[] => {
-    const siteEnabledFeatures: SiteFeature[] = [];
+const siteEnabledFeatureComponents: SiteFeatureComponent[] = [];
+const siteEnabledFeatures: SiteFeature[] = [];
+const componentCollection = new Map<string, JSX.Element | undefined>();
 
-    /*     icon repository: https://fonts.google.com/icons?selected=Material+Icons */
+export const getSiteFeatureComponents = (): SiteFeatureComponent[] => {
+    buildComponents();
+    return siteEnabledFeatureComponents;
+};
 
+export const getSiteFeatures = (): SiteFeature[] => {
+    buildFeatures();
+    return siteEnabledFeatures;
+};
+
+const buildFeatures = (): void => {
     siteEnabledFeatures.push(
         {
             id: 'null1',
-            component: ActualsPage(),
-            name: 'actual',
+            name: 'actuals',
             displayName: 'Aktuális',
             path: '/actuals',
-            icon: 'new_releases',
             isEnabled: true,
             isNavOption: true,
         },
         {
             id: 'null2',
-            component: AboutPage(),
             name: 'about',
             displayName: 'Bemutatkozás',
             path: '/about',
-            icon: 'info',
             isEnabled: true,
             isNavOption: true,
         },
         {
             id: 'null3',
-            component: EventsPage(),
             name: 'events',
             displayName: 'Események',
             path: '/events',
-            icon: 'events',
             isEnabled: true,
             isNavOption: true,
         },
         {
             id: 'null4',
-            component: DonationPage(),
             name: 'donation',
             displayName: 'Támogatás',
             path: '/donation',
-            icon: 'payments',
             isEnabled: true,
             isNavOption: true,
         },
         {
             id: 'null6',
-            component: ContactPage(),
             name: 'contact',
             displayName: 'Kapcsolat',
             path: '/contact',
-            icon: 'contact_support',
             isEnabled: true,
             isNavOption: true,
         },
@@ -66,7 +68,6 @@ const getSiteFeatures = (): SiteFeature[] => {
             name: 'downloads',
             displayName: 'Letöltések',
             path: '/downloads',
-            icon: 'downloads',
             isEnabled: false,
             isNavOption: false,
         },
@@ -75,7 +76,6 @@ const getSiteFeatures = (): SiteFeature[] => {
             name: 'media',
             displayName: 'Médiatár',
             path: '/media',
-            icon: 'media',
             isEnabled: false,
             isNavOption: false,
         },
@@ -84,7 +84,6 @@ const getSiteFeatures = (): SiteFeature[] => {
             name: 'classes',
             displayName: 'Tanfolyamok',
             path: '/classes',
-            icon: 'classes',
             isEnabled: false,
             isNavOption: false,
         },
@@ -93,7 +92,6 @@ const getSiteFeatures = (): SiteFeature[] => {
             name: 'publications',
             displayName: 'Kiadványok',
             path: '/publications',
-            icon: 'publications',
             isEnabled: false,
             isNavOption: false,
         },
@@ -102,13 +100,33 @@ const getSiteFeatures = (): SiteFeature[] => {
             name: 'webshop',
             displayName: 'Webáruház',
             path: '/webshop',
-            icon: 'webshop',
             isEnabled: false,
             isNavOption: false,
         },
     );
+};
+const buildComponents = (): void => {
+    siteEnabledFeatures.forEach((feature) => {
+        const enabledFeature = new SiteFeatureComponent(
+            feature.id,
+            feature.name,
+            feature.displayName,
+            feature.isEnabled,
+            feature.isNavOption,
+            feature.path,
+        );
+        enabledFeature.component = feature.isEnabled ? getComponent(feature) : undefined;
 
-    return siteEnabledFeatures;
+        siteEnabledFeatureComponents.push(enabledFeature);
+    });
 };
 
-export default getSiteFeatures;
+const getComponent = (feature: SiteFeature): JSX.Element | undefined => {
+    componentCollection.set('actuals', ActualsPage());
+    componentCollection.set('about', AboutPage());
+    componentCollection.set('events', EventsPage());
+    componentCollection.set('donation', DonationPage());
+    componentCollection.set('contact', ContactPage());
+
+    return componentCollection.get(feature.name);
+};

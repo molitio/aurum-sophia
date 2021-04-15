@@ -1,5 +1,4 @@
-interface SiteIcon {
+export interface SiteIcon {
     fontIcon: string;
 }
 
-export default SiteIcon;

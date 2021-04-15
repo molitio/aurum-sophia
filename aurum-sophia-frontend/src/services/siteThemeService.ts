@@ -4,7 +4,7 @@ import SiteThemeCollection from '../components/common/interface/SiteThemeCollect
 import sunThemeBackground from '../images/sunThemeBackground.jpg';
 import cloudsThemeBackground from '../images/cloudsThemeBackground.jpg';
 import waterThemeBackground from '../images/waterThemeBackground.jpg';
-import siteIconCollection from './siteIconService';
+import { siteIconCollection } from './siteIconService';
 
 declare module '@material-ui/core/styles/createMuiTheme' {
     interface Theme {
