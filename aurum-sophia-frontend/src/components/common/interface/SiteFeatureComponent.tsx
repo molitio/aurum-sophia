@@ -1,6 +1,6 @@
 import { siteIconCollection, featureIconCollection } from '../../../services/siteIconService';
 import { SiteIcon } from './SiteIcon';
-import SiteFeature from './SiteFeature';
+import { SiteFeature } from './SiteFeature';
 
 export class SiteFeatureComponent implements SiteFeature {
     id: string;

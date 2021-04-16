@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { List, ListItem, Button, Icon, Divider, createStyles, makeStyles, Drawer, useTheme } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
-import SiteFeature from '../common/interface/SiteFeature';
-import { getSiteFeatureComponents } from '../../services/siteFeaturesService';
+import { SiteFeature } from '../common/interface/SiteFeature';
+import { getFeatureCollection } from '../../services/siteFeaturesService';
 import NavigationSidePanelProps from './interface/NavigationSidePanelProps';
 import TitleComponent from '../common/TitleComponent';
 import { SiteFeatureComponent } from '../common/interface/SiteFeatureComponent';
@@ -12,10 +12,10 @@ function NavigationSidePanel({ navigationState, toggle }: NavigationSidePanelPro
 
     const [selectedAnchor, setSelectedAnchor] = useState<Anchor>('left');
 
-    const [siteFeatures, setSiteFeatures] = useState<SiteFeatureComponent[]>([]);
+    const [siteFeatures, setSiteFeatures] = useState<Map<string, SiteFeature>>(new Map<string, SiteFeature>());
 
     useEffect(() => {
-        setSiteFeatures(getSiteFeatureComponents);
+        setSiteFeatures(getFeatureCollection().getSiteFeatures);
         setSelectedAnchor('left');
     }, []);
 
@@ -75,20 +75,22 @@ function NavigationSidePanel({ navigationState, toggle }: NavigationSidePanelPro
                     <div role="presentation" onClick={toggle} onKeyDown={toggle}>
                         <List className={componentStyle.navList}>
                             <TitleComponent />
-                            {siteFeatures
-                                .filter(({ isNavOption }) => isNavOption)
-                                .map((feature) => (
-                                    <ListItem button key={feature.id} className={componentStyle.navListItem}>
-                                        <Button
-                                            className={componentStyle.navLinkButton}
-                                            component={RouterLink}
-                                            to={feature.path}
-                                            startIcon={<Icon>{feature.icon}</Icon>}
-                                        >
-                                            {feature.displayName}
-                                        </Button>
-                                    </ListItem>
-                                ))}
+                            {siteFeatures.forEach((feature, key) => {
+                                feature.isEnabled
+                                    ? () => {
+                                          <ListItem button key={feature.id} className={componentStyle.navListItem}>
+                                              <Button
+                                                  className={componentStyle.navLinkButton}
+                                                  component={RouterLink}
+                                                  to={feature.path}
+                                                  startIcon={<Icon>{feature.icon?.fontIcon}</Icon>}
+                                              >
+                                                  {feature.displayName}
+                                              </Button>
+                                          </ListItem>;
+                                      }
+                                    : '';
+                            })}
                         </List>
                         <Divider />
                     </div>
