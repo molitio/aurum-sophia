@@ -3,7 +3,7 @@ import { createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import NavigationSidePanel from './NavigationSidePanel';
+import { NavigationSidePanel } from './NavigationSidePanel';
 import NavigationProps from './interface/NavigationProps';
 import TitleComponent from '../common/TitleComponent';
 import { Button, Icon, Slide } from '@material-ui/core';

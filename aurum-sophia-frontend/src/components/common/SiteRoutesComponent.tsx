@@ -7,14 +7,13 @@ import ErrorPage from '../../pages/ErrorPage';
 import LandingPage from '../../pages/LandingPage';
 import { SiteFeatureComponent } from './interface/SiteFeatureComponent';
 
-function SiteRoutesComponent(): JSX.Element {
+export function SiteRoutesComponent(): JSX.Element {
     const [siteFeatures, setSiteFeatures] = useState<Map<string, SiteFeatureComponent>>(
-        new Map<string, SiteFeatureComponent>(),
+        getFeatureCollection.getSiteFeatureComponents,
     );
     const [siteErrors, setSiteErrors] = useState<SiteError[]>([]);
 
     useEffect(() => {
-        setSiteFeatures(getFeatureCollection().getSiteFeatureComponents);
         setSiteErrors(getSiteErrors);
     }, []);
 
@@ -26,7 +25,9 @@ function SiteRoutesComponent(): JSX.Element {
                 </Route>
                 {siteFeatures.forEach((feature, key) => (
                     <Route key={feature.id} path={feature.path}>
-                        {feature.isEnabled && feature.component}
+                        {() => {
+                            feature.component;
+                        }}
                     </Route>
                 ))}
                 {siteErrors.map((errorType, index) => (
@@ -39,5 +40,3 @@ function SiteRoutesComponent(): JSX.Element {
         </>
     );
 }
-
-export default SiteRoutesComponent;

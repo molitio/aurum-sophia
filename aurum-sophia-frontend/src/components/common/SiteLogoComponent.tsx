@@ -1,7 +1,7 @@
-import { useTheme } from '@material-ui/core';
 import React from 'react';
+import { useTheme } from '@material-ui/core';
 
-function SiteLogoComponent() {
+function SiteLogoComponent(): JSX.Element {
     const theme = useTheme();
     return (
         <>

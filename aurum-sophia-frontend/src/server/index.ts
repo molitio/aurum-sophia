@@ -2,7 +2,7 @@ import react from 'react';
 import { renderToString } from 'react-dom/server';
 import express, { Application, Request, Response, NextFunction } from 'express';
 import indexHTML from './indexHtml';
-import App from '../App';
+import { App } from '../App';
 import { createElement } from 'react';
 
 const app: Application = express();

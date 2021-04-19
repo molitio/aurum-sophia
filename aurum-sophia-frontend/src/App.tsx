@@ -3,12 +3,12 @@ import FooterComponent from './components/common/FooterComponent';
 import NavigationComponent from './components/navigation/NavigationComponent';
 import { createStyles, makeStyles, Theme, ThemeProvider } from '@material-ui/core';
 import siteThemeCollection from './services/siteThemeService';
-import SiteRoutesComponent from './components/common/SiteRoutesComponent';
+import { SiteRoutesComponent } from './components/common/SiteRoutesComponent';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import SiteThemeCollection from './components/common/interface/SiteThemeCollection';
 
-function App(): JSX.Element {
+export function App(): JSX.Element {
     const useStyles = makeStyles(() =>
         createStyles({
             root: {},
@@ -57,5 +57,3 @@ function App(): JSX.Element {
         </>
     );
 }
-
-export default App;
