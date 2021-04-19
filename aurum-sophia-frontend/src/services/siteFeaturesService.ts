@@ -145,13 +145,12 @@ const buildComponents = (): Map<string, SiteFeatureComponent> => {
     return siteEnabledComponents;
 };
 
-const getComponent = (feature: SiteFeature): (() => JSX.Element) => {
-    const componentCollection: Map<string, () => JSX.Element> = new Map<string, () => JSX.Element>();
-    componentCollection.set('actuals', ActualsPage);
-    componentCollection.set('about', AboutPage);
-    componentCollection.set('events', EventsPage);
-    componentCollection.set('donation', DonationPage);
-    componentCollection.set('contact', ContactPage);
+const getComponent = (feature: SiteFeature): JSX.Element => {
+    const componentCollection: Map<string, JSX.Element> = new Map<string, JSX.Element>([['actuals', ActualsPage()]]);
+    /*  componentCollection.set('about', AboutPage());
+    componentCollection.set('events', EventsPage());
+    componentCollection.set('donation', DonationPage());
+    componentCollection.set('contact', ContactPage()); */
     return componentCollection.get(feature.name)!;
 };
 

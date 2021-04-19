@@ -8,6 +8,6 @@ export interface SiteFeatureComponent extends SiteFeature {
     isEnabled: boolean;
     isNavOption: boolean;
     path: string;
-    component: () => JSX.Element;
+    component?: JSX.Element;
     icon: SiteIcon | undefined;
 }

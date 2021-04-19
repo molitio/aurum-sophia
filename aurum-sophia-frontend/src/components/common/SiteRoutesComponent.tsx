@@ -25,9 +25,7 @@ export function SiteRoutesComponent(): JSX.Element {
                 </Route>
                 {siteFeatures.forEach((feature, key) => (
                     <Route key={feature.id} path={feature.path}>
-                        {() => {
-                            feature.component;
-                        }}
+                        {feature.component}
                     </Route>
                 ))}
                 {siteErrors.map((errorType, index) => (
