@@ -134,7 +134,6 @@ const buildComponents = (): Map<string, SiteFeatureComponent> => {
             isNavOption: feature.isNavOption,
             path: feature.path,
             component: getComponent(feature)!,
-
             icon: Object.values(featureIconCollection).find(([key, value]) => {
                 return key === feature.name ? value : undefined;
             }),

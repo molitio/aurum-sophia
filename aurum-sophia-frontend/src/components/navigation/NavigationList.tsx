@@ -4,6 +4,7 @@ import { List, ListItem, Button, Icon, createStyles, makeStyles, useTheme } from
 import TitleComponent from '../common/TitleComponent';
 import { NavigationListProps } from './interface/NavigationListProps';
 import { SiteFeature } from '../common/interface/SiteFeature';
+import { getFeatureCollection } from '../../services/siteFeaturesService';
 
 export function NavigationList({ siteFeatures }: NavigationListProps): JSX.Element {
     const theme = useTheme();
@@ -44,6 +45,10 @@ export function NavigationList({ siteFeatures }: NavigationListProps): JSX.Eleme
     );
 
     const [componentFeatures, setComponentFeatures] = useState<Map<string, SiteFeature>>(siteFeatures);
+
+    useEffect(() => {
+        setComponentFeatures(getFeatureCollection.getSiteFeatures);
+    }, []);
 
     const componentStyle = useStyles();
     return (
