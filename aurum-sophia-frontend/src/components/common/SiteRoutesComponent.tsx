@@ -9,17 +9,10 @@ import { SiteFeature } from './interface/SiteFeature';
 import { siteFeatureComponents } from '../../services/siteComponentService';
 
 export function SiteRoutesComponent(): JSX.Element {
-    const [siteFeatures, setSiteFeatures] = useState<SiteFeature[]>([]);
+    const [siteFeatures, setSiteFeatures] = useState<Map<string, SiteFeature>>(siteEnabledFeaturesCollection.features);
     const [siteErrors, setSiteErrors] = useState<SiteError[]>([]);
 
     useEffect(() => {
-        /*    const features: SiteFeature[] = [];
-        for (const feature of siteEnabledFeaturesCollection.features.values()) {
-            features.push(feature);
-        }
-        setSiteFeatures(features);
-        */
-
         const errors: SiteError[] = [];
         for (const error of siteErrorCollection.errors.values()) {
             errors.push(error);
@@ -28,18 +21,28 @@ export function SiteRoutesComponent(): JSX.Element {
         setSiteErrors(errors);
     }, []);
 
+    const featureRoutes: () => JSX.Element = (): JSX.Element => {
+        const routes: [string, SiteFeature][] = Array.from([...siteFeatures]);
+
+        return (
+            <>
+                {routes.map((route) => {
+                    <Route key={route[0]} exact path={route[1].path}>
+                        {siteFeatureComponents.components.has(route[1].name) &&
+                            siteFeatureComponents.components.get(route[1].name)!()}
+                    </Route>;
+                })}
+            </>
+        );
+    };
+
     return (
         <>
             <Switch>
                 <Route exact path="/">
                     <LandingPage />
                 </Route>
-                {siteFeatures.map((feature) => (
-                    <Route key={feature.name} exact path={feature.path}>
-                        {siteFeatureComponents.components.has(feature.name) &&
-                            siteFeatureComponents.components.get(feature.name)}
-                    </Route>
-                ))}
+                {featureRoutes()}
                 {siteErrors.map((errorType, index) => (
                     <Route key={index} exact path={`/error/${errorType.errorData.code}`}>
                         <ErrorPage errorData={errorType.errorData} />

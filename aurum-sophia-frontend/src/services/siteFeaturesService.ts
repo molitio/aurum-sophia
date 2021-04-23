@@ -1,4 +1,3 @@
-import React from 'react';
 import { SiteFeature } from '../components/common/interface/SiteFeature';
 import { FeatureCollection } from '../components/common/interface/collection/FeatureCollection';
 

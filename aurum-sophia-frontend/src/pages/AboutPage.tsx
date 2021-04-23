@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme, makeStyles, createStyles } from '@material-ui/core';
+import { makeStyles, createStyles } from '@material-ui/core';
 import { ImagePageBackground } from '../components/background/ImagePageBackground';
 
 export function AboutPage(): JSX.Element {

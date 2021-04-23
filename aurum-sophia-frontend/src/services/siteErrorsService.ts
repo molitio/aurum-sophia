@@ -1,4 +1,3 @@
-import React from 'react';
 import { SiteError } from '../components/common/interface/SiteError';
 import { SiteErrorCollection } from '../components/common/interface/collection/SiteErrorCollection';
 

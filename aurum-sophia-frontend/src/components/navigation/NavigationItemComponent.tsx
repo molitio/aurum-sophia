@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { ListItem, Button, Icon, createStyles, makeStyles, useTheme, Divider } from '@material-ui/core';
+import { ListItem, Button, Icon, createStyles, makeStyles, useTheme } from '@material-ui/core';
 import { NavigationItemComponentProps } from './interface/NavigationListProps';
 import { featureIconCollection } from '../../services/siteIconService';
 

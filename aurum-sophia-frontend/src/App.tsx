@@ -35,7 +35,7 @@ export function App(): JSX.Element {
 
     const [themeCollection, setThemeCollection] = useState<Theme[]>([]);
 
-    const [selectedTheme, setSelctedTheme] = useState<Theme>(theme);
+    const [selectedTheme, setSelctedTheme] = useState<Theme | undefined>(theme);
 
     useEffect(() => {
         const themes: Theme[] = [];
@@ -44,13 +44,13 @@ export function App(): JSX.Element {
         }
         setThemeCollection(themes);
         setSelctedTheme(
-            siteThemeCollection.themes.has('sunSiteTheme') ? siteThemeCollection.themes.get('sunSiteTheme')! : theme,
+            siteThemeCollection.themes.has('sunSiteTheme') ? siteThemeCollection.themes.get('sunSiteTheme') : theme,
         );
-    }, []);
+    }, [theme]);
 
     return (
         <>
-            <ThemeProvider theme={selectedTheme!}>
+            <ThemeProvider theme={selectedTheme ? selectedTheme : theme}>
                 <div className={pageStyle.appContainer}>
                     <NavigationTopComponent themeCollection={themeCollection} setSelectedTheme={setSelctedTheme} />
                     <div className={pageStyle.appContent}>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { IconCollection } from '../components/common/interface/collection/IconCollection';
 import { SiteIcon } from '../components/common/interface/SiteIcon';
 /*     icon repository: https://fonts.google.com/icons?selected=Material+Icons */

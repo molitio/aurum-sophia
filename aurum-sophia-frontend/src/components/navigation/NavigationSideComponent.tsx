@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Divider, createStyles, makeStyles, Drawer, useTheme, Button, Icon, List, ListItem } from '@material-ui/core';
+import { Divider, createStyles, makeStyles, Drawer, useTheme, List } from '@material-ui/core';
 import NavigationSidePanelProps from './interface/NavigationSidePanelProps';
 import { NavigationItemComponent } from './NavigationItemComponent';
 import { TitleComponent } from '../common/TitleComponent';
