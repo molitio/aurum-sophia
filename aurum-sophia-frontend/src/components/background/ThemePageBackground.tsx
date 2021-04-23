@@ -1,7 +1,7 @@
 import React from 'react';
-import { createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, useTheme } from '@material-ui/core';
 
-function ThemePageBackground(): JSX.Element {
+export function ThemePageBackground(): JSX.Element {
     const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({
@@ -28,5 +28,3 @@ function ThemePageBackground(): JSX.Element {
         </>
     );
 }
-
-export default ThemePageBackground;

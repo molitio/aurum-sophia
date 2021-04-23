@@ -1,7 +1,7 @@
 import React from 'react';
-import ImagePageBackground from '../components/background/ImagePageBackground';
+import { ImagePageBackground } from '../components/background/ImagePageBackground';
 
-function ContactPage(): JSX.Element {
+export function ContactPage(): JSX.Element {
     return (
         <>
             <ImagePageBackground />
@@ -9,5 +9,3 @@ function ContactPage(): JSX.Element {
         </>
     );
 }
-
-export default ContactPage;

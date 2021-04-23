@@ -8,4 +8,5 @@ export interface SiteFeature {
     isNavOption: boolean;
     path: string;
     icon?: SiteIcon;
+    component?: JSX.Element;
 }

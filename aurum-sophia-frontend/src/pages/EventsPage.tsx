@@ -1,7 +1,7 @@
 import React from 'react';
-import ImagePageBackground from '../components/background/ImagePageBackground';
+import { ImagePageBackground } from '../components/background/ImagePageBackground';
 
-function EventsPage(): JSX.Element {
+export function EventsPage(): JSX.Element {
     return (
         <>
             <ImagePageBackground />
@@ -9,5 +9,3 @@ function EventsPage(): JSX.Element {
         </>
     );
 }
-
-export default EventsPage;

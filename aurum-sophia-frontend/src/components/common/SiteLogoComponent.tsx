@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '@material-ui/core';
 
-function SiteLogoComponent(): JSX.Element {
+export function SiteLogoComponent(): JSX.Element {
     const theme = useTheme();
     return (
         <>
@@ -58,4 +58,3 @@ function SiteLogoComponent(): JSX.Element {
         </>
     );
 }
-export default SiteLogoComponent;

@@ -1,5 +1,5 @@
-const indexHTML = ({ body }: { body: string}) => 
-`<!DOCTYPE html>
+const indexHTML = ({ body }: { body: string }) =>
+    `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -18,6 +18,6 @@ const indexHTML = ({ body }: { body: string}) =>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">${body}</div>
   </body>
-</html>`
+</html>`;
 
 export default indexHTML;

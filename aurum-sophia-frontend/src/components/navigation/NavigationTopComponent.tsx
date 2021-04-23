@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, useTheme } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import { NavigationSidePanel } from './NavigationSidePanel';
-import NavigationProps from './interface/NavigationProps';
-import TitleComponent from '../common/TitleComponent';
+import { NavigationSideComponent } from './NavigationSideComponent';
+import { NavigationTopComponentProps } from './interface/NavigationTopComponentProps';
+import { TitleComponent } from '../common/TitleComponent';
 import { Button, Icon, Slide } from '@material-ui/core';
 import { siteIconCollection } from '../../services/siteIconService';
 import { useScrollTrigger } from '@material-ui/core';
+import { siteThemeCollection } from '../../services/siteThemeService';
 
-function NavigationComponent({ themeCollection, setSelectedTheme }: NavigationProps): JSX.Element {
+export function NavigationTopComponent({ setSelectedTheme }: NavigationTopComponentProps): JSX.Element {
     const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({
@@ -58,14 +59,45 @@ function NavigationComponent({ themeCollection, setSelectedTheme }: NavigationPr
     const themeButtons = (): JSX.Element => {
         return (
             <div className={componentStyle.themeIcons}>
-                <Button onClick={() => setSelectedTheme(themeCollection.cloudsSiteTheme)}>
-                    <Icon>{siteIconCollection.cloudQueue.fontIcon}</Icon>
+                <Button
+                    onClick={() =>
+                        setSelectedTheme(
+                            siteThemeCollection.themes.has('cloudsSiteTheme')
+                                ? siteThemeCollection.themes.get('cloudsSiteTheme')!
+                                : theme,
+                        )
+                    }
+                >
+                    <Icon>
+                        {siteIconCollection.icons.has('cloudQueue') &&
+                            siteIconCollection.icons.get('cloudQueue')!.fontIcon}
+                    </Icon>
                 </Button>
-                <Button onClick={() => setSelectedTheme(themeCollection.waterSiteTheme)}>
-                    <Icon>{siteIconCollection.water.fontIcon}</Icon>
+                <Button
+                    onClick={() =>
+                        setSelectedTheme(
+                            siteThemeCollection.themes.has('waterSiteTheme')
+                                ? siteThemeCollection.themes.get('waterSiteTheme')!
+                                : theme,
+                        )
+                    }
+                >
+                    <Icon>
+                        {siteIconCollection.icons.has('water') && siteIconCollection.icons.get('water')!.fontIcon}
+                    </Icon>
                 </Button>
-                <Button onClick={() => setSelectedTheme(themeCollection.sunSiteTheme)}>
-                    <Icon>{siteIconCollection.wbSunny.fontIcon}</Icon>
+                <Button
+                    onClick={() =>
+                        setSelectedTheme(
+                            siteThemeCollection.themes.has('sunSiteTheme')
+                                ? siteThemeCollection.themes.get('sunSiteTheme')!
+                                : theme,
+                        )
+                    }
+                >
+                    <Icon>
+                        {siteIconCollection.icons.has('wbSunny') && siteIconCollection.icons.get('wbSunny')!.fontIcon}
+                    </Icon>
                 </Button>
             </div>
         );
@@ -84,18 +116,20 @@ function NavigationComponent({ themeCollection, setSelectedTheme }: NavigationPr
                                     aria-label="menu"
                                     onClick={toggleSidePanel}
                                 >
-                                    <Icon>{siteIconCollection.menu.fontIcon}</Icon>
+                                    <Icon>
+                                        {siteIconCollection.icons.has('menu')
+                                            ? siteIconCollection.icons.get('menu')!.fontIcon
+                                            : ''}
+                                    </Icon>
                                 </IconButton>
                             </div>
                             {!navigationState.sidePanel && <TitleComponent />}
                             {!navigationState.sidePanel && themeButtons()}
                         </Toolbar>
-                        <NavigationSidePanel navigationState={navigationState} toggle={toggleSidePanel} />
+                        <NavigationSideComponent navigationState={navigationState} toggle={toggleSidePanel} />
                     </AppBar>
                 </div>
             </Slide>
         </>
     );
 }
-
-export default NavigationComponent;

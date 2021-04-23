@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { createStyles, makeStyles, Typography, useTheme } from '@material-ui/core';
-import siteLogo from '../../images/drawing.svg';
-import SiteLogoComponent from './SiteLogoComponent';
+import { SiteLogoComponent } from './SiteLogoComponent';
 
-function TitleComponent(): JSX.Element {
+export function TitleComponent(): JSX.Element {
     const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({
@@ -55,5 +54,3 @@ function TitleComponent(): JSX.Element {
         </div>
     );
 }
-
-export default TitleComponent;

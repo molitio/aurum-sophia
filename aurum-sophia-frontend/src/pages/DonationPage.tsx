@@ -1,7 +1,7 @@
 import React from 'react';
-import ImagePageBackground from '../components/background/ImagePageBackground';
+import { ImagePageBackground } from '../components/background/ImagePageBackground';
 
-function DonationPage(): JSX.Element {
+export function DonationPage(): JSX.Element {
     return (
         <>
             <ImagePageBackground />
@@ -9,5 +9,3 @@ function DonationPage(): JSX.Element {
         </>
     );
 }
-
-export default DonationPage;

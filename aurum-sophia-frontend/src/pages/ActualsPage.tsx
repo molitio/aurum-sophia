@@ -1,7 +1,21 @@
 import React from 'react';
-import ImagePageBackground from '../components/background/ImagePageBackground';
+import { makeStyles, createStyles } from '@material-ui/core';
+import { ImagePageBackground } from '../components/background/ImagePageBackground';
 
-function ActualsPage(): JSX.Element {
+export function ActualsPage(): JSX.Element {
+    /*     const useStyles = makeStyles(() =>
+        createStyles({
+            root: {
+                zIndex: 100,
+            },
+            container: {
+                width: '100vw',
+                height: '1000px',
+            },
+        }),
+    );
+
+    const pageStyle = useStyles(); */
     return (
         <>
             <ImagePageBackground />
@@ -9,5 +23,3 @@ function ActualsPage(): JSX.Element {
         </>
     );
 }
-
-export default ActualsPage;

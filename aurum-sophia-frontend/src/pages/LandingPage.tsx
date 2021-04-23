@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTheme, makeStyles, createStyles } from '@material-ui/core';
-import ImagePageBackground from '../components/background/ImagePageBackground';
+import { ImagePageBackground } from '../components/background/ImagePageBackground';
 
-function LandingPage(): JSX.Element {
+export function LandingPage(): JSX.Element {
     const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({
@@ -44,5 +44,3 @@ function LandingPage(): JSX.Element {
         </>
     );
 }
-
-export default LandingPage;

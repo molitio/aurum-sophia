@@ -1,8 +1,8 @@
 import React from 'react';
 import { createStyles, makeStyles, Typography, useTheme } from '@material-ui/core';
-import ThemePageBackground from '../background/ThemePageBackground';
+import { ThemePageBackground } from '../background/ThemePageBackground';
 
-function FooterComponent(): JSX.Element {
+export function FooterComponent(): JSX.Element {
     const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({
@@ -22,5 +22,3 @@ function FooterComponent(): JSX.Element {
         </div>
     );
 }
-
-export default FooterComponent;

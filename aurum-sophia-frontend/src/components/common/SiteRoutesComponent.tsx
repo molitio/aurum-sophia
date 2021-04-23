@@ -1,20 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import getSiteErrors from '../../services/siteErrorsService';
-import SiteError from './interface/SiteError';
-import { getFeatureCollection } from '../../services/siteFeaturesService';
-import ErrorPage from '../../pages/ErrorPage';
-import LandingPage from '../../pages/LandingPage';
-import { SiteFeatureComponent } from './interface/SiteFeatureComponent';
+import { siteErrorCollection } from '../../services/siteErrorsService';
+import { SiteError } from './interface/SiteError';
+import { siteEnabledFeaturesCollection } from '../../services/siteFeaturesService';
+import { ErrorPage } from '../../pages/ErrorPage';
+import { LandingPage } from '../../pages/LandingPage';
+import { SiteFeature } from './interface/SiteFeature';
+import { siteFeatureComponents } from '../../services/siteComponentService';
 
 export function SiteRoutesComponent(): JSX.Element {
-    const [siteFeatures, setSiteFeatures] = useState<Map<string, SiteFeatureComponent>>(
-        getFeatureCollection.getSiteFeatureComponents,
-    );
+    const [siteFeatures, setSiteFeatures] = useState<SiteFeature[]>([]);
     const [siteErrors, setSiteErrors] = useState<SiteError[]>([]);
 
     useEffect(() => {
-        setSiteErrors(getSiteErrors);
+        /*    const features: SiteFeature[] = [];
+        for (const feature of siteEnabledFeaturesCollection.features.values()) {
+            features.push(feature);
+        }
+        setSiteFeatures(features);
+        */
+
+        const errors: SiteError[] = [];
+        for (const error of siteErrorCollection.errors.values()) {
+            errors.push(error);
+        }
+
+        setSiteErrors(errors);
     }, []);
 
     return (
@@ -23,9 +34,10 @@ export function SiteRoutesComponent(): JSX.Element {
                 <Route exact path="/">
                     <LandingPage />
                 </Route>
-                {siteFeatures.forEach((feature, key) => (
-                    <Route key={feature.id} path={feature.path}>
-                        {feature.component}
+                {siteFeatures.map((feature) => (
+                    <Route key={feature.name} exact path={feature.path}>
+                        {siteFeatureComponents.components.has(feature.name) &&
+                            siteFeatureComponents.components.get(feature.name)}
                     </Route>
                 ))}
                 {siteErrors.map((errorType, index) => (

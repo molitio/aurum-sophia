@@ -1,14 +1,12 @@
-import React from 'react';
-import FooterComponent from './components/common/FooterComponent';
-import NavigationComponent from './components/navigation/NavigationComponent';
-import { createStyles, makeStyles, Theme, ThemeProvider } from '@material-ui/core';
-import siteThemeCollection from './services/siteThemeService';
+import React, { useEffect, useState } from 'react';
+import { FooterComponent } from './components/common/FooterComponent';
+import { NavigationTopComponent } from './components/navigation/NavigationTopComponent';
+import { createStyles, makeStyles, Theme, ThemeProvider, useTheme } from '@material-ui/core';
+import { siteThemeCollection } from './services/siteThemeService';
 import { SiteRoutesComponent } from './components/common/SiteRoutesComponent';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import SiteThemeCollection from './components/common/interface/SiteThemeCollection';
 
 export function App(): JSX.Element {
+    const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({
             root: {},
@@ -35,19 +33,26 @@ export function App(): JSX.Element {
 
     const pageStyle = useStyles();
 
-    const [themeCollection, setThemeCollection] = useState<SiteThemeCollection>(siteThemeCollection);
+    const [themeCollection, setThemeCollection] = useState<Theme[]>([]);
 
-    const [selectedTheme, setSelctedTheme] = useState<Theme>(siteThemeCollection.sunSiteTheme);
+    const [selectedTheme, setSelctedTheme] = useState<Theme>(theme);
 
     useEffect(() => {
-        setSelctedTheme(themeCollection.sunSiteTheme);
+        const themes: Theme[] = [];
+        for (const theme of siteThemeCollection.themes.values()) {
+            themes.push(theme);
+        }
+        setThemeCollection(themes);
+        setSelctedTheme(
+            siteThemeCollection.themes.has('sunSiteTheme') ? siteThemeCollection.themes.get('sunSiteTheme')! : theme,
+        );
     }, []);
 
     return (
         <>
-            <ThemeProvider theme={selectedTheme}>
+            <ThemeProvider theme={selectedTheme!}>
                 <div className={pageStyle.appContainer}>
-                    <NavigationComponent themeCollection={themeCollection} setSelectedTheme={setSelctedTheme} />
+                    <NavigationTopComponent themeCollection={themeCollection} setSelectedTheme={setSelctedTheme} />
                     <div className={pageStyle.appContent}>
                         <SiteRoutesComponent />
                     </div>

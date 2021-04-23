@@ -1,10 +1,8 @@
 import React from 'react';
 import { useTheme, makeStyles, createStyles } from '@material-ui/core';
-import ImagePageBackground from '../components/background/ImagePageBackground';
-import ThemePageBackground from '../components/background/ThemePageBackground';
+import { ImagePageBackground } from '../components/background/ImagePageBackground';
 
-function AboutPage(): JSX.Element {
-    const theme = useTheme();
+export function AboutPage(): JSX.Element {
     const useStyles = makeStyles(() =>
         createStyles({
             root: {
@@ -17,14 +15,12 @@ function AboutPage(): JSX.Element {
         }),
     );
 
-    const style = useStyles();
+    const pageStyle = useStyles();
 
     return (
         <>
-            <ThemePageBackground />
-            <div className={style.container}>about page</div>
+            <ImagePageBackground />
+            <div className={pageStyle.container}>about page</div>
         </>
     );
 }
-
-export default AboutPage;
