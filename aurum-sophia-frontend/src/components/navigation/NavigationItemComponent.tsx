@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { ListItem, Button, Icon, createStyles, makeStyles, useTheme } from '@material-ui/core';
-import { NavigationItemComponentProps } from './interface/NavigationListProps';
+import { NavigationItemComponentProps } from './interface/NavigationItemComponentProps';
 import { featureIconCollection } from '../../services/siteIconService';
 
-export function NavigationItemComponent({ siteFeature }: NavigationItemComponentProps): JSX.Element {
+export function NavigationItemComponent({ siteFeature, displayIcons }: NavigationItemComponentProps): JSX.Element {
     const theme = useTheme();
 
     const useStyles = makeStyles(() =>
@@ -43,11 +43,12 @@ export function NavigationItemComponent({ siteFeature }: NavigationItemComponent
                         component={RouterLink}
                         to={siteFeature.path}
                         startIcon={
-                            <Icon>
-                                {featureIconCollection.icons.has(siteFeature.name)
-                                    ? featureIconCollection.icons.get(siteFeature.name)!.fontIcon
-                                    : ''}
-                            </Icon>
+                            displayIcons && (
+                                <Icon>
+                                    {featureIconCollection.icons.get(siteFeature.name)?.fontIcon ||
+                                        featureIconCollection.defaultIcon.fontIcon}
+                                </Icon>
+                            )
                         }
                     >
                         {siteFeature.displayName}

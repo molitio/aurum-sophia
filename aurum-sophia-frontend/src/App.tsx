@@ -1,9 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { FooterComponent } from './components/common/FooterComponent';
 import { NavigationTopComponent } from './components/navigation/NavigationTopComponent';
-import { createStyles, makeStyles, Theme, ThemeProvider, useTheme } from '@material-ui/core';
+import {
+    createStyles,
+    makeStyles,
+    Collapse,
+    Theme,
+    ThemeProvider,
+    useScrollTrigger,
+    useTheme,
+} from '@material-ui/core';
 import { siteThemeCollection } from './services/siteThemeService';
 import { SiteRoutesComponent } from './components/common/SiteRoutesComponent';
+import { SiteContext } from './components/common/interface/SiteContext';
+import { siteFeatureComponents } from './services/siteComponentService';
+import { siteErrorCollection } from './services/siteErrorsService';
+import { siteEnabledFeaturesCollection } from './services/siteFeaturesService';
+import { siteIconCollection } from './services/siteIconService';
+import { amber, orange } from '@material-ui/core/colors';
+
+export const Context = createContext<SiteContext>({
+    themeContext: siteThemeCollection,
+    featureContext: siteEnabledFeaturesCollection,
+    componentContext: siteFeatureComponents,
+    iconContext: siteIconCollection,
+    errorContext: siteErrorCollection,
+});
 
 export function App(): JSX.Element {
     const theme = useTheme();
@@ -23,6 +45,12 @@ export function App(): JSX.Element {
                 flexDirection: 'column',
                 alignItems: 'stretch',
             },
+            footerContainer: {
+                /* background: `linear-gradient(138deg, ${amber[50]} 10%, ${orange[500]} 100%)`, */
+                /*TODO: should be: theme.themeGradient.gradient, */
+                minHeight: 24,
+                ...theme.themeGradient,
+            },
         }),
     );
 
@@ -33,8 +61,6 @@ export function App(): JSX.Element {
 
     const pageStyle = useStyles();
 
-    const [themeCollection, setThemeCollection] = useState<Theme[]>([]);
-
     const [selectedTheme, setSelctedTheme] = useState<Theme | undefined>(theme);
 
     useEffect(() => {
@@ -42,23 +68,40 @@ export function App(): JSX.Element {
         for (const theme of siteThemeCollection.themes.values()) {
             themes.push(theme);
         }
-        setThemeCollection(themes);
         setSelctedTheme(
             siteThemeCollection.themes.has('sunSiteTheme') ? siteThemeCollection.themes.get('sunSiteTheme') : theme,
         );
     }, [theme]);
 
+    const trigger = useScrollTrigger();
+
     return (
         <>
-            <ThemeProvider theme={selectedTheme ? selectedTheme : theme}>
-                <div className={pageStyle.appContainer}>
-                    <NavigationTopComponent themeCollection={themeCollection} setSelectedTheme={setSelctedTheme} />
-                    <div className={pageStyle.appContent}>
-                        <SiteRoutesComponent />
+            <Context.Provider
+                value={{
+                    themeContext: {
+                        themes: siteThemeCollection.themes,
+                        selectedTheme: selectedTheme,
+                        setSelectedTheme: setSelctedTheme,
+                    },
+                    featureContext: siteEnabledFeaturesCollection,
+                    componentContext: siteFeatureComponents,
+                    iconContext: siteIconCollection,
+                    errorContext: siteErrorCollection,
+                }}
+            >
+                <ThemeProvider theme={selectedTheme ? selectedTheme : theme}>
+                    <div className={pageStyle.appContainer}>
+                        <NavigationTopComponent />
+                        <div className={pageStyle.appContent}>
+                            <SiteRoutesComponent />
+                        </div>
                     </div>
-                    <FooterComponent />
-                </div>
-            </ThemeProvider>
+                    <div className={pageStyle.footerContainer}>
+                        <FooterComponent />
+                    </div>
+                </ThemeProvider>
+            </Context.Provider>
         </>
     );
 }

@@ -18,6 +18,9 @@ declare module '@material-ui/core/' {
             imageUrl: string;
             opacity: number;
         };
+        themeGradient: {
+            background: string;
+        };
         themeIcon: {
             fontIcon: string;
         };
@@ -34,6 +37,9 @@ declare module '@material-ui/core/' {
             imageUrl: string;
             opacity: number;
         };
+        themeGradient: {
+            background: string;
+        };
         themeIcon: {
             fontIcon: string;
         };
@@ -44,6 +50,10 @@ const hooverActionEffect =
     '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)';
 
 export const siteThemeCollection: SiteThemeCollection = {
+    selectedTheme: createMuiTheme(),
+    setSelectedTheme: () => {
+        return null;
+    },
     themes: new Map<string, Theme>([
         [
             'sunSiteTheme',
@@ -54,13 +64,14 @@ export const siteThemeCollection: SiteThemeCollection = {
                     },
                     secondary: {
                         main: amber[100],
+                        light: amber[50],
                     },
                     error: {
                         main: red[500],
                         light: red[300],
                     },
                     text: {
-                        primary: grey[50],
+                        primary: '#333399',
                     },
                     background: {
                         paper: amber[100],
@@ -68,7 +79,8 @@ export const siteThemeCollection: SiteThemeCollection = {
                     },
                 },
                 hooverAction: {
-                    boxShadow: hooverActionEffect,
+                    boxShadow:
+                        '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
                 },
                 nonHovered: {
                     boxShadow: 'none',
@@ -77,10 +89,12 @@ export const siteThemeCollection: SiteThemeCollection = {
                     imageUrl: sunThemeBackground,
                     opacity: 0.5,
                 },
+                themeGradient: {
+                    background: `linear-gradient(138deg, ${amber[50]} 10%, ${orange[500]} 100%)`,
+                },
                 themeIcon: {
-                    fontIcon: siteIconCollection.icons.has('wbSunny')
-                        ? siteIconCollection.icons.get('wbSunny')!.fontIcon
-                        : '',
+                    fontIcon:
+                        siteIconCollection.icons.get('wbSunny')?.fontIcon || siteIconCollection.defaultIcon.fontIcon,
                 },
             }),
         ],
@@ -92,7 +106,8 @@ export const siteThemeCollection: SiteThemeCollection = {
                         main: cyan[300],
                     },
                     secondary: {
-                        main: blue[50],
+                        main: blue[100],
+                        light: blue[50],
                     },
                     text: {
                         primary: blueGrey[50],
@@ -107,7 +122,8 @@ export const siteThemeCollection: SiteThemeCollection = {
                     },
                 },
                 hooverAction: {
-                    boxShadow: hooverActionEffect,
+                    boxShadow:
+                        '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
                 },
                 nonHovered: {
                     boxShadow: 'none',
@@ -116,10 +132,12 @@ export const siteThemeCollection: SiteThemeCollection = {
                     imageUrl: cloudsThemeBackground,
                     opacity: 0.3,
                 },
+                themeGradient: {
+                    background: `linear-gradient(138deg, ${blue[50]} 10%, ${cyan[500]} 100%)`,
+                },
                 themeIcon: {
-                    fontIcon: siteIconCollection.icons.has('cloudQueue')
-                        ? siteIconCollection.icons.get('cloudQueue')!.fontIcon
-                        : '',
+                    fontIcon:
+                        siteIconCollection.icons.get('cloudQueue')?.fontIcon || siteIconCollection.defaultIcon.fontIcon,
                 },
             }),
         ],
@@ -132,6 +150,7 @@ export const siteThemeCollection: SiteThemeCollection = {
                     },
                     secondary: {
                         main: blue[100],
+                        light: blue[50],
                     },
                     text: {
                         primary: blueGrey[700],
@@ -146,7 +165,8 @@ export const siteThemeCollection: SiteThemeCollection = {
                     },
                 },
                 hooverAction: {
-                    boxShadow: hooverActionEffect,
+                    boxShadow:
+                        '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
                 },
                 nonHovered: {
                     boxShadow: 'none',
@@ -155,10 +175,12 @@ export const siteThemeCollection: SiteThemeCollection = {
                     imageUrl: waterThemeBackground,
                     opacity: 0.8,
                 },
+                themeGradient: {
+                    background: `linear-gradient(138deg, ${blue[50]} 10%, ${cyan[600]} 100%)`,
+                },
                 themeIcon: {
-                    fontIcon: siteIconCollection.icons.has('water')
-                        ? siteIconCollection.icons.get('water')!.fontIcon
-                        : '',
+                    fontIcon:
+                        siteIconCollection.icons.get('water')?.fontIcon || siteIconCollection.defaultIcon.fontIcon,
                 },
             }),
         ],

@@ -29,8 +29,19 @@ export const siteEnabledFeaturesCollection: FeatureCollection = {
             {
                 id: 'null2',
                 name: 'about',
-                displayName: 'Bemutatkozás',
+                displayName: 'Magunkról',
                 path: '/about',
+                isEnabled: true,
+                isNavOption: true,
+            },
+        ],
+        [
+            'connect',
+            {
+                id: 'null4',
+                name: 'connect',
+                displayName: 'Csatlakozás',
+                path: '/connect',
                 isEnabled: true,
                 isNavOption: true,
             },
@@ -42,17 +53,6 @@ export const siteEnabledFeaturesCollection: FeatureCollection = {
                 name: 'events',
                 displayName: 'Események',
                 path: '/events',
-                isEnabled: true,
-                isNavOption: true,
-            },
-        ],
-        [
-            'donation',
-            {
-                id: 'null4',
-                name: 'donation',
-                displayName: 'Támogatás',
-                path: '/donation',
                 isEnabled: true,
                 isNavOption: true,
             },

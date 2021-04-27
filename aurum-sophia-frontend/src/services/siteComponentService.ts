@@ -2,7 +2,7 @@ import { ComponentCollection } from '../components/common/interface/collection/C
 import { AboutPage } from '../pages/AboutPage';
 import { ActualsPage } from '../pages/ActualsPage';
 import { ContactPage } from '../pages/ContactPage';
-import { DonationPage } from '../pages/DonationPage';
+import { ConnectPage } from '../pages/ConnectPage';
 import { EventsPage } from '../pages/EventsPage';
 
 export const siteFeatureComponents: ComponentCollection = {
@@ -10,7 +10,7 @@ export const siteFeatureComponents: ComponentCollection = {
         ['actuals', ActualsPage],
         ['about', AboutPage],
         ['events', EventsPage],
-        ['donation', DonationPage],
+        ['connect', ConnectPage],
         ['contact', ContactPage],
     ]),
 };

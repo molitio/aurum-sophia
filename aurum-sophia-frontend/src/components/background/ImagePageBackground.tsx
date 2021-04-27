@@ -1,8 +1,12 @@
 import React from 'react';
-import { createStyles, makeStyles, useTheme } from '@material-ui/core';
+import { createStyles, makeStyles, Slide, useScrollTrigger, useTheme } from '@material-ui/core';
 
 export function ImagePageBackground(): JSX.Element {
     const theme = useTheme();
+    const trigger = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 64,
+    });
     const useStyles = makeStyles(() =>
         createStyles({
             root: {
@@ -10,7 +14,7 @@ export function ImagePageBackground(): JSX.Element {
             },
             pageBackground: {
                 position: 'fixed',
-                top: '48px',
+                top: trigger ? '48px' : '0px',
                 backgroundImage: `url(${theme.themeBackgroundImage ? theme.themeBackgroundImage.imageUrl : ''})`,
                 backgroundColor: 'transparent',
                 backgroundPosition: 'center',
@@ -29,6 +33,8 @@ export function ImagePageBackground(): JSX.Element {
     return (
         <>
             <div className={pageStyle.pageBackground}></div>
+            {/* <Slide appear={true} direction="down" in={!trigger}>
+            </Slide> */}
         </>
     );
 }

@@ -29,7 +29,7 @@ export function LandingPage(): JSX.Element {
                 border: 1,
                 borderStyle: 'solid',
                 borderRadius: 10,
-                height: '1000px',
+                height: '2000px',
                 borderColor: theme.palette.secondary.main,
                 boxShadow: theme.shadows[5],
             },

@@ -2,8 +2,9 @@ import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { createStyles, makeStyles, Typography, useTheme } from '@material-ui/core';
 import { SiteLogoComponent } from './SiteLogoComponent';
+import { TitleComponentProps } from './interface/TitleComponentProps';
 
-export function TitleComponent(): JSX.Element {
+export function TitleComponent({ horizontal }: TitleComponentProps): JSX.Element {
     const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({
@@ -12,7 +13,7 @@ export function TitleComponent(): JSX.Element {
             },
             titleContainer: {
                 display: 'flex',
-                padding: 5,
+                padding: 0,
                 '& :hover': {
                     ...theme.hooverActionOn,
                     '& h5, a': {
@@ -20,22 +21,29 @@ export function TitleComponent(): JSX.Element {
                     },
                 },
                 '& h5': {
-                    padding: 5,
+                    padding: 0,
+                    minHeight: '42px',
                 },
             },
             title: {
-                flexGrow: 1,
                 border: 0,
                 borderRadius: 5,
                 '& a': {
                     color: theme.palette.text.primary,
-                    padding: 5,
+                    padding: 0,
                 },
                 '& :link, :visited': {
                     textDecoration: 'none',
                 },
             },
+            titleText: {
+                display: 'flex',
+                position: 'relative',
+                top: '8px',
+                flexDirection: horizontal ? 'row' : 'column',
+            },
             logoContainer: {
+                bottom: '5px',
                 height: '42px',
                 width: '42px',
             },
@@ -48,9 +56,24 @@ export function TitleComponent(): JSX.Element {
             <div className={componentStyle.logoContainer}>
                 <SiteLogoComponent />
             </div>
-            <Typography variant="h5" className={componentStyle.title}>
-                <RouterLink to="/">Aurum Sophia</RouterLink>
-            </Typography>
+            <div className={componentStyle.title}>
+                <Typography variant="h5">
+                    <RouterLink to="/">
+                        <div className={componentStyle.titleText}>
+                            <span>
+                                {' '}
+                                Aurum Sophia
+                                {!horizontal && (
+                                    <span>
+                                        <br />{' '}
+                                    </span>
+                                )}{' '}
+                                Alapítvány
+                            </span>
+                        </div>
+                    </RouterLink>
+                </Typography>
+            </div>
         </div>
     );
 }

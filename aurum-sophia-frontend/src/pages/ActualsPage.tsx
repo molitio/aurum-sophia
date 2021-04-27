@@ -3,7 +3,7 @@ import { makeStyles, createStyles } from '@material-ui/core';
 import { ImagePageBackground } from '../components/background/ImagePageBackground';
 
 export function ActualsPage(): JSX.Element {
-    /*     const useStyles = makeStyles(() =>
+    const useStyles = makeStyles(() =>
         createStyles({
             root: {
                 zIndex: 100,
@@ -15,11 +15,11 @@ export function ActualsPage(): JSX.Element {
         }),
     );
 
-    const pageStyle = useStyles(); */
+    const pageStyle = useStyles();
     return (
         <>
             <ImagePageBackground />
-            <div>actuals page</div>
+            <main className={pageStyle.container}>actuals page</main>
         </>
     );
 }

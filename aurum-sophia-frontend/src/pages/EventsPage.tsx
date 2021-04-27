@@ -5,7 +5,7 @@ export function EventsPage(): JSX.Element {
     return (
         <>
             <ImagePageBackground />
-            <div>events page</div>
+            <main>events page</main>
         </>
     );
 }

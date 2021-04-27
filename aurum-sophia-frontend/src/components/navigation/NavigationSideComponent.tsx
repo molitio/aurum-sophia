@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Divider, createStyles, makeStyles, Drawer, useTheme, List } from '@material-ui/core';
 import NavigationSidePanelProps from './interface/NavigationSidePanelProps';
 import { NavigationItemComponent } from './NavigationItemComponent';
 import { TitleComponent } from '../common/TitleComponent';
-import { siteEnabledFeaturesCollection } from '../../services/siteFeaturesService';
-import { SiteFeature } from '../common/interface/SiteFeature';
+import { Context } from '../../App';
+import { ThemeButtonsComponent } from '../common/ThemeButtonsComponent';
+import { NavigationListComponent } from './NavigationListComponent';
 
 export function NavigationSideComponent({ navigationState, toggle }: NavigationSidePanelProps): JSX.Element {
     type Anchor = 'top' | 'left' | 'bottom' | 'right';
@@ -15,17 +16,6 @@ export function NavigationSideComponent({ navigationState, toggle }: NavigationS
         setSelectedAnchor('left');
     }, []);
 
-    const [featureCollection, setFeatureCollection] = useState<SiteFeature[]>([]);
-
-    useEffect(() => {
-        const features: SiteFeature[] = [];
-        for (const feature of siteEnabledFeaturesCollection.features.values()) {
-            features.push(feature);
-        }
-
-        setFeatureCollection(features);
-    }, []);
-
     const theme = useTheme();
 
     const useStyles = makeStyles(() =>
@@ -33,7 +23,9 @@ export function NavigationSideComponent({ navigationState, toggle }: NavigationS
             root: {
                 zIndex: 100,
             },
-            drawer: {
+            drawerContent: {
+                backgroundColor: theme.palette.background.default,
+                minHeight: '100vh',
                 /*  [theme.breakpoints.up('xs')]: {
                     anchor: setSelectedAnchor('top'),
                 }, */
@@ -55,22 +47,14 @@ export function NavigationSideComponent({ navigationState, toggle }: NavigationS
     return (
         <>
             <div className={componentStyle.root}>
-                <Drawer
-                    className={componentStyle.drawer}
-                    anchor={selectedAnchor}
-                    open={navigationState.sidePanel}
-                    onClose={toggle}
-                >
-                    <div role="presentation" onClick={toggle} onKeyDown={toggle}>
-                        <List className={componentStyle.navList}>
-                            <TitleComponent />
-                            {featureCollection
-                                .filter((isNavOption) => isNavOption.isNavOption)
-                                .map((feature) => (
-                                    <NavigationItemComponent key={feature.id} siteFeature={feature} />
-                                ))}
-                        </List>
-                        <Divider />
+                <Drawer anchor={selectedAnchor} open={navigationState.sidePanel} onClose={toggle}>
+                    <div
+                        className={componentStyle.drawerContent}
+                        role="presentation"
+                        onClick={toggle}
+                        onKeyDown={toggle}
+                    >
+                        <NavigationListComponent horizontal={false} displayIcons={true} />
                     </div>
                 </Drawer>
             </div>

@@ -3,6 +3,7 @@ import { SiteIcon } from '../components/common/interface/SiteIcon';
 /*     icon repository: https://fonts.google.com/icons?selected=Material+Icons */
 
 export const siteIconCollection: IconCollection = {
+    defaultIcon: { fontIcon: 'report_problem' },
     icons: new Map<string, SiteIcon>([
         [
             'reportProblem',
@@ -38,11 +39,12 @@ export const siteIconCollection: IconCollection = {
 };
 
 export const featureIconCollection: IconCollection = {
+    defaultIcon: { fontIcon: 'report_problem' },
     icons: new Map<string, SiteIcon>([
         [
             'actuals',
             {
-                fontIcon: 'new_releases',
+                fontIcon: 'event_note',
             },
         ],
 
@@ -59,9 +61,9 @@ export const featureIconCollection: IconCollection = {
             },
         ],
         [
-            'donation',
+            'connect',
             {
-                fontIcon: 'payments',
+                fontIcon: 'share',
             },
         ],
         [

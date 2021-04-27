@@ -48,7 +48,7 @@ export function ErrorPage({ errorData: error }: SiteError): JSX.Element {
     return (
         <>
             <ThemePageBackground />
-            <div className={pageStyle.root}>
+            <main className={pageStyle.root}>
                 <Paper className={pageStyle.paper}>
                     <div className={pageStyle.pageContent}>
                         <Paper className={pageStyle.errorInfo}>
@@ -65,7 +65,7 @@ export function ErrorPage({ errorData: error }: SiteError): JSX.Element {
                         </Paper>
                     </div>
                 </Paper>
-            </div>
+            </main>
         </>
     );
 }

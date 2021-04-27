@@ -5,7 +5,7 @@ export function ContactPage(): JSX.Element {
     return (
         <>
             <ImagePageBackground />
-            <div>contact page</div>
+            <main>contact page</main>
         </>
     );
 }

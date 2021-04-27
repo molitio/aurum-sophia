@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
-import { createStyles, makeStyles, useTheme } from '@material-ui/core';
+import { Collapse, createStyles, Fade, makeStyles, useTheme } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import { NavigationSideComponent } from './NavigationSideComponent';
-import { NavigationTopComponentProps } from './interface/NavigationTopComponentProps';
 import { TitleComponent } from '../common/TitleComponent';
-import { Button, Icon, Slide } from '@material-ui/core';
+import { Icon } from '@material-ui/core';
 import { siteIconCollection } from '../../services/siteIconService';
 import { useScrollTrigger } from '@material-ui/core';
-import { siteThemeCollection } from '../../services/siteThemeService';
+import { NavigationListComponent } from './NavigationListComponent';
 
-export function NavigationTopComponent({ setSelectedTheme }: NavigationTopComponentProps): JSX.Element {
+export function NavigationTopComponent(): JSX.Element {
     const theme = useTheme();
+
+    const trigger = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 64,
+    });
+
     const useStyles = makeStyles(() =>
         createStyles({
             root: {
@@ -22,12 +27,8 @@ export function NavigationTopComponent({ setSelectedTheme }: NavigationTopCompon
             },
             appBar: {
                 color: theme.palette.text.primary,
-                background: theme.palette.primary.main,
-            },
-            themeIcons: {
-                '& span': {
-                    color: theme.palette.text.primary,
-                },
+                opacity: 0.8,
+                ...theme.themeGradient,
             },
             menuButton: {
                 color: theme.palette.text.primary,
@@ -40,6 +41,10 @@ export function NavigationTopComponent({ setSelectedTheme }: NavigationTopCompon
                         ...theme.hooverActionOff,
                     },
                 },
+            },
+            titleToolBar: {
+                top: 0,
+                position: 'sticky',
             },
         }),
     );
@@ -54,82 +59,43 @@ export function NavigationTopComponent({ setSelectedTheme }: NavigationTopCompon
         setnavigationState({ sidePanel: !navigationState.sidePanel });
     };
 
-    const trigger = useScrollTrigger();
-
-    const themeButtons = (): JSX.Element => {
-        return (
-            <div className={componentStyle.themeIcons}>
-                <Button
-                    onClick={() =>
-                        setSelectedTheme(
-                            siteThemeCollection.themes.has('cloudsSiteTheme')
-                                ? siteThemeCollection.themes.get('cloudsSiteTheme')!
-                                : theme,
-                        )
-                    }
-                >
-                    <Icon>
-                        {siteIconCollection.icons.has('cloudQueue') &&
-                            siteIconCollection.icons.get('cloudQueue')!.fontIcon}
-                    </Icon>
-                </Button>
-                <Button
-                    onClick={() =>
-                        setSelectedTheme(
-                            siteThemeCollection.themes.has('waterSiteTheme')
-                                ? siteThemeCollection.themes.get('waterSiteTheme')!
-                                : theme,
-                        )
-                    }
-                >
-                    <Icon>
-                        {siteIconCollection.icons.has('water') && siteIconCollection.icons.get('water')!.fontIcon}
-                    </Icon>
-                </Button>
-                <Button
-                    onClick={() =>
-                        setSelectedTheme(
-                            siteThemeCollection.themes.has('sunSiteTheme')
-                                ? siteThemeCollection.themes.get('sunSiteTheme')!
-                                : theme,
-                        )
-                    }
-                >
-                    <Icon>
-                        {siteIconCollection.icons.has('wbSunny') && siteIconCollection.icons.get('wbSunny')!.fontIcon}
-                    </Icon>
-                </Button>
-            </div>
-        );
-    };
-
     return (
         <>
-            <Slide appear={true} direction="down" in={!trigger}>
-                <div className={componentStyle.root}>
-                    <AppBar className={componentStyle.appBar} position="static">
+            <div className={componentStyle.root}>
+                <AppBar className={componentStyle.appBar} position="static">
+                    <div>
+                        <Collapse appear={true} in={!trigger} mountOnEnter unmountOnExit>
+                            <Toolbar variant="dense">
+                                <div className={componentStyle.menuButtonContainer}>
+                                    <IconButton
+                                        edge="start"
+                                        className={componentStyle.menuButton}
+                                        aria-label="menu"
+                                        onClick={toggleSidePanel}
+                                    >
+                                        <Icon>
+                                            {siteIconCollection.icons.get('menu')?.fontIcon ||
+                                                siteIconCollection.defaultIcon.fontIcon}
+                                        </Icon>
+                                    </IconButton>
+                                </div>
+                            </Toolbar>
+                            <NavigationSideComponent navigationState={navigationState} toggle={toggleSidePanel} />
+                        </Collapse>
+                    </div>
+                    <div className={componentStyle.titleToolBar}>
                         <Toolbar variant="dense">
-                            <div className={componentStyle.menuButtonContainer}>
-                                <IconButton
-                                    edge="start"
-                                    className={componentStyle.menuButton}
-                                    aria-label="menu"
-                                    onClick={toggleSidePanel}
-                                >
-                                    <Icon>
-                                        {siteIconCollection.icons.has('menu')
-                                            ? siteIconCollection.icons.get('menu')!.fontIcon
-                                            : ''}
-                                    </Icon>
-                                </IconButton>
-                            </div>
-                            {!navigationState.sidePanel && <TitleComponent />}
-                            {!navigationState.sidePanel && themeButtons()}
+                            {!navigationState.sidePanel && <TitleComponent horizontal={true} />}
                         </Toolbar>
-                        <NavigationSideComponent navigationState={navigationState} toggle={toggleSidePanel} />
-                    </AppBar>
-                </div>
-            </Slide>
+                    </div>
+
+                    {!trigger && (
+                        <Toolbar variant="dense">
+                            <NavigationListComponent horizontal={true} displayIcons={false} />
+                        </Toolbar>
+                    )}
+                </AppBar>
+            </div>
         </>
     );
 }
