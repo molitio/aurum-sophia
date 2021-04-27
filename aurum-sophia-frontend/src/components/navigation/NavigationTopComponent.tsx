@@ -46,6 +46,9 @@ export function NavigationTopComponent(): JSX.Element {
                 top: 0,
                 position: 'sticky',
             },
+            title: {
+                marginLeft: trigger ? '0px' : '32px',
+            },
         }),
     );
 
@@ -64,8 +67,14 @@ export function NavigationTopComponent(): JSX.Element {
             <div className={componentStyle.root}>
                 <AppBar className={componentStyle.appBar} position="static">
                     <div>
+                        <NavigationSideComponent navigationState={navigationState} toggle={toggleSidePanel} />
                         <Collapse appear={true} in={!trigger} mountOnEnter unmountOnExit>
-                            <Toolbar variant="dense">
+                            <Toolbar variant="dense"></Toolbar>
+                        </Collapse>
+                    </div>
+                    <div className={componentStyle.titleToolBar}>
+                        <Toolbar variant="dense">
+                            {trigger && (
                                 <div className={componentStyle.menuButtonContainer}>
                                     <IconButton
                                         edge="start"
@@ -79,19 +88,33 @@ export function NavigationTopComponent(): JSX.Element {
                                         </Icon>
                                     </IconButton>
                                 </div>
-                            </Toolbar>
-                            <NavigationSideComponent navigationState={navigationState} toggle={toggleSidePanel} />
-                        </Collapse>
-                    </div>
-                    <div className={componentStyle.titleToolBar}>
-                        <Toolbar variant="dense">
-                            {!navigationState.sidePanel && <TitleComponent horizontal={true} />}
+                            )}
+                            {!navigationState.sidePanel && (
+                                <div className={componentStyle.title}>
+                                    <TitleComponent horizontal={true} />
+                                </div>
+                            )}
                         </Toolbar>
                     </div>
 
                     {!trigger && (
                         <Toolbar variant="dense">
-                            <NavigationListComponent horizontal={true} displayIcons={false} />
+                            <div className={componentStyle.menuButtonContainer}>
+                                <IconButton
+                                    edge="start"
+                                    className={componentStyle.menuButton}
+                                    aria-label="menu"
+                                    onClick={toggleSidePanel}
+                                >
+                                    <Icon>
+                                        {siteIconCollection.icons.get('menu')?.fontIcon ||
+                                            siteIconCollection.defaultIcon.fontIcon}
+                                    </Icon>
+                                </IconButton>
+                            </div>
+                            {!navigationState.sidePanel && (
+                                <NavigationListComponent horizontal={true} displayIcons={false} />
+                            )}
                         </Toolbar>
                     )}
                 </AppBar>

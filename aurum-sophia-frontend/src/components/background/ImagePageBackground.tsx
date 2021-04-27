@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyles, makeStyles, Slide, useScrollTrigger, useTheme } from '@material-ui/core';
+import { createStyles, makeStyles, useScrollTrigger, useTheme } from '@material-ui/core';
 
 export function ImagePageBackground(): JSX.Element {
     const theme = useTheme();

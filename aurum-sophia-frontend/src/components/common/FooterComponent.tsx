@@ -9,10 +9,17 @@ export function FooterComponent(): JSX.Element {
                 zIndex: 100,
             },
             footerContainer: {
+                display: 'flex',
+                alignItems: 'center',
                 /* background: `linear-gradient(138deg, ${amber[50]} 10%, ${orange[500]} 100%)`, */
                 /*TODO: should be: theme.themeGradient.gradient, */
                 minHeight: 24,
+                opacity: 0.6,
+                color: theme.palette.text.primary,
                 ...theme.themeGradient,
+            },
+            brand: {
+                alignSelf: 'flex-end',
             },
         }),
     );
@@ -21,7 +28,9 @@ export function FooterComponent(): JSX.Element {
 
     return (
         <div className={componentStyle.footerContainer}>
-            <Typography variant="body2">footer</Typography>
+            <div className={componentStyle.brand}>
+                <Typography variant="body2">Aurum Sophia Alapítvány 2021</Typography>
+            </div>
         </div>
     );
 }

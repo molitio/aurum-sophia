@@ -110,7 +110,7 @@ export const siteThemeCollection: SiteThemeCollection = {
                         light: blue[50],
                     },
                     text: {
-                        primary: blueGrey[50],
+                        primary: blue[900],
                     },
                     error: {
                         main: red[300],
