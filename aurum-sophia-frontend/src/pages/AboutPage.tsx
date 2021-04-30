@@ -84,9 +84,9 @@ export function AboutPage(): JSX.Element {
                             <span>
                                 A névben az „Aurum” szó a Nap és arany férfias minőségekre utal, a „Sophia” pedig a
                                 bölcsesség női oldalát képviseli. Az Aurum Sophia-ban tehát a női és férfi pólusok
-                                egyesítve, egymás mellé rendelve jelennek meg. Az alapítványi tevékenységének elsődleges
-                                céljaként azon dolgozunk, hogyaz Egyetemes Tudatfejlesztés szemléletét, alapelveit és
-                                módszereitbárki számára elérhetővé tegyük. Így vállaljuk globális szintű küldetésünket
+                                egyesítve, egymás mellé rendelve jelennek meg. Az alapítvány tevékenységének elsődleges
+                                céljaként azon dolgozunk, hogy az Egyetemes Tudatfejlesztés szemléletét, alapelveit és
+                                módszereit bárki számára elérhetővé tegyük. Így vállaljuk globális szintű küldetésünket
                                 is: a tudatos, felszabadult, egészséges és boldog emberek együttműködő közösségének
                                 létrehozását.
                             </span>
@@ -96,7 +96,7 @@ export function AboutPage(): JSX.Element {
                                 Egyéni és csoportos mentoring programjaink, műhelymunkáink,elvonulásaink és táboraink,
                                 valamint konferenciáink során akapcsolódás és közös tapasztalás pótolhatatlan élményének
                                 lehetőségeit teremtjük meg a résztvevők számára, hozzájárulva ezzel az egyéni
-                                éskollektív tudati fejlődés folyamatához
+                                és kollektív tudati fejlődés folyamatához
                             </span>
                         </p>
                     </Typography>
