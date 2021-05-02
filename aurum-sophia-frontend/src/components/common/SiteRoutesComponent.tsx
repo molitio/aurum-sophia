@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { ErrorPage } from '../../pages/ErrorPage';
 import { LandingPage } from '../../pages/LandingPage';
 import { Context } from '../../App';
+import { ActualsPage } from '../../pages/ActualsPage';
 
 export function SiteRoutesComponent(): JSX.Element {
     const context = useContext(Context);
@@ -10,7 +11,7 @@ export function SiteRoutesComponent(): JSX.Element {
     return (
         <Switch>
             <Route exact path="/">
-                <LandingPage />
+                <ActualsPage />
             </Route>
             {Array.from([...context.featureContext.features]).map((route) => (
                 <Route

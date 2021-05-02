@@ -1,30 +1,36 @@
 import React from 'react';
-import { createStyles, makeStyles, useTheme } from '@material-ui/core';
+import { createStyles, makeStyles, useScrollTrigger, useTheme } from '@material-ui/core';
 
 export function ThemePageBackground(): JSX.Element {
     const theme = useTheme();
+    const trigger = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 64,
+    });
     const useStyles = makeStyles(() =>
         createStyles({
-            root: {
-                flexGrow: 1,
+            backgroundContainer: {
+                position: 'fixed',
+                zIndex: -90,
+                top: trigger ? '48px' : '0px',
             },
             pageBackground: {
-                position: 'fixed',
-                background: `linear-gradient(138deg, ${theme.palette.primary.main} 10%, ${theme.palette.background.default} 100%)`,
+                backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
-                height: '100vh',
-                width: '100vw',
-                zIndex: -1,
-                opacity: 0.3,
+                backgroundSize: 'cover',
+                minHeight: '100vh',
+                minWidth: '100vw',
+                opacity: 0.9,
+                ...theme.themeGradientBackground,
             },
         }),
     );
 
-    const pageStyle = useStyles();
+    const componentStyle = useStyles();
 
     return (
-        <>
-            <div className={pageStyle.pageBackground}></div>
-        </>
+        <div className={componentStyle.backgroundContainer}>
+            <div className={componentStyle.pageBackground}></div>
+        </div>
     );
 }

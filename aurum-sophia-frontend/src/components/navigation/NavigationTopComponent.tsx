@@ -20,15 +20,15 @@ export function NavigationTopComponent(): JSX.Element {
 
     const useStyles = makeStyles(() =>
         createStyles({
-            root: {
+            navigationTopContainer: {
                 zIndex: 100,
                 position: 'sticky',
                 top: 0,
             },
             appBar: {
                 color: theme.palette.text.primary,
-                opacity: 0.8,
-                ...theme.themeGradient,
+                opacity: 0.9,
+                ...theme.themeGradientBackground,
             },
             menuButton: {
                 color: theme.palette.text.primary,
@@ -41,6 +41,9 @@ export function NavigationTopComponent(): JSX.Element {
                         ...theme.hooverActionOff,
                     },
                 },
+            },
+            menuRow: {
+                [theme.breakpoints.down('xs')]: { display: 'none' },
             },
             titleToolBar: {
                 top: 0,
@@ -64,11 +67,11 @@ export function NavigationTopComponent(): JSX.Element {
 
     return (
         <>
-            <div className={componentStyle.root}>
-                <AppBar className={componentStyle.appBar} position="static">
+            <div className={componentStyle.navigationTopContainer}>
+                <AppBar className={componentStyle.appBar}>
                     <div>
                         <NavigationSideComponent navigationState={navigationState} toggle={toggleSidePanel} />
-                        <Collapse appear={true} in={!trigger} mountOnEnter unmountOnExit>
+                        <Collapse appear={true} in={!trigger}>
                             <Toolbar variant="dense"></Toolbar>
                         </Collapse>
                     </div>
@@ -112,9 +115,11 @@ export function NavigationTopComponent(): JSX.Element {
                                     </Icon>
                                 </IconButton>
                             </div>
-                            {!navigationState.sidePanel && (
-                                <NavigationListComponent horizontal={true} displayIcons={false} />
-                            )}
+                            <div className={componentStyle.menuRow}>
+                                {!navigationState.sidePanel && (
+                                    <NavigationListComponent horizontal={true} displayIcons={false} />
+                                )}
+                            </div>
                         </Toolbar>
                     )}
                 </AppBar>

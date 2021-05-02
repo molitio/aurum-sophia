@@ -4,7 +4,6 @@ import { ImagePageBackground } from '../components/background/ImagePageBackgroun
 export function ContactPage(): JSX.Element {
     return (
         <>
-            <ImagePageBackground />
             <main>contact page</main>
         </>
     );

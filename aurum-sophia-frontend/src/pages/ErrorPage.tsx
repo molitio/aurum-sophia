@@ -1,7 +1,6 @@
 import React from 'react';
 import { createStyles, makeStyles, Paper, SvgIcon, useTheme, Typography } from '@material-ui/core';
 import { SiteError } from '../components/common/interface/SiteError';
-import { ThemePageBackground } from '../components/background/ThemePageBackground';
 
 export function ErrorPage({ errorData: error }: SiteError): JSX.Element {
     const theme = useTheme();
@@ -19,11 +18,7 @@ export function ErrorPage({ errorData: error }: SiteError): JSX.Element {
                 justifyContent: 'center',
                 alignItems: 'center',
                 textAlign: 'center',
-                background: `linear-gradient(138deg, ${theme.palette.primary.light} 10%, ${theme.palette.background.default} 100%)`,
-                [theme.breakpoints.up('sm')]: {
-                    marginLeft: '15vw',
-                    marginRight: '15vw',
-                },
+                ...theme.themeGradientBackground,
             },
             pageContent: {
                 margin: '0px 20px',
@@ -38,7 +33,7 @@ export function ErrorPage({ errorData: error }: SiteError): JSX.Element {
                 borderRadius: 10,
                 color: theme.palette.error.light,
                 outline: theme.palette.error.light,
-                background: `linear-gradient(138deg, ${theme.palette.background.default} 0%, ${theme.palette.secondary.main} 80%)`,
+                ...theme.themeGradientBackground,
             },
         }),
     );
@@ -47,7 +42,6 @@ export function ErrorPage({ errorData: error }: SiteError): JSX.Element {
 
     return (
         <>
-            <ThemePageBackground />
             <main className={pageStyle.root}>
                 <Paper className={pageStyle.paper}>
                     <div className={pageStyle.pageContent}>

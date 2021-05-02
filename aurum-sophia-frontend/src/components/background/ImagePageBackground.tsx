@@ -9,12 +9,9 @@ export function ImagePageBackground(): JSX.Element {
     });
     const useStyles = makeStyles(() =>
         createStyles({
-            root: {
-                flexGrow: 1,
-            },
-            pageBackground: {
+            imageBackground: {
                 position: 'fixed',
-                top: trigger ? '48px' : '0px',
+                top: trigger ? '48px' : '96px',
                 backgroundImage: `url(${theme.themeBackgroundImage ? theme.themeBackgroundImage.imageUrl : ''})`,
                 backgroundColor: 'transparent',
                 backgroundPosition: 'center',
@@ -22,19 +19,13 @@ export function ImagePageBackground(): JSX.Element {
                 backgroundSize: 'cover',
                 minHeight: '100vh',
                 minWidth: '100vw',
-                zIndex: -1,
+                zIndex: -90,
                 opacity: theme.themeBackgroundImage ? theme.themeBackgroundImage.opacity : 1,
             },
         }),
     );
 
-    const pageStyle = useStyles();
+    const componentStyle = useStyles();
 
-    return (
-        <>
-            <div className={pageStyle.pageBackground}></div>
-            {/* <Slide appear={true} direction="down" in={!trigger}>
-            </Slide> */}
-        </>
-    );
+    return <div className={componentStyle.imageBackground}></div>;
 }

@@ -1,63 +1,71 @@
 import React from 'react';
-import { makeStyles, createStyles, Typography, useTheme, Paper, Container } from '@material-ui/core';
-import { ImagePageBackground } from '../components/background/ImagePageBackground';
+import { makeStyles, createStyles, Typography, useTheme } from '@material-ui/core';
 import pexelsPixabay462030 from '../images/pexelsPixabay462030.jpg';
+import { MembersComponent } from '../components/members/MembersComponent';
 
 export function AboutPage(): JSX.Element {
     const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({
-            root: {
-                zIndex: 100,
-            },
             pageContent: {
-                flex: 1,
                 display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'left',
-                textAlign: 'left',
+                flexDirection: 'column',
                 color: theme.palette.text.primary,
-                margin: '10px 0px',
-                border: 1,
+                padding: '10px 0px',
+                marginBottom: '10px',
+                border: 0,
                 borderStyle: 'solid',
                 borderRadius: 10,
-                height: '2000px',
                 borderColor: theme.palette.secondary.main,
                 boxShadow: theme.shadows[5],
                 opacity: 0.9,
                 /* backgroundColor: 'transparent', */
-                ...theme.themeGradient,
-                [theme.breakpoints.up('md')]: {
-                    marginLeft: '15vw',
-                    marginRight: '15vw',
-                },
+                ...theme.themeGradientBackground,
+            },
+            aboutContent: {
+                display: 'flex',
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'left',
             },
             aboutText: {
+                textAlign: 'center',
                 padding: '15px',
                 opacity: 1,
-                flexGrow: 5,
+                flex: 3,
+                textShadow: `1px 1px ${theme.palette.secondary.main}`,
             },
-            aboutImage: {
+            aboutImageContainer: {
                 marginTop: '15px',
                 marginLeft: '20px',
-                marginRight: '5px',
-                height: '420px',
-                width: '280px',
+                marginRight: '15px',
+                flex: 1,
                 borderWidth: 0,
-                overflow: 'hiden',
                 borderRadius: '10px',
-                flexGrow: 1,
                 [theme.breakpoints.down('xs')]: {
+                    /* top: '33vh',
+                    width: '64vw',
+                    alignItem: 'centered',
+                    opacity: 0.3, */
                     display: 'none',
                 },
             },
-            image: {
+            aboutImage: {
                 border: 1,
                 borderStyle: 'solid',
                 borderColor: theme.palette.secondary.main,
                 borderRadius: '20px',
-                opacity: 0.8,
+                opacity: 0.7,
+                [theme.breakpoints.down('sm')]: {
+                    top: '33vh',
+                    width: '24vw',
+                    alignItem: 'centered',
+                    /* display: 'none', */
+                },
+            },
+            memberContent: {
+                flex: 1,
             },
         }),
     );
@@ -65,46 +73,43 @@ export function AboutPage(): JSX.Element {
     const pageStyle = useStyles();
 
     return (
-        <>
-            <ImagePageBackground />
-            <main className={pageStyle.pageContent}>
+        <main className={pageStyle.pageContent}>
+            <div className={pageStyle.aboutContent}>
                 <div className={pageStyle.aboutText}>
                     <Typography variant="h5">
                         <b>Magunkról</b>
                     </Typography>
+                    <br />
                     <Typography variant="h6">Aurum Sophia Alapítvány</Typography>
-                    <Typography variant="body1">
-                        <p>
-                            <span>
-                                Az Aurum Sophia Alapítvány 2021.02.21-én jött létre, Köves Dávid alapító
-                                kezdeményezésére.
-                            </span>
-                        </p>
-                        <p>
-                            <span>
-                                A névben az „Aurum” szó a Nap és arany férfias minőségekre utal, a „Sophia” pedig a
-                                bölcsesség női oldalát képviseli. Az Aurum Sophia-ban tehát a női és férfi pólusok
-                                egyesítve, egymás mellé rendelve jelennek meg. Az alapítvány tevékenységének elsődleges
-                                céljaként azon dolgozunk, hogy az Egyetemes Tudatfejlesztés szemléletét, alapelveit és
-                                módszereit bárki számára elérhetővé tegyük. Így vállaljuk globális szintű küldetésünket
-                                is: a tudatos, felszabadult, egészséges és boldog emberek együttműködő közösségének
-                                létrehozását.
-                            </span>
-                        </p>
-                        <p>
-                            <span>
-                                Egyéni és csoportos mentoring programjaink, műhelymunkáink,elvonulásaink és táboraink,
-                                valamint konferenciáink során akapcsolódás és közös tapasztalás pótolhatatlan élményének
-                                lehetőségeit teremtjük meg a résztvevők számára, hozzájárulva ezzel az egyéni
-                                és kollektív tudati fejlődés folyamatához
-                            </span>
-                        </p>
+                    <br />
+                    <Typography variant="body1" component="p">
+                        Az Aurum Sophia Alapítvány 2021.02.21-én jött létre, Köves Dávid alapító kezdeményezésére.
                     </Typography>
+                    <br />
+                    <Typography variant="body1" component="p">
+                        A névben az „Aurum” szó a Nap és arany férfias minőségekre utal, a „Sophia” pedig a bölcsesség
+                        női oldalát képviseli. Az Aurum Sophia-ban tehát a női és férfi pólusok egyesítve, egymás mellé
+                        rendelve jelennek meg. Az alapítvány tevékenységének elsődleges céljaként azon dolgozunk, hogy
+                        az Egyetemes Tudatfejlesztés szemléletét, alapelveit és módszereit bárki számára elérhetővé
+                        tegyük. Így vállaljuk globális szintű küldetésünket is: a tudatos, felszabadult, egészséges és
+                        boldog emberek együttműködő közösségének létrehozását.
+                    </Typography>
+                    <br />
+                    <Typography variant="body1" component="p">
+                        Egyéni és csoportos mentoring programjaink, műhelymunkáink,elvonulásaink és táboraink, valamint
+                        konferenciáink során akapcsolódás és közös tapasztalás pótolhatatlan élményének lehetőségeit
+                        teremtjük meg a résztvevők számára, hozzájárulva ezzel az egyéni és kollektív tudati fejlődés
+                        folyamatához
+                    </Typography>
+                    <br />
                 </div>
-                <div className={pageStyle.aboutImage}>
-                    <img className={pageStyle.image} src={pexelsPixabay462030} alt="Sun" />
+                <div className={pageStyle.aboutImageContainer}>
+                    <img className={pageStyle.aboutImage} src={pexelsPixabay462030} alt="Sun" />
                 </div>
-            </main>
-        </>
+            </div>
+            <div className={pageStyle.memberContent}>
+                <MembersComponent />
+            </div>
+        </main>
     );
 }

@@ -17,7 +17,8 @@ import { siteFeatureComponents } from './services/siteComponentService';
 import { siteErrorCollection } from './services/siteErrorsService';
 import { siteEnabledFeaturesCollection } from './services/siteFeaturesService';
 import { siteIconCollection } from './services/siteIconService';
-import { amber, orange } from '@material-ui/core/colors';
+import { ImagePageBackground } from './components/background/ImagePageBackground';
+import { ThemePageBackground } from './components/background/ThemePageBackground';
 
 export const Context = createContext<SiteContext>({
     themeContext: siteThemeCollection,
@@ -29,35 +30,46 @@ export const Context = createContext<SiteContext>({
 
 export function App(): JSX.Element {
     const theme = useTheme();
+    const trigger = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 64,
+    });
     const useStyles = makeStyles(() =>
         createStyles({
-            root: {},
-            appContainer: {
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'stretch',
-                minHeight: '100vh',
+            appRoot: {},
+            navContainer: {
+                position: 'sticky',
+                top: 0,
+                zIndex: 100,
                 width: '100vw',
             },
-            appContent: {
-                flex: 1,
+            appContainer: {
+                width: '100vw',
+                height: '100vh',
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'stretch',
+                paddingTop: trigger ? '48px' : '164px',
+            },
+            appContentContainer: {
+                alignSelf: 'flex-start',
+                flexGrow: 1,
+                [theme.breakpoints.up('sm')]: {
+                    paddingLeft: '5vw',
+                    paddingRight: '5vw',
+                },
+                [theme.breakpoints.up('lg')]: {
+                    paddingLeft: '15vw',
+                    paddingRight: '15vw',
+                },
             },
             footerContainer: {
-                /* background: `linear-gradient(138deg, ${amber[50]} 10%, ${orange[500]} 100%)`, */
-                /*TODO: should be: theme.themeGradient.gradient, */
+                alignSelf: 'flex-end',
+                width: '100vw',
                 minHeight: 24,
-                ...theme.themeGradient,
+                ...theme.themeGradientBackground,
             },
         }),
     );
-
-    /* var(--space) var(--space) 
-    var(--space)
-    content: '\00a0',
-    */
 
     const pageStyle = useStyles();
 
@@ -73,10 +85,8 @@ export function App(): JSX.Element {
         );
     }, [theme]);
 
-    const trigger = useScrollTrigger();
-
     return (
-        <>
+        <div className={pageStyle.appRoot}>
             <Context.Provider
                 value={{
                     themeContext: {
@@ -91,17 +101,22 @@ export function App(): JSX.Element {
                 }}
             >
                 <ThemeProvider theme={selectedTheme ? selectedTheme : theme}>
-                    <div className={pageStyle.appContainer}>
+                    <div className={pageStyle.navContainer}>
                         <NavigationTopComponent />
-                        <div className={pageStyle.appContent}>
+                    </div>
+                    <div className={pageStyle.appContainer}>
+                        <div className={pageStyle.appContentContainer}>
                             <SiteRoutesComponent />
                         </div>
+                        <div className={pageStyle.footerContainer}>
+                            <FooterComponent />
+                        </div>
                     </div>
-                    <div className={pageStyle.footerContainer}>
-                        <FooterComponent />
-                    </div>
+                    {/* //TODO: logic */}
+                    {/*    <ThemePageBackground /> */}
+                    <ImagePageBackground />
                 </ThemeProvider>
             </Context.Provider>
-        </>
+        </div>
     );
 }

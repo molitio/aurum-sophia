@@ -1,13 +1,11 @@
 import React from 'react';
 import { useTheme, makeStyles, createStyles } from '@material-ui/core';
-import { ImagePageBackground } from '../components/background/ImagePageBackground';
 
 export function LandingPage(): JSX.Element {
     const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({
-            root: {
-                flex: 1,
+            landing: {
                 display: 'flex',
                 flexDirection: 'column',
             },
@@ -38,9 +36,8 @@ export function LandingPage(): JSX.Element {
 
     const pageStyle = useStyles();
     return (
-        <>
-            <ImagePageBackground />
+        <div className={pageStyle.landing}>
             <div className={pageStyle.pageContent}>Landing page</div>
-        </>
+        </div>
     );
 }
