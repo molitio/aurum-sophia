@@ -51,7 +51,7 @@ export function App(): JSX.Element {
                 paddingTop: trigger ? '48px' : '164px',
             },
             appContentContainer: {
-                alignSelf: 'flex-start',
+                alignSelf: 'center',
                 flexGrow: 1,
                 [theme.breakpoints.up('sm')]: {
                     paddingLeft: '5vw',

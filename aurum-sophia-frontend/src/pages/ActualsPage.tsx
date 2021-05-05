@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, createStyles, Typography, useTheme } from '@material-ui/core';
-import { MembersComponent } from '../components/members/MembersComponent';
+import { EventsComponent } from '../components/events/EventsComponent';
 
 export function ActualsPage(): JSX.Element {
     const theme = useTheme();
@@ -71,13 +71,7 @@ export function ActualsPage(): JSX.Element {
                     </div>
                 </div>
                 <div className={pageStyle.memberContent}>
-                    <div className={pageStyle.actualsText}>
-                        <Typography variant="h5">
-                            <b>Események</b>
-                        </Typography>
-                    </div>
-                    <br />
-                    <MembersComponent />
+                    <EventsComponent />
                 </div>
             </main>
         </>

@@ -1,9 +1,12 @@
 import React from 'react';
+import { EventsComponent } from '../components/events/EventsComponent';
 
 export function EventsPage(): JSX.Element {
     return (
         <>
-            <main>events page</main>
+            <main>
+                <EventsComponent />
+            </main>
         </>
     );
 }

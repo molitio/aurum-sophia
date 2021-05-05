@@ -8,11 +8,11 @@ export function TitleComponent({ horizontal }: TitleComponentProps): JSX.Element
     const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({
-            root: {
-                zIndex: 100,
-            },
-            titleContainer: {
+            title: {
                 display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'flex-end',
+                margin: '3px',
                 padding: 0,
                 '& :hover': {
                     ...theme.hooverActionOn,
@@ -25,7 +25,7 @@ export function TitleComponent({ horizontal }: TitleComponentProps): JSX.Element
                     minHeight: '42px',
                 },
             },
-            title: {
+            titleContainer: {
                 border: 0,
                 borderRadius: 5,
                 '& a': {
@@ -38,12 +38,10 @@ export function TitleComponent({ horizontal }: TitleComponentProps): JSX.Element
             },
             titleText: {
                 display: 'flex',
-                position: 'relative',
-                top: '8px',
                 flexDirection: horizontal ? 'row' : 'column',
+                alignItems: 'flex-end',
             },
             logoContainer: {
-                bottom: '5px',
                 height: '42px',
                 width: '42px',
             },
@@ -52,27 +50,19 @@ export function TitleComponent({ horizontal }: TitleComponentProps): JSX.Element
 
     const componentStyle = useStyles();
     return (
-        <div className={componentStyle.titleContainer}>
+        <div className={componentStyle.title}>
             <div className={componentStyle.logoContainer}>
                 <SiteLogoComponent />
             </div>
-            <div className={componentStyle.title}>
-                <Typography variant="h5">
-                    <RouterLink to="/">
-                        <div className={componentStyle.titleText}>
-                            <span>
-                                {' '}
-                                Aurum Sophia
-                                {!horizontal && (
-                                    <span>
-                                        <br />{' '}
-                                    </span>
-                                )}{' '}
-                                Alapítvány
-                            </span>
-                        </div>
-                    </RouterLink>
-                </Typography>
+            <div className={componentStyle.titleContainer}>
+                <RouterLink to="/">
+                    <div className={componentStyle.titleText}>
+                        <Typography variant="h5" component="h1">
+                            Aurum Sophia {!horizontal && <br />}
+                            Alapítvány
+                        </Typography>
+                    </div>
+                </RouterLink>
             </div>
         </div>
     );

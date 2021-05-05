@@ -42,8 +42,8 @@ export const siteEnabledFeaturesCollection: FeatureCollection = {
                 name: 'connect',
                 displayName: 'Csatlakozás',
                 path: '/connect',
-                isEnabled: true,
-                isNavOption: true,
+                isEnabled: false,
+                isNavOption: false,
             },
         ],
         [
