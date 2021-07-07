@@ -1,15 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { FooterComponent } from './components/common/FooterComponent';
 import { NavigationTopComponent } from './components/navigation/NavigationTopComponent';
-import {
-    createStyles,
-    makeStyles,
-    Collapse,
-    Theme,
-    ThemeProvider,
-    useScrollTrigger,
-    useTheme,
-} from '@material-ui/core';
+import { createStyles, makeStyles, Theme, ThemeProvider, useScrollTrigger, useTheme } from '@material-ui/core';
 import { siteThemeCollection } from './services/siteThemeService';
 import { SiteRoutesComponent } from './components/common/SiteRoutesComponent';
 import { SiteContext } from './components/common/interface/SiteContext';
@@ -18,7 +10,7 @@ import { siteErrorCollection } from './services/siteErrorsService';
 import { siteEnabledFeaturesCollection } from './services/siteFeaturesService';
 import { siteIconCollection } from './services/siteIconService';
 import { ImagePageBackground } from './components/background/ImagePageBackground';
-import { ThemePageBackground } from './components/background/ThemePageBackground';
+//import { ThemePageBackground } from './components/background/ThemePageBackground';
 
 export const Context = createContext<SiteContext>({
     themeContext: siteThemeCollection,

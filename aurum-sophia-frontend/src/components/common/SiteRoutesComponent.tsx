@@ -4,6 +4,7 @@ import { ErrorPage } from '../../pages/ErrorPage';
 import { LandingPage } from '../../pages/LandingPage';
 import { Context } from '../../App';
 import { ActualsPage } from '../../pages/ActualsPage';
+import { sitePageContentCollection } from '../../services/siteContentService';
 
 export function SiteRoutesComponent(): JSX.Element {
     const context = useContext(Context);
@@ -11,7 +12,7 @@ export function SiteRoutesComponent(): JSX.Element {
     return (
         <Switch>
             <Route exact path="/">
-                <ActualsPage />
+                <ActualsPage data={sitePageContentCollection().getIdByMolitioTag('actuals01').data} />
             </Route>
             {Array.from([...context.featureContext.features]).map((route) => (
                 <Route

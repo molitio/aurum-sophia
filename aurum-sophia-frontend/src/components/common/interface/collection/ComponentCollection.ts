@@ -1,3 +1,5 @@
+import { PageContent } from '../PageContent';
+
 export interface ComponentCollection {
-    components: Map<string, () => JSX.Element>;
+    components: Map<string, (componentParameter: PageContent) => JSX.Element>;
 }

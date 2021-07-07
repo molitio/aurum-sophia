@@ -4,9 +4,16 @@ import { ActualsPage } from '../pages/ActualsPage';
 import { ContactPage } from '../pages/ContactPage';
 import { ConnectPage } from '../pages/ConnectPage';
 import { EventsPage } from '../pages/EventsPage';
+import { sitePageContentCollection } from './siteContentService';
+import { ErrorPage } from '../pages/ErrorPage';
+import { PageContent } from '../components/common/interface/PageContent';
+
+const contentCollection = sitePageContentCollection();
+
+// consider dynamic module loading from library
 
 export const siteFeatureComponents: ComponentCollection = {
-    components: new Map<string, () => JSX.Element>([
+    components: new Map<string, (componentParameter: PageContent) => JSX.Element>([
         ['actuals', ActualsPage],
         ['about', AboutPage],
         ['events', EventsPage],
@@ -14,3 +21,16 @@ export const siteFeatureComponents: ComponentCollection = {
         ['contact', ContactPage],
     ]),
 };
+
+/* export const getSiteFeatureByTag = (tag: string): JSX.Element => {
+    const element = siteFeatureComponents.components.get(tag);
+    return element
+        ? element
+        : ErrorPage({
+              errorData: {
+                  code: 404,
+                  description: 'Component not found.',
+                  message: 'Reference to a non existent component',
+              },
+          });
+}; */

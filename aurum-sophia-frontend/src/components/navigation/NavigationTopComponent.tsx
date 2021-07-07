@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Collapse, createStyles, Fade, makeStyles, useTheme } from '@material-ui/core';
+import { Collapse, createStyles, makeStyles, useTheme } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -71,9 +71,9 @@ export function NavigationTopComponent(): JSX.Element {
                 <AppBar className={componentStyle.appBar}>
                     <div>
                         <NavigationSideComponent navigationState={navigationState} toggle={toggleSidePanel} />
-                        <Collapse appear={true} in={!trigger}>
-                            <Toolbar variant="dense"></Toolbar>
-                        </Collapse>
+                        {/*     <Collapse appear={true} in={!trigger}> */}
+                        <Toolbar variant="dense"></Toolbar>
+                        {/* </Collapse> */}
                     </div>
                     <div className={componentStyle.titleToolBar}>
                         <Toolbar variant="dense">

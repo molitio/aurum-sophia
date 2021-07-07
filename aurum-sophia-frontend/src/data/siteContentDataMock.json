@@ -1,0 +1,23 @@
+{
+    "contentCollection": [
+        [
+            { "molitioTag": "actuals01" },
+            {
+                "data": {
+                    "title": "menuPage1",
+                    "dateCreated": "2021-07-01",
+                    "textContent": "Örömmel tudatjuk, hogy 2021. Április 13-án a bírósági bejegyzés által hivatalosan is megalakult az alapítványunk. A lényeget viszont továbbra sem a hivatali ügyekben és formai keretekben látjuk, hanem a valódi értékeken alapuló emberi közösségben. Jó látni a víziónkat a szervezeten belül már most megvalósulni! A 10-12 fő létszámú tagokból, küldetés-társakból, önkéntes segítőkből álló csapatunkban minden egyes találkozó alatt tanúi lehetünk a tudatos fejlődésben együttműködő örömteli emberi közösség erejének.Erre hívunk mindenkit, hogy vegyen rész ebben a felemelő folyamatban akár támogatóként, küldetés-társként, vagy programjainkra jelentkezőként.Mi alakítjuk ki magunkban és magunk körül azt a világot, amiben élni szeretnénk. A jövőt a tiszta és kölcsönösen előnyös együttműködésekre építjük! Tarts velünk!"
+                }
+            }
+        ],
+        [
+            { "molitioTag": "lorem01" },
+            {
+                "data": {
+                    "title": "menupageLorem01",
+                    "textContent": "lorem ipsum"
+                }
+            }
+        ]
+    ]
+}
