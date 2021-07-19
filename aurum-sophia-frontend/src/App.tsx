@@ -10,14 +10,11 @@ import { siteErrorCollection } from './services/siteErrorsService';
 import { siteEnabledFeaturesCollection } from './services/siteFeaturesService';
 import { siteIconCollection } from './services/siteIconService';
 import { ImagePageBackground } from './components/background/ImagePageBackground';
+import { AppContext } from './components/common/interface/AppContext';
 //import { ThemePageBackground } from './components/background/ThemePageBackground';
 
-export const Context = createContext<SiteContext>({
-    themeContext: siteThemeCollection,
-    featureContext: siteEnabledFeaturesCollection,
-    componentContext: siteFeatureComponents,
-    iconContext: siteIconCollection,
-    errorContext: siteErrorCollection,
+export const Context = createContext<AppContext>({
+    contextData: appContextService.getContext(),
 });
 
 export function App(): JSX.Element {

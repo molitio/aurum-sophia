@@ -1,7 +1,7 @@
 import { SiteError } from '../components/common/interface/SiteError';
-import { SiteErrorCollection } from '../components/common/interface/collection/SiteErrorCollection';
+import { ErrorCollection } from '../components/common/interface/collection/ErrorCollection';
 
-export const siteErrorCollection: SiteErrorCollection = {
+export const siteErrorCollection: ErrorCollection = {
     errors: new Map<string, SiteError>([
         [
             '404',

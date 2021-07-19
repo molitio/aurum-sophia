@@ -1,5 +1,5 @@
 import { SiteError } from '../SiteError';
 
-export interface SiteErrorCollection {
+export interface ErrorCollection {
     errors: Map<string, SiteError>;
 }

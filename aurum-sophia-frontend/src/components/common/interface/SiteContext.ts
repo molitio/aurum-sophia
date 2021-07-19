@@ -1,13 +1,13 @@
-import { SiteThemeCollection } from '../interface/collection/SiteThemeCollection';
+import { ThemeCollection } from './collection/ThemeCollection';
 import { FeatureCollection } from '../interface/collection/FeatureCollection';
 import { ComponentCollection } from '../interface/collection/ComponentCollection';
 import { IconCollection } from '../interface/collection/IconCollection';
-import { SiteErrorCollection } from '../interface/collection/SiteErrorCollection';
+import { ErrorCollection } from './collection/ErrorCollection';
 
 export interface SiteContext {
-    themeContext: SiteThemeCollection;
+    themeContext: ThemeCollection;
     featureContext: FeatureCollection;
     componentContext: ComponentCollection;
     iconContext: IconCollection;
-    errorContext: SiteErrorCollection;
+    errorContext: ErrorCollection;
 }

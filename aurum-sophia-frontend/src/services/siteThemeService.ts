@@ -12,7 +12,7 @@ import {
     orange,
     red,
 } from '@material-ui/core/colors';
-import { SiteThemeCollection } from '../components/common/interface/collection/SiteThemeCollection';
+import { ThemeCollection } from '../components/common/interface/collection/ThemeCollection';
 import { siteIconCollection } from './siteIconService';
 import sunThemeBackground from '../images/sunThemeBackground.jpg';
 import cloudsThemeBackground from '../images/cloudsThemeBackground.jpg';
@@ -71,7 +71,7 @@ declare module '@material-ui/core/' {
 const hooverActionEffect =
     '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)';
 
-export const siteThemeCollection: SiteThemeCollection = {
+export const siteThemeCollection: ThemeCollection = {
     selectedTheme: createMuiTheme(),
     setSelectedTheme: () => {
         return null;
