@@ -27,7 +27,7 @@ export function ThemeButtonsComponent(): JSX.Element {
             <div className={componentStyle.themeIcons}>
                 <Button
                     onClick={() =>
-                        context.themeContext.setSelectedTheme(
+                        context.contextData.themes.setSelectedTheme(
                             siteThemeCollection.themes.get('cloudsSiteTheme') || theme,
                         )
                     }
@@ -39,7 +39,9 @@ export function ThemeButtonsComponent(): JSX.Element {
                 </Button>
                 <Button
                     onClick={() =>
-                        context.themeContext.setSelectedTheme(siteThemeCollection.themes.get('waterSiteTheme') || theme)
+                        context.contextData.themes.setSelectedTheme(
+                            siteThemeCollection.themes.get('waterSiteTheme') || theme,
+                        )
                     }
                 >
                     <Icon>
@@ -48,7 +50,9 @@ export function ThemeButtonsComponent(): JSX.Element {
                 </Button>
                 <Button
                     onClick={() =>
-                        context.themeContext.setSelectedTheme(siteThemeCollection.themes.get('sunSiteTheme') || theme)
+                        context.contextData.themes.setSelectedTheme(
+                            siteThemeCollection.themes.get('sunSiteTheme') || theme,
+                        )
                     }
                 >
                     <Icon>

@@ -29,7 +29,7 @@ export function NavigationListComponent({ horizontal, displayIcons }: Navigation
         <>
             {!horizontal && <TitleComponent horizontal={horizontal} />}
             <List className={componentStyle.navList}>
-                {Array.from(context.featureContext.features.values())
+                {Array.from(context.contextData.features.features.values())
                     .filter((isNavOption) => isNavOption.isNavOption)
                     .map((feature) => (
                         <NavigationItemComponent key={feature.id} siteFeature={feature} displayIcons={displayIcons} />

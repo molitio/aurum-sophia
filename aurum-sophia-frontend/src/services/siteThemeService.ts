@@ -1,4 +1,4 @@
-import { createMuiTheme, Theme } from '@material-ui/core';
+import { createTheme, Theme } from '@material-ui/core';
 import {
     amber,
     blue,
@@ -42,7 +42,7 @@ declare module '@material-ui/core/' {
             borderColor: string;
         };
     }
-    // allow configuration using `createMuiTheme`
+    // allow configuration using `createTheme`
     interface ThemeOptions {
         hooverAction?: {
             boxShadow: string;
@@ -72,14 +72,14 @@ const hooverActionEffect =
     '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)';
 
 export const siteThemeCollection: ThemeCollection = {
-    selectedTheme: createMuiTheme(),
+    selectedTheme: createTheme(),
     setSelectedTheme: () => {
         return null;
     },
     themes: new Map<string, Theme>([
         [
             'sunSiteTheme',
-            createMuiTheme({
+            createTheme({
                 palette: {
                     primary: {
                         main: orange[500],
@@ -129,7 +129,7 @@ export const siteThemeCollection: ThemeCollection = {
         ],
         [
             'cloudsSiteTheme',
-            createMuiTheme({
+            createTheme({
                 palette: {
                     primary: {
                         main: cyan[300],
@@ -177,7 +177,7 @@ export const siteThemeCollection: ThemeCollection = {
         ],
         [
             'waterSiteTheme',
-            createMuiTheme({
+            createTheme({
                 palette: {
                     primary: {
                         main: cyan[600],
@@ -225,7 +225,7 @@ export const siteThemeCollection: ThemeCollection = {
         ],
         [
             'earthSiteTheme',
-            createMuiTheme({
+            createTheme({
                 palette: {
                     primary: {
                         main: brown[600],

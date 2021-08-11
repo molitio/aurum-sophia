@@ -54,7 +54,7 @@ export function ActualsPage({ data }: PageContent): JSX.Element {
                         </Typography>
                         <br />
                         <Typography variant="body1" component="p">
-                            {data.textContent}
+                            {data?.textContent}
                         </Typography>
                         <br />
                     </div>

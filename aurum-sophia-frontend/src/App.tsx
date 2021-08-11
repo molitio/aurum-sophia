@@ -4,18 +4,13 @@ import { NavigationTopComponent } from './components/navigation/NavigationTopCom
 import { createStyles, makeStyles, Theme, ThemeProvider, useScrollTrigger, useTheme } from '@material-ui/core';
 import { siteThemeCollection } from './services/siteThemeService';
 import { SiteRoutesComponent } from './components/common/SiteRoutesComponent';
-import { SiteContext } from './components/common/interface/SiteContext';
-import { siteFeatureComponents } from './services/siteComponentService';
-import { siteErrorCollection } from './services/siteErrorsService';
-import { siteEnabledFeaturesCollection } from './services/siteFeaturesService';
-import { siteIconCollection } from './services/siteIconService';
 import { ImagePageBackground } from './components/background/ImagePageBackground';
 import { AppContext } from './components/common/interface/AppContext';
+import { getContext } from './services/appContextService';
+
 //import { ThemePageBackground } from './components/background/ThemePageBackground';
 
-export const Context = createContext<AppContext>({
-    contextData: appContextService.getContext(),
-});
+export const Context = createContext<AppContext>(getContext());
 
 export function App(): JSX.Element {
     const theme = useTheme();
@@ -76,19 +71,7 @@ export function App(): JSX.Element {
 
     return (
         <div className={pageStyle.appRoot}>
-            <Context.Provider
-                value={{
-                    themeContext: {
-                        themes: siteThemeCollection.themes,
-                        selectedTheme: selectedTheme,
-                        setSelectedTheme: setSelctedTheme,
-                    },
-                    featureContext: siteEnabledFeaturesCollection,
-                    componentContext: siteFeatureComponents,
-                    iconContext: siteIconCollection,
-                    errorContext: siteErrorCollection,
-                }}
-            >
+            <Context.Provider value={getContext()}>
                 <ThemeProvider theme={selectedTheme ? selectedTheme : theme}>
                     <div className={pageStyle.navContainer}>
                         <NavigationTopComponent />
