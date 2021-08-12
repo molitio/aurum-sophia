@@ -1,17 +1,5 @@
 import { createTheme, Theme } from '@material-ui/core';
-import {
-    amber,
-    blue,
-    blueGrey,
-    brown,
-    cyan,
-    green,
-    grey,
-    indigo,
-    lightGreen,
-    orange,
-    red,
-} from '@material-ui/core/colors';
+import { amber, blue, blueGrey, brown, cyan, green, indigo, lightGreen, orange, red } from '@material-ui/core/colors';
 import { ThemeCollection } from '../components/common/interface/collection/ThemeCollection';
 import { siteIconCollection } from './siteIconService';
 import sunThemeBackground from '../images/sunThemeBackground.jpg';
@@ -67,15 +55,13 @@ declare module '@material-ui/core/' {
         };
     }
 }
-
+/* 
 const hooverActionEffect =
     '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)';
+ */
 
 export const siteThemeCollection: ThemeCollection = {
-    selectedTheme: createTheme(),
-    setSelectedTheme: () => {
-        return null;
-    },
+    selectedTheme: 'sunSiteTheme',
     themes: new Map<string, Theme>([
         [
             'sunSiteTheme',

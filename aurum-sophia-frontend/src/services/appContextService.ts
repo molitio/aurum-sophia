@@ -1,3 +1,4 @@
+import { createContext } from 'react';
 import { AppContext } from '../components/common/interface/AppContext';
 import { siteFeatureComponents } from './siteComponentService';
 import { sitePageContentCollection } from './siteContentService';
@@ -10,18 +11,18 @@ const buildContext = () => {
     const contentData = sitePageContentCollection();
 
     return {
-        contextData: {
-            molitioId: { molitioTag: `app_aurum_shopia` },
-            features: siteEnabledFeaturesCollection,
-            components: siteFeatureComponents,
-            errors: siteErrorCollection,
-            icons: siteIconCollection,
-            themes: siteThemeCollection,
-            content: contentData,
-        },
+        molitioId: { molitioTag: `app_aurum_shopia` },
+        featureContext: siteEnabledFeaturesCollection,
+        componentContext: siteFeatureComponents,
+        errorContext: siteErrorCollection,
+        iconContext: siteIconCollection,
+        themeContext: siteThemeCollection,
+        contentContext: contentData,
     };
 };
 
 export const getContext = (): AppContext => {
     return buildContext();
 };
+
+export const SiteContext = createContext<AppContext>(getContext());

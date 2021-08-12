@@ -3,7 +3,7 @@ import { useTheme, Button, Icon, createStyles, makeStyles } from '@material-ui/c
 import { siteIconCollection } from '../../services/siteIconService';
 import { siteThemeCollection } from '../../services/siteThemeService';
 import { useContext } from 'react';
-import { Context } from '../../App';
+import { SiteContext } from '../../services/appContextService';
 
 export function ThemeButtonsComponent(): JSX.Element {
     const theme = useTheme();
@@ -20,14 +20,14 @@ export function ThemeButtonsComponent(): JSX.Element {
 
     const componentStyle = useStyles();
 
-    const context = useContext(Context);
+    const context = useContext(SiteContext);
 
     return (
         <>
             <div className={componentStyle.themeIcons}>
                 <Button
                     onClick={() =>
-                        context.contextData.themes.setSelectedTheme(
+                        context.themeContext.setSelectedTheme(
                             siteThemeCollection.themes.get('cloudsSiteTheme') || theme,
                         )
                     }
@@ -39,9 +39,7 @@ export function ThemeButtonsComponent(): JSX.Element {
                 </Button>
                 <Button
                     onClick={() =>
-                        context.contextData.themes.setSelectedTheme(
-                            siteThemeCollection.themes.get('waterSiteTheme') || theme,
-                        )
+                        context.themeContext.setSelectedTheme(siteThemeCollection.themes.get('waterSiteTheme') || theme)
                     }
                 >
                     <Icon>
@@ -50,9 +48,7 @@ export function ThemeButtonsComponent(): JSX.Element {
                 </Button>
                 <Button
                     onClick={() =>
-                        context.contextData.themes.setSelectedTheme(
-                            siteThemeCollection.themes.get('sunSiteTheme') || theme,
-                        )
+                        context.themeContext.setSelectedTheme(siteThemeCollection.themes.get('sunSiteTheme') || theme)
                     }
                 >
                     <Icon>

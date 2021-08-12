@@ -1,10 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Divider, createStyles, makeStyles, Drawer, useTheme, List } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { createStyles, makeStyles, Drawer, useTheme } from '@material-ui/core';
 import NavigationSidePanelProps from './interface/NavigationSidePanelProps';
-import { NavigationItemComponent } from './NavigationItemComponent';
-import { TitleComponent } from '../common/TitleComponent';
-import { Context } from '../../App';
-import { ThemeButtonsComponent } from '../common/ThemeButtonsComponent';
 import { NavigationListComponent } from './NavigationListComponent';
 
 export function NavigationSideComponent({ navigationState, toggle }: NavigationSidePanelProps): JSX.Element {

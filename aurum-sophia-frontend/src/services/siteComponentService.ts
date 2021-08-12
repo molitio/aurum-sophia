@@ -4,11 +4,7 @@ import { ActualsPage } from '../pages/ActualsPage';
 import { ContactPage } from '../pages/ContactPage';
 import { ConnectPage } from '../pages/ConnectPage';
 import { EventsPage } from '../pages/EventsPage';
-import { sitePageContentCollection } from './siteContentService';
-import { ErrorPage } from '../pages/ErrorPage';
 import { PageContent } from '../components/common/interface/PageContent';
-
-const contentCollection = sitePageContentCollection();
 
 // consider dynamic module loading from library
 

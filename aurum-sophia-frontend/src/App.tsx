@@ -1,18 +1,16 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FooterComponent } from './components/common/FooterComponent';
 import { NavigationTopComponent } from './components/navigation/NavigationTopComponent';
 import { createStyles, makeStyles, Theme, ThemeProvider, useScrollTrigger, useTheme } from '@material-ui/core';
-import { siteThemeCollection } from './services/siteThemeService';
 import { SiteRoutesComponent } from './components/common/SiteRoutesComponent';
 import { ImagePageBackground } from './components/background/ImagePageBackground';
-import { AppContext } from './components/common/interface/AppContext';
-import { getContext } from './services/appContextService';
+import { SiteContext } from './services/appContextService';
 
 //import { ThemePageBackground } from './components/background/ThemePageBackground';
 
-export const Context = createContext<AppContext>(getContext());
-
 export function App(): JSX.Element {
+    console.log(`app is rendering`);
+    const context = useContext(SiteContext);
     const theme = useTheme();
     const trigger = useScrollTrigger({
         disableHysteresis: true,
@@ -58,7 +56,7 @@ export function App(): JSX.Element {
     const pageStyle = useStyles();
 
     const [selectedTheme, setSelctedTheme] = useState<Theme | undefined>(theme);
-
+    /* 
     useEffect(() => {
         const themes: Theme[] = [];
         for (const theme of siteThemeCollection.themes.values()) {
@@ -67,12 +65,14 @@ export function App(): JSX.Element {
         setSelctedTheme(
             siteThemeCollection.themes.has('sunSiteTheme') ? siteThemeCollection.themes.get('sunSiteTheme') : theme,
         );
-    }, [theme]);
+    }, [theme]); */
+
+    useEffect;
 
     return (
         <div className={pageStyle.appRoot}>
-            <Context.Provider value={getContext()}>
-                <ThemeProvider theme={selectedTheme ? selectedTheme : theme}>
+            <SiteContext.Provider value={context}>
+                <ThemeProvider theme={context.themeContext.selectedTheme ? context.themeContext.selectedTheme : theme}>
                     <div className={pageStyle.navContainer}>
                         <NavigationTopComponent />
                     </div>
@@ -88,7 +88,7 @@ export function App(): JSX.Element {
                     {/*    <ThemePageBackground /> */}
                     <ImagePageBackground />
                 </ThemeProvider>
-            </Context.Provider>
+            </SiteContext.Provider>
         </div>
     );
 }

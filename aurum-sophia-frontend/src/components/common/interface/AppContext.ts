@@ -7,13 +7,11 @@ import { ComponentCollection } from './collection/ComponentCollection';
 import { SitePageContentCollection } from './collection/SitePageContentCollection';
 
 export interface AppContext {
-    contextData: {
-        molitioId: MolitioId;
-        features: FeatureCollection;
-        components: ComponentCollection;
-        errors: ErrorCollection;
-        icons: IconCollection;
-        themes: ThemeCollection;
-        content: SitePageContentCollection;
-    };
+    molitioId: MolitioId;
+    featureContext: FeatureCollection;
+    componentContext: ComponentCollection;
+    errorContext: ErrorCollection;
+    iconContext: IconCollection;
+    themeContext: ThemeCollection;
+    contentContext: SitePageContentCollection;
 }

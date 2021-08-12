@@ -1,26 +1,26 @@
 import React, { useContext } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { ErrorPage } from '../../pages/ErrorPage';
-import { Context } from '../../App';
 import { ActualsPage } from '../../pages/ActualsPage';
+import { SiteContext } from '../../services/appContextService';
 
 export function SiteRoutesComponent(): JSX.Element {
-    const context = useContext(Context);
+    const context = useContext(SiteContext);
 
     return (
         <Switch>
             <Route exact path="/">
-                <ActualsPage data={context.contextData.content.getIdByMolitioTag('actuals01').data} />
+                <ActualsPage />
             </Route>
-            {Array.from([...context.contextData.features.features]).map((route) => (
+            {Array.from([...context.featureContext.features]).map((route) => (
                 <Route
                     key={route[0]}
                     exact
                     path={route[1].path}
-                    component={context.contextData.components.components.get(route[0])}
+                    component={context.componentContext.components.get(route[0])}
                 />
             ))}
-            {Array.from([...context.contextData.errors.errors]).map((errorType) => (
+            {Array.from([...context.errorContext.errors]).map((errorType) => (
                 <Route key={errorType[0]} exact path={`/error/${errorType[1].errorData.code}`}>
                     <ErrorPage errorData={errorType[1].errorData} />
                 </Route>
