@@ -4,11 +4,14 @@ import './styles/index.scss';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter as Router } from 'react-router-dom';
+import { AppContextProvider } from './components/context/AppContextProvider';
 
 ReactDOM.render(
     <React.StrictMode>
         <Router>
-            <App />
+            <AppContextProvider>
+                <App />
+            </AppContextProvider>
         </Router>
     </React.StrictMode>,
     document.getElementById('root'),

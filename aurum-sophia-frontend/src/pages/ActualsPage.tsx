@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { makeStyles, createStyles, Typography, useTheme } from '@material-ui/core';
 import { EventsComponent } from '../components/events/EventsComponent';
-import { SiteContext } from '../services/appContextService';
+import { useAppContext } from '../components/context/AppContextBuilder';
 
 export function ActualsPage(): JSX.Element {
     console.log(`this is the actuals page`);
-    const context = useContext(SiteContext);
+    const context = useAppContext();
 
-    const actualsContent = context.contentContext.getIdByMolitioTag('actuals01');
+    const actualsContent = context.contentContext.getPageContentByMolitioTag('actuals01');
     //console.log(data);
     const theme = useTheme();
     const useStyles = makeStyles(() =>

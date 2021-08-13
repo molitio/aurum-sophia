@@ -1,21 +1,21 @@
-import { SitePageContentCollection } from '../components/common/interface/collection/SitePageContentCollection';
-import { MolitioId } from '../components/common/interface/MolitioId';
-import { PageContent } from '../components/common/interface/PageContent';
+import { IContentCollection } from '../components/common/interface/collection/ISitePageContentCollection';
+import { TMolitioId } from '../components/common/type/TMolitioId';
+import { TPageContent } from '../components/common/type/TPageContent';
 import * as siteContentDataMock from '../data/siteContentDataMock.json';
 
 const mockString = JSON.stringify(siteContentDataMock.contentCollection);
 
-const mockDataCollection: SitePageContentCollection = {
-    contentCollection: new Map<MolitioId, PageContent>(JSON.parse(mockString)),
-    getIdByMolitioTag: getIdByMolitioTag,
+const mockDataCollection: IContentCollection = {
+    contentCollection: new Map<TMolitioId, TPageContent>(JSON.parse(mockString)),
+    getPageContentByMolitioTag: getIdByMolitioTag,
 };
 
-const sitePageDataCollection: SitePageContentCollection = {
-    contentCollection: new Map<MolitioId, PageContent>(),
-    getIdByMolitioTag: getIdByMolitioTag,
+const sitePageDataCollection: IContentCollection = {
+    contentCollection: new Map<TMolitioId, TPageContent>(),
+    getPageContentByMolitioTag: getIdByMolitioTag,
 };
 
-export const sitePageContentCollection = (): SitePageContentCollection => {
+export const sitePageContentCollection = (): IContentCollection => {
     /*fetch('../data/pagesData.json')
         .then((res) => res.json())
         .then((res) => console.log(res))
@@ -28,7 +28,7 @@ export const sitePageContentCollection = (): SitePageContentCollection => {
     return sitePageDataCollection;
 };
 
-function getIdByMolitioTag(tag: string): PageContent {
+function getIdByMolitioTag(tag: string): TPageContent {
     const content = sitePageDataCollection.contentCollection.get({ molitioTag: tag });
-    return content ? content : { data: { title: 'empty content' } };
+    return content ? content : { title: 'empty content' };
 }

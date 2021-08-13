@@ -1,12 +1,12 @@
-import { SiteIcon } from './SiteIcon';
+import { TSiteIcon } from './TSiteIcon';
 
-export interface SiteFeature {
+export type TSiteFeature = {
     id: string;
     name: string;
     displayName: string;
     isEnabled: boolean;
     isNavOption: boolean;
     path: string;
-    icon?: SiteIcon;
+    icon?: TSiteIcon;
     component?: JSX.Element;
-}
+};

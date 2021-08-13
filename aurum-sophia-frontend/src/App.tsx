@@ -1,21 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { FooterComponent } from './components/common/FooterComponent';
 import { NavigationTopComponent } from './components/navigation/NavigationTopComponent';
-import { createStyles, makeStyles, Theme, ThemeProvider, useScrollTrigger, useTheme } from '@material-ui/core';
+import { createStyles, makeStyles, Theme, useScrollTrigger, useTheme } from '@material-ui/core';
 import { SiteRoutesComponent } from './components/common/SiteRoutesComponent';
 import { ImagePageBackground } from './components/background/ImagePageBackground';
-import { SiteContext } from './services/appContextService';
 
 //import { ThemePageBackground } from './components/background/ThemePageBackground';
 
 export function App(): JSX.Element {
     console.log(`app is rendering`);
-    const context = useContext(SiteContext);
-    const theme = useTheme();
     const trigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: 64,
     });
+    const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({
             appRoot: {},
@@ -55,7 +53,6 @@ export function App(): JSX.Element {
 
     const pageStyle = useStyles();
 
-    const [selectedTheme, setSelctedTheme] = useState<Theme | undefined>(theme);
     /* 
     useEffect(() => {
         const themes: Theme[] = [];
@@ -67,28 +64,22 @@ export function App(): JSX.Element {
         );
     }, [theme]); */
 
-    useEffect;
-
     return (
         <div className={pageStyle.appRoot}>
-            <SiteContext.Provider value={context}>
-                <ThemeProvider theme={context.themeContext.selectedTheme ? context.themeContext.selectedTheme : theme}>
-                    <div className={pageStyle.navContainer}>
-                        <NavigationTopComponent />
-                    </div>
-                    <div className={pageStyle.appContainer}>
-                        <div className={pageStyle.appContentContainer}>
-                            <SiteRoutesComponent />
-                        </div>
-                        <div className={pageStyle.footerContainer}>
-                            <FooterComponent />
-                        </div>
-                    </div>
-                    {/* //TODO: logic */}
-                    {/*    <ThemePageBackground /> */}
-                    <ImagePageBackground />
-                </ThemeProvider>
-            </SiteContext.Provider>
+            <div className={pageStyle.navContainer}>
+                <NavigationTopComponent />
+            </div>
+            <div className={pageStyle.appContainer}>
+                <div className={pageStyle.appContentContainer}>
+                    <SiteRoutesComponent />
+                </div>
+                <div className={pageStyle.footerContainer}>
+                    <FooterComponent />
+                </div>
+            </div>
+            {/* //TODO: logic */}
+            {/*    <ThemePageBackground /> */}
+            <ImagePageBackground />
         </div>
     );
 }

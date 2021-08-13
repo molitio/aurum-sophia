@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { FeatureRouteProps } from './interface/FeatureRouteProps';
+import { IFeatureRouteProps } from './interface/IFeatureRouteProps';
 
-export function FeatureRoute({ siteFeature, siteComponent }: FeatureRouteProps): JSX.Element {
+export function FeatureRoute({ siteFeature, siteComponent }: IFeatureRouteProps): JSX.Element {
     return (
         <Route key={siteFeature.id} exact path={siteFeature.path}>
             {siteComponent}

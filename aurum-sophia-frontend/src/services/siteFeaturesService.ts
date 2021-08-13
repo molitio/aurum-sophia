@@ -1,5 +1,4 @@
-import { SiteFeature } from '../components/common/interface/SiteFeature';
-import { FeatureCollection } from '../components/common/interface/collection/FeatureCollection';
+import { TSiteFeature } from '../components/common/type/TSiteFeature';
 
 export const deafultSiteFeature = {
     id: '',
@@ -11,8 +10,8 @@ export const deafultSiteFeature = {
     icon: { fontIcon: '' },
 };
 
-export const siteEnabledFeaturesCollection: FeatureCollection = {
-    features: new Map<string, SiteFeature>([
+export const getSiteFeatureCollection = () =>
+    new Map<string, TSiteFeature>([
         [
             'actuals',
             {
@@ -123,5 +122,4 @@ export const siteEnabledFeaturesCollection: FeatureCollection = {
                 isNavOption: false,
             },
         ],
-    ]),
-};
+    ]);

@@ -1,8 +1,8 @@
 import React from 'react';
 import { createStyles, makeStyles, Paper, SvgIcon, useTheme, Typography } from '@material-ui/core';
-import { SiteError } from '../components/common/interface/SiteError';
+import { TSiteError } from '../components/common/type/TSiteError';
 
-export function ErrorPage({ errorData: error }: SiteError): JSX.Element {
+export function ErrorPage({ errorData: error }: TSiteError): JSX.Element {
     const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({

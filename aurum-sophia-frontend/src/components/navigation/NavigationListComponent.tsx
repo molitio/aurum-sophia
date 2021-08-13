@@ -4,10 +4,10 @@ import { ThemeButtonsComponent } from '../common/ThemeButtonsComponent';
 import { TitleComponent } from '../common/TitleComponent';
 import { NavigationItemComponent } from './NavigationItemComponent';
 import { NavigationListComponentProps } from './interface/NavigationListComponentProps';
-import { SiteContext } from '../../services/appContextService';
+import { useAppContext } from '../context/AppContextBuilder';
 
 export function NavigationListComponent({ horizontal, displayIcons }: NavigationListComponentProps): JSX.Element {
-    const context = useContext(SiteContext);
+    const context = useAppContext();
     const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({
@@ -25,6 +25,7 @@ export function NavigationListComponent({ horizontal, displayIcons }: Navigation
     );
 
     const componentStyle = useStyles();
+
     return (
         <>
             {!horizontal && <TitleComponent horizontal={horizontal} />}

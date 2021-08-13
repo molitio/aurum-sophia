@@ -1,10 +1,8 @@
-import { IconCollection } from '../components/common/interface/collection/IconCollection';
-import { SiteIcon } from '../components/common/interface/SiteIcon';
+import { TSiteIcon } from '../components/common/type/TSiteIcon';
 /*     icon repository: https://fonts.google.com/icons?selected=Material+Icons */
 
-export const siteIconCollection: IconCollection = {
-    defaultIcon: { fontIcon: 'report_problem' },
-    icons: new Map<string, SiteIcon>([
+export const siteIconCollection = () =>
+    new Map<string, TSiteIcon>([
         [
             'reportProblem',
             {
@@ -35,12 +33,10 @@ export const siteIconCollection: IconCollection = {
                 fontIcon: 'cloud_queue',
             },
         ],
-    ]),
-};
+    ]);
 
-export const featureIconCollection: IconCollection = {
-    defaultIcon: { fontIcon: 'report_problem' },
-    icons: new Map<string, SiteIcon>([
+export const featureIconCollection = () =>
+    new Map<string, TSiteIcon>([
         [
             'actuals',
             {
@@ -102,5 +98,4 @@ export const featureIconCollection: IconCollection = {
                 fontIcon: 'webshop',
             },
         ],
-    ]),
-};
+    ]);
