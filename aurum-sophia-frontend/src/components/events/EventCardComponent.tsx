@@ -12,9 +12,11 @@ import {
     Button,
 } from '@material-ui/core';
 import greenHand from '../../images/greenHand.jpg';
+import { useAppContext } from '../context/AppContextProvider';
 
 export function EventCardComponent(): JSX.Element {
-    const theme = useTheme();
+    const context = useAppContext();
+    const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             root: {

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    useTheme,
     makeStyles,
     createStyles,
     Card,
@@ -12,9 +11,11 @@ import {
     Button,
 } from '@material-ui/core';
 import greenHand from '../../images/greenHand.jpg';
+import { useAppContext } from '../context/AppContextProvider';
 
 export function MemberCardComponent(): JSX.Element {
-    const theme = useTheme();
+    const context = useAppContext();
+    const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             root: {

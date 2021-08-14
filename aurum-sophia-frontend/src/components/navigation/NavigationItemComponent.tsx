@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { ListItem, Button, Icon, createStyles, makeStyles, useTheme } from '@material-ui/core';
+import { ListItem, Button, Icon, createStyles, makeStyles } from '@material-ui/core';
 import { NavigationItemComponentProps } from './interface/NavigationItemComponentProps';
-import { useSiteContextBuilder } from '../context/AppContextProvider';
+import { useAppContext } from '../context/AppContextProvider';
 
 export function NavigationItemComponent({ siteFeature, displayIcons }: NavigationItemComponentProps): JSX.Element {
-    const theme = useTheme();
-
-    const context = useSiteContextBuilder();
+    const context = useAppContext();
+    const theme = context.activeTheme;
 
     const useStyles = makeStyles(() =>
         createStyles({

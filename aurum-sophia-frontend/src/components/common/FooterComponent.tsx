@@ -1,8 +1,10 @@
 import React from 'react';
 import { createStyles, makeStyles, Typography, useTheme } from '@material-ui/core';
+import { useAppContext } from '../context/AppContextProvider';
 
 export function FooterComponent(): JSX.Element {
-    const theme = useTheme();
+    const context = useAppContext();
+    const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             footer: {

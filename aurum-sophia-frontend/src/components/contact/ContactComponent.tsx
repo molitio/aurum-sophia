@@ -12,9 +12,11 @@ import {
     Button,
 } from '@material-ui/core';
 import treeShape from '../../images/treeShape.svg';
+import { useAppContext } from '../context/AppContextProvider';
 
 export function ContactComponent(): JSX.Element {
-    const theme = useTheme();
+    const context = useAppContext();
+    const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             root: {

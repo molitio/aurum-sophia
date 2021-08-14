@@ -2,10 +2,10 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { ErrorPage } from '../../pages/ErrorPage';
 import { ActualsPage } from '../../pages/ActualsPage';
-import { useSiteContextBuilder } from '../context/AppContextProvider';
+import { useAppContext } from '../context/AppContextProvider';
 
 export const SiteRoutesComponent = (): JSX.Element => {
-    const context = useSiteContextBuilder();
+    const context = useAppContext();
 
     return (
         <Switch>

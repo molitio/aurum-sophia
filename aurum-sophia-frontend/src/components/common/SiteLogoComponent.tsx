@@ -1,8 +1,9 @@
 import React from 'react';
-import { useTheme } from '@material-ui/core';
+import { useAppContext } from '../context/AppContextProvider';
 
 export function SiteLogoComponent(): JSX.Element {
-    const theme = useTheme();
+    const context = useAppContext();
+    const theme = context.activeTheme;
     return (
         <>
             {

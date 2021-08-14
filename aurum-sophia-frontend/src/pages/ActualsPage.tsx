@@ -1,15 +1,17 @@
-import React from 'react';
-import { makeStyles, createStyles, Typography, useTheme } from '@material-ui/core';
+import React, { useState } from 'react';
+import { makeStyles, createStyles, Typography } from '@material-ui/core';
 import { EventsComponent } from '../components/events/EventsComponent';
-import { useSiteContextBuilder } from '../components/context/AppContextProvider';
+import { useAppContext } from '../components/context/AppContextProvider';
+import { TPageContent } from '../components/common/type/TPageContent';
 
 export function ActualsPage(): JSX.Element {
     console.log(`this is the actuals page`);
-    const context = useSiteContextBuilder();
+    const context = useAppContext();
+    const theme = context.activeTheme;
 
-    const actualsContent = context.getPageContentByMolitioTag('actuals01');
-    //console.log(data);
-    const theme = useTheme();
+    const [actualsContent, setActualsContent] = useState<TPageContent>(context.getPageContentByMolitioTag('actuals01'));
+    console.log(`actualsPage: ${actualsContent.textContent}`);
+
     const useStyles = makeStyles(() =>
         createStyles({
             pageContent: {

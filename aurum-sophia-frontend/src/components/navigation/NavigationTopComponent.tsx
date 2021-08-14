@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { createStyles, makeStyles, useTheme, AppBar, Toolbar, IconButton } from '@material-ui/core';
+import { createStyles, makeStyles, AppBar, Toolbar, IconButton } from '@material-ui/core';
 import { NavigationSideComponent } from './NavigationSideComponent';
 import { TitleComponent } from '../common/TitleComponent';
 import { Icon } from '@material-ui/core';
 import { useScrollTrigger } from '@material-ui/core';
 import { NavigationListComponent } from './NavigationListComponent';
-import { useSiteContextBuilder } from '../context/AppContextProvider';
+import { useAppContext } from '../context/AppContextProvider';
 
 export function NavigationTopComponent(): JSX.Element {
-    const context = useSiteContextBuilder();
-    const theme = useTheme();
-
+    const context = useAppContext();
+    const theme = context.activeTheme;
     const trigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: 64,

@@ -1,10 +1,12 @@
 import React from 'react';
-import { makeStyles, createStyles, Typography, useTheme } from '@material-ui/core';
+import { makeStyles, createStyles, Typography } from '@material-ui/core';
 import pexelsPixabay462030 from '../images/pexelsPixabay462030.jpg';
 import { MembersComponent } from '../components/members/MembersComponent';
+import { useAppContext } from '../components/context/AppContextProvider';
 
 export function AboutPage(): JSX.Element {
-    const theme = useTheme();
+    const context = useAppContext();
+    const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             pageContent: {

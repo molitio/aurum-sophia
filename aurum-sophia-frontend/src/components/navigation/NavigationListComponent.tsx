@@ -1,14 +1,14 @@
 import React from 'react';
-import { List, Divider, createStyles, makeStyles, useTheme } from '@material-ui/core';
+import { List, Divider, createStyles, makeStyles } from '@material-ui/core';
 import { ThemeButtonsComponent } from '../common/ThemeButtonsComponent';
 import { TitleComponent } from '../common/TitleComponent';
 import { NavigationItemComponent } from './NavigationItemComponent';
 import { NavigationListComponentProps } from './interface/NavigationListComponentProps';
-import { useSiteContextBuilder } from '../context/AppContextProvider';
+import { useAppContext } from '../context/AppContextProvider';
 
 export function NavigationListComponent({ horizontal, displayIcons }: NavigationListComponentProps): JSX.Element {
-    const context = useSiteContextBuilder();
-    const theme = useTheme();
+    const context = useAppContext();
+    const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             navList: {

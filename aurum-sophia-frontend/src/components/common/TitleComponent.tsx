@@ -3,9 +3,11 @@ import { Link as RouterLink } from 'react-router-dom';
 import { createStyles, makeStyles, Typography, useTheme } from '@material-ui/core';
 import { SiteLogoComponent } from './SiteLogoComponent';
 import { TitleComponentProps } from './interface/TitleComponentProps';
+import { useAppContext } from '../context/AppContextProvider';
 
 export function TitleComponent({ horizontal }: TitleComponentProps): JSX.Element {
-    const theme = useTheme();
+    const context = useAppContext();
+    const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             title: {

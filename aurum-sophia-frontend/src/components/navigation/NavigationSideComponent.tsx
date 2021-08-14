@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { createStyles, makeStyles, Drawer, useTheme } from '@material-ui/core';
+import { createStyles, makeStyles, Drawer } from '@material-ui/core';
 import NavigationSidePanelProps from './interface/NavigationSidePanelProps';
 import { NavigationListComponent } from './NavigationListComponent';
+import { useAppContext } from '../context/AppContextProvider';
 
 export function NavigationSideComponent({ navigationState, toggle }: NavigationSidePanelProps): JSX.Element {
     type Anchor = 'top' | 'left' | 'bottom' | 'right';
@@ -12,7 +13,8 @@ export function NavigationSideComponent({ navigationState, toggle }: NavigationS
         setSelectedAnchor('left');
     }, []);
 
-    const theme = useTheme();
+    const context = useAppContext();
+    const theme = context.activeTheme;
 
     const useStyles = makeStyles(() =>
         createStyles({

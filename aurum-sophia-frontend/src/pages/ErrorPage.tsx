@@ -1,9 +1,11 @@
 import React from 'react';
-import { createStyles, makeStyles, Paper, SvgIcon, useTheme, Typography } from '@material-ui/core';
+import { createStyles, makeStyles, Paper, SvgIcon, Typography } from '@material-ui/core';
 import { ErrorPageProps } from './interface/ErrorPageProps';
+import { useAppContext } from '../components/context/AppContextProvider';
 
 export function ErrorPage({ error }: ErrorPageProps): JSX.Element {
-    const theme = useTheme();
+    const context = useAppContext();
+    const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             siteError: {

@@ -18,7 +18,9 @@ export const SiteContextDefaults: ISiteContext = {
     getPageContentByMolitioTag: (tag: string): TPageContent => {
         return { title: tag };
     },
-    setSelectedTheme: undefined,
+    setSelectedTheme: () => {
+        createTheme();
+    },
     activeTheme: createTheme(),
     themeCollection: new Map<string, Theme>(),
 };
@@ -34,15 +36,15 @@ export type TAppContext = {
     errorCollection: Map<string, TSiteError>;
     siteIconCollection: Map<string, TSiteIcon>;
     featureIconCollection: Map<string, TSiteIcon>;
+    themeCollection: Map<string, Theme>;
+    contentCollection: Map<TMolitioId, TPageContent>;
 };
 
 export interface IThemeContext {
-    setSelectedTheme: Dispatch<SetStateAction<Theme>> | undefined;
+    setSelectedTheme: Dispatch<SetStateAction<Theme>>;
     activeTheme: Theme;
-    themeCollection: Map<string, Theme>;
 }
 
 export interface IContentCollection {
-    contentCollection: Map<TMolitioId, TPageContent>;
     getPageContentByMolitioTag: (tag: string) => TPageContent;
 }
