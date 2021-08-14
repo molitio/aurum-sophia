@@ -1,31 +1,31 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { ErrorPage } from '../../pages/ErrorPage';
 import { ActualsPage } from '../../pages/ActualsPage';
-import { useAppContext } from '../context/AppContextBuilder';
+import { useSiteContextBuilder } from '../context/AppContextProvider';
 
-export function SiteRoutesComponent(): JSX.Element {
-    const context = useAppContext();
+export const SiteRoutesComponent = (): JSX.Element => {
+    const context = useSiteContextBuilder();
 
     return (
         <Switch>
             <Route exact path="/">
                 <ActualsPage />
             </Route>
-            {Array.from([...context.featureContext.features]).map((route) => (
+            {Array.from([...context.featureCollection]).map((route) => (
                 <Route
                     key={route[0]}
                     exact
                     path={route[1].path}
-                    component={context.componentContext.components.get(route[0])}
+                    component={context.componentCollection.get(route[0])}
                 />
             ))}
-            {Array.from([...context.errorContext.errors]).map((errorType) => (
-                <Route key={errorType[0]} exact path={`/error/${errorType[1].errorData.code}`}>
-                    <ErrorPage errorData={errorType[1].errorData} />
+            {Array.from([...context.errorCollection]).map((errorData) => (
+                <Route key={errorData[0]} exact path={`/error/${errorData[0]}`}>
+                    <ErrorPage error={{ ...errorData[1] }} />
                 </Route>
             ))}
             <Redirect to="/error/404" />
         </Switch>
     );
-}
+};

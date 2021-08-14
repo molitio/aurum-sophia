@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { List, Divider, createStyles, makeStyles, useTheme } from '@material-ui/core';
 import { ThemeButtonsComponent } from '../common/ThemeButtonsComponent';
 import { TitleComponent } from '../common/TitleComponent';
 import { NavigationItemComponent } from './NavigationItemComponent';
 import { NavigationListComponentProps } from './interface/NavigationListComponentProps';
-import { useAppContext } from '../context/AppContextBuilder';
+import { useSiteContextBuilder } from '../context/AppContextProvider';
 
 export function NavigationListComponent({ horizontal, displayIcons }: NavigationListComponentProps): JSX.Element {
-    const context = useAppContext();
+    const context = useSiteContextBuilder();
     const theme = useTheme();
     const useStyles = makeStyles(() =>
         createStyles({
@@ -30,7 +30,7 @@ export function NavigationListComponent({ horizontal, displayIcons }: Navigation
         <>
             {!horizontal && <TitleComponent horizontal={horizontal} />}
             <List className={componentStyle.navList}>
-                {Array.from(context.featureContext.features.values())
+                {Array.from(context.featureCollection.values())
                     .filter((isNavOption) => isNavOption.isNavOption)
                     .map((feature) => (
                         <NavigationItemComponent key={feature.id} siteFeature={feature} displayIcons={displayIcons} />

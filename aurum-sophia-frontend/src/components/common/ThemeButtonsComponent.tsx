@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTheme, Button, Icon, createStyles, makeStyles } from '@material-ui/core';
-import { siteIconCollection } from '../../services/siteIconService';
-import { useAppContext } from '../context/AppContextBuilder';
+import { useSiteContextBuilder } from '../context/AppContextProvider';
 
 export function ThemeButtonsComponent(): JSX.Element {
     const theme = useTheme();
@@ -18,32 +17,33 @@ export function ThemeButtonsComponent(): JSX.Element {
 
     const componentStyle = useStyles();
 
-    const context = useAppContext();
+    const context = useSiteContextBuilder();
 
     return (
         <>
             <div className={componentStyle.themeIcons}>
                 <Button
                     onClick={() => {
-                        console.log(`clicked: ${context.selectedTheme}`);
-                        context.selectedTheme = 'cloudsSiteTheme';
-                        console.log(`after click: ${context.selectedTheme}`);
+                        console.log(`clicked: ${context.activeTheme}`);
+                        context.setSelectedTheme ? context.themeCollection?.get('cloudsSiteTheme') : undefined;
+                        console.log(`after click: ${context.activeTheme}`);
                     }}
                 >
-                    <Icon>
-                        {siteIconCollection.icons.get('cloudQueue')?.fontIcon ||
-                            siteIconCollection.defaultIcon.fontIcon}
-                    </Icon>
+                    <Icon>{context.siteIconCollection.get('cloudQueue')?.fontIcon || context.defaultIcon}</Icon>
                 </Button>
-                <Button onClick={() => (context.selectedTheme = 'waterSiteTheme')}>
-                    <Icon>
-                        {siteIconCollection.icons.get('water')?.fontIcon || siteIconCollection.defaultIcon.fontIcon}
-                    </Icon>
+                <Button
+                    onClick={() =>
+                        context.setSelectedTheme ? context.themeCollection?.get('waterSiteTheme') : undefined
+                    }
+                >
+                    <Icon>{context.siteIconCollection.get('water')?.fontIcon || context.defaultIcon}</Icon>
                 </Button>
-                <Button onClick={() => (context.selectedTheme = 'sunSiteTheme')}>
-                    <Icon>
-                        {siteIconCollection.icons.get('wbSunny')?.fontIcon || siteIconCollection.defaultIcon.fontIcon}
-                    </Icon>
+                <Button
+                    onClick={() =>
+                        context.setSelectedTheme ? context.themeCollection?.get('sunSiteTheme') : undefined
+                    }
+                >
+                    <Icon>{context.siteIconCollection.get('wbSunny')?.fontIcon || context.defaultIcon}</Icon>
                 </Button>
             </div>
         </>

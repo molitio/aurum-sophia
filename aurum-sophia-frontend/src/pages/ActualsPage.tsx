@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { makeStyles, createStyles, Typography, useTheme } from '@material-ui/core';
 import { EventsComponent } from '../components/events/EventsComponent';
-import { useAppContext } from '../components/context/AppContextBuilder';
+import { useSiteContextBuilder } from '../components/context/AppContextProvider';
 
 export function ActualsPage(): JSX.Element {
     console.log(`this is the actuals page`);
-    const context = useAppContext();
+    const context = useSiteContextBuilder();
 
-    const actualsContent = context.contentContext.getPageContentByMolitioTag('actuals01');
+    const actualsContent = context.getPageContentByMolitioTag('actuals01');
     //console.log(data);
     const theme = useTheme();
     const useStyles = makeStyles(() =>
@@ -58,7 +58,7 @@ export function ActualsPage(): JSX.Element {
                         </Typography>
                         <br />
                         <Typography variant="body1" component="p">
-                            {actualsContent?.data?.textContent}
+                            {actualsContent?.textContent || null}
                         </Typography>
                         <br />
                     </div>

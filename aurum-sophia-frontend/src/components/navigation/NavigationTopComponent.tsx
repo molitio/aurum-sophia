@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import { createStyles, makeStyles, useTheme } from '@material-ui/core';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
+import { createStyles, makeStyles, useTheme, AppBar, Toolbar, IconButton } from '@material-ui/core';
 import { NavigationSideComponent } from './NavigationSideComponent';
 import { TitleComponent } from '../common/TitleComponent';
 import { Icon } from '@material-ui/core';
-import { siteIconCollection } from '../../services/siteIconService';
 import { useScrollTrigger } from '@material-ui/core';
 import { NavigationListComponent } from './NavigationListComponent';
+import { useSiteContextBuilder } from '../context/AppContextProvider';
 
 export function NavigationTopComponent(): JSX.Element {
+    const context = useSiteContextBuilder();
     const theme = useTheme();
 
     const trigger = useScrollTrigger({
@@ -86,8 +84,8 @@ export function NavigationTopComponent(): JSX.Element {
                                         onClick={toggleSidePanel}
                                     >
                                         <Icon>
-                                            {siteIconCollection.icons.get('menu')?.fontIcon ||
-                                                siteIconCollection.defaultIcon.fontIcon}
+                                            {context.siteIconCollection.get('menu')?.fontIcon ||
+                                                context.defaultIcon.fontIcon}
                                         </Icon>
                                     </IconButton>
                                 </div>
@@ -110,8 +108,8 @@ export function NavigationTopComponent(): JSX.Element {
                                     onClick={toggleSidePanel}
                                 >
                                     <Icon>
-                                        {siteIconCollection.icons.get('menu')?.fontIcon ||
-                                            siteIconCollection.defaultIcon.fontIcon}
+                                        {context.siteIconCollection.get('menu')?.fontIcon ||
+                                            context.defaultIcon.fontIcon}
                                     </Icon>
                                 </IconButton>
                             </div>

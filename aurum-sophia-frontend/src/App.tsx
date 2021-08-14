@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import { FooterComponent } from './components/common/FooterComponent';
 import { NavigationTopComponent } from './components/navigation/NavigationTopComponent';
-import { createStyles, makeStyles, Theme, useScrollTrigger, useTheme } from '@material-ui/core';
+import { createStyles, makeStyles, useScrollTrigger, useTheme } from '@material-ui/core';
 import { SiteRoutesComponent } from './components/common/SiteRoutesComponent';
 import { ImagePageBackground } from './components/background/ImagePageBackground';
 
 //import { ThemePageBackground } from './components/background/ThemePageBackground';
 
-export function App(): JSX.Element {
+export const App = (): JSX.Element => {
     console.log(`app is rendering`);
     const trigger = useScrollTrigger({
         disableHysteresis: true,
@@ -82,4 +82,4 @@ export function App(): JSX.Element {
             <ImagePageBackground />
         </div>
     );
-}
+};
