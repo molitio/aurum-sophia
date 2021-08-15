@@ -1,4 +1,4 @@
-import React, { useEffect, createContext, useContext, useState } from 'react';
+import React, { useEffect, createContext, useContext, useState, useMemo } from 'react';
 import {} from 'react';
 import { ThemeProvider, useTheme } from '@material-ui/core';
 import { ISiteContext, SiteContextDefaults, TAppContext } from './interface/AppContext';
@@ -11,34 +11,34 @@ import { getSiteThemeCollection } from '../../services/siteThemeService';
 
 const AppContext = createContext<ISiteContext>(SiteContextDefaults);
 
-const SiteContextStaticValues: TAppContext = {
-    featureCollection: getSiteFeatureCollection(),
-    componentCollection: getSiteFeatureComponents(),
-    errorCollection: getSiteErrorCollection(),
-    siteIconCollection: getSiteIconCollection(),
-    featureIconCollection: getFeatureIconCollection(),
-    contentCollection: getSiteContentCollection(),
-    themeCollection: getSiteThemeCollection(),
-};
-
-export const AppContextProvider = ({ children }: any): JSX.Element => {
-    const defaultTheme = useTheme();
-    const activeAppContext = useContext(AppContext);
-
-    const [selectedTheme, setSelectedTheme] = useState(defaultTheme);
-
-    useEffect(() => {
-        setSelectedTheme(activeAppContext.themeCollection?.get('sunSiteTheme') || defaultTheme);
-        activeAppContext.activeTheme = selectedTheme;
-    }, [selectedTheme, defaultTheme, activeAppContext]);
-
-    activeAppContext.setSelectedTheme = setSelectedTheme;
-
-    Object.assign(activeAppContext, SiteContextStaticValues);
-
+const configureContext = async () => {
+    const activeAppContext = useContext<ISiteContext>(AppContext);
+    activeAppContext.featureCollection = await getSiteFeatureCollection();
+    activeAppContext.componentCollection = await getSiteFeatureComponents();
+    activeAppContext.errorCollection = await getSiteErrorCollection();
+    activeAppContext.siteIconCollection = await getSiteIconCollection();
+    activeAppContext.featureIconCollection = await getFeatureIconCollection();
+    activeAppContext.contentCollection = await getSiteContentCollection();
+    activeAppContext.themeCollection = await getSiteThemeCollection();
     activeAppContext.getPageContentByMolitioTag = (tag: string) => {
         return activeAppContext.contentCollection?.get({ molitioTag: tag }) || { title: tag };
     };
+};
+export const AppContextProvider = ({ children }: any): JSX.Element => {
+    console.log('app context provider rendering');
+    const defaultTheme = useTheme();
+    const [selectedTheme, setSelectedTheme] = useState(defaultTheme);
+
+    activeAppContext.setSelectedTheme = setSelectedTheme;
+    activeAppContext.activeTheme = selectedTheme;
+
+    useEffect(() => {
+        configureContext();
+        // activeAppContext.setSelectedTheme(activeAppContext.themeCollection?.get('sunSiteTheme') || defaultTheme);
+    }, [activeAppContext]);
+    //console.log(JSON.stringify(activeAppContext));
+
+    const mergedContext = useContext<ISiteContext>(activeAppContext);
 
     return (
         <>
