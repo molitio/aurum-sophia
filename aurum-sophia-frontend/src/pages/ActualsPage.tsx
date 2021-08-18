@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
 import { EventsComponent } from '../components/events/EventsComponent';
 import { TPageContent } from '../components/common/type/TPageContent';
@@ -9,8 +9,13 @@ export function ActualsPage(): JSX.Element {
     const context = useContext(AppContext);
     const theme = context.activeTheme;
 
-    const [actualsContent, setActualsContent] = useState<TPageContent>(context.getPageContentByMolitioTag('actuals01'));
-    console.log(`actualsPage: ${actualsContent.textContent}`);
+    const [actualsContent, setActualsContent] = useState<TPageContent>();
+
+    useEffect(() => {
+        const content = context.getPageContentByMolitioTag('actuals01');
+        console.log(`content: ${JSON.stringify(content)}`);
+        setActualsContent(content);
+    }, []);
 
     const useStyles = makeStyles(() =>
         createStyles({
@@ -60,7 +65,7 @@ export function ActualsPage(): JSX.Element {
                         </Typography>
                         <br />
                         <Typography variant="body1" component="p">
-                            {actualsContent?.textContent || null}
+                            {actualsContent ? actualsContent.textContent : 'n/a'}
                         </Typography>
                         <br />
                     </div>

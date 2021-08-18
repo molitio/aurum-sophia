@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles, createStyles } from '@material-ui/core';
-import { useAppContext } from '../components/context/AppContextProvider';
+import { AppContext } from '../components/context/interface/AppContext';
 
 export function LandingPage(): JSX.Element {
-    const context = useAppContext();
+    const context = useContext(AppContext);
     const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({

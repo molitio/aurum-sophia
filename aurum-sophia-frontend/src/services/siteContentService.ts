@@ -4,7 +4,10 @@ import * as siteContentDataMock from '../data/siteContentDataMock.json';
 
 const getMockDataCollection = async (): Promise<Map<TMolitioId, TPageContent>> => {
     const mockString = JSON.stringify(siteContentDataMock.contentCollection);
+    console.log(`getMockDataCollection -> stringify: ${mockString}`);
+
     const mockDataCollection = new Map<TMolitioId, TPageContent>(JSON.parse(mockString));
+
     return mockDataCollection;
 };
 
@@ -18,6 +21,6 @@ export const sitePageContentCollection = async (): Promise<Map<TMolitioId, TPage
     */
 
     const sitePageDataCollection = await getMockDataCollection();
-    console.log(sitePageDataCollection);
+
     return sitePageDataCollection;
 };

@@ -6,7 +6,7 @@ import { TPageContent } from '../../common/type/TPageContent';
 import { TSiteError } from '../../common/type/TSiteError';
 import { TSiteIcon } from '../../common/type/TSiteIcon';
 
-const SiteContextDefaults: ISiteContext = {
+export const SiteContextDefaults: ISiteContext = {
     molitioId: { molitioTag: `app_aurum_shopia` },
     featureCollection: new Map<string, TSiteFeature>(),
     componentCollection: new Map<string, (componentParameter: TPageContent) => JSX.Element>(),
@@ -48,5 +48,5 @@ export interface IThemeContext {
 }
 
 export interface IContentCollection {
-    getPageContentByMolitioTag: (tag: string) => TPageContent;
+    getPageContentByMolitioTag: (tag: string) => TPageContent | undefined;
 }
