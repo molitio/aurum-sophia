@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles, createStyles } from '@material-ui/core';
 import { MemberCardComponent } from './MemberCardComponent';
-import { useAppContext } from '../context/AppContextProvider';
+import { AppContext } from '../context/interface/AppContext';
 
 export function MembersComponent(): JSX.Element {
-    const context = useAppContext();
+    const context = useContext(AppContext);
     const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({

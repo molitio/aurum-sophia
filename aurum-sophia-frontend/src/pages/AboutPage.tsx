@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
 import pexelsPixabay462030 from '../images/pexelsPixabay462030.jpg';
 import { MembersComponent } from '../components/members/MembersComponent';
-import { useAppContext } from '../components/context/AppContextProvider';
+import { AppContext } from '../components/context/interface/AppContext';
 
 export function AboutPage(): JSX.Element {
-    const context = useAppContext();
+    const context = useContext(AppContext);
     const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({

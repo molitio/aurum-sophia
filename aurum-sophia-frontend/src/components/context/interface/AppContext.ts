@@ -1,12 +1,12 @@
+import { createContext, Dispatch, SetStateAction } from 'react';
 import { TMolitioId } from '../../common/type/TMolitioId';
 import { createTheme, Theme } from '@material-ui/core';
 import { TSiteFeature } from '../../common/type/TSiteFeature';
 import { TPageContent } from '../../common/type/TPageContent';
 import { TSiteError } from '../../common/type/TSiteError';
 import { TSiteIcon } from '../../common/type/TSiteIcon';
-import { Dispatch, SetStateAction } from 'react';
 
-export const SiteContextDefaults: ISiteContext = {
+const SiteContextDefaults: ISiteContext = {
     molitioId: { molitioTag: `app_aurum_shopia` },
     featureCollection: new Map<string, TSiteFeature>(),
     componentCollection: new Map<string, (componentParameter: TPageContent) => JSX.Element>(),
@@ -24,6 +24,8 @@ export const SiteContextDefaults: ISiteContext = {
     activeTheme: createTheme(),
     themeCollection: new Map<string, Theme>(),
 };
+
+export const AppContext = createContext<ISiteContext>(SiteContextDefaults);
 
 export interface ISiteContext extends TAppContext, IThemeContext, IContentCollection {
     molitioId: TMolitioId;

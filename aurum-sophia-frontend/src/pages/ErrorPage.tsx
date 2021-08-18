@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { createStyles, makeStyles, Paper, SvgIcon, Typography } from '@material-ui/core';
 import { ErrorPageProps } from './interface/ErrorPageProps';
-import { useAppContext } from '../components/context/AppContextProvider';
+import { AppContext } from '../components/context/interface/AppContext';
 
 export function ErrorPage({ error }: ErrorPageProps): JSX.Element {
-    const context = useAppContext();
+    const context = useContext(AppContext);
     const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({

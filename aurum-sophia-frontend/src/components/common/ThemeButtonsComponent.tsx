@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useTheme, Button, Icon, createStyles, makeStyles } from '@material-ui/core';
-import { useAppContext } from '../context/AppContextProvider';
+import { AppContext } from '../context/interface/AppContext';
 
 export function ThemeButtonsComponent(): JSX.Element {
-    const context = useAppContext();
+    const context = useContext(AppContext);
     const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({

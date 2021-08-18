@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { createStyles, makeStyles, useScrollTrigger, useTheme } from '@material-ui/core';
-import { useAppContext } from '../context/AppContextProvider';
+import { AppContext } from '../context/interface/AppContext';
 
 export function ImagePageBackground(): JSX.Element {
-    const context = useAppContext();
+    const context = useContext(AppContext);
     const theme = context.activeTheme;
     const trigger = useScrollTrigger({
         disableHysteresis: true,

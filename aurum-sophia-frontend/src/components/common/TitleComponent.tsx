@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { createStyles, makeStyles, Typography, useTheme } from '@material-ui/core';
 import { SiteLogoComponent } from './SiteLogoComponent';
 import { TitleComponentProps } from './interface/TitleComponentProps';
-import { useAppContext } from '../context/AppContextProvider';
+import { AppContext } from '../context/interface/AppContext';
 
 export function TitleComponent({ horizontal }: TitleComponentProps): JSX.Element {
-    const context = useAppContext();
+    const context = useContext(AppContext);
     const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({

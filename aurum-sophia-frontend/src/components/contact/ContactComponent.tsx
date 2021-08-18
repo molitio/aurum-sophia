@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
     useTheme,
     makeStyles,
@@ -12,10 +12,10 @@ import {
     Button,
 } from '@material-ui/core';
 import treeShape from '../../images/treeShape.svg';
-import { useAppContext } from '../context/AppContextProvider';
+import { AppContext } from '../context/interface/AppContext';
 
 export function ContactComponent(): JSX.Element {
-    const context = useAppContext();
+    const context = useContext(AppContext);
     const theme = context.activeTheme;
     const useStyles = makeStyles(() =>
         createStyles({

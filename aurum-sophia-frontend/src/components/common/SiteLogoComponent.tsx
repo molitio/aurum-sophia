@@ -1,8 +1,8 @@
-import React from 'react';
-import { useAppContext } from '../context/AppContextProvider';
+import React, { useContext } from 'react';
+import { AppContext } from '../context/interface/AppContext';
 
 export function SiteLogoComponent(): JSX.Element {
-    const context = useAppContext();
+    const context = useContext(AppContext);
     const theme = context.activeTheme;
     return (
         <>
