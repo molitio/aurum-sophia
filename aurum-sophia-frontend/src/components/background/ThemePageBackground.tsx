@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { createStyles, makeStyles, useScrollTrigger } from '@material-ui/core';
 import { AppContext } from '../../services/siteDefaultsService';
 
-export function ThemePageBackground(): JSX.Element {
-    const context = useContext(AppContext);
+export const ThemePageBackground = (): JSX.Element => {
+    const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
     const trigger = useScrollTrigger({
         disableHysteresis: true,
@@ -35,4 +35,4 @@ export function ThemePageBackground(): JSX.Element {
             <div className={componentStyle.pageBackground}></div>
         </div>
     );
-}
+};
