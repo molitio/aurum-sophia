@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
 import { EventCardComponent } from './EventCardComponent';
-import { AppContext } from '../context/interface/AppContext';
+import { AppContext } from '../../services/siteDefaultsService';
 
 export function EventsComponent(): JSX.Element {
     const context = useContext(AppContext);
-    const theme = context.activeTheme;
+    const theme = context.selectedTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             events: {},

@@ -4,7 +4,7 @@ import { NavigationTopComponent } from './components/navigation/NavigationTopCom
 import { createStyles, makeStyles, useScrollTrigger } from '@material-ui/core';
 import { SiteRoutesComponent } from './components/common/SiteRoutesComponent';
 import { ImagePageBackground } from './components/background/ImagePageBackground';
-import { AppContext } from './components/context/interface/AppContext';
+import { AppContext } from './services/siteDefaultsService';
 
 //import { ThemePageBackground } from './components/background/ThemePageBackground';
 
@@ -15,7 +15,7 @@ export const App = (): JSX.Element => {
         threshold: 64,
     });
     const context = useContext(AppContext);
-    const theme = context.activeTheme;
+    const theme = context.selectedTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             appRoot: {},

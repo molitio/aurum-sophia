@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
 import pexelsPixabay462030 from '../images/pexelsPixabay462030.jpg';
 import { MembersComponent } from '../components/members/MembersComponent';
-import { AppContext } from '../components/context/interface/AppContext';
+import { AppContext } from '../services/siteDefaultsService';
 
 export function AboutPage(): JSX.Element {
     const context = useContext(AppContext);
-    const theme = context.activeTheme;
+    const theme = context.selectedTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             pageContent: {
@@ -99,7 +99,7 @@ export function AboutPage(): JSX.Element {
                     <br />
                     <Typography variant="body1" component="p">
                         Egyéni és csoportos mentoring programjaink, műhelymunkáink,elvonulásaink és táboraink, valamint
-                        konferenciáink során akapcsolódás és közös tapasztalás pótolhatatlan élményének lehetőségeit
+                        konferenciáink során a kapcsolódás és közös tapasztalás pótolhatatlan élményének lehetőségeit
                         teremtjük meg a résztvevők számára, hozzájárulva ezzel az egyéni és kollektív tudati fejlődés
                         folyamatához
                     </Typography>

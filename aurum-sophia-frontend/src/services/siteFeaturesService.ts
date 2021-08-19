@@ -10,7 +10,7 @@ export const deafultSiteFeature = {
     icon: { fontIcon: '' },
 };
 
-export const getSiteFeatureCollection = () =>
+export const getSiteFeatureCollection = (): Map<string, TSiteFeature> =>
     new Map<string, TSiteFeature>([
         [
             'actuals',

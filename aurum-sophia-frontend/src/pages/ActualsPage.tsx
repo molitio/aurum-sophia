@@ -2,20 +2,23 @@ import React, { useContext, useEffect, useState } from 'react';
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
 import { EventsComponent } from '../components/events/EventsComponent';
 import { TPageContent } from '../components/common/type/TPageContent';
-import { AppContext } from '../components/context/interface/AppContext';
+import { AppContext } from '../services/siteDefaultsService';
+
+const COMPONENT_TAG = 'actuals01';
 
 export function ActualsPage(): JSX.Element {
     console.log(`this is the actuals page`);
     const context = useContext(AppContext);
-    const theme = context.activeTheme;
+    const theme = context.selectedTheme;
 
     const [actualsContent, setActualsContent] = useState<TPageContent>();
 
     useEffect(() => {
-        const content = context.getPageContentByMolitioTag('actuals01');
+        console.log(`contextCollection: ${JSON.stringify(context.contentCollection)}`);
+        const content = context.contentCollection.get(COMPONENT_TAG);
         console.log(`content: ${JSON.stringify(content)}`);
         setActualsContent(content);
-    }, []);
+    }, [context.contentCollection]);
 
     const useStyles = makeStyles(() =>
         createStyles({
@@ -61,11 +64,11 @@ export function ActualsPage(): JSX.Element {
                 <div className={pageStyle.actualsContent}>
                     <div className={pageStyle.actualsText}>
                         <Typography variant="h5">
-                            <b>Aktuális hírek</b>
+                            <b>{actualsContent && actualsContent.title}</b>
                         </Typography>
                         <br />
                         <Typography variant="body1" component="p">
-                            {actualsContent ? actualsContent.textContent : 'n/a'}
+                            {actualsContent && actualsContent.textContent}
                         </Typography>
                         <br />
                     </div>

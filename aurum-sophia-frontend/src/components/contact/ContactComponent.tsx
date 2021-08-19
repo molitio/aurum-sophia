@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import {
-    useTheme,
     makeStyles,
     createStyles,
     Card,
@@ -12,11 +11,11 @@ import {
     Button,
 } from '@material-ui/core';
 import treeShape from '../../images/treeShape.svg';
-import { AppContext } from '../context/interface/AppContext';
+import { AppContext } from '../../services/siteDefaultsService';
 
 export function ContactComponent(): JSX.Element {
     const context = useContext(AppContext);
-    const theme = context.activeTheme;
+    const theme = context.selectedTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             root: {

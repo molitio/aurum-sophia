@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { makeStyles, createStyles } from '@material-ui/core';
-import { AppContext } from '../components/context/interface/AppContext';
+import { AppContext } from '../services/siteDefaultsService';
 
 export function LandingPage(): JSX.Element {
     const context = useContext(AppContext);
-    const theme = context.activeTheme;
+    const theme = context.selectedTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             landing: {

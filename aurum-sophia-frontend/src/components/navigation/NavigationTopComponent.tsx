@@ -5,11 +5,11 @@ import { TitleComponent } from '../common/TitleComponent';
 import { Icon } from '@material-ui/core';
 import { useScrollTrigger } from '@material-ui/core';
 import { NavigationListComponent } from './NavigationListComponent';
-import { AppContext } from '../context/interface/AppContext';
+import { AppContext, SiteDefaultIcon } from '../../services/siteDefaultsService';
 
 export function NavigationTopComponent(): JSX.Element {
     const context = useContext(AppContext);
-    const theme = context.activeTheme;
+    const theme = context.selectedTheme;
     const trigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: 64,
@@ -83,8 +83,8 @@ export function NavigationTopComponent(): JSX.Element {
                                         onClick={toggleSidePanel}
                                     >
                                         <Icon>
-                                            {context.siteIconCollection.get('menu')?.fontIcon ||
-                                                context.defaultIcon.fontIcon}
+                                            {context.siteIconCollection.get('menu')?.fontIcon &&
+                                                SiteDefaultIcon.fontIcon}
                                         </Icon>
                                     </IconButton>
                                 </div>
@@ -107,8 +107,7 @@ export function NavigationTopComponent(): JSX.Element {
                                     onClick={toggleSidePanel}
                                 >
                                     <Icon>
-                                        {context.siteIconCollection.get('menu')?.fontIcon ||
-                                            context.defaultIcon.fontIcon}
+                                        {context.siteIconCollection.get('menu')?.fontIcon || SiteDefaultIcon.fontIcon}
                                     </Icon>
                                 </IconButton>
                             </div>

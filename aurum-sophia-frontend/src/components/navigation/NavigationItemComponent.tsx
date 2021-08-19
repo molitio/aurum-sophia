@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { ListItem, Button, Icon, createStyles, makeStyles } from '@material-ui/core';
 import { NavigationItemComponentProps } from './interface/NavigationItemComponentProps';
-import { AppContext } from '../context/interface/AppContext';
+import { AppContext, SiteDefaultIcon } from '../../services/siteDefaultsService';
 
 export function NavigationItemComponent({ siteFeature, displayIcons }: NavigationItemComponentProps): JSX.Element {
     const context = useContext(AppContext);
-    const theme = context.activeTheme;
+    const theme = context.selectedTheme;
 
     const useStyles = makeStyles(() =>
         createStyles({
@@ -47,7 +47,7 @@ export function NavigationItemComponent({ siteFeature, displayIcons }: Navigatio
                             displayIcons && (
                                 <Icon>
                                     {context.featureIconCollection.get(siteFeature.name)?.fontIcon ||
-                                        context.defaultIcon.fontIcon}
+                                        SiteDefaultIcon.fontIcon}
                                 </Icon>
                             )
                         }

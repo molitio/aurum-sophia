@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { useTheme, Button, Icon, createStyles, makeStyles } from '@material-ui/core';
-import { AppContext } from '../context/interface/AppContext';
+import { Button, Icon, createStyles, makeStyles } from '@material-ui/core';
+import { AppContext, SiteDefaultIcon } from '../../services/siteDefaultsService';
 
 export function ThemeButtonsComponent(): JSX.Element {
     const context = useContext(AppContext);
-    const theme = context.activeTheme;
+    const theme = context.selectedTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             themeIcons: {
@@ -28,15 +28,15 @@ export function ThemeButtonsComponent(): JSX.Element {
                         console.log(`after click: ${theme.themeIcon.fontIcon}`);
                     }}
                 >
-                    <Icon>{context.siteIconCollection.get('cloudQueue')?.fontIcon || context.defaultIcon}</Icon>
+                    <Icon>{context.siteIconCollection.get('cloudQueue')?.fontIcon || SiteDefaultIcon.fontIcon}</Icon>
                 </Button>
                 <Button
                     onClick={() => context.setSelectedTheme(context.themeCollection?.get('waterSiteTheme') || theme)}
                 >
-                    <Icon>{context.siteIconCollection.get('water')?.fontIcon || context.defaultIcon}</Icon>
+                    <Icon>{context.siteIconCollection.get('water')?.fontIcon || SiteDefaultIcon.fontIcon}</Icon>
                 </Button>
                 <Button onClick={() => context.setSelectedTheme(context.themeCollection?.get('sunSiteTheme') || theme)}>
-                    <Icon>{context.siteIconCollection.get('wbSunny')?.fontIcon || context.defaultIcon}</Icon>
+                    <Icon>{context.siteIconCollection.get('wbSunny')?.fontIcon || SiteDefaultIcon.fontIcon}</Icon>
                 </Button>
             </div>
         </>

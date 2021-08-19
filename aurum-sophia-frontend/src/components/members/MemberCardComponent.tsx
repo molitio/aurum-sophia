@@ -11,11 +11,11 @@ import {
     Button,
 } from '@material-ui/core';
 import greenHand from '../../images/greenHand.jpg';
-import { AppContext } from '../context/interface/AppContext';
+import { AppContext } from '../../services/siteDefaultsService';
 
 export function MemberCardComponent(): JSX.Element {
     const context = useContext(AppContext);
-    const theme = context.activeTheme;
+    const theme = context.selectedTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             root: {

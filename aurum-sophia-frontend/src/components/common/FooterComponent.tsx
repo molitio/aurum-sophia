@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { createStyles, makeStyles, Typography, useTheme } from '@material-ui/core';
-import { AppContext } from '../context/interface/AppContext';
+import { createStyles, makeStyles, Typography } from '@material-ui/core';
+import { AppContext } from '../../services/siteDefaultsService';
 
 export function FooterComponent(): JSX.Element {
     const context = useContext(AppContext);
-    const theme = context.activeTheme;
+    const theme = context.selectedTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             footer: {

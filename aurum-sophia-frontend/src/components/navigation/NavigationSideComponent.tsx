@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { createStyles, makeStyles, Drawer } from '@material-ui/core';
 import NavigationSidePanelProps from './interface/NavigationSidePanelProps';
 import { NavigationListComponent } from './NavigationListComponent';
-import { AppContext } from '../context/interface/AppContext';
+import { AppContext } from '../../services/siteDefaultsService';
 
 export function NavigationSideComponent({ navigationState, toggle }: NavigationSidePanelProps): JSX.Element {
     type Anchor = 'top' | 'left' | 'bottom' | 'right';
@@ -14,7 +14,7 @@ export function NavigationSideComponent({ navigationState, toggle }: NavigationS
     }, []);
 
     const context = useContext(AppContext);
-    const theme = context.activeTheme;
+    const theme = context.selectedTheme;
 
     const useStyles = makeStyles(() =>
         createStyles({

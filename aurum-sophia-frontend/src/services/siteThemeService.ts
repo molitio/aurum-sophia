@@ -5,6 +5,32 @@ import cloudsThemeBackground from '../images/cloudsThemeBackground.jpg';
 import waterThemeBackground from '../images/waterThemeBackground.jpg';
 import { getSiteIconCollection } from './siteIconService';
 
+const siteIconCollection = getSiteIconCollection();
+
+export interface SiteTheme extends Theme {
+    hooverActionOn?: {
+        boxShadow: string;
+    };
+    hooverActionOff?: {
+        boxShadow: string;
+    };
+    themeBackgroundImage: {
+        imageUrl: string;
+        opacity: number;
+    };
+    themeGradientBackground: {
+        background: string;
+    };
+    themeIcon: {
+        fontIcon: string;
+    };
+    devOutline: {
+        border: string;
+        borderStyle: string;
+        borderColor: string;
+    };
+}
+
 declare module '@material-ui/core/' {
     interface Theme {
         hooverActionOn?: {
@@ -58,8 +84,6 @@ declare module '@material-ui/core/' {
 const hooverActionEffect =
     '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)';
  */
-
-const siteIconCollection = getSiteIconCollection();
 
 export const getSiteThemeCollection = () =>
     new Map<string, Theme>([

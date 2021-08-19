@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { makeStyles, createStyles } from '@material-ui/core';
 import { MemberCardComponent } from './MemberCardComponent';
-import { AppContext } from '../context/interface/AppContext';
+import { AppContext } from '../../services/siteDefaultsService';
 
 export function MembersComponent(): JSX.Element {
     const context = useContext(AppContext);
-    const theme = context.activeTheme;
+    const theme = context.selectedTheme;
     const useStyles = makeStyles(() =>
         createStyles({
             members: {

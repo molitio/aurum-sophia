@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { ErrorPage } from '../../pages/ErrorPage';
 import { ActualsPage } from '../../pages/ActualsPage';
-import { AppContext } from '../context/interface/AppContext';
+import { AppContext } from '../../services/siteDefaultsService';
 
 export const SiteRoutesComponent = (): JSX.Element => {
     const context = useContext(AppContext);
