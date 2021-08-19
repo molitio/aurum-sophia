@@ -13,12 +13,12 @@ export type TAppContext = {
     errorCollection: Map<string, TSiteError>;
     siteIconCollection: Map<string, TSiteIcon>;
     featureIconCollection: Map<string, TSiteIcon>;
+    themeCollection: Map<string, Theme>;
 };
 
 export interface IThemeContext {
-    setSelectedTheme: Dispatch<SetStateAction<Theme>>;
-    themeCollection: Map<string, Theme>;
     selectedTheme: Theme;
+    setSelectedTheme: Dispatch<SetStateAction<Theme>>;
 }
 
 export interface ISiteContext extends TAppContext, IThemeContext {

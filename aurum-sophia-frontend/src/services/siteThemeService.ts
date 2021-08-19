@@ -4,6 +4,7 @@ import sunThemeBackground from '../images/sunThemeBackground.jpg';
 import cloudsThemeBackground from '../images/cloudsThemeBackground.jpg';
 import waterThemeBackground from '../images/waterThemeBackground.jpg';
 import { getSiteIconCollection } from './siteIconService';
+import { SiteDefaultIcon } from './siteDefaultsService';
 
 const siteIconCollection = getSiteIconCollection();
 
@@ -85,7 +86,7 @@ const hooverActionEffect =
     '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)';
  */
 
-export const getSiteThemeCollection = () =>
+export const getSiteThemeCollection = (): Map<string, Theme> =>
     new Map<string, Theme>([
         [
             'sunSiteTheme',
@@ -127,7 +128,7 @@ export const getSiteThemeCollection = () =>
                     background: `linear-gradient(138deg, ${amber[50]} 10%, ${orange[500]} 100%)`,
                 },
                 themeIcon: {
-                    fontIcon: siteIconCollection.get('wbSunny')?.fontIcon || 'reportProblem',
+                    fontIcon: siteIconCollection.get('wbSunny')?.fontIcon || SiteDefaultIcon.fontIcon,
                 },
                 devOutline: {
                     border: '1px',
@@ -174,7 +175,7 @@ export const getSiteThemeCollection = () =>
                     background: `linear-gradient(138deg, ${blue[50]} 10%, ${cyan[500]} 100%)`,
                 },
                 themeIcon: {
-                    fontIcon: siteIconCollection.get('cloudQueue')?.fontIcon || 'reportProblem',
+                    fontIcon: siteIconCollection.get('cloudQueue')?.fontIcon || SiteDefaultIcon.fontIcon,
                 },
                 devOutline: {
                     border: '1px',
@@ -221,7 +222,7 @@ export const getSiteThemeCollection = () =>
                     background: `linear-gradient(138deg, ${blue[50]} 10%, ${cyan[600]} 100%)`,
                 },
                 themeIcon: {
-                    fontIcon: siteIconCollection.get('water')?.fontIcon || 'reportProblem',
+                    fontIcon: siteIconCollection.get('water')?.fontIcon || SiteDefaultIcon.fontIcon,
                 },
                 devOutline: {
                     border: '1px',
@@ -269,7 +270,7 @@ export const getSiteThemeCollection = () =>
                     background: `linear-gradient(-138deg, ${lightGreen['A100']} 0%, ${brown[600]} 100%)`,
                 },
                 themeIcon: {
-                    fontIcon: siteIconCollection.get('cloudQueue')?.fontIcon || 'reportProblem',
+                    fontIcon: siteIconCollection.get('cloudQueue')?.fontIcon || SiteDefaultIcon.fontIcon,
                 },
                 devOutline: {
                     border: '1px',

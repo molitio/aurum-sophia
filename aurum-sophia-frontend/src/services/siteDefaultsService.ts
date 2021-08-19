@@ -1,12 +1,11 @@
 import React from 'react';
 import { createTheme, Theme } from '@material-ui/core';
-import { createContext } from 'react';
 import { TPageContent } from '../components/common/type/TPageContent';
 import { TSiteError } from '../components/common/type/TSiteError';
 import { TSiteFeature } from '../components/common/type/TSiteFeature';
 import { TSiteIcon } from '../components/common/type/TSiteIcon';
 import { ISiteContext } from '../components/context/interface/AppContext';
-import { orange, amber, red, indigo, blue, green } from '@material-ui/core/colors';
+import { orange, amber, red, indigo } from '@material-ui/core/colors';
 import sunThemeBackground from '../images/sunThemeBackground.jpg';
 import { getSiteIconCollection } from './siteIconService';
 
@@ -19,11 +18,11 @@ export const SiteDefaultIcon: TSiteIcon = { fontIcon: 'report_problem' };
 export const SiteDefaultTheme = createTheme({
     palette: {
         primary: {
-            main: blue[500],
+            main: orange[500],
         },
         secondary: {
-            main: green[100],
-            light: green[50],
+            main: amber[100],
+            light: amber[50],
         },
         error: {
             main: red[500],
@@ -50,10 +49,10 @@ export const SiteDefaultTheme = createTheme({
         opacity: 0.5,
     },
     themeGradientBackground: {
-        background: `linear-gradient(138deg, ${blue[50]} 10%, ${green[500]} 100%)`,
+        background: `linear-gradient(138deg, ${amber[50]} 10%, ${orange[500]} 100%)`,
     },
     themeIcon: {
-        fontIcon: siteIconCollection.get('wbSunny')?.fontIcon || SiteDefaultIcon.fontIcon,
+        fontIcon: siteIconCollection.get('wbSunny')?.fontIcon || 'reportProblem',
     },
     devOutline: {
         border: '1px',
@@ -77,4 +76,4 @@ export const SiteContextDefaults: ISiteContext = {
     themeCollection: new Map<string, Theme>(),
 };
 
-export const AppContext = createContext<ISiteContext>(SiteContextDefaults);
+export const AppContext = React.createContext<ISiteContext>(SiteContextDefaults);
