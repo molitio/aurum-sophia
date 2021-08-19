@@ -2,7 +2,7 @@ import { TPageContent } from '../components/common/type/TPageContent';
 import * as siteContentDataMock from '../data/siteContentDataMock.json';
 
 const getMockDataCollection = (): Map<string, TPageContent> => {
-    const mockString = JSON.stringify(siteContentDataMock.contentCollection);
+    const mockString = JSON.stringify(siteContentDataMock.pageContentCollection);
     const mockDataCollection = new Map<string, TPageContent>(JSON.parse(mockString));
     return mockDataCollection;
 };

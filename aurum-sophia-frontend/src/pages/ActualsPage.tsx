@@ -4,7 +4,7 @@ import { EventsComponent } from '../components/events/EventsComponent';
 import { TPageContent } from '../components/common/type/TPageContent';
 import { AppContext } from '../services/siteDefaultsService';
 
-const COMPONENT_TAG = 'actuals01';
+const PAGE_TAG = 'actuals01';
 
 export function ActualsPage(): JSX.Element {
     console.log(`this is the actuals page`);
@@ -15,7 +15,7 @@ export function ActualsPage(): JSX.Element {
 
     useEffect(() => {
         console.log(`contextCollection: ${JSON.stringify(context.contentCollection)}`);
-        const content = context.contentCollection.get(COMPONENT_TAG);
+        const content = context.contentCollection.get(PAGE_TAG);
         console.log(`content: ${JSON.stringify(content)}`);
         setActualsContent(content);
     }, [context.contentCollection]);
@@ -63,7 +63,7 @@ export function ActualsPage(): JSX.Element {
             <main className={pageStyle.pageContent}>
                 <div className={pageStyle.actualsContent}>
                     <div className={pageStyle.actualsText}>
-                        <Typography variant="h5">
+                        <Typography variant="h4">
                             <b>{actualsContent && actualsContent.title}</b>
                         </Typography>
                         <br />
@@ -71,6 +71,21 @@ export function ActualsPage(): JSX.Element {
                             {actualsContent && actualsContent.textContent}
                         </Typography>
                         <br />
+
+                        {actualsContent?.componentContent &&
+                            Array.from([...actualsContent.componentContent]).map((content) => (
+                                <>
+                                    <Typography variant="h6">
+                                        <b>{content[1].title}</b>
+                                    </Typography>
+                                    <br />
+                                    <Typography variant="body2" component="p">
+                                        {content[1].textContent}
+                                    </Typography>
+
+                                    <br />
+                                </>
+                            ))}
                     </div>
                 </div>
                 <div className={pageStyle.memberContent}>

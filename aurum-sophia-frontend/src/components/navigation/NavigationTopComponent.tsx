@@ -83,7 +83,7 @@ export function NavigationTopComponent(): JSX.Element {
                                         onClick={toggleSidePanel}
                                     >
                                         <Icon>
-                                            {context.siteIconCollection.get('menu')?.fontIcon &&
+                                            {context.siteIconCollection.get('menu')?.fontIcon ||
                                                 SiteDefaultIcon.fontIcon}
                                         </Icon>
                                     </IconButton>
