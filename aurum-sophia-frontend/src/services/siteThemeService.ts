@@ -9,6 +9,7 @@ import { SiteDefaultIcon } from './siteDefaultsService';
 const siteIconCollection = getSiteIconCollection();
 
 export interface SiteTheme extends Theme {
+    isEnabled: boolean;
     hooverActionOn?: {
         boxShadow: string;
     };
@@ -34,6 +35,7 @@ export interface SiteTheme extends Theme {
 
 declare module '@material-ui/core/' {
     interface Theme {
+        isEnabled: boolean;
         hooverActionOn?: {
             boxShadow: string;
         };
@@ -58,6 +60,7 @@ declare module '@material-ui/core/' {
     }
     // allow configuration using `createTheme`
     interface ThemeOptions {
+        isEnabled: boolean;
         hooverAction?: {
             boxShadow: string;
         };
@@ -91,6 +94,7 @@ export const getSiteThemeCollection = (): Map<string, Theme> =>
         [
             'sunSiteTheme',
             createTheme({
+                isEnabled: true,
                 palette: {
                     primary: {
                         main: orange[500],
@@ -140,6 +144,7 @@ export const getSiteThemeCollection = (): Map<string, Theme> =>
         [
             'cloudsSiteTheme',
             createTheme({
+                isEnabled: true,
                 palette: {
                     primary: {
                         main: cyan[300],
@@ -187,6 +192,7 @@ export const getSiteThemeCollection = (): Map<string, Theme> =>
         [
             'waterSiteTheme',
             createTheme({
+                isEnabled: true,
                 palette: {
                     primary: {
                         main: cyan[600],
@@ -234,6 +240,7 @@ export const getSiteThemeCollection = (): Map<string, Theme> =>
         [
             'earthSiteTheme',
             createTheme({
+                isEnabled: false,
                 palette: {
                     primary: {
                         main: brown[600],

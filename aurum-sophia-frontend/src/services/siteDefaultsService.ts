@@ -16,6 +16,7 @@ export const SiteMolitioId = { molitioTag: `app_aurum_shopia` };
 export const SiteDefaultIcon: TSiteIcon = { fontIcon: 'report_problem' };
 
 export const SiteDefaultTheme = createTheme({
+    isEnabled: true,
     palette: {
         primary: {
             main: orange[500],

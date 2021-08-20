@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { List, Divider, createStyles, makeStyles } from '@material-ui/core';
-import { ThemeButtonsComponent } from '../common/ThemeButtonsComponent';
+import { ThemeButtonGroupComponent } from '../common/ThemeButtonGroupComponent';
 import { TitleComponent } from '../common/TitleComponent';
 import { NavigationItemComponent } from './NavigationItemComponent';
 import { NavigationListComponentProps } from './interface/NavigationListComponentProps';
@@ -35,7 +35,7 @@ export function NavigationListComponent({ horizontal, displayIcons }: Navigation
                     .map((feature) => (
                         <NavigationItemComponent key={feature.id} siteFeature={feature} displayIcons={displayIcons} />
                     ))}
-                {!horizontal && <ThemeButtonsComponent />}
+                {!horizontal && <ThemeButtonGroupComponent />}
             </List>
             <Divider />
         </>
