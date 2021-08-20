@@ -1,9 +1,11 @@
 import React from 'react';
+import { AppContext } from '../services/siteDefaultsService';
 
-export function ConnectPage(): JSX.Element {
+export const ConnectPage = (): JSX.Element => {
+    const context = React.useContext(AppContext);
     return (
         <>
-            <main>connect page</main>
+            <main>{context.molitioId} connect page</main>
         </>
     );
-}
+};

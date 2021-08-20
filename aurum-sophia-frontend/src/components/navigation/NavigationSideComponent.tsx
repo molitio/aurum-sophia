@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { createStyles, makeStyles, Drawer } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { Drawer } from '@material-ui/core';
 import NavigationSidePanelProps from './interface/NavigationSidePanelProps';
 import { NavigationListComponent } from './NavigationListComponent';
 import { AppContext } from '../../services/siteDefaultsService';
+import { createSiteStyle } from '../../styles/siteStyleBuilder';
 
-export function NavigationSideComponent({ navigationState, toggle }: NavigationSidePanelProps): JSX.Element {
+export const NavigationSideComponent = ({ navigationState, toggle }: NavigationSidePanelProps): JSX.Element => {
     type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
     const [selectedAnchor, setSelectedAnchor] = useState<Anchor>('left');
@@ -13,34 +14,30 @@ export function NavigationSideComponent({ navigationState, toggle }: NavigationS
         setSelectedAnchor('left');
     }, []);
 
-    const context = useContext(AppContext);
+    const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
-    const useStyles = makeStyles(() =>
-        createStyles({
-            root: {
-                zIndex: 100,
-            },
-            drawerContent: {
-                backgroundColor: theme.palette.background.default,
-                minHeight: '100vh',
-                /*  [theme.breakpoints.up('xs')]: {
+    const componentStyle = createSiteStyle({
+        root: {
+            zIndex: 100,
+        },
+        drawerContent: {
+            backgroundColor: theme.palette.background.default,
+            minHeight: '100vh',
+            /*  [theme.breakpoints.up('xs')]: {
                     anchor: setSelectedAnchor('top'),
                 }, */
+        },
+        navList: {
+            backgroundColor: theme.palette.background.default,
+            display: 'flex',
+            minHeight: '100vh',
+            flexDirection: 'column',
+            [theme.breakpoints.up('xs')]: {
+                /* width: '100vw', */
             },
-            navList: {
-                backgroundColor: theme.palette.background.default,
-                display: 'flex',
-                minHeight: '100vh',
-                flexDirection: 'column',
-                [theme.breakpoints.up('xs')]: {
-                    /* width: '100vw', */
-                },
-            },
-        }),
-    );
-
-    const componentStyle = useStyles();
+        },
+    });
 
     return (
         <>
@@ -58,4 +55,4 @@ export function NavigationSideComponent({ navigationState, toggle }: NavigationS
             </div>
         </>
     );
-}
+};

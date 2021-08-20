@@ -1,58 +1,55 @@
-import React, { useContext, useState } from 'react';
-import { createStyles, makeStyles, AppBar, Toolbar, IconButton } from '@material-ui/core';
+import React, { useState } from 'react';
+import { AppBar, Toolbar, IconButton } from '@material-ui/core';
 import { NavigationSideComponent } from './NavigationSideComponent';
 import { TitleComponent } from '../common/TitleComponent';
 import { Icon } from '@material-ui/core';
 import { useScrollTrigger } from '@material-ui/core';
 import { NavigationListComponent } from './NavigationListComponent';
 import { AppContext, SiteDefaultIcon } from '../../services/siteDefaultsService';
+import { createSiteStyle } from '../../styles/siteStyleBuilder';
 
-export function NavigationTopComponent(): JSX.Element {
-    const context = useContext(AppContext);
+export const NavigationTopComponent = (): JSX.Element => {
+    const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
     const trigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: 64,
     });
 
-    const useStyles = makeStyles(() =>
-        createStyles({
-            navigationTopContainer: {
-                zIndex: 100,
-                position: 'sticky',
-                top: 0,
-            },
-            appBar: {
-                color: theme.palette.text.primary,
-                opacity: 0.9,
-                ...theme.themeGradientBackground,
-            },
-            menuButton: {
-                color: theme.palette.text.primary,
-            },
-            menuButtonContainer: {
-                marginRight: 0,
-                '& :hover': {
-                    ...theme.hooverActionOn,
-                    '& span': {
-                        ...theme.hooverActionOff,
-                    },
+    const componentStyle = createSiteStyle({
+        navigationTopContainer: {
+            zIndex: 100,
+            position: 'sticky',
+            top: 0,
+        },
+        appBar: {
+            color: theme.palette.text.primary,
+            opacity: 0.9,
+            ...theme.themeGradientBackground,
+        },
+        menuButton: {
+            color: theme.palette.text.primary,
+        },
+        menuButtonContainer: {
+            marginRight: 0,
+            '& :hover': {
+                ...theme.hooverActionOn,
+                '& span': {
+                    ...theme.hooverActionOff,
                 },
             },
-            menuRow: {
-                [theme.breakpoints.down('xs')]: { display: 'none' },
-            },
-            titleToolBar: {
-                top: 0,
-                position: 'sticky',
-            },
-            title: {
-                marginLeft: trigger ? '0px' : '32px',
-            },
-        }),
-    );
-
-    const componentStyle = useStyles();
+        },
+        menuRow: {
+            [theme.breakpoints.down('xs')]: { display: 'none' },
+        },
+        titleToolBar: {
+            top: 0,
+            position: 'sticky',
+        },
+        title: {
+            marginLeft: trigger ? '0px' : '32px',
+        },
+    });
 
     const [navigationState, setnavigationState] = useState({
         sidePanel: false,
@@ -122,4 +119,4 @@ export function NavigationTopComponent(): JSX.Element {
             </div>
         </>
     );
-}
+};

@@ -18,7 +18,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps): JSX.E
     const [appContext, setAppContext] = useState<TAppContext>(SiteContextDefaults);
     const [isContentLoaded, setIsContentLoaded] = useState(true);
 
-    const [isImageBackgroundEnabled, setIsImageBackgroundEnabled] = useState(false);
+    const [isImageBackgroundEnabled, setIsImageBackgroundEnabled] = useState(true);
 
     useEffect(() => {
         loadData();

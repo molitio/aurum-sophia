@@ -1,8 +1,9 @@
 import React from 'react';
-//import { ImagePageBackground } from '../components/background/ImagePageBackground';
 import { ContactComponent } from '../components/contact/ContactComponent';
+import { AppContext } from '../services/siteDefaultsService';
 
-export function ContactPage(): JSX.Element {
+export const ContactPage = (): JSX.Element => {
+    const context = React.useContext(AppContext);
     return (
         <>
             <main>
@@ -10,4 +11,4 @@ export function ContactPage(): JSX.Element {
             </main>
         </>
     );
-}
+};

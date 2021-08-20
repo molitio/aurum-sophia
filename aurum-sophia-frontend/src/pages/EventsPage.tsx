@@ -1,7 +1,9 @@
 import React from 'react';
 import { EventsComponent } from '../components/events/EventsComponent';
+import { AppContext } from '../services/siteDefaultsService';
 
-export function EventsPage(): JSX.Element {
+export const EventsPage = (): JSX.Element => {
+    const context = React.useContext(AppContext);
     return (
         <>
             <main>
@@ -9,4 +11,4 @@ export function EventsPage(): JSX.Element {
             </main>
         </>
     );
-}
+};

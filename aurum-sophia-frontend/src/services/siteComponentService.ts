@@ -15,16 +15,3 @@ export const getSiteFeatureComponents = () =>
         ['connect', ConnectPage],
         ['contact', ContactPage],
     ]);
-
-/* export const getSiteFeatureByTag = (tag: string): JSX.Element => {
-    const element = siteFeatureComponents.components.get(tag);
-    return element
-        ? element
-        : ErrorPage({
-              errorData: {
-                  code: 404,
-                  description: 'Component not found.',
-                  message: 'Reference to a non existent component',
-              },
-          });
-}; */

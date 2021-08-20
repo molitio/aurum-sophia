@@ -1,39 +1,37 @@
-import React, { useContext } from 'react';
-import { createStyles, makeStyles, Paper, SvgIcon, Typography } from '@material-ui/core';
+import React from 'react';
+import { Paper, SvgIcon, Typography } from '@material-ui/core';
 import { ErrorPageProps } from './interface/ErrorPageProps';
 import { AppContext } from '../services/siteDefaultsService';
+import { createSiteStyle } from '../styles/siteStyleBuilder';
 
-export function ErrorPage({ error }: ErrorPageProps): JSX.Element {
-    const context = useContext(AppContext);
+export const ErrorPage = ({ error }: ErrorPageProps): JSX.Element => {
+    const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
-    const useStyles = makeStyles(() =>
-        createStyles({
-            siteError: {
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                flexDirection: 'column',
-            },
-            errorInfoContainer: {
-                flex: 1,
-                margin: '0px 20px',
-                border: 1,
-                borderStyle: 'solid',
-                borderRadius: 10,
-                borderColor: theme.palette.secondary.main,
-                boxShadow: theme.shadows[5],
-            },
-            errorInfo: {
-                padding: '15px',
-                borderRadius: 10,
-                color: theme.palette.error.light,
-                outline: theme.palette.error.light,
-                ...theme.themeGradientBackground,
-            },
-        }),
-    );
 
-    const pageStyle = useStyles();
+    const pageStyle = createSiteStyle({
+        siteError: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
+        },
+        errorInfoContainer: {
+            flex: 1,
+            margin: '0px 20px',
+            border: 1,
+            borderStyle: 'solid',
+            borderRadius: 10,
+            borderColor: theme.palette.secondary.main,
+            boxShadow: theme.shadows[5],
+        },
+        errorInfo: {
+            padding: '15px',
+            borderRadius: 10,
+            color: theme.palette.error.light,
+            outline: theme.palette.error.light,
+            ...theme.themeGradientBackground,
+        },
+    });
 
     return (
         <>
@@ -55,4 +53,4 @@ export function ErrorPage({ error }: ErrorPageProps): JSX.Element {
             </main>
         </>
     );
-}
+};

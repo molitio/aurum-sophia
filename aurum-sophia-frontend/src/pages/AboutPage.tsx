@@ -1,78 +1,76 @@
-import React, { useContext } from 'react';
-import { makeStyles, createStyles, Typography } from '@material-ui/core';
+import React from 'react';
+import { Typography } from '@material-ui/core';
 import pexelsPixabay462030 from '../images/pexelsPixabay462030.jpg';
 import { MembersComponent } from '../components/members/MembersComponent';
 import { AppContext } from '../services/siteDefaultsService';
+import { createSiteStyle } from '../styles/siteStyleBuilder';
 
-export function AboutPage(): JSX.Element {
-    const context = useContext(AppContext);
+export const AboutPage = (): JSX.Element => {
+    const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
-    const useStyles = makeStyles(() =>
-        createStyles({
-            pageContent: {
-                display: 'flex',
-                flexDirection: 'column',
-                color: theme.palette.text.primary,
-                padding: '10px 0px',
-                marginBottom: '10px',
-                border: 0,
-                borderStyle: 'solid',
-                borderRadius: 10,
-                borderColor: theme.palette.secondary.main,
-                boxShadow: theme.shadows[5],
-                opacity: 0.9,
-                /* backgroundColor: 'transparent', */
-                ...theme.themeGradientBackground,
-            },
-            aboutContent: {
-                display: 'flex',
-                flex: 1,
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'left',
-            },
-            aboutText: {
-                textAlign: 'center',
-                padding: '15px',
-                opacity: 1,
-                flex: 3,
-                textShadow: `1px 1px ${theme.palette.secondary.main}`,
-            },
-            aboutImageContainer: {
-                marginTop: '15px',
-                marginLeft: '20px',
-                marginRight: '15px',
-                flex: 1,
-                borderWidth: 0,
-                borderRadius: '10px',
-                [theme.breakpoints.down('xs')]: {
-                    /* top: '33vh',
+
+    const pageStyle = createSiteStyle({
+        pageContent: {
+            display: 'flex',
+            flexDirection: 'column',
+            color: theme.palette.text.primary,
+            padding: '10px 0px',
+            marginBottom: '10px',
+            border: 0,
+            borderStyle: 'solid',
+            borderRadius: 10,
+            borderColor: theme.palette.secondary.main,
+            boxShadow: theme.shadows[5],
+            opacity: 0.9,
+            /* backgroundColor: 'transparent', */
+            ...theme.themeGradientBackground,
+        },
+        aboutContent: {
+            display: 'flex',
+            flex: 1,
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'left',
+        },
+        aboutText: {
+            textAlign: 'center',
+            padding: '15px',
+            opacity: 1,
+            flex: 3,
+            textShadow: `1px 1px ${theme.palette.secondary.main}`,
+        },
+        aboutImageContainer: {
+            marginTop: '15px',
+            marginLeft: '20px',
+            marginRight: '15px',
+            flex: 1,
+            borderWidth: 0,
+            borderRadius: '10px',
+            [theme.breakpoints.down('xs')]: {
+                /* top: '33vh',
                     width: '64vw',
                     alignItem: 'centered',
                     opacity: 0.3, */
-                    display: 'none',
-                },
+                display: 'none',
             },
-            aboutImage: {
-                border: 1,
-                borderStyle: 'solid',
-                borderColor: theme.palette.secondary.main,
-                borderRadius: '20px',
-                opacity: 0.7,
-                [theme.breakpoints.down('sm')]: {
-                    top: '33vh',
-                    width: '24vw',
-                    alignItem: 'centered',
-                    /* display: 'none', */
-                },
+        },
+        aboutImage: {
+            border: 1,
+            borderStyle: 'solid',
+            borderColor: theme.palette.secondary.main,
+            borderRadius: '20px',
+            opacity: 0.7,
+            [theme.breakpoints.down('sm')]: {
+                top: '33vh',
+                width: '24vw',
+                alignItem: 'centered',
+                /* display: 'none', */
             },
-            memberContent: {
-                flex: 1,
-            },
-        }),
-    );
-
-    const pageStyle = useStyles();
+        },
+        memberContent: {
+            flex: 1,
+        },
+    });
 
     return (
         <main className={pageStyle.pageContent}>
@@ -114,4 +112,4 @@ export function AboutPage(): JSX.Element {
             </div>
         </main>
     );
-}
+};

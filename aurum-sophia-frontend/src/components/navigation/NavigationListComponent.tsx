@@ -1,30 +1,28 @@
-import React, { useContext } from 'react';
-import { List, Divider, createStyles, makeStyles } from '@material-ui/core';
+import React from 'react';
+import { List, Divider } from '@material-ui/core';
 import { ThemeButtonGroupComponent } from '../common/ThemeButtonGroupComponent';
 import { TitleComponent } from '../common/TitleComponent';
 import { NavigationItemComponent } from './NavigationItemComponent';
 import { NavigationListComponentProps } from './interface/NavigationListComponentProps';
 import { AppContext } from '../../services/siteDefaultsService';
+import { createSiteStyle } from '../../styles/siteStyleBuilder';
 
-export function NavigationListComponent({ horizontal, displayIcons }: NavigationListComponentProps): JSX.Element {
-    const context = useContext(AppContext);
+export const NavigationListComponent = ({ horizontal, displayIcons }: NavigationListComponentProps): JSX.Element => {
+    const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
-    const useStyles = makeStyles(() =>
-        createStyles({
-            navList: {
-                display: 'flex',
-                flexDirection: horizontal ? 'row' : 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                [theme.breakpoints.up('xs')]: {
-                    /* width: '100vw', */
-                },
-            },
-            title: {},
-        }),
-    );
 
-    const componentStyle = useStyles();
+    const componentStyle = createSiteStyle({
+        navList: {
+            display: 'flex',
+            flexDirection: horizontal ? 'row' : 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            [theme.breakpoints.up('xs')]: {
+                /* width: '100vw', */
+            },
+        },
+        title: {},
+    });
 
     return (
         <>
@@ -40,4 +38,4 @@ export function NavigationListComponent({ horizontal, displayIcons }: Navigation
             <Divider />
         </>
     );
-}
+};
