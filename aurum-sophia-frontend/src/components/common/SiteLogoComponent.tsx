@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { AppContext } from '../../services/siteDefaultsService';
 
-export function SiteLogoComponent(): JSX.Element {
-    const context = useContext(AppContext);
+export const SiteLogoComponent = (): JSX.Element => {
+    const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
     return (
         <>
@@ -58,4 +58,4 @@ export function SiteLogoComponent(): JSX.Element {
             }
         </>
     );
-}
+};

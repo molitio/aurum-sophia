@@ -69,11 +69,15 @@ export const SiteContextDefaults: ISiteContext = {
     siteIconCollection: new Map<string, TSiteIcon>(),
     featureIconCollection: new Map<string, TSiteIcon>(),
     contentCollection: new Map<string, TPageContent>(),
+    themeCollection: new Map<string, Theme>(),
     setSelectedTheme: () => {
         return SiteDefaultTheme;
     },
     selectedTheme: SiteDefaultTheme,
-    themeCollection: new Map<string, Theme>(),
+    isImageBackgroundEnabled: true,
+    setIsImageBackgroundEnabled: () => {
+        return true;
+    },
 };
 
 export const AppContext = React.createContext<ISiteContext>(SiteContextDefaults);

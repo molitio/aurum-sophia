@@ -16,8 +16,9 @@ export const AppContextProvider = ({ children }: AppContextProviderProps): JSX.E
     const [selectedTheme, setSelectedTheme] = useState(SiteDefaultTheme);
 
     const [appContext, setAppContext] = useState<TAppContext>(SiteContextDefaults);
-
     const [isContentLoaded, setIsContentLoaded] = useState(true);
+
+    const [isImageBackgroundEnabled, setIsImageBackgroundEnabled] = useState(false);
 
     useEffect(() => {
         loadData();
@@ -70,6 +71,8 @@ export const AppContextProvider = ({ children }: AppContextProviderProps): JSX.E
                     ...appContext,
                     selectedTheme: selectedTheme,
                     setSelectedTheme: setSelectedTheme,
+                    isImageBackgroundEnabled: isImageBackgroundEnabled,
+                    setIsImageBackgroundEnabled: setIsImageBackgroundEnabled,
                 }}
             >
                 <ThemeProvider theme={selectedTheme ? selectedTheme : SiteDefaultTheme}>{children}</ThemeProvider>

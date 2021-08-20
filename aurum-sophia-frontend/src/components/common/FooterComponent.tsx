@@ -1,28 +1,26 @@
-import React, { useContext } from 'react';
-import { createStyles, makeStyles, Typography } from '@material-ui/core';
+import React from 'react';
+import { Typography } from '@material-ui/core';
 import { AppContext } from '../../services/siteDefaultsService';
+import { createSiteStyle } from '../../styles/siteStyleBuilder';
 
-export function FooterComponent(): JSX.Element {
-    const context = useContext(AppContext);
+export const FooterComponent = (): JSX.Element => {
+    const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
-    const useStyles = makeStyles(() =>
-        createStyles({
-            footer: {
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-around',
-                minHeight: 24,
-                opacity: 0.6,
-                color: theme.palette.text.primary,
-                ...theme.themeGradientBackground,
-            },
-            brand: {
-                justifySelf: 'flex-end',
-            },
-        }),
-    );
 
-    const componentStyle = useStyles();
+    const componentStyle = createSiteStyle({
+        footer: {
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            minHeight: 24,
+            opacity: 0.6,
+            color: theme.palette.text.primary,
+            ...theme.themeGradientBackground,
+        },
+        brand: {
+            justifySelf: 'flex-end',
+        },
+    });
 
     return (
         <div className={componentStyle.footer}>
@@ -31,4 +29,4 @@ export function FooterComponent(): JSX.Element {
             </div>
         </div>
     );
-}
+};

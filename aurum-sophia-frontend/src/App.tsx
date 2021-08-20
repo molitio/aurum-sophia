@@ -1,13 +1,12 @@
 import React from 'react';
-import { createStyles, makeStyles, useScrollTrigger } from '@material-ui/core';
+import { useScrollTrigger } from '@material-ui/core';
 import { FooterComponent } from './components/common/FooterComponent';
 import { NavigationTopComponent } from './components/navigation/NavigationTopComponent';
 import { SiteRoutesComponent } from './components/common/SiteRoutesComponent';
 import { ImagePageBackground } from './components/background/ImagePageBackground';
 import { AppContext } from './services/siteDefaultsService';
 import { createSiteStyle as createSiteStyle } from './styles/siteStyleBuilder';
-
-//import { ThemePageBackground } from './components/background/ThemePageBackground';
+import { ThemePageBackground } from './components/background/ThemePageBackground';
 
 export const App = (): JSX.Element => {
     console.log(`app is rendering`);
@@ -17,7 +16,6 @@ export const App = (): JSX.Element => {
     });
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
-
     const pageStyle = createSiteStyle({
         appRoot: {},
         navContainer: {
@@ -66,9 +64,7 @@ export const App = (): JSX.Element => {
                     <FooterComponent />
                 </div>
             </div>
-            {/* //TODO: logic */}
-            {/*    <ThemePageBackground /> */}
-            <ImagePageBackground />
+            {context.isImageBackgroundEnabled ? <ImagePageBackground /> : <ThemePageBackground />}
         </div>
     );
 };

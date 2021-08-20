@@ -17,6 +17,8 @@ export type TAppContext = {
 };
 
 export interface IThemeContext {
+    isImageBackgroundEnabled: boolean;
+    setIsImageBackgroundEnabled: Dispatch<SetStateAction<boolean>>;
     selectedTheme: Theme;
     setSelectedTheme: Dispatch<SetStateAction<Theme>>;
 }
