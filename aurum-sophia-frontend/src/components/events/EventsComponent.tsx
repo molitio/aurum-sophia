@@ -3,10 +3,20 @@ import { Typography } from '@material-ui/core';
 import { EventCardComponent } from './EventCardComponent';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
+import { PageTagProps } from '../common/interface/PageTagProps';
+import { TSiteEvent } from '../common/type/TSiteEvent';
 
-export const EventsComponent = (): JSX.Element => {
+export const EventsComponent = ({ pageTag }: PageTagProps): JSX.Element => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
+
+    const [events, setEvents] = React.useState(new Map<string, TSiteEvent>());
+
+    React.useEffect(() => {
+        const events = context.contentCollection?.get(pageTag)?.componentContent || new Map<string, TSiteEvent>();
+        console.log(events);
+        setEvents(events);
+    }, []);
 
     const componentStyle = createSiteStyle({
         events: {},
@@ -44,16 +54,17 @@ export const EventsComponent = (): JSX.Element => {
             </div>
             <br />
             <div className={componentStyle.eventsContainer}>
-                <div className={componentStyle.column}>
-                    {['foo', 'bar', 'baz', 'rba'].map((v, i) => (
-                        <EventCardComponent key={i} />
-                    ))}
-                </div>
-                <div className={componentStyle.column}>
-                    {['foo', 'bar', 'baz', 'rba'].map((v, i) => (
-                        <EventCardComponent key={i} />
-                    ))}
-                </div>
+                {Array.from([...events]).map((event, i) =>
+                    i % 2 === 0 ? (
+                        <div className={componentStyle.column}>
+                            <EventCardComponent key={i} event={event[1]} />
+                        </div>
+                    ) : (
+                        <div className={componentStyle.column}>
+                            <EventCardComponent key={i} event={event[1]} />
+                        </div>
+                    ),
+                )}
             </div>
         </div>
     );

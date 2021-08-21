@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 import { Drawer } from '@material-ui/core';
 import NavigationSidePanelProps from './interface/NavigationSidePanelProps';
 import { NavigationListComponent } from './NavigationListComponent';
@@ -9,6 +9,8 @@ export const NavigationSideComponent = ({ navigationState, toggle }: NavigationS
     type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
     const [selectedAnchor, setSelectedAnchor] = useState<Anchor>('left');
+
+    const navigationSideComponentRef = createRef();
 
     useEffect(() => {
         setSelectedAnchor('left');
@@ -42,7 +44,12 @@ export const NavigationSideComponent = ({ navigationState, toggle }: NavigationS
     return (
         <>
             <div className={componentStyle.root}>
-                <Drawer anchor={selectedAnchor} open={navigationState.sidePanel} onClose={toggle}>
+                <Drawer
+                    anchor={selectedAnchor}
+                    open={navigationState.sidePanel}
+                    onClose={toggle}
+                    ref={navigationSideComponentRef}
+                >
                     <div
                         className={componentStyle.drawerContent}
                         role="presentation"

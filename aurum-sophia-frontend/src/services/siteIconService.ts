@@ -1,7 +1,7 @@
 import { TSiteIcon } from '../components/common/type/TSiteIcon';
 /*     icon repository: https://fonts.google.com/icons?selected=Material+Icons */
 
-export const getSiteIconCollection = () =>
+export const getSiteIconCollection = (): Map<string, TSiteIcon> =>
     new Map<string, TSiteIcon>([
         [
             'report_Problem',
@@ -35,7 +35,7 @@ export const getSiteIconCollection = () =>
         ],
     ]);
 
-export const getFeatureIconCollection = () =>
+export const getFeatureIconCollection = (): Map<string, TSiteIcon> =>
     new Map<string, TSiteIcon>([
         [
             'actuals',

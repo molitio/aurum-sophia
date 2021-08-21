@@ -9,7 +9,6 @@ import { createSiteStyle as createSiteStyle } from './styles/siteStyleBuilder';
 import { ThemePageBackground } from './components/background/ThemePageBackground';
 
 export const App = (): JSX.Element => {
-    console.log(`app is rendering`);
     const trigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: 64,

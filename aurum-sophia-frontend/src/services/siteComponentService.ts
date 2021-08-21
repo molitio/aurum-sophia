@@ -7,7 +7,7 @@ import { TPageContent } from '../components/common/type/TPageContent';
 
 // consider dynamic module loading from library
 
-export const getSiteFeatureComponents = () =>
+export const getSiteFeatureComponents = (): Map<string, (componentParameter: TPageContent) => JSX.Element> =>
     new Map<string, (componentParameter: TPageContent) => JSX.Element>([
         ['actuals', ActualsPage],
         ['about', AboutPage],

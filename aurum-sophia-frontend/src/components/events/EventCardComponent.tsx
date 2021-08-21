@@ -3,11 +3,12 @@ import { Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, 
 import greenHand from '../../images/greenHand.jpg';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
+import { EventCardComponentProps } from './interface/EventCardComponentProps';
 
-export const EventCardComponent = (): JSX.Element => {
+export const EventCardComponent = ({ event }: EventCardComponentProps): JSX.Element => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
-
+    console.log(`eventComponent: ${event}`);
     const componentStyle = createSiteStyle({
         root: {
             color: theme.palette.text.primary,
@@ -63,11 +64,10 @@ export const EventCardComponent = (): JSX.Element => {
                         <div className={componentStyle.cardContent}>
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
-                                    Event
+                                    {event.title}
                                 </Typography>
                                 <Typography variant="body2" className={componentStyle.cardInfo}>
-                                    Proin non bibendum ipsum. Sed vitae tristique metus, vel placerat turpis. Cras
-                                    gravida odio sit amet erat volutpat, nec vestibulum massa mollis.
+                                    {event.eventTextContent}
                                 </Typography>
                             </CardContent>
                         </div>

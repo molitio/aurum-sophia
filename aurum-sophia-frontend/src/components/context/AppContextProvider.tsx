@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ThemeProvider } from '@material-ui/core';
 import { sitePageContentCollection as getSiteContentCollection } from '../../services/siteContentService';
 import { getSiteFeatureCollection } from '../../services/siteFeaturesService';
@@ -12,15 +12,12 @@ import { AppContext, SiteContextDefaults, SiteDefaultTheme, SiteMolitioId } from
 import { TAppContext } from './interface/AppContext';
 
 export const AppContextProvider = ({ children }: AppContextProviderProps): JSX.Element => {
-    console.log('app context provider rendering');
-    const [selectedTheme, setSelectedTheme] = useState(SiteDefaultTheme);
+    const [selectedTheme, setSelectedTheme] = React.useState(SiteDefaultTheme);
+    const [appContext, setAppContext] = React.useState<TAppContext>(SiteContextDefaults);
+    const [isContentLoaded, setIsContentLoaded] = React.useState(true);
+    const [isImageBackgroundEnabled, setIsImageBackgroundEnabled] = React.useState(true);
 
-    const [appContext, setAppContext] = useState<TAppContext>(SiteContextDefaults);
-    const [isContentLoaded, setIsContentLoaded] = useState(true);
-
-    const [isImageBackgroundEnabled, setIsImageBackgroundEnabled] = useState(true);
-
-    useEffect(() => {
+    React.useEffect(() => {
         loadData();
         async function loadData() {
             try {
@@ -53,9 +50,6 @@ export const AppContextProvider = ({ children }: AppContextProviderProps): JSX.E
                 };
 
                 setAppContext(context);
-
-                console.log(`******* reloaded data *******`);
-
                 setIsContentLoaded(true);
             } catch (error: any) {
                 console.log(error.message);

@@ -16,7 +16,6 @@ export const ThemeButton = ({ themeName }: ThemeButtonProps): JSX.Element => {
             /* ...theme.devOutline, */
         },
     });
-    console.log(`themeName: ${themeName}`);
 
     return (
         <>
