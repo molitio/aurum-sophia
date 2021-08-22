@@ -4,6 +4,9 @@ import pexelsPixabay462030 from '../images/pexelsPixabay462030.jpg';
 import { MembersComponent } from '../components/members/MembersComponent';
 import { AppContext } from '../services/siteDefaultsService';
 import { createSiteStyle } from '../styles/siteStyleBuilder';
+import { AboutComponent } from '../components/about/AboutComponent';
+
+const ABOUT_PAGE_TAG = 'aurum-sophia-about-page';
 
 export const AboutPage = (): JSX.Element => {
     const context = React.useContext(AppContext);
@@ -74,6 +77,7 @@ export const AboutPage = (): JSX.Element => {
 
     return (
         <main className={pageStyle.pageContent}>
+            <AboutComponent pageTag={ABOUT_PAGE_TAG} />
             <div className={pageStyle.aboutContent}>
                 <div className={pageStyle.aboutText}>
                     <Typography variant="h5">

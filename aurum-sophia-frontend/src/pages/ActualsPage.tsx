@@ -5,7 +5,7 @@ import { createSiteStyle } from '../styles/siteStyleBuilder';
 import { ActualsComponent } from '../components/actuals/ActualsComponent';
 
 const ACTUALS_PAGE_TAG = 'aurum-sophia-actuals-page';
-const EVENTS_PAGE_TAG = 'aurum-sophia-actuals-event-page';
+const EVENTS_PAGE_TAG = 'aurum-sophia-actuals-page-events';
 
 export const ActualsPage = (): JSX.Element => {
     const context = React.useContext(AppContext);
