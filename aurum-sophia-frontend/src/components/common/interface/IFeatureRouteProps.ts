@@ -1,6 +1,6 @@
-import { TSiteFeature } from '../type/TSiteFeature';
+import { TFeature } from '../type/TFeature';
 
 export interface IFeatureRouteProps {
-    siteFeature: TSiteFeature;
+    siteFeature: TFeature;
     siteComponent: () => JSX.Element;
 }

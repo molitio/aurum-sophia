@@ -1,5 +1,5 @@
-import { TSiteEvent } from '../../common/type/TSiteEvent';
+import { TEvent } from '../../common/type/TEvent';
 
 export interface EventCardComponentProps {
-    event: TSiteEvent;
+    event: TEvent;
 }

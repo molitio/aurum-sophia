@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import { AppContext } from '../../services/siteDefaultsService';
+import { AppContext, SiteDefaultPageContent } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { PageTagProps } from '../common/interface/PageTagProps';
 import { TPageContent } from '../common/type/TPageContent';
@@ -11,10 +11,10 @@ export const AboutComponent = ({ pageTag }: PageTagProps) => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
-    const [aboutContent, setAboutContent] = React.useState<TPageContent>();
+    const [aboutContent, setAboutContent] = React.useState<TPageContent>(SiteDefaultPageContent);
 
     React.useEffect(() => {
-        const content = context.contentCollection.get(pageTag);
+        const content = context.contentCollection.get(pageTag) ?? SiteDefaultPageContent;
         setAboutContent(content);
     }, [context.contentCollection]);
 
@@ -70,14 +70,14 @@ export const AboutComponent = ({ pageTag }: PageTagProps) => {
                 <Typography variant="h6">{aboutContent?.textContent}</Typography>
                 <br />
                 {console.log(aboutContent)}
-                {Array.from([...(aboutContent?.componentContent || new Map<string, TComponentContent>())]).map(
+                {Array.from([...(aboutContent?.componentContent ?? new Map<string, TComponentContent>())]).map(
                     (content, i) => (
-                        <>
+                        <div key={content[0]}>
                             <Typography variant="body1" component="p">
                                 {content[1].textContent}
                             </Typography>
                             <br />
-                        </>
+                        </div>
                     ),
                 )}
             </div>

@@ -1,4 +1,4 @@
-import { TSiteFeature } from '../components/common/type/TSiteFeature';
+import { TFeature } from '../components/common/type/TFeature';
 
 export const deafultSiteFeature = {
     id: '',
@@ -10,8 +10,8 @@ export const deafultSiteFeature = {
     icon: { fontIcon: '' },
 };
 
-export const getSiteFeatureCollection = (): Map<string, TSiteFeature> =>
-    new Map<string, TSiteFeature>([
+export const getSiteFeatureCollection = (): Map<string, TFeature> =>
+    new Map<string, TFeature>([
         [
             'actuals',
             {

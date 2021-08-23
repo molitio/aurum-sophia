@@ -1,8 +1,8 @@
-import { TSiteIcon } from '../components/common/type/TSiteIcon';
+import { TIcon } from '../components/common/type/TIcon';
 /*     icon repository: https://fonts.google.com/icons?selected=Material+Icons */
 
-export const getSiteIconCollection = (): Map<string, TSiteIcon> =>
-    new Map<string, TSiteIcon>([
+export const getSiteIconCollection = (): Map<string, TIcon> =>
+    new Map<string, TIcon>([
         [
             'report_Problem',
             {
@@ -35,8 +35,8 @@ export const getSiteIconCollection = (): Map<string, TSiteIcon> =>
         ],
     ]);
 
-export const getFeatureIconCollection = (): Map<string, TSiteIcon> =>
-    new Map<string, TSiteIcon>([
+export const getFeatureIconCollection = (): Map<string, TIcon> =>
+    new Map<string, TIcon>([
         [
             'actuals',
             {

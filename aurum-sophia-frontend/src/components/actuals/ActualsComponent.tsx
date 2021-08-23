@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import { AppContext } from '../../services/siteDefaultsService';
+import { AppContext, SiteDefaultPageContent } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { PageTagProps } from '../common/interface/PageTagProps';
 import { TPageContent } from '../common/type/TPageContent';
@@ -9,10 +9,10 @@ export const ActualsComponent = ({ pageTag }: PageTagProps) => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
-    const [actualsContent, setActualsContent] = React.useState<TPageContent>();
+    const [actualsContent, setActualsContent] = React.useState<TPageContent>(SiteDefaultPageContent);
 
     React.useEffect(() => {
-        const content = context.contentCollection.get(pageTag);
+        const content = context.contentCollection.get(pageTag) ?? SiteDefaultPageContent;
         setActualsContent(content);
     }, [context.contentCollection]);
 

@@ -5,6 +5,7 @@ import { createSiteStyle } from '../styles/siteStyleBuilder';
 import { AboutComponent } from '../components/about/AboutComponent';
 
 const ABOUT_PAGE_TAG = 'aurum-sophia-about-page';
+const ABOUT_MEMBERS_TAG = 'aurum-sophia-about-members-page';
 
 export const AboutPage = (): JSX.Element => {
     const context = React.useContext(AppContext);
@@ -43,7 +44,7 @@ export const AboutPage = (): JSX.Element => {
             <AboutComponent pageTag={ABOUT_PAGE_TAG} />
             <div className={pageStyle.aboutContent}></div>
             <div className={pageStyle.memberContent}>
-                <MembersComponent />
+                <MembersComponent pageTag={ABOUT_MEMBERS_TAG} />
             </div>
         </main>
     );

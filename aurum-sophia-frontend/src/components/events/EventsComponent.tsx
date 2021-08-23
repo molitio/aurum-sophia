@@ -4,16 +4,16 @@ import { EventCardComponent } from './EventCardComponent';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { PageTagProps } from '../common/interface/PageTagProps';
-import { TSiteEvent } from '../common/type/TSiteEvent';
+import { TEvent } from '../common/type/TEvent';
 
 export const EventsComponent = ({ pageTag }: PageTagProps): JSX.Element => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
-    const [events, setEvents] = React.useState(new Map<string, TSiteEvent>());
+    const [events, setEvents] = React.useState(new Map<string, TEvent>());
 
     React.useEffect(() => {
-        const events = context.contentCollection?.get(pageTag)?.componentContent || new Map<string, TSiteEvent>();
+        const events = context.contentCollection?.get(pageTag)?.componentContent ?? new Map<string, TEvent>();
         console.log(events);
         setEvents(events);
     }, []);
@@ -49,7 +49,7 @@ export const EventsComponent = ({ pageTag }: PageTagProps): JSX.Element => {
         <div className={componentStyle.events}>
             <div className={componentStyle.componentTitle}>
                 <Typography variant="h5">
-                    <b>Események</b>
+                    <b>con</b>
                 </Typography>
             </div>
             <br />

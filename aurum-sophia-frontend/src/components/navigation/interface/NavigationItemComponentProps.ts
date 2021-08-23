@@ -1,6 +1,6 @@
-import { TSiteFeature } from '../../common/type/TSiteFeature';
+import { TFeature } from '../../common/type/TFeature';
 
 export interface NavigationItemComponentProps {
-    siteFeature?: TSiteFeature;
+    siteFeature?: TFeature;
     displayIcons: boolean;
 }

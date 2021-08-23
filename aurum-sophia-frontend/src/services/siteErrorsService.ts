@@ -1,7 +1,7 @@
-import { TSiteError } from '../components/common/type/TSiteError';
+import { TError } from '../components/common/type/TError';
 
-export const getSiteErrorCollection = (): Map<string, TSiteError> =>
-    new Map<string, TSiteError>([
+export const getSiteErrorCollection = (): Map<string, TError> =>
+    new Map<string, TError>([
         [
             '404',
             {

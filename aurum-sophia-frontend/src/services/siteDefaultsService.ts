@@ -1,9 +1,9 @@
 import React from 'react';
 import { createTheme, Theme } from '@material-ui/core';
 import { TPageContent } from '../components/common/type/TPageContent';
-import { TSiteError } from '../components/common/type/TSiteError';
-import { TSiteFeature } from '../components/common/type/TSiteFeature';
-import { TSiteIcon } from '../components/common/type/TSiteIcon';
+import { TError } from '../components/common/type/TError';
+import { TFeature } from '../components/common/type/TFeature';
+import { TIcon } from '../components/common/type/TIcon';
 import { ISiteContext } from '../components/context/interface/AppContext';
 import { orange, amber, red, indigo } from '@material-ui/core/colors';
 import sunThemeBackground from '../images/sunThemeBackground.jpg';
@@ -13,7 +13,7 @@ const siteIconCollection = getSiteIconCollection();
 
 export const SiteMolitioId = { molitioTag: `app_aurum_shopia` };
 
-export const SiteDefaultIcon: TSiteIcon = { fontIcon: 'report_problem' };
+export const SiteDefaultIcon: TIcon = { fontIcon: 'report_problem' };
 
 export const SiteDefaultTheme = createTheme({
     isEnabled: true,
@@ -64,11 +64,11 @@ export const SiteDefaultTheme = createTheme({
 
 export const SiteContextDefaults: ISiteContext = {
     molitioId: SiteMolitioId,
-    featureCollection: new Map<string, TSiteFeature>(),
+    featureCollection: new Map<string, TFeature>(),
     componentCollection: new Map<string, (componentParameter: TPageContent) => JSX.Element>(),
-    errorCollection: new Map<string, TSiteError>(),
-    siteIconCollection: new Map<string, TSiteIcon>(),
-    featureIconCollection: new Map<string, TSiteIcon>(),
+    errorCollection: new Map<string, TError>(),
+    siteIconCollection: new Map<string, TIcon>(),
+    featureIconCollection: new Map<string, TIcon>(),
     contentCollection: new Map<string, TPageContent>(),
     themeCollection: new Map<string, Theme>(),
     setSelectedTheme: () => {
@@ -82,3 +82,5 @@ export const SiteContextDefaults: ISiteContext = {
 };
 
 export const AppContext = React.createContext<ISiteContext>(SiteContextDefaults);
+
+export const SiteDefaultPageContent: TPageContent = { molitioId: SiteMolitioId, title: 'n/a' };

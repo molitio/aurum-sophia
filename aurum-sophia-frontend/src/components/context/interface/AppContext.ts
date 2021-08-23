@@ -1,18 +1,18 @@
 import { Dispatch, SetStateAction } from 'react';
 import { TMolitioId } from '../../common/type/TMolitioId';
 import { Theme } from '@material-ui/core';
-import { TSiteFeature } from '../../common/type/TSiteFeature';
+import { TFeature } from '../../common/type/TFeature';
 import { TPageContent } from '../../common/type/TPageContent';
-import { TSiteError } from '../../common/type/TSiteError';
-import { TSiteIcon } from '../../common/type/TSiteIcon';
+import { TError } from '../../common/type/TError';
+import { TIcon } from '../../common/type/TIcon';
 
 export type TAppContext = {
     contentCollection: Map<string, TPageContent>;
-    featureCollection: Map<string, TSiteFeature>;
+    featureCollection: Map<string, TFeature>;
     componentCollection: Map<string, (componentParameter: TPageContent) => JSX.Element>;
-    errorCollection: Map<string, TSiteError>;
-    siteIconCollection: Map<string, TSiteIcon>;
-    featureIconCollection: Map<string, TSiteIcon>;
+    errorCollection: Map<string, TError>;
+    siteIconCollection: Map<string, TIcon>;
+    featureIconCollection: Map<string, TIcon>;
     themeCollection: Map<string, Theme>;
 };
 

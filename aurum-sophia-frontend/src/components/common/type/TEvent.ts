@@ -1,7 +1,7 @@
 import { TComponentContent } from './TComponentContent';
 import { TEventPresentation } from './TEventPresentation';
 
-export type TSiteEvent = TComponentContent & {
+export type TEvent = TComponentContent & {
     eventTime?: string;
     eventSummary?: string;
     eventLocation?: string;

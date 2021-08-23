@@ -1,12 +1,12 @@
-import { TSiteIcon } from './TSiteIcon';
+import { TIcon } from './TIcon';
 
-export type TSiteFeature = {
+export type TFeature = {
     id: string;
     name: string;
     displayName: string;
     isEnabled: boolean;
     isNavOption: boolean;
     path: string;
-    icon?: TSiteIcon;
+    icon?: TIcon;
     component?: JSX.Element;
 };

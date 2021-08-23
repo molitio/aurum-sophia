@@ -1,5 +1,5 @@
-import { TSiteError } from '../../components/common/type/TSiteError';
+import { TError } from '../../components/common/type/TError';
 
 export interface ErrorPageProps {
-    error: TSiteError;
+    error: TError;
 }
