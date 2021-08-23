@@ -16,7 +16,7 @@ export const ActualsComponent = ({ pageTag }: PageTagProps) => {
         setActualsContent(content);
     }, [context.contentCollection]);
 
-    const pageStyle = createSiteStyle({
+    const componentStyle = createSiteStyle({
         actualsContent: {
             display: 'flex',
             flex: 1,
@@ -34,7 +34,7 @@ export const ActualsComponent = ({ pageTag }: PageTagProps) => {
     });
 
     return (
-        <div className={pageStyle.actualsText}>
+        <div className={componentStyle.actualsText}>
             <Typography variant="h4">
                 <b>{actualsContent && actualsContent.title}</b>
             </Typography>
