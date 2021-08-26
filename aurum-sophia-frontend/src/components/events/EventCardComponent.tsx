@@ -73,11 +73,11 @@ export const EventCardComponent = ({ event }: EventCardComponentProps): JSX.Elem
                         </div>
                     </div>
                 </CardActionArea>
-                <CardActions>
+                {/*     <CardActions>
                     <Button size="small" className={componentStyle.cardButton}>
                         Bövebben...
                     </Button>
-                </CardActions>
+                </CardActions> */}
             </Card>
         </div>
     );

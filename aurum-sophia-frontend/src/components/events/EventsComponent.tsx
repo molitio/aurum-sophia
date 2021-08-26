@@ -1,19 +1,22 @@
-import React from 'react';
 import { Typography } from '@material-ui/core';
-import { EventCardComponent } from './EventCardComponent';
-import { AppContext } from '../../services/siteDefaultsService';
+import React from 'react';
+import { AppContext, SiteDefaultPageContent } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { PageTagProps } from '../common/interface/PageTagProps';
 import { TEvent } from '../common/type/TEvent';
+import { EventCardComponent } from './EventCardComponent';
 
 export const EventsComponent = ({ pageTag }: PageTagProps): JSX.Element => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
+    const [eventsContent, setEventsContent] = React.useState(SiteDefaultPageContent);
     const [events, setEvents] = React.useState(new Map<string, TEvent>());
 
     React.useEffect(() => {
-        const events = context.contentCollection?.get(pageTag)?.componentContent ?? new Map<string, TEvent>();
+        const content = context.contentCollection?.get(pageTag) ?? SiteDefaultPageContent;
+        setEventsContent(content);
+        const events = content?.componentContent ?? new Map<string, TEvent>();
         console.log(events);
         setEvents(events);
     }, []);
@@ -49,19 +52,19 @@ export const EventsComponent = ({ pageTag }: PageTagProps): JSX.Element => {
         <div className={componentStyle.events}>
             <div className={componentStyle.componentTitle}>
                 <Typography variant="h5">
-                    <b>con</b>
+                    <b>{eventsContent.title}</b>
                 </Typography>
             </div>
             <br />
             <div className={componentStyle.eventsContainer}>
                 {Array.from([...events]).map((event, i) =>
                     i % 2 === 0 ? (
-                        <div className={componentStyle.column}>
-                            <EventCardComponent key={i} event={event[1]} />
+                        <div key={event[0]} className={componentStyle.column}>
+                            <EventCardComponent event={event[1]} />
                         </div>
                     ) : (
-                        <div className={componentStyle.column}>
-                            <EventCardComponent key={i} event={event[1]} />
+                        <div key={event[0]} className={componentStyle.column}>
+                            <EventCardComponent event={event[1]} />
                         </div>
                     ),
                 )}

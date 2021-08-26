@@ -69,7 +69,6 @@ export const AboutComponent = ({ pageTag }: PageTagProps) => {
                 <br />
                 <Typography variant="h6">{aboutContent?.textContent}</Typography>
                 <br />
-                {console.log(aboutContent)}
                 {Array.from([...(aboutContent?.componentContent ?? new Map<string, TComponentContent>())]).map(
                     (content, i) => (
                         <div key={content[0]}>

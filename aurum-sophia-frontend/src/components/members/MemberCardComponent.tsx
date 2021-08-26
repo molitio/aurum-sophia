@@ -1,10 +1,11 @@
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core';
 import React from 'react';
-import { Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button } from '@material-ui/core';
 import greenHand from '../../images/greenHand.jpg';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
+import { MemberCardComponentProps } from './interface/MemberCardComponentProps';
 
-export const MemberCardComponent = (): JSX.Element => {
+export const MemberCardComponent = ({ member }: MemberCardComponentProps): JSX.Element => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
@@ -67,22 +68,24 @@ export const MemberCardComponent = (): JSX.Element => {
                         </div>
                         <div className={componentStyle.cardContent}>
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    Member
+                                <Typography gutterBottom variant="h5" component="h5">
+                                    {member.memberName}
+                                </Typography>
+                                <Typography gutterBottom variant="body1" component="span">
+                                    {member.memberTitle}
                                 </Typography>
                                 <Typography variant="body2" className={componentStyle.cardInfo}>
-                                    Proin non bibendum ipsum. Sed vitae tristique metus, vel placerat turpis. Cras
-                                    gravida odio sit amet erat volutpat, nec vestibulum massa mollis.
+                                    {member.memberSummary}...
                                 </Typography>
                             </CardContent>
                         </div>
                     </div>
                 </CardActionArea>
-                <CardActions>
+                {/*    <CardActions>
                     <Button size="small" className={componentStyle.cardButton}>
                         Bövebben...
                     </Button>
-                </CardActions>
+                </CardActions> */}
             </Card>
         </div>
     );

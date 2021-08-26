@@ -41,8 +41,9 @@ export const AboutPage = (): JSX.Element => {
 
     return (
         <main className={pageStyle.pageContent}>
-            <AboutComponent pageTag={ABOUT_PAGE_TAG} />
-            <div className={pageStyle.aboutContent}></div>
+            <div className={pageStyle.aboutContent}>
+                <AboutComponent pageTag={ABOUT_PAGE_TAG} />
+            </div>
             <div className={pageStyle.memberContent}>
                 <MembersComponent pageTag={ABOUT_MEMBERS_TAG} />
             </div>

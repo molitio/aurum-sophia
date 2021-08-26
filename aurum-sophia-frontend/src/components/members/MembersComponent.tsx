@@ -4,7 +4,6 @@ import { AppContext, SiteDefaultPageContent } from '../../services/siteDefaultsS
 import { PageTagProps } from '../common/interface/PageTagProps';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { TPageContent } from '../common/type/TPageContent';
-import { TComponentContent } from '../common/type/TComponentContent';
 import { TMember } from '../common/type/TMember';
 
 export const MembersComponent = ({ pageTag }: PageTagProps): JSX.Element => {
@@ -17,6 +16,7 @@ export const MembersComponent = ({ pageTag }: PageTagProps): JSX.Element => {
     React.useEffect(() => {
         const content = context.contentCollection.get(pageTag) ?? SiteDefaultPageContent;
         setMembersContent(content);
+        setMembers(content.componentContent ?? new Map<string, TMember>());
     }, [context.contentCollection]);
 
     const componentStyle = createSiteStyle({
@@ -40,16 +40,17 @@ export const MembersComponent = ({ pageTag }: PageTagProps): JSX.Element => {
 
     return (
         <div className={componentStyle.members}>
-            <div className={componentStyle.column}>
-                {['foo', 'bar', 'baz', 'rba'].map((v, i) => (
-                    <MemberCardComponent key={i} />
-                ))}
-            </div>
-            <div className={componentStyle.column}>
-                {['foo', 'bar', 'baz', 'rba'].map((v, i) => (
-                    <MemberCardComponent key={i} />
-                ))}
-            </div>
+            {Array.from([...members]).map((member, i) =>
+                i % 2 === 0 ? (
+                    <div key={member[0]} className={componentStyle.column}>
+                        <MemberCardComponent member={member[1]} />
+                    </div>
+                ) : (
+                    <div key={member[0]} className={componentStyle.column}>
+                        <MemberCardComponent member={member[1]} />
+                    </div>
+                ),
+            )}
         </div>
     );
 };
