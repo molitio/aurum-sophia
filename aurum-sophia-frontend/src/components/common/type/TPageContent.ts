@@ -8,4 +8,5 @@ export type TPageContent = {
     dateCreated?: string;
     imagesUrl?: Map<string, string>;
     componentContent?: Map<string, TComponentContent>;
+    expanded?: boolean;
 };

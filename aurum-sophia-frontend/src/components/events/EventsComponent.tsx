@@ -23,9 +23,17 @@ export const EventsComponent = ({ pageTag }: PageTagProps): JSX.Element => {
 
     const componentStyle = createSiteStyle({
         events: {},
+        componentTitle: {
+            textAlign: 'center',
+            padding: '15px',
+            opacity: 1,
+            flex: 3,
+            textShadow: `1px 1px ${theme.palette.secondary.main}`,
+        },
         eventsContainer: {
             display: 'flex',
             flexDirection: 'row',
+            alignItems: 'stretch',
             flexWrap: 'wrap',
             paddingLeft: '5vw',
             paddingRight: '5vw',
@@ -35,16 +43,8 @@ export const EventsComponent = ({ pageTag }: PageTagProps): JSX.Element => {
             },
         },
         column: {
-            display: 'flex',
-            flexDirection: 'column',
             flex: 1,
-        },
-        componentTitle: {
-            textAlign: 'center',
-            padding: '15px',
-            opacity: 1,
-            flex: 3,
-            textShadow: `1px 1px ${theme.palette.secondary.main}`,
+            flexBasis: '40vw',
         },
     });
 
@@ -57,17 +57,11 @@ export const EventsComponent = ({ pageTag }: PageTagProps): JSX.Element => {
             </div>
             <br />
             <div className={componentStyle.eventsContainer}>
-                {Array.from([...events]).map((event, i) =>
-                    i % 2 === 0 ? (
-                        <div key={event[0]} className={componentStyle.column}>
-                            <EventCardComponent event={event[1]} />
-                        </div>
-                    ) : (
-                        <div key={event[0]} className={componentStyle.column}>
-                            <EventCardComponent event={event[1]} />
-                        </div>
-                    ),
-                )}
+                {Array.from([...events]).map((event, i) => (
+                    <div key={event[0]} className={componentStyle.column}>
+                        <EventCardComponent event={event[1]} />
+                    </div>
+                ))}
             </div>
         </div>
     );

@@ -1,10 +1,10 @@
 import { TComponentContent } from './TComponentContent';
-import { TEventPresentation } from './TEventPresentation';
+import { TContentParagraph } from './TContentParagraph';
 
 export type TMember = TComponentContent & {
     memberName?: string;
     memberMotto?: string;
     memberSummary?: string;
     memberTitle?: string;
-    memberBio?: string;
+    memberBioSections?: Map<string, TContentParagraph>;
 };

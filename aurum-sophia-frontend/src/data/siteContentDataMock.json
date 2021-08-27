@@ -55,6 +55,22 @@
                             "eventTextContent": "event 02",
                             "dateCreated": "2021-07-01"
                         }
+                    ],
+                    [
+                        "event3",
+                        {
+                            "title": "egy event",
+                            "eventTextContent": "event 01",
+                            "dateCreated": "2021-07-01"
+                        }
+                    ],
+                    [
+                        "event4",
+                        {
+                            "title": "ket event",
+                            "eventTextContent": "event 02",
+                            "dateCreated": "2021-07-01"
+                        }
                     ]
                 ]
             }
@@ -93,6 +109,7 @@
                 "molitioId": { "molitioTag": "about-page" },
                 "title": "Tagok",
                 "textContent": "Aurum Sophia Alapítvány",
+                "expanded": false,
                 "componentContent": [
                     [
                         "member1",
@@ -100,7 +117,20 @@
                             "memberName": "Köves Dávid",
                             "memberTitle": "parapszichológus, tudatfejesztő mentor",
                             "memberSummary": "1986. Június 19-én, Gyöngyösön születtem meg e világra. 18 éves voltam, amikor a dolgok múlandóságáról való szembesülés és a szerelem határokat feloldó élményének hatására az első spontán transzcendens élményt - „kis halált” – átéltem,",
-                            "memberBio": "1986. Június 19-én, Gyöngyösön születtem meg e világra. 18 éves voltam, amikor a dolgok múlandóságáról való szembesülés és a szerelem határokat feloldó élményének hatására az első spontán transzcendens élményt - „kis halált” – átéltem, és elkezdtem tudatosan felfogni a létezés magasabb dimenzióit. Akkor még nem értettem, hogy mi történik velem, és meglehetősen egyedül éreztem magam az élményeimmel. Ezért is kezdtem el tanulni... A tanulás pedig egy végtelen belső felfedezőúttá változott, ami persze most is tart. Manuál terápiák, természetgyógyászat, lélekgyógyászat, asztrológia és egyéb önismereti módszerek alkalmazásával töltött 10 év szakmai tevékenység után célzottan a tudati fejlődés felé vettem az irányt. Az egyetemes tudatfejlesztés útját járva, azt tanítom és azt adom tovább, amit magam is megtapasztaltam, megértettem és folyamatosan, nap mint nap megélek az emberi lét tudományából, művészetéből és misztériumából"
+                            "memberBioSections": [
+                                [
+                                    "bio1",
+                                    {
+                                        "textSection": "1986. Június 19-én, Gyöngyösön születtem meg e világra. 18 éves voltam, amikor a dolgok múlandóságáról való szembesülés és a szerelem határokat feloldó élményének hatására az első spontán transzcendens élményt - „kis halált” – átéltem, és elkezdtem tudatosan felfogni a létezés magasabb dimenzióit. Akkor még nem értettem, hogy mi történik velem, és meglehetősen egyedül éreztem magam az élményeimmel. Ezért is kezdtem el tanulni... A tanulás pedig egy végtelen belső felfedezőúttá változott, ami persze most is tart."
+                                    }
+                                ],
+                                [
+                                    "bio2",
+                                    {
+                                        "textSection": "Manuál terápiák, természetgyógyászat, lélekgyógyászat, asztrológia és egyéb önismereti módszerek alkalmazásával töltött 10 év szakmai tevékenység után célzottan a tudati fejlődés felé vettem az irányt. Az egyetemes tudatfejlesztés útját járva, azt tanítom és azt adom tovább, amit magam is megtapasztaltam, megértettem és folyamatosan, nap mint nap megélek az emberi lét tudományából, művészetéből és misztériumából. "
+                                    }
+                                ]
+                            ]
                         }
                     ],
                     [

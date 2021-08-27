@@ -3,15 +3,19 @@ import React from 'react';
 import greenHand from '../../images/greenHand.jpg';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
+import { TContentParagraph } from '../common/type/TContentParagraph';
 import { MemberCardComponentProps } from './interface/MemberCardComponentProps';
 
-export const MemberCardComponent = ({ member }: MemberCardComponentProps): JSX.Element => {
+export const MemberCardComponent = ({ member, expanded }: MemberCardComponentProps): JSX.Element => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
+    const [isExpanded, setIsExpanded] = React.useState(expanded);
+
     const componentStyle = createSiteStyle({
-        root: {
+        card: {
             color: theme.palette.text.primary,
+            flex: isExpanded ? '1 1 80vw' : '1 1 30vw',
             margin: '10px',
             border: 0,
             borderStyle: 'solid',
@@ -21,18 +25,16 @@ export const MemberCardComponent = ({ member }: MemberCardComponentProps): JSX.E
             [theme.breakpoints.down('xs')]: {},
             backgroundColor: 'transparent',
             borderRadius: 20,
+            display: 'flex',
+            alignItems: 'stretch',
             /*...theme.themeGradient,*/
         },
         contentContainer: {
             display: 'flex',
-            flexDirection: 'row',
-        },
-        card: {
-            borderRadius: 20,
-            backgroundColor: 'transparent',
+            flexDirection: isExpanded ? 'row' : 'column',
         },
         cardMedia: {
-            flex: 3,
+            flex: 1,
             margin: '5px',
             '& img': {
                 borderRadius: '50%',
@@ -42,7 +44,7 @@ export const MemberCardComponent = ({ member }: MemberCardComponentProps): JSX.E
             },
         },
         cardContent: {
-            flex: 6,
+            flex: 3,
             textShadow: `1px 1px ${theme.palette.secondary.main}`,
         },
         cardInfo: {
@@ -54,39 +56,35 @@ export const MemberCardComponent = ({ member }: MemberCardComponentProps): JSX.E
     });
 
     return (
-        <div className={componentStyle.root}>
-            <Card className={componentStyle.card}>
-                <CardActionArea>
-                    <div className={componentStyle.contentContainer}>
-                        <div className={componentStyle.cardMedia}>
-                            <CardMedia
-                                component="img"
-                                alt="Member Image"
-                                image={greenHand}
-                                title="Contemplative Reptile"
-                            />
-                        </div>
-                        <div className={componentStyle.cardContent}>
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="h5">
-                                    {member.memberName}
-                                </Typography>
-                                <Typography gutterBottom variant="body1" component="span">
-                                    {member.memberTitle}
-                                </Typography>
-                                <Typography variant="body2" className={componentStyle.cardInfo}>
-                                    {member.memberSummary}...
-                                </Typography>
-                            </CardContent>
-                        </div>
+        <Card className={componentStyle.card}>
+            <CardActionArea>
+                <div className={componentStyle.contentContainer} onClick={() => setIsExpanded(!isExpanded)}>
+                    <div className={componentStyle.cardMedia}>
+                        <CardMedia component="img" alt="Member Image" image={greenHand} title={member.memberName} />
                     </div>
-                </CardActionArea>
-                {/*    <CardActions>
-                    <Button size="small" className={componentStyle.cardButton}>
-                        Bövebben...
-                    </Button>
-                </CardActions> */}
-            </Card>
-        </div>
+                    <div className={componentStyle.cardContent}>
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h5">
+                                {member.memberName}
+                            </Typography>
+                            <Typography gutterBottom variant="body1" component="span">
+                                {member.memberTitle}
+                            </Typography>
+                            <Typography variant="body2" className={componentStyle.cardInfo}>
+                                {member.memberSummary}...
+                            </Typography>
+                            {isExpanded &&
+                                Array.from([...(member.memberBioSections ?? new Map<string, TContentParagraph>())]).map(
+                                    (paragrah, i) => (
+                                        <Typography key={paragrah[0]} variant="body2" className={componentStyle.card}>
+                                            {paragrah[1].textSection}
+                                        </Typography>
+                                    ),
+                                )}
+                        </CardContent>
+                    </div>
+                </div>
+            </CardActionArea>
+        </Card>
     );
 };

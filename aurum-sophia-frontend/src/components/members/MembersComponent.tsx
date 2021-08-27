@@ -5,6 +5,7 @@ import { PageTagProps } from '../common/interface/PageTagProps';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { TPageContent } from '../common/type/TPageContent';
 import { TMember } from '../common/type/TMember';
+import { Typography } from '@material-ui/core';
 
 export const MembersComponent = ({ pageTag }: PageTagProps): JSX.Element => {
     const context = React.useContext(AppContext);
@@ -20,10 +21,19 @@ export const MembersComponent = ({ pageTag }: PageTagProps): JSX.Element => {
     }, [context.contentCollection]);
 
     const componentStyle = createSiteStyle({
-        members: {
+        members: {},
+        componentTitle: {
+            textAlign: 'center',
+            padding: '15px',
+            opacity: 1,
+            flex: 3,
+            textShadow: `1px 1px ${theme.palette.secondary.main}`,
+        },
+        membersContainer: {
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
+            justifyContent: 'center',
             paddingLeft: '5vw',
             paddingRight: '5vw',
             [theme.breakpoints.down('md')]: {},
@@ -31,26 +41,21 @@ export const MembersComponent = ({ pageTag }: PageTagProps): JSX.Element => {
                 flexDirection: 'column',
             },
         },
-        column: {
-            display: 'flex',
-            flexDirection: 'column',
-            flex: 1,
-        },
     });
 
     return (
         <div className={componentStyle.members}>
-            {Array.from([...members]).map((member, i) =>
-                i % 2 === 0 ? (
-                    <div key={member[0]} className={componentStyle.column}>
-                        <MemberCardComponent member={member[1]} />
-                    </div>
-                ) : (
-                    <div key={member[0]} className={componentStyle.column}>
-                        <MemberCardComponent member={member[1]} />
-                    </div>
-                ),
-            )}
+            <div className={componentStyle.componentTitle}>
+                <Typography variant="h5">
+                    <b>{membersContent.title}</b>
+                </Typography>
+            </div>
+            <br />
+            <div className={componentStyle.membersContainer}>
+                {Array.from([...members]).map((member, i) => (
+                    <MemberCardComponent key={member[0]} member={member[1]} expanded={membersContent.expanded} />
+                ))}
+            </div>
         </div>
     );
 };
