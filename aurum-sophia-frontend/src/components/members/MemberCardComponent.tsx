@@ -5,6 +5,7 @@ import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { TContentParagraph } from '../common/type/TContentParagraph';
 import { MemberCardComponentProps } from './interface/MemberCardComponentProps';
+import { MemberContactCardComponent } from './MemberContactCardComponent';
 
 export const MemberCardComponent = ({ member, expanded }: MemberCardComponentProps): JSX.Element => {
     const context = React.useContext(AppContext);
@@ -15,14 +16,18 @@ export const MemberCardComponent = ({ member, expanded }: MemberCardComponentPro
     const componentStyle = createSiteStyle({
         card: {
             color: theme.palette.text.primary,
-            flex: isExpanded ? '1 1 80vw' : '1 1 30vw',
+            [theme.breakpoints.up('md')]: {
+                flex: isExpanded ? '1 1 80vw' : '1 1 20vw',
+            },
+            [theme.breakpoints.down('md')]: {
+                flex: isExpanded ? '1 1 80vw' : '1 1 30vw',
+            },
             margin: '10px',
             border: 0,
             borderStyle: 'solid',
             borderColor: theme.palette.secondary.main,
             boxShadow: theme.shadows[5],
             opacity: 0.9,
-            [theme.breakpoints.down('xs')]: {},
             backgroundColor: 'transparent',
             borderRadius: 20,
             display: 'flex',
@@ -64,23 +69,37 @@ export const MemberCardComponent = ({ member, expanded }: MemberCardComponentPro
                     </div>
                     <div className={componentStyle.cardContent}>
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="h5">
+                            <Typography gutterBottom variant="h6">
                                 {member.memberName}
                             </Typography>
-                            <Typography gutterBottom variant="body1" component="span">
+                            <Typography gutterBottom variant="subtitle1">
                                 {member.memberTitle}
                             </Typography>
-                            <Typography variant="body2" className={componentStyle.cardInfo}>
+                            {member.memberMotto && (
+                                <Typography variant="body2">
+                                    {`"`}
+                                    {member.memberMotto}
+                                    {`"`}
+                                </Typography>
+                            )}
+                            {/*    <Typography variant="body2" className={componentStyle.cardInfo}>
                                 {member.memberSummary}...
-                            </Typography>
+                            </Typography> */}
                             {isExpanded &&
                                 Array.from([...(member.memberBioSections ?? new Map<string, TContentParagraph>())]).map(
                                     (paragrah, i) => (
-                                        <Typography key={paragrah[0]} variant="body2" className={componentStyle.card}>
+                                        <Typography
+                                            key={paragrah[0]}
+                                            variant="body2"
+                                            className={componentStyle.cardContent}
+                                        >
                                             {paragrah[1].textSection}
+                                            <br />
+                                            <br />
                                         </Typography>
                                     ),
                                 )}
+                            {isExpanded && <MemberContactCardComponent memberContact={member.memberContact} />}
                         </CardContent>
                     </div>
                 </div>

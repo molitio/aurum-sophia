@@ -7,6 +7,7 @@ export type TPageContent = {
     textContent?: string;
     dateCreated?: string;
     imagesUrl?: Map<string, string>;
+    youTubeIds?: Map<string, string>;
     componentContent?: Map<string, TComponentContent>;
     expanded?: boolean;
 };

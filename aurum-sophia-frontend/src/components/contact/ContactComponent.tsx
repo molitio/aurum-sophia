@@ -1,12 +1,24 @@
+import { Card, CardContent, CardMedia, Link, Typography } from '@material-ui/core';
 import React from 'react';
-import { Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button } from '@material-ui/core';
 import treeShape from '../../images/treeShape.svg';
-import { AppContext } from '../../services/siteDefaultsService';
+import { AppContext, SiteDefaultContactPageContent } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
+import { PageTagProps } from '../common/interface/PageTagProps';
+import { TContactInfo } from '../common/type/TContactInfo';
+import { PhoneContactComponent } from './PhoneContactComponent';
 
-export const ContactComponent = (): JSX.Element => {
+export const ContactComponent = ({ pageTag }: PageTagProps): JSX.Element => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
+
+    const [contactContent, setContactContent] = React.useState(SiteDefaultContactPageContent);
+
+    React.useEffect(() => {
+        const content = context.contentCollection?.get(pageTag) ?? SiteDefaultContactPageContent;
+        setContactContent(content);
+    }, []);
+
+    const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
 
     const componentStyle = createSiteStyle({
         root: {
@@ -30,7 +42,7 @@ export const ContactComponent = (): JSX.Element => {
             backgroundColor: 'transparent',
         },
         cardMedia: {
-            flex: 3,
+            flex: 1,
             margin: '5px',
             '& img': {
                 borderRadius: '50%',
@@ -40,11 +52,11 @@ export const ContactComponent = (): JSX.Element => {
             },
         },
         cardContent: {
-            flex: 6,
+            flex: 4,
             textShadow: `1px 1px ${theme.palette.secondary.main}`,
         },
         cardInfo: {
-            color: theme.palette.text.secondary,
+            color: theme.palette.text.primary,
         },
         cardButton: {
             color: theme.palette.text.primary,
@@ -54,34 +66,47 @@ export const ContactComponent = (): JSX.Element => {
     return (
         <div className={componentStyle.root}>
             <Card className={componentStyle.card}>
-                <CardActionArea>
-                    <div className={componentStyle.contentContainer}>
-                        <div className={componentStyle.cardMedia}>
-                            <CardMedia
-                                component="img"
-                                alt="Member Image"
-                                image={treeShape}
-                                title="Contemplative Reptile"
-                            />
-                        </div>
-                        <div className={componentStyle.cardContent}>
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    Member
-                                </Typography>
-                                <Typography variant="body2" className={componentStyle.cardInfo}>
-                                    Proin non bibendum ipsum. Sed vitae tristique metus, vel placerat turpis. Cras
-                                    gravida odio sit amet erat volutpat, nec vestibulum massa mollis.
-                                </Typography>
-                            </CardContent>
-                        </div>
+                <div className={componentStyle.contentContainer}>
+                    <div className={componentStyle.cardMedia}>
+                        <CardMedia
+                            component="img"
+                            alt={contactContent.title}
+                            image={treeShape}
+                            title={contactContent.title}
+                        />
                     </div>
-                </CardActionArea>
-                <CardActions>
-                    <Button size="small" className={componentStyle.cardButton}>
-                        Bövebben...
-                    </Button>
-                </CardActions>
+                    <div className={componentStyle.cardContent}>
+                        <CardContent>
+                            <Typography gutterBottom variant="h6">
+                                {contactContent.title}
+                            </Typography>
+                            <Typography variant="subtitle1">{`Telefonos elérhetőségeink:`}</Typography>
+                            {Array.from([...(contactContent.contacts ?? new Map<string, TContactInfo>())]).map(
+                                (contact) => (
+                                    <>
+                                        <PhoneContactComponent key={contact[0]} contact={contact[1]} />
+                                        <br />
+                                    </>
+                                ),
+                            )}
+                            <Typography variant="body2" className={componentStyle.cardInfo}>
+                                {`Emmail címünk: `}
+                                <Link href={`mailto:${contactContent.recruitFormUrl}`} onClick={preventDefault}>
+                                    {`${contactContent.siteContact?.emailAddress}`}
+                                </Link>
+                            </Typography>
+
+                            <Typography variant="body2" className={componentStyle.cardInfo}>
+                                <Link href={contactContent.recruitFormUrl} onClick={preventDefault}>
+                                    {`Csatlakozás az alapítványhoz`}
+                                </Link>
+                            </Typography>
+                            <Typography variant="body2" className={componentStyle.cardInfo}>
+                                {`Székhely és levelezési cím: ${contactContent.siteContact?.address}`}
+                            </Typography>
+                        </CardContent>
+                    </div>
+                </div>
             </Card>
         </div>
     );

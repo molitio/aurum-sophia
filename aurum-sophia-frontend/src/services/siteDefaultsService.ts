@@ -8,6 +8,7 @@ import { ISiteContext } from '../components/context/interface/AppContext';
 import { orange, amber, red, indigo } from '@material-ui/core/colors';
 import sunThemeBackground from '../images/sunThemeBackground.jpg';
 import { getSiteIconCollection } from './siteIconService';
+import { TContactPageInfo } from '../components/common/type/TContactPageInfo';
 
 const siteIconCollection = getSiteIconCollection();
 
@@ -84,3 +85,5 @@ export const SiteContextDefaults: ISiteContext = {
 export const AppContext = React.createContext<ISiteContext>(SiteContextDefaults);
 
 export const SiteDefaultPageContent: TPageContent = { molitioId: SiteMolitioId, title: 'n/a' };
+
+export const SiteDefaultContactPageContent: TContactPageInfo = { molitioId: SiteMolitioId, title: 'n/a' };

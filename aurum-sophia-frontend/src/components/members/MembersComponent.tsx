@@ -37,9 +37,7 @@ export const MembersComponent = ({ pageTag }: PageTagProps): JSX.Element => {
             paddingLeft: '5vw',
             paddingRight: '5vw',
             [theme.breakpoints.down('md')]: {},
-            [theme.breakpoints.down('xs')]: {
-                flexDirection: 'column',
-            },
+            [theme.breakpoints.down('xs')]: {},
         },
     });
 

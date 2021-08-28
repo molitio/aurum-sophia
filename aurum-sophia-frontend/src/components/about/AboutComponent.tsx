@@ -6,15 +6,26 @@ import { PageTagProps } from '../common/interface/PageTagProps';
 import { TPageContent } from '../common/type/TPageContent';
 import pexelsPixabay462030 from '../../images/pexelsPixabay462030.jpg';
 import { TComponentContent } from '../common/type/TComponentContent';
+import YouTube from 'react-youtube';
 
 export const AboutComponent = ({ pageTag }: PageTagProps) => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
+    const videoOptions = {
+        height: '390',
+        width: '640',
+        playerVars: {},
+    };
+
     const [aboutContent, setAboutContent] = React.useState<TPageContent>(SiteDefaultPageContent);
+    const [aboutVideoId, setAboutVideoId] = React.useState<string>('');
 
     React.useEffect(() => {
         const content = context.contentCollection.get(pageTag) ?? SiteDefaultPageContent;
+        console.log(aboutContent?.youTubeIds);
+        const videoId = aboutContent?.youTubeIds?.get('about_video') ?? '';
+        setAboutVideoId(videoId);
         setAboutContent(content);
     }, [context.contentCollection]);
 
@@ -83,6 +94,8 @@ export const AboutComponent = ({ pageTag }: PageTagProps) => {
             <div className={componentStyle.aboutImageContainer}>
                 <img className={componentStyle.aboutImage} src={pexelsPixabay462030} alt="Sun" />
             </div>
+            {console.log(aboutVideoId)}
+            <YouTube videoId={aboutVideoId} opts={videoOptions} />
         </div>
     );
 };
