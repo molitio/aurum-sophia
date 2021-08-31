@@ -3,14 +3,34 @@ import { Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, 
 import greenHand from '../../images/greenHand.jpg';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
-import { EventCardComponentProps } from './interface/EventCardComponentProps';
+import { TContentParagraph } from '../common/type/TContentParagraph';
+import { ContentCardComponentProps } from '../common/interface/ContentCardComponentProps';
 
-export const EventCardComponent = ({ event }: EventCardComponentProps): JSX.Element => {
+export const EventCardComponent = ({
+    content,
+    isExpanded,
+    setIsExpanded,
+    setExpandedContent,
+}: ContentCardComponentProps): JSX.Element => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
-    console.log(`eventComponent: ${event}`);
+
     const componentStyle = createSiteStyle({
-        root: {
+        content: {
+            [theme.breakpoints.between('lg', 'xl')]: {
+                border: '3px solid purple',
+            },
+            [theme.breakpoints.between('md', 'lg')]: {
+                border: '3px solid blue',
+            },
+            [theme.breakpoints.between('sm', 'md')]: {
+                border: '3px solid green',
+                flex: isExpanded ? '1 1 80vw' : '1 1 30vw',
+            },
+            [theme.breakpoints.between('xs', 'sm')]: {
+                border: '3px solid yellow',
+                flex: isExpanded ? '1 1 80vw' : '1 1 20vw',
+            },
             color: theme.palette.text.primary,
             margin: '10px',
             border: 0,
@@ -36,9 +56,13 @@ export const EventCardComponent = ({ event }: EventCardComponentProps): JSX.Elem
             margin: '5px',
             '& img': {
                 border: 1,
+                height: '15vh',
+                borderRadius: '20px',
                 borderStyle: 'solid',
-                borderRadius: '10px',
                 borderColor: theme.palette.primary.main,
+            },
+            '& img:hover': {
+                boxShadow: `1px 1px ${theme.palette.primary.main}`,
             },
         },
         cardContent: {
@@ -53,8 +77,13 @@ export const EventCardComponent = ({ event }: EventCardComponentProps): JSX.Elem
         },
     });
 
+    const handleExpand = () => {
+        setIsExpanded(!isExpanded);
+        setExpandedContent(content);
+    };
+
     return (
-        <div className={componentStyle.root}>
+        <div className={componentStyle.content}>
             <Card className={componentStyle.card}>
                 <CardActionArea>
                     <div className={componentStyle.contentContainer}>
@@ -64,20 +93,32 @@ export const EventCardComponent = ({ event }: EventCardComponentProps): JSX.Elem
                         <div className={componentStyle.cardContent}>
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
-                                    {event.title}
+                                    {content[1].title}
                                 </Typography>
-                                <Typography variant="body2" className={componentStyle.cardInfo}>
-                                    {event.eventTextContent}
+                                <Typography variant="subtitle1" component="p">
+                                    {content[1].eventSummary}
                                 </Typography>
+                                {isExpanded &&
+                                    Array.from([
+                                        ...(content[1].eventContentSections ?? new Map<string, TContentParagraph>()),
+                                    ]).map((content) => (
+                                        <Typography
+                                            key={content[0]}
+                                            variant="body2"
+                                            className={componentStyle.cardInfo}
+                                        >
+                                            {content[1].textSection}
+                                        </Typography>
+                                    ))}
                             </CardContent>
                         </div>
                     </div>
                 </CardActionArea>
-                {/*     <CardActions>
-                    <Button size="small" className={componentStyle.cardButton}>
+                <CardActions>
+                    <Button size="small" className={componentStyle.cardButton} onClick={() => handleExpand()}>
                         Bövebben...
                     </Button>
-                </CardActions> */}
+                </CardActions>
             </Card>
         </div>
     );

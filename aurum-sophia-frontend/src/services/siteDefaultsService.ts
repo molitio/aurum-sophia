@@ -9,6 +9,7 @@ import { orange, amber, red, indigo } from '@material-ui/core/colors';
 import sunThemeBackground from '../images/sunThemeBackground.jpg';
 import { getSiteIconCollection } from './siteIconService';
 import { TContactPageInfo } from '../components/common/type/TContactPageInfo';
+import { TVideo } from '../components/common/type/TVideo';
 
 const siteIconCollection = getSiteIconCollection();
 
@@ -84,6 +85,10 @@ export const SiteContextDefaults: ISiteContext = {
 
 export const AppContext = React.createContext<ISiteContext>(SiteContextDefaults);
 
-export const SiteDefaultPageContent: TPageContent = { molitioId: SiteMolitioId, title: 'n/a' };
+export const SiteDefaultPageContent: TPageContent = {
+    molitioId: SiteMolitioId,
+    title: 'n/a',
+    youTubeIds: new Map<string, TVideo>(),
+};
 
 export const SiteDefaultContactPageContent: TContactPageInfo = { molitioId: SiteMolitioId, title: 'n/a' };

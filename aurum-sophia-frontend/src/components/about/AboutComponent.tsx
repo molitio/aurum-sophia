@@ -4,8 +4,9 @@ import { AppContext, SiteDefaultPageContent } from '../../services/siteDefaultsS
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { PageTagProps } from '../common/interface/PageTagProps';
 import { TPageContent } from '../common/type/TPageContent';
-import pexelsPixabay462030 from '../../images/pexelsPixabay462030.jpg';
+import membersImage from '../../images/membersImage.jpg';
 import { TComponentContent } from '../common/type/TComponentContent';
+import { TVideo } from '../common/type/TVideo';
 import YouTube from 'react-youtube';
 
 export const AboutComponent = ({ pageTag }: PageTagProps) => {
@@ -19,83 +20,94 @@ export const AboutComponent = ({ pageTag }: PageTagProps) => {
     };
 
     const [aboutContent, setAboutContent] = React.useState<TPageContent>(SiteDefaultPageContent);
-    const [aboutVideoId, setAboutVideoId] = React.useState<string>('');
+    const [aboutVideoId, setAboutVideoId] = React.useState<TVideo>({ videoId: '' });
 
     React.useEffect(() => {
         const content = context.contentCollection.get(pageTag) ?? SiteDefaultPageContent;
-        console.log(aboutContent?.youTubeIds);
-        const videoId = aboutContent?.youTubeIds?.get('about_video') ?? '';
-        setAboutVideoId(videoId);
         setAboutContent(content);
+        console.log(content);
     }, [context.contentCollection]);
+
+    React.useEffect(() => {
+        const youTubeIds = aboutContent?.youTubeIds ?? new Map<string, TVideo>();
+        console.log(youTubeIds);
+        //const aboutVideo = youTubeIds.get('about_video') ?? { videoId: '' };
+        setAboutVideoId({ videoId: 'a96bbFkT9_k' });
+    }, [aboutContent]);
 
     const componentStyle = createSiteStyle({
         contentContainer: {
             display: 'flex',
-            flexDirection: 'row',
+            flexDirection: 'column',
         },
-        aboutText: {
+        aboutContent: {
             textAlign: 'center',
             padding: '15px',
             opacity: 1,
-            flex: 3,
+            display: 'flex',
+            [theme.breakpoints.down('sm')]: { flexDirection: 'column' },
             textShadow: `1px 1px ${theme.palette.secondary.main}`,
+        },
+        aboutText: {
+            flex: 8,
         },
         aboutImageContainer: {
             marginTop: '15px',
             marginLeft: '20px',
             marginRight: '15px',
-            flex: 1,
+            flex: 4,
             borderWidth: 0,
             borderRadius: '10px',
-            [theme.breakpoints.down('xs')]: {
-                /* top: '33vh',
-                    width: '64vw',
-                    alignItem: 'centered',
-                    opacity: 0.3, */
-                display: 'none',
-            },
-        },
-        aboutImage: {
-            border: 1,
             borderStyle: 'solid',
-            borderColor: theme.palette.secondary.main,
-            borderRadius: '20px',
-            opacity: 0.7,
-            [theme.breakpoints.down('sm')]: {
-                top: '33vh',
-                width: '24vw',
-                alignItem: 'centered',
-                /* display: 'none', */
+            '& img': {
+                borderColor: theme.palette.secondary.main,
+                opacity: 0.8,
+                display: 'block',
+                maxWidth: '100%',
+                maxHeight: '100%',
+                [theme.breakpoints.down('sm')]: {
+                    /* display: 'none', */
+                },
+                borderRadius: '20px',
+                border: 1,
             },
         },
+
+        aboutVideoContainer: { flex: 1, paddings: '20px', display: 'flex', justifyContent: 'center' },
+        aboutVideo: { flex: 1, opacity: 0.9 },
     });
 
     return (
         <div className={componentStyle.contentContainer}>
-            <div className={componentStyle.aboutText}>
-                <Typography variant="h5">
-                    <b>{aboutContent?.title}</b>
-                </Typography>
-                <br />
-                <Typography variant="h6">{aboutContent?.textContent}</Typography>
-                <br />
-                {Array.from([...(aboutContent?.componentContent ?? new Map<string, TComponentContent>())]).map(
-                    (content, i) => (
-                        <div key={content[0]}>
-                            <Typography variant="body1" component="p">
-                                {content[1].textContent}
-                            </Typography>
-                            <br />
-                        </div>
-                    ),
+            <div className={componentStyle.aboutContent}>
+                <div className={componentStyle.aboutText}>
+                    <Typography variant="h5">
+                        <b>{aboutContent?.title}</b>
+                    </Typography>
+                    <br />
+                    <Typography variant="h6">{aboutContent?.textContent}</Typography>
+                    <br />
+                    {Array.from([...(aboutContent?.componentContent ?? new Map<string, TComponentContent>())]).map(
+                        (content, i) => (
+                            <div key={content[0]}>
+                                <Typography variant="body1" component="p">
+                                    {content[1].textContent}
+                                </Typography>
+                                <br />
+                            </div>
+                        ),
+                    )}
+                </div>
+                <div className={componentStyle.aboutImageContainer}>
+                    <img src={membersImage} alt="Members Photo" />
+                </div>
+            </div>
+            <div className={componentStyle.aboutVideoContainer}>
+                {console.log(aboutVideoId)}
+                {aboutVideoId.videoId && (
+                    <YouTube className={componentStyle.aboutVideo} videoId={aboutVideoId.videoId} opts={videoOptions} />
                 )}
             </div>
-            <div className={componentStyle.aboutImageContainer}>
-                <img className={componentStyle.aboutImage} src={pexelsPixabay462030} alt="Sun" />
-            </div>
-            {console.log(aboutVideoId)}
-            <YouTube videoId={aboutVideoId} opts={videoOptions} />
         </div>
     );
 };

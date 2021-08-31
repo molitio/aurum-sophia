@@ -1,8 +1,7 @@
-import { TComponentContent } from './TComponentContent';
 import { TContactInfo } from './TContactInfo';
 import { TContentParagraph } from './TContentParagraph';
 
-export type TMember = TComponentContent & {
+export type TMember = {
     memberName?: string;
     memberMotto?: string;
     memberSummary?: string;

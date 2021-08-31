@@ -11,6 +11,12 @@ export const MembersComponent = ({ pageTag }: PageTagProps): JSX.Element => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
+    /*     const focusedContentRef = React.useRef<HTMLInputElement>();
+    const scrollToContent = () => focusedContentRef.current.scrollIntoView(); */
+
+    const [isExpanded, setIsExpanded] = React.useState(false);
+    const [expandedContent, setExpandedContent] = React.useState<[string, TMember]>(['', {}]);
+
     const [membersContent, setMembersContent] = React.useState<TPageContent>(SiteDefaultPageContent);
     const [members, setMembers] = React.useState(new Map<string, TMember>());
 
@@ -49,11 +55,26 @@ export const MembersComponent = ({ pageTag }: PageTagProps): JSX.Element => {
                 </Typography>
             </div>
             <br />
-            <div className={componentStyle.membersContainer}>
-                {Array.from([...members]).map((member, i) => (
-                    <MemberCardComponent key={member[0]} member={member[1]} expanded={membersContent.expanded} />
-                ))}
-            </div>
+            {isExpanded ? (
+                <MemberCardComponent
+                    content={expandedContent}
+                    isExpanded={isExpanded}
+                    setIsExpanded={setIsExpanded}
+                    setExpandedContent={setExpandedContent}
+                />
+            ) : (
+                <div className={componentStyle.membersContainer}>
+                    {Array.from([...members]).map((member, i) => (
+                        <MemberCardComponent
+                            key={member[0]}
+                            content={member}
+                            isExpanded={isExpanded}
+                            setIsExpanded={setIsExpanded}
+                            setExpandedContent={setExpandedContent}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

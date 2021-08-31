@@ -84,6 +84,19 @@ declare module '@material-ui/core/' {
         };
     }
 }
+
+declare module '@material-ui/core/styles/createBreakpoints' {
+    interface BreakpointOverrides {
+        xs: true; // removes the `xs` breakpoint
+        sm: true;
+        md: true;
+        lg: true;
+        xl: true;
+        tablet: false; // adds the `tablet` breakpoint
+        laptop: false;
+        desktop: false;
+    }
+}
 /* 
 const hooverActionEffect =
     '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)';
@@ -95,6 +108,15 @@ export const getSiteThemeCollection = (): Map<string, Theme> =>
             'sunSiteTheme',
             createTheme({
                 isEnabled: true,
+                breakpoints: {
+                    values: {
+                        xs: 0,
+                        sm: 600,
+                        md: 960,
+                        lg: 1280,
+                        xl: 1300,
+                    },
+                },
                 palette: {
                     primary: {
                         main: orange[500],

@@ -4,14 +4,17 @@ import greenHand from '../../images/greenHand.jpg';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { TContentParagraph } from '../common/type/TContentParagraph';
-import { MemberCardComponentProps } from './interface/MemberCardComponentProps';
+import { ContentCardComponentProps } from '../common/interface/ContentCardComponentProps';
 import { MemberContactCardComponent } from './MemberContactCardComponent';
 
-export const MemberCardComponent = ({ member, expanded }: MemberCardComponentProps): JSX.Element => {
+export const MemberCardComponent = ({
+    content,
+    isExpanded,
+    setIsExpanded,
+    setExpandedContent,
+}: ContentCardComponentProps): JSX.Element => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
-
-    const [isExpanded, setIsExpanded] = React.useState(expanded);
 
     const componentStyle = createSiteStyle({
         card: {
@@ -47,6 +50,9 @@ export const MemberCardComponent = ({ member, expanded }: MemberCardComponentPro
                 borderStyle: 'solid',
                 borderColor: theme.palette.primary.main,
             },
+            '& img:hover': {
+                boxShadow: `1px 1px ${theme.palette.primary.main}`,
+            },
         },
         cardContent: {
             flex: 3,
@@ -60,46 +66,51 @@ export const MemberCardComponent = ({ member, expanded }: MemberCardComponentPro
         },
     });
 
+    const handleExpand = () => {
+        setIsExpanded(!isExpanded);
+        setExpandedContent(content);
+    };
+
     return (
         <Card className={componentStyle.card}>
             <CardActionArea>
-                <div className={componentStyle.contentContainer} onClick={() => setIsExpanded(!isExpanded)}>
+                <div className={componentStyle.contentContainer} onClick={() => handleExpand()}>
                     <div className={componentStyle.cardMedia}>
-                        <CardMedia component="img" alt="Member Image" image={greenHand} title={member.memberName} />
+                        <CardMedia component="img" alt="Member Image" image={greenHand} title={content[1].memberName} />
                     </div>
                     <div className={componentStyle.cardContent}>
                         <CardContent>
                             <Typography gutterBottom variant="h6">
-                                {member.memberName}
+                                {content[1].memberName}
                             </Typography>
                             <Typography gutterBottom variant="subtitle1">
-                                {member.memberTitle}
+                                {content[1].memberTitle}
                             </Typography>
-                            {member.memberMotto && (
+                            {content[1].memberMotto && (
                                 <Typography variant="body2">
                                     {`"`}
-                                    {member.memberMotto}
+                                    {content[1].memberMotto}
                                     {`"`}
                                 </Typography>
                             )}
                             {/*    <Typography variant="body2" className={componentStyle.cardInfo}>
-                                {member.memberSummary}...
+                                {content.memberSummary}...
                             </Typography> */}
                             {isExpanded &&
-                                Array.from([...(member.memberBioSections ?? new Map<string, TContentParagraph>())]).map(
-                                    (paragrah, i) => (
-                                        <Typography
-                                            key={paragrah[0]}
-                                            variant="body2"
-                                            className={componentStyle.cardContent}
-                                        >
-                                            {paragrah[1].textSection}
-                                            <br />
-                                            <br />
-                                        </Typography>
-                                    ),
-                                )}
-                            {isExpanded && <MemberContactCardComponent memberContact={member.memberContact} />}
+                                Array.from([
+                                    ...(content[1].memberBioSections ?? new Map<string, TContentParagraph>()),
+                                ]).map((paragrah, i) => (
+                                    <Typography
+                                        key={paragrah[0]}
+                                        variant="body2"
+                                        className={componentStyle.cardContent}
+                                    >
+                                        {paragrah[1].textSection}
+                                        <br />
+                                        <br />
+                                    </Typography>
+                                ))}
+                            {isExpanded && <MemberContactCardComponent memberContact={content[1].memberContact} />}
                         </CardContent>
                     </div>
                 </div>

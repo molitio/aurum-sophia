@@ -10,6 +10,9 @@ export const EventsComponent = ({ pageTag }: PageTagProps): JSX.Element => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
+    const [isExpanded, setIsExpanded] = React.useState(false);
+    const [expandedContent, setExpandedContent] = React.useState<[string, TEvent]>(['', {}]);
+
     const [eventsContent, setEventsContent] = React.useState(SiteDefaultPageContent);
     const [events, setEvents] = React.useState(new Map<string, TEvent>());
 
@@ -38,31 +41,53 @@ export const EventsComponent = ({ pageTag }: PageTagProps): JSX.Element => {
             paddingLeft: '5vw',
             paddingRight: '5vw',
             [theme.breakpoints.down('md')]: {},
-            [theme.breakpoints.down('xs')]: {
-                flexDirection: 'column',
+            [theme.breakpoints.down('xs')]: {},
+            [theme.breakpoints.between('lg', 'xl')]: {
+                border: '3px solid purple',
             },
-        },
-        column: {
-            flex: 1,
-            flexBasis: '40vw',
+            [theme.breakpoints.between('md', 'lg')]: {
+                border: '3px solid purple',
+            },
+            [theme.breakpoints.between('sm', 'md')]: {
+                border: '3px solid green',
+                flexDirection: 'column',
+                flex: isExpanded ? '1 1 80vw' : '1 1 30vw',
+            },
+            [theme.breakpoints.between('xs', 'sm')]: {
+                border: '3px solid yellow',
+                flex: isExpanded ? '1 1 80vw' : '1 1 20vw',
+            },
         },
     });
 
     return (
         <div className={componentStyle.events}>
             <div className={componentStyle.componentTitle}>
-                <Typography variant="h5">
-                    <b>{eventsContent.title}</b>
-                </Typography>
+                <Typography variant="h5">{eventsContent.title}</Typography>
             </div>
             <br />
-            <div className={componentStyle.eventsContainer}>
-                {Array.from([...events]).map((event, i) => (
-                    <div key={event[0]} className={componentStyle.column}>
-                        <EventCardComponent event={event[1]} />
-                    </div>
-                ))}
-            </div>
+            {isExpanded ? (
+                <div className={componentStyle.eventsContainer}>
+                    <EventCardComponent
+                        content={expandedContent}
+                        isExpanded={isExpanded}
+                        setIsExpanded={setIsExpanded}
+                        setExpandedContent={setExpandedContent}
+                    />
+                </div>
+            ) : (
+                <div className={componentStyle.eventsContainer}>
+                    {Array.from([...events]).map((event, i) => (
+                        <EventCardComponent
+                            key={event[0]}
+                            content={event}
+                            isExpanded={isExpanded}
+                            setIsExpanded={setIsExpanded}
+                            setExpandedContent={setExpandedContent}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

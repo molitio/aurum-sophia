@@ -1,10 +1,10 @@
-import { TComponentContent } from './TComponentContent';
+import { TContentParagraph } from './TContentParagraph';
 import { TEventPresentation } from './TEventPresentation';
 
-export type TEvent = TComponentContent & {
+export type TEvent = {
     eventTime?: string;
     eventSummary?: string;
     eventLocation?: string;
-    eventTextContent?: string;
+    eventContentSections?: Map<string, TContentParagraph>;
     presentations?: Map<string, TEventPresentation>;
 };
