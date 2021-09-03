@@ -27,7 +27,7 @@ export const ActualsPage = (): JSX.Element => {
             /* backgroundColor: 'transparent', */
             ...theme.themeGradientBackground,
         },
-        memberContent: {
+        content: {
             flex: 1,
         },
     });
@@ -35,12 +35,12 @@ export const ActualsPage = (): JSX.Element => {
     return (
         <>
             <main className={pageStyle.pageContent}>
-                <div className={pageStyle.actualsContent}>
+                <section className={pageStyle.content}>
                     <ActualsComponent pageTag={ACTUALS_PAGE_TAG} />
-                </div>
-                <div className={pageStyle.memberContent}>
+                </section>
+                <section className={pageStyle.content}>
                     <EventsComponent pageTag={EVENTS_PAGE_TAG} />
-                </div>
+                </section>
             </main>
         </>
     );

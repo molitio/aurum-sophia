@@ -281,6 +281,26 @@
                                 ]
                             ]
                         }
+                    ],
+                    [
+                        "koller_andrea",
+                        {
+                            "memberName": "Koller Andrea",
+                            "memberTitle": "x",
+                            "memberMotto": "y",
+                            "memberContact": {
+                                "phoneNumber": "+36 (70) 942-9635",
+                                "emailAddress": "email@gmail.com"
+                            },
+                            "memberBioSections": [
+                                [
+                                    "bio1",
+                                    {
+                                        "textSection": "leiras"
+                                    }
+                                ]
+                            ]
+                        }
                     ]
                 ]
             }
