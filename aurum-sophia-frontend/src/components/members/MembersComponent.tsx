@@ -7,7 +7,7 @@ import { TPageContent } from '../common/type/TPageContent';
 import { TMember } from '../common/type/TMember';
 import { Typography } from '@material-ui/core';
 
-export const MembersComponent = ({ pageTag }: PageTagProps): JSX.Element => {
+export const MembersComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps) => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
@@ -24,7 +24,7 @@ export const MembersComponent = ({ pageTag }: PageTagProps): JSX.Element => {
         const content = context.contentCollection.get(pageTag) ?? SiteDefaultPageContent;
         setMembersContent(content);
         setMembers(content.componentContent ?? new Map<string, TMember>());
-    }, [context.contentCollection]);
+    }, [context.contentCollection, pageTag]);
 
     const componentStyle = createSiteStyle({
         members: {},

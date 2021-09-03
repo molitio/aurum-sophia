@@ -3,7 +3,7 @@ import { useScrollTrigger } from '@material-ui/core';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 
-export const ThemePageBackground = (): JSX.Element => {
+export const ThemePageBackground: React.FC = () => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
     const trigger = useScrollTrigger({

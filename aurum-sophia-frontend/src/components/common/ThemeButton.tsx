@@ -4,7 +4,7 @@ import { AppContext, SiteDefaultIcon } from '../../services/siteDefaultsService'
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { ThemeButtonProps } from './interface/ThemeButtonProps';
 
-export const ThemeButton = ({ themeName }: ThemeButtonProps): JSX.Element => {
+export const ThemeButton: React.FC<ThemeButtonProps> = ({ themeName }: ThemeButtonProps) => {
     const context = React.useContext(AppContext);
 
     const theme = context.selectedTheme;

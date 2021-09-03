@@ -5,7 +5,7 @@ import { createSiteStyle } from '../styles/siteStyleBuilder';
 
 const PAGE_TAG = 'aurum-sophia-events-page';
 
-export const EventsPage = (): JSX.Element => {
+export const EventsPage: React.FC = () => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
@@ -31,11 +31,11 @@ export const EventsPage = (): JSX.Element => {
     });
     return (
         <>
-            <main className={pageStyle.pageContent}>
+            <section className={pageStyle.pageContent}>
                 <div className={pageStyle.content}>
                     <EventsComponent pageTag={PAGE_TAG} />
                 </div>
-            </main>
+            </section>
         </>
     );
 };

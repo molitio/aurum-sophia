@@ -5,7 +5,7 @@ import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { PageTagProps } from '../common/interface/PageTagProps';
 import { TPageContent } from '../common/type/TPageContent';
 
-export const ActualsComponent = ({ pageTag }: PageTagProps) => {
+export const ActualsComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps) => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
@@ -14,7 +14,7 @@ export const ActualsComponent = ({ pageTag }: PageTagProps) => {
     React.useEffect(() => {
         const content = context.contentCollection.get(pageTag) ?? SiteDefaultPageContent;
         setActualsContent(content);
-    }, [context.contentCollection]);
+    }, [context.contentCollection, pageTag]);
 
     const componentStyle = createSiteStyle({
         actualsContent: {

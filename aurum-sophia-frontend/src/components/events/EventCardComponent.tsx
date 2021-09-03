@@ -6,12 +6,12 @@ import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { TContentParagraph } from '../common/type/TContentParagraph';
 import { ContentCardComponentProps } from '../common/interface/ContentCardComponentProps';
 
-export const EventCardComponent = ({
+export const EventCardComponent: React.FC<ContentCardComponentProps> = ({
     content,
     isExpanded,
     setIsExpanded,
     setExpandedContent,
-}: ContentCardComponentProps): JSX.Element => {
+}: ContentCardComponentProps) => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 

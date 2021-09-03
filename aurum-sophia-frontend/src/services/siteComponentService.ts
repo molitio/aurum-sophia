@@ -4,11 +4,12 @@ import { ContactPage } from '../pages/ContactPage';
 import { ConnectPage } from '../pages/ConnectPage';
 import { EventsPage } from '../pages/EventsPage';
 import { TPageContent } from '../components/common/type/TPageContent';
+import React from 'react';
 
 // consider dynamic module loading from library
 
-export const getSiteFeatureComponents = (): Map<string, (componentParameter: TPageContent) => JSX.Element> =>
-    new Map<string, (componentParameter: TPageContent) => JSX.Element>([
+export const getSiteFeatureComponents = (): Map<string, React.FC<{ componentParameter: TPageContent }>> =>
+    new Map<string, React.FC<{ componentParameter: TPageContent }>>([
         ['actuals', ActualsPage],
         ['about', AboutPage],
         ['events', EventsPage],

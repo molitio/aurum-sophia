@@ -7,7 +7,7 @@ import { ActualsComponent } from '../components/actuals/ActualsComponent';
 const ACTUALS_PAGE_TAG = 'aurum-sophia-actuals-page';
 const EVENTS_PAGE_TAG = 'aurum-sophia-actuals-page-events';
 
-export const ActualsPage = (): JSX.Element => {
+export const ActualsPage: React.FC = () => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
@@ -34,14 +34,14 @@ export const ActualsPage = (): JSX.Element => {
 
     return (
         <>
-            <main className={pageStyle.pageContent}>
+            <section className={pageStyle.pageContent}>
                 <section className={pageStyle.content}>
                     <ActualsComponent pageTag={ACTUALS_PAGE_TAG} />
                 </section>
                 <section className={pageStyle.content}>
                     <EventsComponent pageTag={EVENTS_PAGE_TAG} />
                 </section>
-            </main>
+            </section>
         </>
     );
 };

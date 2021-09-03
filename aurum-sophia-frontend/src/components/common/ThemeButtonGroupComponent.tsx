@@ -3,7 +3,7 @@ import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { ThemeButton } from './ThemeButton';
 
-export const ThemeButtonGroupComponent = (): JSX.Element => {
+export const ThemeButtonGroupComponent: React.FC = () => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 

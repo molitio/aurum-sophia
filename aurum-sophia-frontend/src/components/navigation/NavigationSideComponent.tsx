@@ -5,7 +5,10 @@ import { NavigationListComponent } from './NavigationListComponent';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 
-export const NavigationSideComponent = ({ navigationState, toggle }: NavigationSidePanelProps): JSX.Element => {
+export const NavigationSideComponent: React.FC<NavigationSidePanelProps> = ({
+    navigationState,
+    toggle,
+}: NavigationSidePanelProps) => {
     type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
     const [selectedAnchor, setSelectedAnchor] = useState<Anchor>('left');

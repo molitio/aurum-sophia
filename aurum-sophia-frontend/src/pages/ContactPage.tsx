@@ -4,13 +4,13 @@ import { AppContext } from '../services/siteDefaultsService';
 
 const CONTACT_PAGE_TAG = 'aurum-sophia-contact-page';
 
-export const ContactPage = (): JSX.Element => {
+export const ContactPage: React.FC = () => {
     const context = React.useContext(AppContext);
     return (
         <>
-            <main>
+            <section>
                 <ContactComponent pageTag={CONTACT_PAGE_TAG} />
-            </main>
+            </section>
         </>
     );
 };

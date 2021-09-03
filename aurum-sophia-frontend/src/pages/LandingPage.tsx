@@ -2,7 +2,7 @@ import React from 'react';
 import { AppContext } from '../services/siteDefaultsService';
 import { createSiteStyle } from '../styles/siteStyleBuilder';
 
-export const LandingPage = (): JSX.Element => {
+export const LandingPage: React.FC = () => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 

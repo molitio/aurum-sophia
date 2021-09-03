@@ -67,7 +67,7 @@ export const SiteDefaultTheme = createTheme({
 export const SiteContextDefaults: ISiteContext = {
     molitioId: SiteMolitioId,
     featureCollection: new Map<string, TFeature>(),
-    componentCollection: new Map<string, (componentParameter: TPageContent) => JSX.Element>(),
+    componentCollection: new Map<string, React.FC<{ componentParameter: TPageContent }>>(),
     errorCollection: new Map<string, TError>(),
     siteIconCollection: new Map<string, TIcon>(),
     featureIconCollection: new Map<string, TIcon>(),

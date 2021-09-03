@@ -27,8 +27,9 @@
                         "event0",
                         {
                             "title": "egy event",
-                            "eventTextContent": "event 01",
-                            "dateCreated": "2021-07-01"
+                            "eventSummary": "event 01",
+                            "dateCreated": "2021-07-01",
+                            "eventContentSections": [["description", { "textSection": "description" }]]
                         }
                     ]
                 ]

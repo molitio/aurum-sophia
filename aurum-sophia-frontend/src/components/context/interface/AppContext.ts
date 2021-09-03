@@ -9,7 +9,7 @@ import { TIcon } from '../../common/type/TIcon';
 export type TAppContext = {
     contentCollection: Map<string, TPageContent>;
     featureCollection: Map<string, TFeature>;
-    componentCollection: Map<string, (componentParameter: TPageContent) => JSX.Element>;
+    componentCollection: Map<string, React.FC<{ componentParameter: TPageContent }>>;
     errorCollection: Map<string, TError>;
     siteIconCollection: Map<string, TIcon>;
     featureIconCollection: Map<string, TIcon>;

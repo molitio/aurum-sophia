@@ -2,7 +2,9 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import { MemberContactCardComponentProps } from './interface/MemberContactCardComponentProps';
 
-export const MemberContactCardComponent = ({ memberContact }: MemberContactCardComponentProps): JSX.Element => {
+export const MemberContactCardComponent: React.FC<MemberContactCardComponentProps> = ({
+    memberContact,
+}: MemberContactCardComponentProps) => {
     return (
         <>
             <Typography variant="body1">Telefonszám: {memberContact?.phoneNumber}</Typography>

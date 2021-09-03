@@ -3,9 +3,15 @@ import { Route } from 'react-router-dom';
 import { AppContext } from '../../services/siteDefaultsService';
 import { IFeatureRouteProps } from './interface/IFeatureRouteProps';
 
-export const FeatureRoute = ({ siteFeature, siteComponent }: IFeatureRouteProps): JSX.Element => {
+export const FeatureRoute: React.FC<IFeatureRouteProps> = ({ siteFeature, siteComponent }: IFeatureRouteProps) => {
     const context = React.useContext(AppContext);
-    // context . user route enabled ?
+
+    /*
+    context.routeEnabled(siteFeature) ?
+
+    context.getComponentForFeature(siteFeature)
+    */
+
     return (
         <Route key={siteFeature.id} exact path={siteFeature.path}>
             {siteComponent}

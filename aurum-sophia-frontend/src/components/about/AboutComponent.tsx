@@ -9,7 +9,7 @@ import { TComponentContent } from '../common/type/TComponentContent';
 import { TVideo } from '../common/type/TVideo';
 import YouTube from 'react-youtube';
 
-export const AboutComponent = ({ pageTag }: PageTagProps) => {
+export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps) => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
@@ -26,7 +26,7 @@ export const AboutComponent = ({ pageTag }: PageTagProps) => {
         const content = context.contentCollection.get(pageTag) ?? SiteDefaultPageContent;
         setAboutContent(content);
         console.log(content);
-    }, [context.contentCollection]);
+    }, [context.contentCollection, pageTag]);
 
     React.useEffect(() => {
         const youTubeIds = aboutContent?.youTubeIds ?? new Map<string, TVideo>();
@@ -88,7 +88,7 @@ export const AboutComponent = ({ pageTag }: PageTagProps) => {
                     <Typography variant="h6">{aboutContent?.textContent}</Typography>
                     <br />
                     {Array.from([...(aboutContent?.componentContent ?? new Map<string, TComponentContent>())]).map(
-                        (content, i) => (
+                        (content) => (
                             <div key={content[0]}>
                                 <Typography variant="body1" component="p">
                                     {content[1].textContent}
@@ -99,7 +99,7 @@ export const AboutComponent = ({ pageTag }: PageTagProps) => {
                     )}
                 </div>
                 <div className={componentStyle.aboutImageContainer}>
-                    <img src={membersImage} alt="Members Photo" />
+                    <img src={membersImage} alt="members photo" />
                 </div>
             </div>
             <div className={componentStyle.aboutVideoContainer}>

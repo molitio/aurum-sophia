@@ -5,7 +5,10 @@ import { NavigationItemComponentProps } from './interface/NavigationItemComponen
 import { AppContext, SiteDefaultIcon } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 
-export const NavigationItemComponent = ({ siteFeature, displayIcons }: NavigationItemComponentProps): JSX.Element => {
+export const NavigationItemComponent: React.FC<NavigationItemComponentProps> = ({
+    siteFeature,
+    displayIcons,
+}: NavigationItemComponentProps) => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 

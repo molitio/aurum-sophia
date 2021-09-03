@@ -7,7 +7,7 @@ import { AboutComponent } from '../components/about/AboutComponent';
 const ABOUT_PAGE_TAG = 'aurum-sophia-about-page';
 const ABOUT_MEMBERS_TAG = 'aurum-sophia-about-members-page';
 
-export const AboutPage = (): JSX.Element => {
+export const AboutPage: React.FC = () => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
@@ -40,13 +40,13 @@ export const AboutPage = (): JSX.Element => {
     });
 
     return (
-        <main className={pageStyle.pageContent}>
+        <section className={pageStyle.pageContent}>
             <div className={pageStyle.aboutContent}>
                 <AboutComponent pageTag={ABOUT_PAGE_TAG} />
             </div>
             <div className={pageStyle.memberContent}>
                 <MembersComponent pageTag={ABOUT_MEMBERS_TAG} />
             </div>
-        </main>
+        </section>
     );
 };

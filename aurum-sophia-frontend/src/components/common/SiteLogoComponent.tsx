@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppContext } from '../../services/siteDefaultsService';
 
-export const SiteLogoComponent = (): JSX.Element => {
+export const SiteLogoComponent: React.FC = () => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
     return (

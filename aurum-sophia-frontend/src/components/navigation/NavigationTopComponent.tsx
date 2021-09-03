@@ -8,7 +8,7 @@ import { NavigationListComponent } from './NavigationListComponent';
 import { AppContext, SiteDefaultIcon } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 
-export const NavigationTopComponent = (): JSX.Element => {
+export const NavigationTopComponent: React.FC = () => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
     const trigger = useScrollTrigger({

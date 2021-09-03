@@ -11,7 +11,7 @@ import { AppContextProviderProps } from './interface/AppContextProviderProps';
 import { AppContext, SiteContextDefaults, SiteDefaultTheme, SiteMolitioId } from '../../services/siteDefaultsService';
 import { TAppContext } from './interface/AppContext';
 
-export const AppContextProvider = ({ children }: AppContextProviderProps): JSX.Element => {
+export const AppContextProvider: React.FC<AppContextProviderProps> = ({ children }: AppContextProviderProps) => {
     const [selectedTheme, setSelectedTheme] = React.useState(SiteDefaultTheme);
     const [appContext, setAppContext] = React.useState<TAppContext>(SiteContextDefaults);
     const [isContentLoaded, setIsContentLoaded] = React.useState(true);

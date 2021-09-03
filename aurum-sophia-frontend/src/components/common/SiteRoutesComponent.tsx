@@ -4,7 +4,7 @@ import { ErrorPage } from '../../pages/ErrorPage';
 import { ActualsPage } from '../../pages/ActualsPage';
 import { AppContext } from '../../services/siteDefaultsService';
 
-export const SiteRoutesComponent = (): JSX.Element => {
+export const SiteRoutesComponent: React.FC = () => {
     const context = React.useContext(AppContext);
 
     return (
@@ -14,10 +14,10 @@ export const SiteRoutesComponent = (): JSX.Element => {
             </Route>
             {Array.from([...context.featureCollection]).map((route) => (
                 <Route
-                    key={route[0]}
-                    exact
-                    path={route[1].path}
                     component={context.componentCollection.get(route[0])}
+                    path={route[1].path}
+                    exact
+                    key={route[0]}
                 />
             ))}
             {Array.from([...context.errorCollection]).map((errorData) => (

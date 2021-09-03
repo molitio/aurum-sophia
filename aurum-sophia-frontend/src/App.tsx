@@ -8,10 +8,10 @@ import { AppContext } from './services/siteDefaultsService';
 import { createSiteStyle as createSiteStyle } from './styles/siteStyleBuilder';
 import { ThemePageBackground } from './components/background/ThemePageBackground';
 
-export const App = (): JSX.Element => {
+export const App: React.FC = () => {
     const trigger = useScrollTrigger({
         disableHysteresis: true,
-        threshold: 64,
+        threshold: 20,
     });
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
@@ -56,9 +56,9 @@ export const App = (): JSX.Element => {
                 <NavigationTopComponent />
             </div>
             <div className={pageStyle.appContainer}>
-                <div className={pageStyle.appContentContainer}>
+                <main className={pageStyle.appContentContainer}>
                     <SiteRoutesComponent />
-                </div>
+                </main>
                 <div className={pageStyle.footerContainer}>
                     <FooterComponent />
                 </div>

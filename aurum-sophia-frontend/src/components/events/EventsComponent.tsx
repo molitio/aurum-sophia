@@ -6,7 +6,7 @@ import { PageTagProps } from '../common/interface/PageTagProps';
 import { TEvent } from '../common/type/TEvent';
 import { EventCardComponent } from './EventCardComponent';
 
-export const EventsComponent = ({ pageTag }: PageTagProps): JSX.Element => {
+export const EventsComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps) => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
@@ -22,7 +22,7 @@ export const EventsComponent = ({ pageTag }: PageTagProps): JSX.Element => {
         const events = content?.componentContent ?? new Map<string, TEvent>();
         console.log(events);
         setEvents(events);
-    }, []);
+    }, [context.contentCollection, pageTag]);
 
     const componentStyle = createSiteStyle({
         events: {},
@@ -77,7 +77,7 @@ export const EventsComponent = ({ pageTag }: PageTagProps): JSX.Element => {
                 </div>
             ) : (
                 <div className={componentStyle.eventsContainer}>
-                    {Array.from([...events]).map((event, i) => (
+                    {Array.from([...events]).map((event) => (
                         <EventCardComponent
                             key={event[0]}
                             content={event}

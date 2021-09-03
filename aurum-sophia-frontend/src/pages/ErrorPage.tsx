@@ -4,7 +4,7 @@ import { ErrorPageProps } from './interface/ErrorPageProps';
 import { AppContext } from '../services/siteDefaultsService';
 import { createSiteStyle } from '../styles/siteStyleBuilder';
 
-export const ErrorPage = ({ error }: ErrorPageProps): JSX.Element => {
+export const ErrorPage: React.FC<ErrorPageProps> = ({ error }: ErrorPageProps) => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
@@ -35,7 +35,7 @@ export const ErrorPage = ({ error }: ErrorPageProps): JSX.Element => {
 
     return (
         <>
-            <main className={pageStyle.siteError}>
+            <section className={pageStyle.siteError}>
                 <div className={pageStyle.errorInfoContainer}>
                     <Paper className={pageStyle.errorInfo}>
                         <SvgIcon fontSize="large">
@@ -50,7 +50,7 @@ export const ErrorPage = ({ error }: ErrorPageProps): JSX.Element => {
                         <Typography variant="subtitle2">{error.message}</Typography>
                     </Paper>
                 </div>
-            </main>
+            </section>
         </>
     );
 };

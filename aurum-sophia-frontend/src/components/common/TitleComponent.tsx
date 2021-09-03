@@ -6,7 +6,7 @@ import { TitleComponentProps } from './interface/TitleComponentProps';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 
-export const TitleComponent = ({ horizontal }: TitleComponentProps): JSX.Element => {
+export const TitleComponent: React.FC<TitleComponentProps> = ({ horizontal }: TitleComponentProps) => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 

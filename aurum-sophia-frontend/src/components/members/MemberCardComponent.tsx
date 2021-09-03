@@ -1,4 +1,4 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
 import React from 'react';
 import greenHand from '../../images/greenHand.jpg';
 import { AppContext } from '../../services/siteDefaultsService';
@@ -7,12 +7,12 @@ import { TContentParagraph } from '../common/type/TContentParagraph';
 import { ContentCardComponentProps } from '../common/interface/ContentCardComponentProps';
 import { MemberContactCardComponent } from './MemberContactCardComponent';
 
-export const MemberCardComponent = ({
+export const MemberCardComponent: React.FC<ContentCardComponentProps> = ({
     content,
     isExpanded,
     setIsExpanded,
     setExpandedContent,
-}: ContentCardComponentProps): JSX.Element => {
+}: ContentCardComponentProps) => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 

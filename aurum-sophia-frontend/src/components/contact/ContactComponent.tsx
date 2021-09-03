@@ -7,7 +7,7 @@ import { PageTagProps } from '../common/interface/PageTagProps';
 import { TContactInfo } from '../common/type/TContactInfo';
 import { PhoneContactComponent } from './PhoneContactComponent';
 
-export const ContactComponent = ({ pageTag }: PageTagProps): JSX.Element => {
+export const ContactComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps) => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
@@ -16,7 +16,7 @@ export const ContactComponent = ({ pageTag }: PageTagProps): JSX.Element => {
     React.useEffect(() => {
         const content = context.contentCollection?.get(pageTag) ?? SiteDefaultContactPageContent;
         setContactContent(content);
-    }, []);
+    }, [context.contentCollection, pageTag]);
 
     const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
 
@@ -83,14 +83,14 @@ export const ContactComponent = ({ pageTag }: PageTagProps): JSX.Element => {
                             <Typography variant="subtitle1">{`Telefonos elérhetőségeink:`}</Typography>
                             {Array.from([...(contactContent.contacts ?? new Map<string, TContactInfo>())]).map(
                                 (contact) => (
-                                    <>
+                                    <div key={contact[0]}>
                                         <PhoneContactComponent key={contact[0]} contact={contact[1]} />
                                         <br />
-                                    </>
+                                    </div>
                                 ),
                             )}
                             <Typography variant="body2" className={componentStyle.cardInfo}>
-                                {`Emmail címünk: `}
+                                {`Email címünk: `}
                                 <Link href={`mailto:${contactContent.recruitFormUrl}`} onClick={preventDefault}>
                                     {`${contactContent.siteContact?.emailAddress}`}
                                 </Link>
