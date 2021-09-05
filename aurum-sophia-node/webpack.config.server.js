@@ -5,7 +5,7 @@ const path = require("path");
 module.exports = {
   name: "server",
   entry: {
-    server: path.resolve(__dirname, "server/server.ts"),
+    server: "./src/server/server.ts",
   },
   mode: "production",
   output: {
@@ -13,7 +13,7 @@ module.exports = {
     filename: "[name].js",
   },
   resolve: {
-    extensions: [".ts", ".tsx"],
+    extensions: [".ts", ".tsx", ".js"],
   },
   externals: [nodeExternals()],
   target: "node",
@@ -24,16 +24,16 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
-        options: {
-          configFile: "tsconfig.server.json",
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
         },
       },
     ],
   },
   plugins: [
     new CopyPlugin({
-      patterns: [{ context: "server", from: "views", to: "views" }],
+      patterns: [{ context: "src/server", from: "views", to: "views" }],
     }),
   ],
 };

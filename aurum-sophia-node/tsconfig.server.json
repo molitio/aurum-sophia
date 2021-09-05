@@ -1,4 +1,3 @@
-// tsconfig.server.json
 {
   "include": ["server"], // compile TS files in server directory
   "compilerOptions": {

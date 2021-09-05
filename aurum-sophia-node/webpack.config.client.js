@@ -5,7 +5,7 @@ const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 module.exports = {
   name: "client",
   entry: {
-    client: path.resolve(__dirname, "client/client.tsx"),
+    client: "./src/client/client.tsx",
   },
   mode: "production",
   output: {
@@ -20,10 +20,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loader: "ts-loader",
-        options: {
-          configFile: "tsconfig.client.json",
+        test: /\.ts$|.tsx$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-react"],
+          },
         },
       },
     ],

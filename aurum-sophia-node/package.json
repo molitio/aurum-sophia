@@ -2,7 +2,7 @@
   "name": "aurum-sophia-node",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/server.js",
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
@@ -10,13 +10,18 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
     "@types/express": "^4.17.13",
     "@types/node": "^16.7.10",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
+    "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^9.0.1",
-    "ts-loader": "^9.2.5",
+    "cross-spawn": "^7.0.3",
     "typescript": "^4.4.2",
     "webpack": "^5.52.0",
     "webpack-cli": "^4.8.0",
@@ -25,10 +30,23 @@
   },
   "scripts": {
     "build": "npm run build:server && npm run build:client",
+    "dev": "webpack --config dev.js --mode development --stats-error-details",
     "build:server": "webpack --config webpack.config.server.js",
     "build:client": "webpack --config webpack.config.client.js",
     "start": "node ./dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "keywords": [],
   "author": "",
