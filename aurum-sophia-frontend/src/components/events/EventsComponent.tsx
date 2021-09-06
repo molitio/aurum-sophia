@@ -40,8 +40,6 @@ export const EventsComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProp
             flexWrap: 'wrap',
             paddingLeft: '5vw',
             paddingRight: '5vw',
-            [theme.breakpoints.down('md')]: {},
-            [theme.breakpoints.down('xs')]: {},
             [theme.breakpoints.between('lg', 'xl')]: {
                 border: '3px solid purple',
             },
@@ -53,9 +51,9 @@ export const EventsComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProp
                 flexDirection: 'column',
                 flex: isExpanded ? '1 1 80vw' : '1 1 30vw',
             },
-            [theme.breakpoints.between('xs', 'sm')]: {
+            [theme.breakpoints.down('xs')]: {
                 border: '3px solid yellow',
-                flex: isExpanded ? '1 1 80vw' : '1 1 20vw',
+                flex: isExpanded ? '1 1 80vw' : '1 1 40vw',
             },
         },
     });

@@ -1,11 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { AurumSophia } from "../components/AurumSophia";
-import { App } from "./_components/app";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { AurumSophia } from '../components/AurumSophia';
+import { AppContextProvider } from '../components/context/AppContextProvider';
 
 ReactDOM.hydrate(
-  <React.StrictMode>
-    <AurumSophia />
-  </React.StrictMode>,
-  document.getElementById("root")
+    <BrowserRouter>
+        <AppContextProvider>
+            <AurumSophia />
+        </AppContextProvider>
+    </BrowserRouter>,
+    document.getElementById('root'),
 );
