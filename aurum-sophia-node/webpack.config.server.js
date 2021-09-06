@@ -1,12 +1,12 @@
+require('webpack-dev-server');
 const nodeExternals = require('webpack-node-externals');
 const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 module.exports = {
     name: 'server',
-    entry: {
-        server: './src/index.ts',
-    },
+    context: path.join(__dirname, 'src'),
+    entry: { index: './index.ts' },
     mode: 'production',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -37,7 +37,7 @@ module.exports = {
     },
     plugins: [
         new CopyPlugin({
-            patterns: [{ context: 'src/server', from: 'views', to: 'views' }],
+            patterns: [{ context: 'server', from: 'views', to: 'views' }],
         }),
     ],
 };

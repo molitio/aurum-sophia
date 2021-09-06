@@ -4,7 +4,6 @@ import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
-import { App } from '../client/_components/app';
 import { AurumSophia } from '../components/AurumSophia';
 import { AppContextProvider } from '../components/context/AppContextProvider';
 
@@ -21,13 +20,16 @@ export const startViewServer = () => {
 
     const assets = JSON.parse(manifest);
 
-    server.get('/*', (req, res, next) => {
+    server.get('*', (req, res, next) => {
         const context = {};
-        const aurum = React.createElement(AurumSophia);
-        const contextProvider = React.createElement(AppContextProvider, null, aurum);
-        const staticRouter = React.createElement(StaticRouter, { location: req.url, context }, contextProvider);
-        const component = ReactDOMServer.renderToString(staticRouter);
-        res.render('client', { assets, component });
+        const app = ReactDOMServer.renderToString(
+            <StaticRouter location={req.url} context={context}>
+                <AppContextProvider>
+                    <AurumSophia />
+                </AppContextProvider>
+            </StaticRouter>,
+        );
+        res.render('client', { assets, app });
     });
 
     return server;

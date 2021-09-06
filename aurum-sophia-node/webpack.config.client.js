@@ -1,12 +1,12 @@
+require('webpack-dev-server');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 module.exports = {
     name: 'client',
-    entry: {
-        client: './src/client/client.tsx',
-    },
+    context: path.join(__dirname, 'src'),
+    entry: { client: './client/client.tsx' },
     mode: 'production',
     output: {
         path: path.resolve(__dirname, 'dist/public'),
