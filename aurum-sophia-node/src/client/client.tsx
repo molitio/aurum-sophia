@@ -1,5 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { App } from "./components/app";
+import { AurumSophia } from "../components/AurumSophia";
+import { App } from "./_components/app";
 
-ReactDOM.hydrate(<App />, document.getElementById("root"));
+ReactDOM.hydrate(
+  <React.StrictMode>
+    <AurumSophia />
+  </React.StrictMode>,
+  document.getElementById("root")
+);

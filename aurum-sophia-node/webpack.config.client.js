@@ -20,7 +20,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$|.tsx$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -28,6 +28,10 @@ module.exports = {
             presets: ["@babel/preset-react"],
           },
         },
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [{ loader: "file-loader" }],
       },
     ],
   },

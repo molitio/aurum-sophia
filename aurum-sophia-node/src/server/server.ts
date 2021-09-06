@@ -3,7 +3,9 @@ import fs from "fs";
 import path from "path";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import { App } from "../client/components/app";
+import { StaticRouter } from "react-router";
+import { App } from "../client/_components/app";
+import { AurumSophia } from "../components/AurumSophia";
 
 const server = express();
 const context = {
@@ -24,7 +26,8 @@ const manifest = fs.readFileSync(
 const assets = JSON.parse(manifest);
 
 server.get("/", (req, res, next) => {
-  const component = ReactDOMServer.renderToString(React.createElement(App));
+  const aurum = React.createElement(AurumSophia);
+  const component = ReactDOMServer.renderToNodeStream(aurum);
   res.render("client", { assets, component });
 });
 

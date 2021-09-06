@@ -1,12 +1,12 @@
 import React from 'react';
 import { useScrollTrigger } from '@material-ui/core';
-import { FooterComponent } from './components/common/FooterComponent';
-import { NavigationTopComponent } from './components/navigation/NavigationTopComponent';
-import { SiteRoutesComponent } from './components/common/SiteRoutesComponent';
-import { ImagePageBackground } from './components/background/ImagePageBackground';
-import { AppContext } from './services/siteDefaultsService';
-import { createSiteStyle as createSiteStyle } from './styles/siteStyleBuilder';
-import { ThemePageBackground } from './components/background/ThemePageBackground';
+import { FooterComponent } from './common/FooterComponent';
+import { NavigationTopComponent } from './navigation/NavigationTopComponent';
+import { SiteRoutesComponent } from './common/SiteRoutesComponent';
+import { ImagePageBackground } from './background/ImagePageBackground';
+import { AppContext } from '../services/siteDefaultsService';
+import { createSiteStyle as createSiteStyle } from '../styles/siteStyleBuilder';
+import { ThemePageBackground } from './background/ThemePageBackground';
 
 export const App: React.FC = () => {
     const trigger = useScrollTrigger({
