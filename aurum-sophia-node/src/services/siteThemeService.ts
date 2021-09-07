@@ -1,8 +1,6 @@
 import { createTheme, Theme } from '@material-ui/core';
 import { amber, blue, blueGrey, brown, cyan, green, indigo, lightGreen, orange, red } from '@material-ui/core/colors';
-import sunThemeBackground from '../images/sunThemeBackground.jpg';
-import cloudsThemeBackground from '../images/cloudsThemeBackground.jpg';
-import waterThemeBackground from '../images/waterThemeBackground.jpg';
+import { sunThemeBackground, cloudsThemeBackground, waterThemeBackground } from '../assets';
 import { getSiteIconCollection } from './siteIconService';
 import { SiteDefaultIcon } from './siteDefaultsService';
 
@@ -140,8 +138,7 @@ export const getSiteThemeCollection = (): Map<string, Theme> =>
                     },
                 },
                 hooverAction: {
-                    boxShadow:
-                        '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+                    boxShadow: '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
                 },
                 nonHovered: {
                     boxShadow: 'none',
@@ -188,8 +185,7 @@ export const getSiteThemeCollection = (): Map<string, Theme> =>
                     },
                 },
                 hooverAction: {
-                    boxShadow:
-                        '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+                    boxShadow: '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
                 },
                 nonHovered: {
                     boxShadow: 'none',
@@ -236,8 +232,7 @@ export const getSiteThemeCollection = (): Map<string, Theme> =>
                     },
                 },
                 hooverAction: {
-                    boxShadow:
-                        '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+                    boxShadow: '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
                 },
                 nonHovered: {
                     boxShadow: 'none',
@@ -285,8 +280,7 @@ export const getSiteThemeCollection = (): Map<string, Theme> =>
                     },
                 },
                 hooverAction: {
-                    boxShadow:
-                        '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+                    boxShadow: '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
                 },
                 nonHovered: {
                     boxShadow: 'none',

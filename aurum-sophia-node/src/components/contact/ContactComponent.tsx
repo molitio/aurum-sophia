@@ -1,6 +1,6 @@
 import { Card, CardContent, CardMedia, Link, Typography } from '@material-ui/core';
 import React from 'react';
-import treeShape from '../../images/treeShape.svg';
+import { treeShape } from '../../assets';
 import { AppContext, SiteDefaultContactPageContent } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { PageTagProps } from '../common/interface/PageTagProps';
@@ -68,12 +68,7 @@ export const ContactComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagPro
             <Card className={componentStyle.card}>
                 <div className={componentStyle.contentContainer}>
                     <div className={componentStyle.cardMedia}>
-                        <CardMedia
-                            component="img"
-                            alt={contactContent.title}
-                            image={treeShape}
-                            title={contactContent.title}
-                        />
+                        <CardMedia component="img" alt={contactContent.title} image={treeShape} title={contactContent.title} />
                     </div>
                     <div className={componentStyle.cardContent}>
                         <CardContent>
@@ -81,14 +76,12 @@ export const ContactComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagPro
                                 {contactContent.title}
                             </Typography>
                             <Typography variant="subtitle1">{`Telefonos elérhetőségeink:`}</Typography>
-                            {Array.from([...(contactContent.contacts ?? new Map<string, TContactInfo>())]).map(
-                                (contact) => (
-                                    <div key={contact[0]}>
-                                        <PhoneContactComponent key={contact[0]} contact={contact[1]} />
-                                        <br />
-                                    </div>
-                                ),
-                            )}
+                            {Array.from([...(contactContent.contacts ?? new Map<string, TContactInfo>())]).map((contact) => (
+                                <div key={contact[0]}>
+                                    <PhoneContactComponent key={contact[0]} contact={contact[1]} />
+                                    <br />
+                                </div>
+                            ))}
                             <Typography variant="body2" className={componentStyle.cardInfo}>
                                 {`Email címünk: `}
                                 <Link href={`mailto:${contactContent.recruitFormUrl}`} onClick={preventDefault}>

@@ -1,16 +1,27 @@
 {
     "include": ["src/client"],
     "compilerOptions": {
-        "module": "es6", // generate ES modules
-        "target": "es5", // target ES5 API
-        "jsx": "react", // compile JSX to React.createElement statements for browser
-        "allowSyntheticDefaultImports": true,
-        "forceConsistentCasingInFileNames": true,
+        "target": "ES5",
+        "lib": ["dom", "dom.iterable", "ES6"],
+        "allowJs": true,
         "skipLibCheck": true,
-        "resolveJsonModule": false,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
         "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "module": "ES6",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "jsx": "react-jsx",
         "strictNullChecks": true,
-        "noImplicitAny": true
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "downlevelIteration": true
+        /*  
+        dev help only
+        "traceResolution": true,
+        "listFiles": true */
     }
 }
 

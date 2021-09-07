@@ -6,7 +6,7 @@ import { TFeature } from '../components/common/type/TFeature';
 import { TIcon } from '../components/common/type/TIcon';
 import { ISiteContext } from '../components/context/interface/AppContext';
 import { orange, amber, red, indigo } from '@material-ui/core/colors';
-import sunThemeBackground from '../images/sunThemeBackground.jpg';
+import { sunThemeBackground } from '../assets';
 import { getSiteIconCollection } from './siteIconService';
 import { TContactPageInfo } from '../components/common/type/TContactPageInfo';
 import { TVideo } from '../components/common/type/TVideo';

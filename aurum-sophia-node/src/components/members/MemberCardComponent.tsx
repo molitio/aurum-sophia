@@ -1,6 +1,6 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
 import React from 'react';
-import greenHand from '../../images/greenHand.jpg';
+import { greenHand } from '../../assets';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { TContentParagraph } from '../common/type/TContentParagraph';
@@ -97,14 +97,8 @@ export const MemberCardComponent: React.FC<ContentCardComponentProps> = ({
                                 {content.memberSummary}...
                             </Typography> */}
                             {isExpanded &&
-                                Array.from([
-                                    ...(content[1].memberBioSections ?? new Map<string, TContentParagraph>()),
-                                ]).map((paragrah, i) => (
-                                    <Typography
-                                        key={paragrah[0]}
-                                        variant="body2"
-                                        className={componentStyle.cardContent}
-                                    >
+                                Array.from([...(content[1].memberBioSections ?? new Map<string, TContentParagraph>())]).map((paragrah, i) => (
+                                    <Typography key={paragrah[0]} variant="body2" className={componentStyle.cardContent}>
                                         {paragrah[1].textSection}
                                         <br />
                                         <br />

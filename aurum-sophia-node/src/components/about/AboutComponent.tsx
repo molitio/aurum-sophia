@@ -4,7 +4,7 @@ import { AppContext, SiteDefaultPageContent } from '../../services/siteDefaultsS
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { PageTagProps } from '../common/interface/PageTagProps';
 import { TPageContent } from '../common/type/TPageContent';
-import membersImage from '../../images/membersImage.jpg';
+import { membersImage } from '../../assets';
 import { TComponentContent } from '../common/type/TComponentContent';
 import { TVideo } from '../common/type/TVideo';
 import YouTube from 'react-youtube';
@@ -87,16 +87,14 @@ export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps
                     <br />
                     <Typography variant="h6">{aboutContent?.textContent}</Typography>
                     <br />
-                    {Array.from([...(aboutContent?.componentContent ?? new Map<string, TComponentContent>())]).map(
-                        (content) => (
-                            <div key={content[0]}>
-                                <Typography variant="body1" component="p">
-                                    {content[1].textContent}
-                                </Typography>
-                                <br />
-                            </div>
-                        ),
-                    )}
+                    {Array.from([...(aboutContent?.componentContent ?? new Map<string, TComponentContent>())]).map((content) => (
+                        <div key={content[0]}>
+                            <Typography variant="body1" component="p">
+                                {content[1].textContent}
+                            </Typography>
+                            <br />
+                        </div>
+                    ))}
                 </div>
                 <div className={componentStyle.aboutImageContainer}>
                     <img src={membersImage} alt="members photo" />
@@ -104,9 +102,7 @@ export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps
             </div>
             <div className={componentStyle.aboutVideoContainer}>
                 {console.log(aboutVideoId)}
-                {aboutVideoId.videoId && (
-                    <YouTube className={componentStyle.aboutVideo} videoId={aboutVideoId.videoId} opts={videoOptions} />
-                )}
+                {aboutVideoId.videoId && <YouTube className={componentStyle.aboutVideo} videoId={aboutVideoId.videoId} opts={videoOptions} />}
             </div>
         </div>
     );

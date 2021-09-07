@@ -1,5 +1,5 @@
 import { TPageContent } from '../components/common/type/TPageContent';
-import * as siteContentDataMock from '../data/siteContentDataMock.json';
+import siteContentDataMock from '../data/siteContentDataMock.json';
 
 const getMockDataCollection = (): Map<string, TPageContent> => {
     const mockContentString = JSON.stringify(siteContentDataMock.pageContentCollection);

@@ -22,6 +22,7 @@ export const startViewServer = () => {
 
     server.get('*', (req, res, next) => {
         const context = {};
+        console.log(`requestOnUrl: ${req.url}`);
         const app = ReactDOMServer.renderToString(
             <StaticRouter location={req.url} context={context}>
                 <AppContextProvider>
