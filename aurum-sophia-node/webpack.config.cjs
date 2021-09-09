@@ -7,19 +7,36 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 console.log(`processCwd: ${process.cwd()}`);
-const assets = {
+const images = {
     name: 'images',
-    target: 'web',
+    target: 'node',
     mode: 'production',
-    entry: `${path.resolve(process.cwd())}/src/assets/index.js`,
+    entry: `${path.resolve(process.cwd())}/src/assets/data/index.js`,
     output: {
         path: path.resolve(`${process.cwd()}/dist/public/images`),
     },
-    resolve: { alias: { images: `${path.resolve(process.cwd())}/src/assets/images` } },
     module: {
         rules: [
             {
-                test: /\.(png|jp(e*)g|gif|svg$)$/,
+                test: /\.(png|jpg|gif|svg$)$/,
+                type: 'url-loader',
+            },
+        ],
+    },
+};
+
+const data = {
+    name: 'data',
+    target: 'web',
+    mode: 'production',
+    entry: `${path.resolve(process.cwd())}/src/assets/images/index.js`,
+    output: {
+        path: path.resolve(`${process.cwd()}/dist/public/data`),
+    },
+    module: {
+        rules: [
+            {
+                test: /\.json$/,
                 type: 'asset/resource',
             },
         ],
@@ -135,4 +152,4 @@ const server = {
 }; */
 
 //module.exports = [client, server, assets];
-module.exports = [assets, client];
+module.exports = [images, data, client];

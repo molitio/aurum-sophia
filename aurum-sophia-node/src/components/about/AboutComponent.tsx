@@ -4,7 +4,7 @@ import { AppContext, SiteDefaultPageContent } from '../../services/siteDefaultsS
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { PageTagProps } from '../common/interface/PageTagProps';
 import { TPageContent } from '../common/type/TPageContent';
-import { membersImage } from '../../assets';
+import { membersImage } from '../../assets/images';
 import { TComponentContent } from '../common/type/TComponentContent';
 import { TVideo } from '../common/type/TVideo';
 import YouTube from 'react-youtube';

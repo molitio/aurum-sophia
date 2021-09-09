@@ -1,6 +1,6 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
 import React from 'react';
-import { greenHand } from '../../assets';
+import { greenHand } from '../../assets/images';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { TContentParagraph } from '../common/type/TContentParagraph';

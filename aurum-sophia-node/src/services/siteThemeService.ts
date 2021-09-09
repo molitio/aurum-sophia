@@ -1,6 +1,6 @@
 import { createTheme, Theme } from '@material-ui/core';
 import { amber, blue, blueGrey, brown, cyan, green, indigo, lightGreen, orange, red } from '@material-ui/core/colors';
-import { sunThemeBackground, cloudsThemeBackground, waterThemeBackground } from '../assets';
+import { sunThemeBackground, cloudsThemeBackground, waterThemeBackground } from '../assets/images';
 import { getSiteIconCollection } from './siteIconService';
 import { SiteDefaultIcon } from './siteDefaultsService';
 

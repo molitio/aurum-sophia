@@ -1,6 +1,6 @@
 import { Card, CardContent, CardMedia, Link, Typography } from '@material-ui/core';
 import React from 'react';
-import { treeShape } from '../../assets';
+import { treeShape } from '../../assets/images';
 import { AppContext, SiteDefaultContactPageContent } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { PageTagProps } from '../common/interface/PageTagProps';
