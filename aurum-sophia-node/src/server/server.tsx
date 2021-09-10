@@ -4,8 +4,8 @@ import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
-import { AurumSophia } from '../components/AurumSophia';
-import { AppContextProvider } from '../components/context/AppContextProvider';
+import { AurumSophia } from 'components/AurumSophia';
+import { AppContextProvider } from 'components/context/AppContextProvider';
 
 export const startViewServer = () => {
     const server = express();

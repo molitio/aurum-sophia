@@ -53,10 +53,11 @@
         "webpack-node-externals": "^3.0.0"
     },
     "scripts": {
-        "build": "webpack --config webpack.config.cjs --stats-error-details",
+        "build": "webpack --config webpack.config.cjs --stats-error-details --mode=development",
+        "build-prod": "webpack --config webpack.config.cjs --mode=production",
         "start": "node ./dist/server.js",
         "dev": "nodemon ./dist/server.js",
-        "serve": "webpack serve --mode=development",
+        "serve": "webpack serve  --stats-error-details  --mode=development",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "browserslist": {
@@ -72,6 +73,6 @@
         ]
     },
     "keywords": [],
-    "author": "",
+    "author": "molitio foundation",
     "license": "ISC"
 }
