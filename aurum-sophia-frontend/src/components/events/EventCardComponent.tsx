@@ -86,39 +86,41 @@ export const EventCardComponent: React.FC<ContentCardComponentProps> = ({
         <div className={componentStyle.content}>
             <Card className={componentStyle.card}>
                 <CardActionArea>
-                    <div className={componentStyle.contentContainer}>
+                    <div className={componentStyle.contentContainer} onClick={() => handleExpand()}>
                         <div className={componentStyle.cardMedia}>
                             <CardMedia component="img" alt="Event Image" image={greenHand} title="Event Image" />
                         </div>
                         <div className={componentStyle.cardContent}>
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2">
+                                <Typography gutterBottom variant="h5">
                                     {content[1].title}
                                 </Typography>
-                                <Typography variant="subtitle1" component="p">
-                                    {content[1].eventSummary}
+                                <Typography gutterBottom variant="h6">
+                                    {content[1].eventTime}
                                 </Typography>
+                                <Typography variant="subtitle1">{content[1].eventSummary}</Typography>
+                                <br />
                                 {isExpanded &&
                                     Array.from([
                                         ...(content[1].eventContentSections ?? new Map<string, TContentParagraph>()),
                                     ]).map((content) => (
-                                        <Typography
-                                            key={content[0]}
-                                            variant="body2"
-                                            className={componentStyle.cardInfo}
-                                        >
-                                            {content[1].textSection}
-                                        </Typography>
+                                        <div key={content[0]}>
+                                            <Typography
+                                                variant="body1"
+                                                component="p"
+                                                className={componentStyle.cardInfo}
+                                                gutterBottom
+                                            >
+                                                {content[1].textSection}
+                                                <br />
+                                            </Typography>
+                                        </div>
                                     ))}
+                                {isExpanded && content[1].presentations && 'events'}
                             </CardContent>
                         </div>
                     </div>
                 </CardActionArea>
-                <CardActions>
-                    <Button size="small" className={componentStyle.cardButton} onClick={() => handleExpand()}>
-                        Bövebben...
-                    </Button>
-                </CardActions>
             </Card>
         </div>
     );

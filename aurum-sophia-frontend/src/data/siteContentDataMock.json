@@ -44,10 +44,54 @@
                     [
                         "event0",
                         {
-                            "title": "egy event",
-                            "eventSummary": "event 01",
-                            "dateCreated": "2021-07-01",
-                            "eventContentSections": [["description", { "textSection": "description" }]]
+                            "title": "I. Tudatfejlesztés konferencia",
+                            "eventTime": "2021. 10. 24.",
+                            "eventSummary": "Fedezd fel a benned rejlő erőt!",
+                            "eventContentSections": [
+                                [
+                                    "description",
+                                    {
+                                        "textSection": "A személyes erő felvállalása és helyes használata lesz a fókuszban, az idei évben első alkalommal megrendezésre kerülő konferenciánkon."
+                                    }
+                                ],
+                                [
+                                    "time-alocation",
+                                    {
+                                        "textSection": "Időpont: 2021. október 24., Vasárnap  9:30-18.30"
+                                    }
+                                ],
+                                [
+                                    "location",
+                                    {
+                                        "textSection": "Helyszín: Lurdy Konferencia- és Rendezvényközpont 1097 Budapest, Könyves Kálmán krt. 12-14. "
+                                    }
+                                ],
+                                [
+                                    "desc1",
+                                    {
+                                        "textSection": "Az előadóteremben egész napos kiállítói vásárt rendezünk, ahol különböző termékek, könyvek, kiadványok is megvásárolhatók lesznek."
+                                    }
+                                ],
+                                [
+                                    "desc2",
+                                    {
+                                        "textSection": "A rendezvény napján, a helyszínen is lehet majd jegyet vásárolni! További információk és elővételi jegyvásárlás: aurumsophia@gmail.com "
+                                    }
+                                ],
+                                [
+                                    "welcome",
+                                    {
+                                        "textSection": "Mindenkit nagy szeretettel várunk!"
+                                    }
+                                ],
+                                [
+                                    "modifications",
+                                    {
+                                        "textSection": "A változtatás jogát fenntartjuk!"
+                                    }
+                                ]
+                            ],
+                            "dateCreated": "2021-07-01"
                         }
                     ],
                     [
