@@ -45,6 +45,7 @@ export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps
             padding: '15px',
             opacity: 1,
             display: 'flex',
+            flexWrap: 'nowrap',
             [theme.breakpoints.down('sm')]: { flexDirection: 'column' },
             textShadow: `1px 1px ${theme.palette.secondary.main}`,
         },
@@ -62,11 +63,12 @@ export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps
             '& img': {
                 borderColor: theme.palette.secondary.main,
                 opacity: 0.8,
+                flex: 1,
                 display: 'block',
                 maxWidth: '100%',
                 maxHeight: '100%',
                 [theme.breakpoints.down('sm')]: {
-                    /* display: 'none', */
+                    width: '420px',
                 },
                 borderRadius: '20px',
                 border: 1,

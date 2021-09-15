@@ -24,8 +24,6 @@ export const App: React.FC = () => {
             width: '100vw',
         },
         appContainer: {
-            width: '100vw',
-            height: '100vh',
             display: 'flex',
             flexDirection: 'column',
             paddingTop: trigger ? '48px' : '164px',

@@ -39,6 +39,7 @@ export const MembersComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagPro
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
+            alignItems: 'stretch',
             justifyContent: 'center',
             paddingLeft: '5vw',
             paddingRight: '5vw',

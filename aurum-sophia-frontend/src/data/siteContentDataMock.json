@@ -26,10 +26,223 @@
                     [
                         "event0",
                         {
-                            "title": "egy event",
-                            "eventSummary": "event 01",
-                            "dateCreated": "2021-07-01",
-                            "eventContentSections": [["description", { "textSection": "description" }]]
+                            "title": "I. Tudatfejlesztés konferencia",
+                            "eventTime": "2021. 10. 24.",
+                            "eventSummary": "Fedezd fel a benned rejlő erőt!",
+                            "eventContentSections": [
+                                [
+                                    "description",
+                                    {
+                                        "textSection": "A személyes erő felvállalása és helyes használata lesz a fókuszban, az idei évben első alkalommal megrendezésre kerülő konferenciánkon."
+                                    }
+                                ],
+                                [
+                                    "time-alocation",
+                                    {
+                                        "textSection": "Időpont: 2021. október 24., Vasárnap  9:30-18.30"
+                                    }
+                                ],
+                                [
+                                    "location",
+                                    {
+                                        "textSection": "Helyszín: Lurdy Konferencia- és Rendezvényközpont 1097 Budapest, Könyves Kálmán krt. 12-14. "
+                                    }
+                                ],
+                                [
+                                    "desc1",
+                                    {
+                                        "textSection": "Az előadóteremben egész napos kiállítói vásárt rendezünk, ahol különböző termékek, könyvek, kiadványok is megvásárolhatók lesznek."
+                                    }
+                                ],
+                                [
+                                    "desc2",
+                                    {
+                                        "textSection": "A rendezvény napján, a helyszínen is lehet majd jegyet vásárolni! További információk és elővételi jegyvásárlás: aurumsophia@gmail.com "
+                                    }
+                                ],
+                                [
+                                    "welcome",
+                                    {
+                                        "textSection": "Mindenkit nagy szeretettel várunk!"
+                                    }
+                                ],
+                                [
+                                    "modifications",
+                                    {
+                                        "textSection": "A változtatás jogát fenntartjuk!"
+                                    }
+                                ]
+                            ],
+                            "presentations": [
+                                [
+                                    "salay",
+                                    {
+                                        "presenter": "Szalay György Sándor és Szalay Csaba",
+                                        "topic": "Mi a dolgom? Használd a teremtőerőd!",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "balogh",
+                                    {
+                                        "presenter": "Balogh Béla",
+                                        "topic": " A Teremtő Teremtőnek Teremtett Téged!",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "pozsgai",
+                                    {
+                                        "presenter": "Pozsgai Nikoletta",
+                                        "topic": "A Női Erő Ébredése",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "dienes",
+                                    {
+                                        "presenter": "Dienes István",
+                                        "topic": "Létezik-e tudat vagy tudatosság, s ha igen miként fejlődik?",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "paksi",
+                                    {
+                                        "presenter": "Paksi Zoltán",
+                                        "topic": "A kozmikus energiák az égen és a személyiségben",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "szottfired",
+                                    {
+                                        "presenter": "Szottfried Ádám",
+                                        "topic": "A Változás Szele - Globális Krízisből Evolúció",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "koves",
+                                    {
+                                        "presenter": "Köves Dávid",
+                                        "topic": "A szellem hatalma az anyag felett",
+                                        "timeTable": "1 óra"
+                                    }
+                                ]
+                            ],
+                            "dateCreated": "2021-07-01"
+                        }
+                    ],
+                    [
+                        "event0",
+                        {
+                            "title": "I. Tudatfejlesztés konferencia",
+                            "eventTime": "2021. 10. 24.",
+                            "eventSummary": "Fedezd fel a benned rejlő erőt!",
+                            "eventContentSections": [
+                                [
+                                    "description",
+                                    {
+                                        "textSection": "A személyes erő felvállalása és helyes használata lesz a fókuszban, az idei évben első alkalommal megrendezésre kerülő konferenciánkon."
+                                    }
+                                ],
+                                [
+                                    "time-alocation",
+                                    {
+                                        "textSection": "Időpont: 2021. október 24., Vasárnap  9:30-18.30"
+                                    }
+                                ],
+                                [
+                                    "location",
+                                    {
+                                        "textSection": "Helyszín: Lurdy Konferencia- és Rendezvényközpont 1097 Budapest, Könyves Kálmán krt. 12-14. "
+                                    }
+                                ],
+                                [
+                                    "desc1",
+                                    {
+                                        "textSection": "Az előadóteremben egész napos kiállítói vásárt rendezünk, ahol különböző termékek, könyvek, kiadványok is megvásárolhatók lesznek."
+                                    }
+                                ],
+                                [
+                                    "desc2",
+                                    {
+                                        "textSection": "A rendezvény napján, a helyszínen is lehet majd jegyet vásárolni! További információk és elővételi jegyvásárlás: aurumsophia@gmail.com "
+                                    }
+                                ],
+                                [
+                                    "welcome",
+                                    {
+                                        "textSection": "Mindenkit nagy szeretettel várunk!"
+                                    }
+                                ],
+                                [
+                                    "modifications",
+                                    {
+                                        "textSection": "A változtatás jogát fenntartjuk!"
+                                    }
+                                ]
+                            ],
+                            "presentations": [
+                                [
+                                    "salay",
+                                    {
+                                        "presenter": "Szalay György Sándor és Szalay Csaba",
+                                        "topic": "Mi a dolgom? Használd a teremtőerőd!",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "balogh",
+                                    {
+                                        "presenter": "Balogh Béla",
+                                        "topic": " A Teremtő Teremtőnek Teremtett Téged!",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "pozsgai",
+                                    {
+                                        "presenter": "Pozsgai Nikoletta",
+                                        "topic": "A Női Erő Ébredése",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "dienes",
+                                    {
+                                        "presenter": "Dienes István",
+                                        "topic": "Létezik-e tudat vagy tudatosság, s ha igen miként fejlődik?",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "paksi",
+                                    {
+                                        "presenter": "Paksi Zoltán",
+                                        "topic": "A kozmikus energiák az égen és a személyiségben",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "szottfired",
+                                    {
+                                        "presenter": "Szottfried Ádám",
+                                        "topic": "A Változás Szele - Globális Krízisből Evolúció",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "koves",
+                                    {
+                                        "presenter": "Köves Dávid",
+                                        "topic": "A szellem hatalma az anyag felett",
+                                        "timeTable": "1 óra"
+                                    }
+                                ]
+                            ],
+                            "dateCreated": "2021-07-01"
                         }
                     ]
                 ]
@@ -91,30 +304,129 @@
                                     }
                                 ]
                             ],
+                            "presentations": [
+                                [
+                                    "salay",
+                                    {
+                                        "presenter": "Szalay György Sándor és Szalay Csaba",
+                                        "topic": "Mi a dolgom? Használd a teremtőerőd!",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "balogh",
+                                    {
+                                        "presenter": "Balogh Béla",
+                                        "topic": " A Teremtő Teremtőnek Teremtett Téged!",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "pozsgai",
+                                    {
+                                        "presenter": "Pozsgai Nikoletta",
+                                        "topic": "A Női Erő Ébredése",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "dienes",
+                                    {
+                                        "presenter": "Dienes István",
+                                        "topic": "Létezik-e tudat vagy tudatosság, s ha igen miként fejlődik?",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "paksi",
+                                    {
+                                        "presenter": "Paksi Zoltán",
+                                        "topic": "A kozmikus energiák az égen és a személyiségben",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "szottfired",
+                                    {
+                                        "presenter": "Szottfried Ádám",
+                                        "topic": "A Változás Szele - Globális Krízisből Evolúció",
+                                        "timeTable": "1 óra"
+                                    }
+                                ],
+                                [
+                                    "koves",
+                                    {
+                                        "presenter": "Köves Dávid",
+                                        "topic": "A szellem hatalma az anyag felett",
+                                        "timeTable": "1 óra"
+                                    }
+                                ]
+                            ],
                             "dateCreated": "2021-07-01"
                         }
                     ],
                     [
                         "event1",
                         {
-                            "title": "ket event",
-                            "eventSummary": "event 02",
-                            "dateCreated": "2021-07-01"
-                        }
-                    ],
-                    [
-                        "event3",
-                        {
-                            "title": "egy event",
-                            "eventSummary": "event 01",
-                            "dateCreated": "2021-07-01"
-                        }
-                    ],
-                    [
-                        "event4",
-                        {
-                            "title": "ket event",
-                            "eventSummary": "event 02",
+                            "title": "Varázslatos Tea Szertartás - meditáció",
+                            "eventSummary": "Mi a tea szertartás?",
+                            "eventTime": "Két hetente kedd vagy csütörtök, 17:00-tól",
+                            "eventContentSections": [
+                                [
+                                    "summary",
+                                    {
+                                        "textSection": "KAPCSOLÓDÁS - ELMÉLYÜLÉS - ÖRÖM - egyben!"
+                                    }
+                                ],
+                                [
+                                    "sec1",
+                                    {
+                                        "textSection": "A két órás összejövetelből ~1,5 óra a meditáció, ami alatt nem beszélünk, csak teázunk és befelé figyelünk."
+                                    }
+                                ],
+                                [
+                                    "sec2",
+                                    {
+                                        "textSection": "A szertartáshoz használt tea(10-15 éves Yunnan-i pu'erh) segít az elmélyülésben, az érzékelés finomításában, a tudat kiterjesztésében, tisztítja és feltölti a test energiarendszerét. Tartós belső csend állapot, felismerések, víziók, szellemi élmények jöhetnek!"
+                                    }
+                                ],
+                                [
+                                    "sec4",
+                                    {
+                                        "textSection": "Előzetes meditációs gyakorlat javasolt, de nem feltétel."
+                                    }
+                                ],
+                                [
+                                    "sec5",
+                                    {
+                                        "textSection": "A felhasznált tea csökkent koffein tartalmú, a hosszú tárolásnak köszönhetően. Szélsőséges koffein érzékenység esetén azonban csak saját felelősségre javasolt."
+                                    }
+                                ],
+                                [
+                                    "sec6",
+                                    {
+                                        "textSection": "Szertartás vezető: Köves Dávid - tudatfejlesztő mentor, parapszichológus"
+                                    }
+                                ],
+                                [
+                                    "sec7",
+                                    {
+                                        "textSection": "Helyszín: Flow stúdió, VII.ker. Damjanich utca 38. (lécsőház melletti félszuterén)"
+                                    }
+                                ],
+                                [
+                                    "sec8",
+                                    {
+                                        "textSection": "Hozzájárulás: 3e Ft/fő"
+                                    }
+                                ],
+                                [
+                                    "sec",
+                                    {
+                                        "textSection": "A következő időpontért és a helyed biztosítása céljából kérjük jelezd részvételi szándékod az alábbi elérhetőségek egyikén: - Email: kapcsolat@tudatfejlesztés.hu - Telefon: +36 30 9661844"
+                                    }
+                                ]
+                            ],
                             "dateCreated": "2021-07-01"
                         }
                     ]
@@ -145,6 +457,12 @@
                         "textSegment02",
                         {
                             "textContent": "Egyéni és csoportos mentoring programjaink, műhelymunkáink,elvonulásaink és táboraink, valamint konferenciáink során a kapcsolódás és közös tapasztalás pótolhatatlan élményének lehetőségeit teremtjük meg a résztvevők számára, hozzájárulva ezzel az egyéni és kollektív tudati fejlődés folyamatához"
+                        }
+                    ],
+                    [
+                        "textSegment03",
+                        {
+                            "textContent": "sziasztok"
                         }
                     ]
                 ]

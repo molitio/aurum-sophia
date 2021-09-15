@@ -17,18 +17,12 @@ export const EventCardComponent: React.FC<ContentCardComponentProps> = ({
 
     const componentStyle = createSiteStyle({
         content: {
-            [theme.breakpoints.between('lg', 'xl')]: {
-                border: '3px solid purple',
-            },
-            [theme.breakpoints.between('md', 'lg')]: {
-                border: '3px solid blue',
-            },
+            [theme.breakpoints.between('lg', 'xl')]: {},
+            [theme.breakpoints.between('md', 'lg')]: {},
             [theme.breakpoints.between('sm', 'md')]: {
-                border: '3px solid green',
                 flex: isExpanded ? '1 1 80vw' : '1 1 30vw',
             },
             [theme.breakpoints.between('xs', 'sm')]: {
-                border: '3px solid yellow',
                 flex: isExpanded ? '1 1 80vw' : '1 1 20vw',
             },
             color: theme.palette.text.primary,
@@ -75,6 +69,19 @@ export const EventCardComponent: React.FC<ContentCardComponentProps> = ({
         cardButton: {
             color: theme.palette.text.primary,
         },
+        eventPresentationContainer: {
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            flexWrap: 'nowrap',
+        },
+        eventTime: {
+            flex: 2,
+            textAlign: 'right',
+        },
+        eventSpeaker: {
+            flex: 6,
+        },
     });
 
     const handleExpand = () => {
@@ -93,7 +100,7 @@ export const EventCardComponent: React.FC<ContentCardComponentProps> = ({
                         <div className={componentStyle.cardContent}>
                             <CardContent>
                                 <Typography gutterBottom variant="h5">
-                                    {content[1].title}
+                                    <strong> {content[1].title} </strong>
                                 </Typography>
                                 <Typography gutterBottom variant="h6">
                                     {content[1].eventTime}
@@ -116,7 +123,36 @@ export const EventCardComponent: React.FC<ContentCardComponentProps> = ({
                                             </Typography>
                                         </div>
                                     ))}
-                                {isExpanded && content[1].presentations && 'events'}
+                                {console.log(content[1])}
+                                {isExpanded && content[1].presentations && (
+                                    <div>
+                                        <Typography gutterBottom variant="subtitle1">
+                                            <strong>Előadások:</strong>
+                                        </Typography>
+                                        {Array.from(content[1].presentations).map((presentation) => (
+                                            <div
+                                                key={presentation[0]}
+                                                className={componentStyle.eventPresentationContainer}
+                                            >
+                                                <Typography
+                                                    variant="body1"
+                                                    component="span"
+                                                    className={componentStyle.eventSpeaker}
+                                                >
+                                                    <strong>{presentation[1].presenter}:</strong>{' '}
+                                                    {presentation[1].topic}
+                                                </Typography>
+                                                <Typography
+                                                    variant="body2"
+                                                    component="span"
+                                                    className={componentStyle.eventTime}
+                                                >
+                                                    {presentation[1].timeTable}
+                                                </Typography>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                             </CardContent>
                         </div>
                     </div>

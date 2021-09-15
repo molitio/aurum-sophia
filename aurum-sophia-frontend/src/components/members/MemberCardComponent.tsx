@@ -19,12 +19,8 @@ export const MemberCardComponent: React.FC<ContentCardComponentProps> = ({
     const componentStyle = createSiteStyle({
         card: {
             color: theme.palette.text.primary,
-            [theme.breakpoints.up('md')]: {
-                flex: isExpanded ? '1 1 80vw' : '1 1 20vw',
-            },
-            [theme.breakpoints.down('md')]: {
-                flex: isExpanded ? '1 1 80vw' : '1 1 30vw',
-            },
+            [theme.breakpoints.up('md')]: {},
+            [theme.breakpoints.down('md')]: {},
             margin: '10px',
             border: 0,
             borderStyle: 'solid',
