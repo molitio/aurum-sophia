@@ -28,8 +28,8 @@ export const AboutPage: React.FC = () => {
             ...theme.themeGradientBackground,
         },
         aboutContent: {
-            display: 'flex',
             flex: 1,
+            display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'left',

@@ -16,21 +16,35 @@ export const App: React.FC = () => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
     const pageStyle = createSiteStyle({
-        appRoot: {},
-        navContainer: {
-            position: 'sticky',
-            top: 0,
-            zIndex: 100,
-            width: '100vw',
-        },
-        appContainer: {
+        appRoot: {
             display: 'flex',
             flexDirection: 'column',
-            paddingTop: trigger ? '48px' : '164px',
+            alignContent: 'space-between',
+            alignItems: 'stretch',
+            minHeight: '100vh',
+        },
+        navContainer: {
+            flex: '1 1 auto',
+            alignSelf: 'flex-start',
+            height: '100%',
+            position: 'sticky',
+            top: 0,
+            /*   display: 'flex',
+            flexDirection: 'column',
+            height: 'inherit', */
+            /* alignItems: 'stretch',
+            '& :after': {
+                display: 'block',
+                clear: 'both',
+            }, */
+            /*     zIndex: 100, */
+        },
+        appContainer: {
+            /*  paddingTop: trigger ? '48px' : '164px', */
         },
         appContentContainer: {
-            alignSelf: 'center',
-            flexGrow: 1,
+            flex: '1 1 auto',
+            marginTop: '5px',
             [theme.breakpoints.up('sm')]: {
                 paddingLeft: '5vw',
                 paddingRight: '5vw',
@@ -41,19 +55,20 @@ export const App: React.FC = () => {
             },
         },
         footerContainer: {
+            flex: '1 1 auto',
             alignSelf: 'flex-end',
             width: '100vw',
-            minHeight: 24,
+            maxHeight: 24,
             ...theme.themeGradientBackground,
         },
     });
 
     return (
-        <div className={pageStyle.appRoot}>
-            <div className={pageStyle.navContainer}>
-                <NavigationTopComponent />
-            </div>
-            <div className={pageStyle.appContainer}>
+        <>
+            <div className={pageStyle.appRoot}>
+                <div className={pageStyle.navContainer}>
+                    <NavigationTopComponent />
+                </div>
                 <main className={pageStyle.appContentContainer}>
                     <SiteRoutesComponent />
                 </main>
@@ -62,6 +77,6 @@ export const App: React.FC = () => {
                 </div>
             </div>
             {context.isImageBackgroundEnabled ? <ImagePageBackground /> : <ThemePageBackground />}
-        </div>
+        </>
     );
 };

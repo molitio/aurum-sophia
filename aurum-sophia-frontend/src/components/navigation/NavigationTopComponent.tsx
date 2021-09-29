@@ -17,12 +17,9 @@ export const NavigationTopComponent: React.FC = () => {
     });
 
     const componentStyle = createSiteStyle({
-        navigationTopContainer: {
-            zIndex: 100,
-            position: 'sticky',
-            top: 0,
-        },
         appBar: {
+            position: 'relative',
+            width: '100vw',
             color: theme.palette.text.primary,
             opacity: 0.9,
             ...theme.themeGradientBackground,
@@ -43,8 +40,8 @@ export const NavigationTopComponent: React.FC = () => {
             [theme.breakpoints.down('xs')]: { display: 'none' },
         },
         titleToolBar: {
-            top: 0,
-            position: 'sticky',
+            /*  top: 0,
+            position: 'sticky', */
         },
         title: {
             marginLeft: trigger ? '0px' : '32px',
@@ -60,63 +57,56 @@ export const NavigationTopComponent: React.FC = () => {
     };
 
     return (
-        <>
-            <div className={componentStyle.navigationTopContainer}>
-                <AppBar className={componentStyle.appBar}>
-                    <div>
-                        <NavigationSideComponent navigationState={navigationState} toggle={toggleSidePanel} />
-                        {/*     <Collapse appear={true} in={!trigger}> */}
-                        <Toolbar variant="dense"></Toolbar>
-                        {/* </Collapse> */}
-                    </div>
-                    <div className={componentStyle.titleToolBar}>
-                        <Toolbar variant="dense">
-                            {trigger && (
-                                <div className={componentStyle.menuButtonContainer}>
-                                    <IconButton
-                                        edge="start"
-                                        className={componentStyle.menuButton}
-                                        aria-label="menu"
-                                        onClick={toggleSidePanel}
-                                    >
-                                        <Icon>
-                                            {context.siteIconCollection.get('menu')?.fontIcon ||
-                                                SiteDefaultIcon.fontIcon}
-                                        </Icon>
-                                    </IconButton>
-                                </div>
-                            )}
-                            {!navigationState.sidePanel && (
-                                <div className={componentStyle.title}>
-                                    <TitleComponent horizontal={true} />
-                                </div>
-                            )}
-                        </Toolbar>
-                    </div>
-
-                    {!trigger && (
-                        <Toolbar variant="dense">
-                            <div className={componentStyle.menuButtonContainer}>
-                                <IconButton
-                                    edge="start"
-                                    className={componentStyle.menuButton}
-                                    aria-label="menu"
-                                    onClick={toggleSidePanel}
-                                >
-                                    <Icon>
-                                        {context.siteIconCollection.get('menu')?.fontIcon || SiteDefaultIcon.fontIcon}
-                                    </Icon>
-                                </IconButton>
-                            </div>
-                            <div className={componentStyle.menuRow}>
-                                {!navigationState.sidePanel && (
-                                    <NavigationListComponent horizontal={true} displayIcons={false} />
-                                )}
-                            </div>
-                        </Toolbar>
-                    )}
-                </AppBar>
+        <AppBar className={componentStyle.appBar}>
+            <div>
+                <NavigationSideComponent navigationState={navigationState} toggle={toggleSidePanel} />
+                {/*     <Collapse appear={true} in={!trigger}> */}
+                <Toolbar variant="dense"></Toolbar>
+                {/* </Collapse> */}
             </div>
-        </>
+            <div className={componentStyle.titleToolBar}>
+                <Toolbar variant="dense">
+                    {trigger && (
+                        <div className={componentStyle.menuButtonContainer}>
+                            <IconButton
+                                edge="start"
+                                className={componentStyle.menuButton}
+                                aria-label="menu"
+                                onClick={toggleSidePanel}
+                            >
+                                <Icon>
+                                    {context.siteIconCollection.get('menu')?.fontIcon || SiteDefaultIcon.fontIcon}
+                                </Icon>
+                            </IconButton>
+                        </div>
+                    )}
+                    {!navigationState.sidePanel && (
+                        <div className={componentStyle.title}>
+                            <TitleComponent horizontal={true} />
+                        </div>
+                    )}
+                </Toolbar>
+            </div>
+
+            {!trigger && (
+                <Toolbar variant="dense">
+                    <div className={componentStyle.menuButtonContainer}>
+                        <IconButton
+                            edge="start"
+                            className={componentStyle.menuButton}
+                            aria-label="menu"
+                            onClick={toggleSidePanel}
+                        >
+                            <Icon>{context.siteIconCollection.get('menu')?.fontIcon || SiteDefaultIcon.fontIcon}</Icon>
+                        </IconButton>
+                    </div>
+                    <div className={componentStyle.menuRow}>
+                        {!navigationState.sidePanel && (
+                            <NavigationListComponent horizontal={true} displayIcons={false} />
+                        )}
+                    </div>
+                </Toolbar>
+            )}
+        </AppBar>
     );
 };
