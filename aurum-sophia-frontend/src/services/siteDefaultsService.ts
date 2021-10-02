@@ -1,11 +1,9 @@
 import React from 'react';
-import { createTheme, Theme } from '@material-ui/core';
 import { TPageContent } from '../components/common/type/TPageContent';
 import { TError } from '../components/common/type/TError';
 import { TFeature } from '../components/common/type/TFeature';
 import { TIcon } from '../components/common/type/TIcon';
 import { ISiteContext } from '../components/context/interface/AppContext';
-import { orange, amber, red, indigo } from '@material-ui/core/colors';
 import sunThemeBackground from '../images/sunThemeBackground.jpg';
 import { getSiteIconCollection } from './siteIconService';
 import { TContactPageInfo } from '../components/common/type/TContactPageInfo';
@@ -17,7 +15,7 @@ export const SiteMolitioId = { molitioTag: `app_aurum_shopia` };
 
 export const SiteDefaultIcon: TIcon = { fontIcon: 'report_problem' };
 
-export const SiteDefaultTheme = createTheme({
+export const SiteDefaultTheme = {}; /* createTheme({
     isEnabled: true,
     palette: {
         primary: {
@@ -32,7 +30,7 @@ export const SiteDefaultTheme = createTheme({
             light: red[300],
         },
         text: {
-            /* primary: '#333399', */
+          primary: '#333399', 
             primary: indigo[800],
             secondary: indigo[600],
         },
@@ -62,7 +60,7 @@ export const SiteDefaultTheme = createTheme({
         borderStyle: 'solid',
         borderColor: red[900],
     },
-});
+}); */
 
 export const SiteContextDefaults: ISiteContext = {
     molitioId: SiteMolitioId,
@@ -72,7 +70,7 @@ export const SiteContextDefaults: ISiteContext = {
     siteIconCollection: new Map<string, TIcon>(),
     featureIconCollection: new Map<string, TIcon>(),
     contentCollection: new Map<string, TPageContent>(),
-    themeCollection: new Map<string, Theme>(),
+    // themeCollection: new Map<string, Theme>(),
     setSelectedTheme: () => {
         return SiteDefaultTheme;
     },

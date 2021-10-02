@@ -1,5 +1,5 @@
+import { IonText } from '@ionic/react';
 import React from 'react';
-import { Typography } from '@material-ui/core';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 
@@ -25,7 +25,9 @@ export const FooterComponent: React.FC = () => {
     return (
         <div className={componentStyle.footer}>
             <div className={componentStyle.brand}>
-                <Typography variant="body2">Aurum Sophia Alapítvány 2021</Typography>
+                <IonText>
+                    <span>Aurum Sophia Alapítvány 2021</span>
+                </IonText>
             </div>
         </div>
     );

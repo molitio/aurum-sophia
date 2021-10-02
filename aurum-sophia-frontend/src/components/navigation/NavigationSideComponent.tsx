@@ -1,9 +1,9 @@
 import React, { createRef, useEffect, useState } from 'react';
-import { Drawer } from '@material-ui/core';
 import NavigationSidePanelProps from './interface/NavigationSidePanelProps';
 import { NavigationListComponent } from './NavigationListComponent';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
+import { IonMenu } from '@ionic/react';
 
 export const NavigationSideComponent: React.FC<NavigationSidePanelProps> = ({
     navigationState,
@@ -47,12 +47,7 @@ export const NavigationSideComponent: React.FC<NavigationSidePanelProps> = ({
     return (
         <>
             <div className={componentStyle.root}>
-                <Drawer
-                    anchor={selectedAnchor}
-                    open={navigationState.sidePanel}
-                    onClose={toggle}
-                    ref={navigationSideComponentRef}
-                >
+                <IonMenu>
                     <div
                         className={componentStyle.drawerContent}
                         role="presentation"
@@ -61,7 +56,7 @@ export const NavigationSideComponent: React.FC<NavigationSidePanelProps> = ({
                     >
                         <NavigationListComponent horizontal={false} displayIcons={true} />
                     </div>
-                </Drawer>
+                </IonMenu>
             </div>
         </>
     );

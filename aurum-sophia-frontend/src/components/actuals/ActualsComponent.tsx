@@ -1,5 +1,5 @@
+import { IonText } from '@ionic/react';
 import React from 'react';
-import { Typography } from '@material-ui/core';
 import { AppContext, SiteDefaultPageContent } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { PageTagProps } from '../common/interface/PageTagProps';
@@ -35,26 +35,30 @@ export const ActualsComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagPro
 
     return (
         <div className={componentStyle.actualsText}>
-            <Typography variant="h4">
-                <b>{actualsContent && actualsContent.title}</b>
-            </Typography>
+            <IonText>
+                <h4>
+                    <b>{actualsContent && actualsContent.title}</b>
+                </h4>
+            </IonText>
             <br />
-            <Typography variant="body1" component="p">
-                {actualsContent && actualsContent.textContent}
-            </Typography>
+            <IonText>
+                <p>{actualsContent && actualsContent.textContent}</p>
+            </IonText>
             <br />
 
             {actualsContent?.componentContent &&
                 Array.from([...actualsContent.componentContent]).map((content) => (
                     <div key={content[0]}>
-                        <Typography variant="h6">
-                            <b>{content[1].title}</b>
-                        </Typography>
+                        <IonText>
+                            <h6>
+                                {' '}
+                                <b>{content[1].title}</b>
+                            </h6>
+                        </IonText>
                         <br />
-                        <Typography variant="body2" component="p">
-                            {content[1].textContent}
-                        </Typography>
-
+                        <IonText>
+                            <p>{content[1].textContent}</p>
+                        </IonText>
                         <br />
                     </div>
                 ))}

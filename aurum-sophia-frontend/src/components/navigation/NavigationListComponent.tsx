@@ -1,11 +1,11 @@
 import React from 'react';
-import { List, Divider } from '@material-ui/core';
 import { ThemeButtonGroupComponent } from '../common/ThemeButtonGroupComponent';
 import { TitleComponent } from '../common/TitleComponent';
 import { NavigationItemComponent } from './NavigationItemComponent';
 import { NavigationListComponentProps } from './interface/NavigationListComponentProps';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
+import { IonList } from '@ionic/react';
 
 export const NavigationListComponent = ({ horizontal, displayIcons }: NavigationListComponentProps) => {
     const context = React.useContext(AppContext);
@@ -27,15 +27,14 @@ export const NavigationListComponent = ({ horizontal, displayIcons }: Navigation
     return (
         <>
             {!horizontal && <TitleComponent horizontal={horizontal} />}
-            <List className={componentStyle.navList}>
+            <IonList className={componentStyle.navList}>
                 {Array.from(context.featureCollection.values())
                     .filter((isNavOption) => isNavOption.isNavOption)
                     .map((feature) => (
                         <NavigationItemComponent key={feature.id} siteFeature={feature} displayIcons={displayIcons} />
                     ))}
                 {!horizontal && <ThemeButtonGroupComponent />}
-            </List>
-            <Divider />
+            </IonList>
         </>
     );
 };

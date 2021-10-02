@@ -1,5 +1,5 @@
+import { IonButton, IonButtons, IonIcon } from '@ionic/react';
 import React from 'react';
-import { Button, Icon } from '@material-ui/core';
 import { AppContext, SiteDefaultIcon } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { ThemeButtonProps } from './interface/ThemeButtonProps';
@@ -19,14 +19,16 @@ export const ThemeButton: React.FC<ThemeButtonProps> = ({ themeName }: ThemeButt
 
     return (
         <>
-            <Button
-                className={componentStyle.themeButton}
-                onClick={() => {
-                    context.setSelectedTheme(correspondingTheme || theme);
-                }}
-            >
-                <Icon>{correspondingTheme?.themeIcon.fontIcon || SiteDefaultIcon.fontIcon}</Icon>
-            </Button>
+            <IonButtons>
+                <IonButton
+                    className={componentStyle.themeButton}
+                    onClick={() => {
+                        context.setSelectedTheme(correspondingTheme || theme);
+                    }}
+                >
+                    <IonIcon>{correspondingTheme?.themeIcon.fontIcon || SiteDefaultIcon.fontIcon}</IonIcon>
+                </IonButton>
+            </IonButtons>
         </>
     );
 };

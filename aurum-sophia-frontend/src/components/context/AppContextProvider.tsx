@@ -1,5 +1,4 @@
 import React from 'react';
-import { ThemeProvider } from '@material-ui/core';
 import { sitePageContentCollection as getSiteContentCollection } from '../../services/siteContentService';
 import { getSiteFeatureCollection } from '../../services/siteFeaturesService';
 import { getSiteFeatureComponents } from '../../services/siteComponentService';
@@ -69,7 +68,7 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({ children
                     setIsImageBackgroundEnabled: setIsImageBackgroundEnabled,
                 }}
             >
-                <ThemeProvider theme={selectedTheme ? selectedTheme : SiteDefaultTheme}>{children}</ThemeProvider>
+                {/* <ThemeProvider theme={selectedTheme ? selectedTheme : SiteDefaultTheme}>{children}</IonThemeProvider> */}
             </AppContext.Provider>
         </>
     );

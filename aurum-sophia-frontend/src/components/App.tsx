@@ -1,5 +1,4 @@
 import React from 'react';
-import { useScrollTrigger } from '@material-ui/core';
 import { FooterComponent } from './common/FooterComponent';
 import { NavigationTopComponent } from './navigation/NavigationTopComponent';
 import { SiteRoutesComponent } from './common/SiteRoutesComponent';
@@ -9,10 +8,10 @@ import { createSiteStyle as createSiteStyle } from '../styles/siteStyleBuilder';
 import { ThemePageBackground } from './background/ThemePageBackground';
 
 export const App: React.FC = () => {
-    const trigger = useScrollTrigger({
+    /*   const trigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: 20,
-    });
+    }); */
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
     const pageStyle = createSiteStyle({

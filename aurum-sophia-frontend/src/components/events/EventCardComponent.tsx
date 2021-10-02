@@ -1,10 +1,10 @@
 import React from 'react';
-import { Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button } from '@material-ui/core';
 import greenHand from '../../images/greenHand.jpg';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { TContentParagraph } from '../common/type/TContentParagraph';
 import { ContentCardComponentProps } from '../common/interface/ContentCardComponentProps';
+import { IonCard, IonCardContent, IonCardHeader, IonImg, IonText } from '@ionic/react';
 
 export const EventCardComponent: React.FC<ContentCardComponentProps> = ({
     content,
@@ -91,73 +91,64 @@ export const EventCardComponent: React.FC<ContentCardComponentProps> = ({
 
     return (
         <div className={componentStyle.content}>
-            <Card className={componentStyle.card}>
-                <CardActionArea>
-                    <div className={componentStyle.contentContainer} onClick={() => handleExpand()}>
+            <IonCard className={componentStyle.card}>
+                <div className={componentStyle.contentContainer} onClick={() => handleExpand()}>
+                    <IonCardHeader>
                         <div className={componentStyle.cardMedia}>
-                            <CardMedia component="img" alt="Event Image" image={greenHand} title="Event Image" />
+                            <IonImg alt="Event Image" src={greenHand} title="Event Image" />
                         </div>
-                        <div className={componentStyle.cardContent}>
-                            <CardContent>
-                                <Typography gutterBottom variant="h5">
+                    </IonCardHeader>
+                    <div className={componentStyle.cardContent}>
+                        <IonCardContent>
+                            <IonText>
+                                <h5>
                                     <strong> {content[1].title} </strong>
-                                </Typography>
-                                <Typography gutterBottom variant="h6">
-                                    {content[1].eventTime}
-                                </Typography>
-                                <Typography variant="subtitle1">{content[1].eventSummary}</Typography>
-                                <br />
-                                {isExpanded &&
-                                    Array.from([
-                                        ...(content[1].eventContentSections ?? new Map<string, TContentParagraph>()),
-                                    ]).map((content) => (
-                                        <div key={content[0]}>
-                                            <Typography
-                                                variant="body1"
-                                                component="p"
-                                                className={componentStyle.cardInfo}
-                                                gutterBottom
-                                            >
-                                                {content[1].textSection}
-                                                <br />
-                                            </Typography>
-                                        </div>
-                                    ))}
-                                {console.log(content[1])}
-                                {isExpanded && content[1].presentations && (
-                                    <div>
-                                        <Typography gutterBottom variant="subtitle1">
-                                            <strong>Előadások:</strong>
-                                        </Typography>
-                                        {Array.from(content[1].presentations).map((presentation) => (
-                                            <div
-                                                key={presentation[0]}
-                                                className={componentStyle.eventPresentationContainer}
-                                            >
-                                                <Typography
-                                                    variant="body1"
-                                                    component="span"
-                                                    className={componentStyle.eventSpeaker}
-                                                >
+                                </h5>
+                            </IonText>
+                            <IonText>
+                                <h6>{content[1].eventTime}</h6>
+                            </IonText>
+                            <IonText>{content[1].eventSummary}</IonText>
+                            <br />
+                            {isExpanded &&
+                                Array.from([
+                                    ...(content[1].eventContentSections ?? new Map<string, TContentParagraph>()),
+                                ]).map((content) => (
+                                    <div key={content[0]}>
+                                        <IonText className={componentStyle.cardInfo}>
+                                            <p>{content[1].textSection}</p>
+                                            <br />
+                                        </IonText>
+                                    </div>
+                                ))}
+                            {console.log(content[1])}
+                            {isExpanded && content[1].presentations && (
+                                <div>
+                                    <IonText>
+                                        <strong>Előadások:</strong>
+                                    </IonText>
+                                    {Array.from(content[1].presentations).map((presentation) => (
+                                        <div
+                                            key={presentation[0]}
+                                            className={componentStyle.eventPresentationContainer}
+                                        >
+                                            <IonText className={componentStyle.eventSpeaker}>
+                                                <span>
                                                     <strong>{presentation[1].presenter}:</strong>{' '}
                                                     {presentation[1].topic}
-                                                </Typography>
-                                                <Typography
-                                                    variant="body2"
-                                                    component="span"
-                                                    className={componentStyle.eventTime}
-                                                >
-                                                    {presentation[1].timeTable}
-                                                </Typography>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </CardContent>
-                        </div>
+                                                </span>
+                                            </IonText>
+                                            <IonText className={componentStyle.eventTime}>
+                                                <span>{presentation[1].timeTable}</span>
+                                            </IonText>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </IonCardContent>
                     </div>
-                </CardActionArea>
-            </Card>
+                </div>
+            </IonCard>
         </div>
     );
 };

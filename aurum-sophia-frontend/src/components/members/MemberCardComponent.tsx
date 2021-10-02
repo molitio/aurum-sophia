@@ -1,4 +1,3 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
 import React from 'react';
 import greenHand from '../../images/greenHand.jpg';
 import { AppContext } from '../../services/siteDefaultsService';
@@ -6,6 +5,7 @@ import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { TContentParagraph } from '../common/type/TContentParagraph';
 import { ContentCardComponentProps } from '../common/interface/ContentCardComponentProps';
 import { MemberContactCardComponent } from './MemberContactCardComponent';
+import { IonCard, IonCardContent, IonImg, IonText } from '@ionic/react';
 
 export const MemberCardComponent: React.FC<ContentCardComponentProps> = ({
     content,
@@ -68,49 +68,41 @@ export const MemberCardComponent: React.FC<ContentCardComponentProps> = ({
     };
 
     return (
-        <Card className={componentStyle.card}>
-            <CardActionArea>
-                <div className={componentStyle.contentContainer} onClick={() => handleExpand()}>
-                    <div className={componentStyle.cardMedia}>
-                        <CardMedia component="img" alt="Member Image" image={greenHand} title={content[1].memberName} />
-                    </div>
-                    <div className={componentStyle.cardContent}>
-                        <CardContent>
-                            <Typography gutterBottom variant="h6">
-                                {content[1].memberName}
-                            </Typography>
-                            <Typography gutterBottom variant="subtitle1">
-                                {content[1].memberTitle}
-                            </Typography>
-                            {content[1].memberMotto && (
-                                <Typography variant="body2">
-                                    {`"`}
-                                    {content[1].memberMotto}
-                                    {`"`}
-                                </Typography>
-                            )}
-                            {/*    <Typography variant="body2" className={componentStyle.cardInfo}>
+        <IonCard className={componentStyle.card}>
+            <div className={componentStyle.contentContainer} onClick={() => handleExpand()}>
+                <div className={componentStyle.cardMedia}>
+                    <IonImg alt="Member Image" src={greenHand} title={content[1].memberName} />
+                </div>
+                <div className={componentStyle.cardContent}>
+                    <IonCardContent>
+                        <IonText>
+                            <h6>{content[1].memberName}</h6>
+                        </IonText>
+                        <IonText>{content[1].memberTitle}</IonText>
+                        {content[1].memberMotto && (
+                            <IonText>
+                                {`"`}
+                                {content[1].memberMotto}
+                                {`"`}
+                            </IonText>
+                        )}
+                        {/*    <Typography variant="body2" className={componentStyle.cardInfo}>
                                 {content.memberSummary}...
                             </Typography> */}
-                            {isExpanded &&
-                                Array.from([
-                                    ...(content[1].memberBioSections ?? new Map<string, TContentParagraph>()),
-                                ]).map((paragrah, i) => (
-                                    <Typography
-                                        key={paragrah[0]}
-                                        variant="body2"
-                                        className={componentStyle.cardContent}
-                                    >
+                        {isExpanded &&
+                            Array.from([...(content[1].memberBioSections ?? new Map<string, TContentParagraph>())]).map(
+                                (paragrah, i) => (
+                                    <IonText key={paragrah[0]} className={componentStyle.cardContent}>
                                         {paragrah[1].textSection}
                                         <br />
                                         <br />
-                                    </Typography>
-                                ))}
-                            {isExpanded && <MemberContactCardComponent memberContact={content[1].memberContact} />}
-                        </CardContent>
-                    </div>
+                                    </IonText>
+                                ),
+                            )}
+                        {isExpanded && <MemberContactCardComponent memberContact={content[1].memberContact} />}
+                    </IonCardContent>
                 </div>
-            </CardActionArea>
-        </Card>
+            </div>
+        </IonCard>
     );
 };

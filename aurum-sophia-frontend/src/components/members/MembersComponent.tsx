@@ -5,7 +5,7 @@ import { PageTagProps } from '../common/interface/PageTagProps';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { TPageContent } from '../common/type/TPageContent';
 import { TMember } from '../common/type/TMember';
-import { Typography } from '@material-ui/core';
+import { IonText } from '@ionic/react';
 
 export const MembersComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps) => {
     const context = React.useContext(AppContext);
@@ -51,9 +51,11 @@ export const MembersComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagPro
     return (
         <div className={componentStyle.members}>
             <div className={componentStyle.componentTitle}>
-                <Typography variant="h5">
-                    <b>{membersContent.title}</b>
-                </Typography>
+                <IonText>
+                    <h5>
+                        <strong>{membersContent.title}</strong>
+                    </h5>
+                </IonText>
             </div>
             <br />
             {isExpanded ? (

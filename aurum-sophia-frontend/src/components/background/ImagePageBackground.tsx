@@ -1,20 +1,19 @@
 import React from 'react';
-import { useScrollTrigger } from '@material-ui/core';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 
 export const ImagePageBackground: React.FC = () => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
-    const trigger = useScrollTrigger({
+    /*     const trigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: 64,
     });
-
+ */
     const componentStyle = createSiteStyle({
         imageBackground: {
             position: 'fixed',
-            top: trigger ? '48px' : '96px',
+            //            top: trigger ? '48px' : '96px',
             backgroundImage: `url(${theme.themeBackgroundImage ? theme.themeBackgroundImage.imageUrl : ''})`,
             backgroundColor: 'transparent',
             backgroundPosition: 'center',

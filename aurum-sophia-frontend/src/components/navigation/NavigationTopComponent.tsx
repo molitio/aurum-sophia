@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton } from '@material-ui/core';
 import { NavigationSideComponent } from './NavigationSideComponent';
 import { TitleComponent } from '../common/TitleComponent';
-import { Icon } from '@material-ui/core';
-import { useScrollTrigger } from '@material-ui/core';
 import { NavigationListComponent } from './NavigationListComponent';
 import { AppContext, SiteDefaultIcon } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
+import { IonButton, IonIcon, IonToolbar } from '@ionic/react';
 
 export const NavigationTopComponent: React.FC = () => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
-    const trigger = useScrollTrigger({
+    const trigger = false; /* useScrollTrigger({
         disableHysteresis: true,
         threshold: 64,
     });
-
+ */
     const componentStyle = createSiteStyle({
         appBar: {
             position: 'relative',
@@ -44,7 +42,7 @@ export const NavigationTopComponent: React.FC = () => {
             position: 'sticky', */
         },
         title: {
-            marginLeft: trigger ? '0px' : '32px',
+            //    marginLeft: trigger ? '0px' : '32px',
         },
     });
 
@@ -57,56 +55,53 @@ export const NavigationTopComponent: React.FC = () => {
     };
 
     return (
-        <AppBar className={componentStyle.appBar}>
+        <div className={componentStyle.appBar}>
             <div>
                 <NavigationSideComponent navigationState={navigationState} toggle={toggleSidePanel} />
-                {/*     <Collapse appear={true} in={!trigger}> */}
-                <Toolbar variant="dense"></Toolbar>
-                {/* </Collapse> */}
             </div>
             <div className={componentStyle.titleToolBar}>
-                <Toolbar variant="dense">
-                    {trigger && (
-                        <div className={componentStyle.menuButtonContainer}>
-                            <IconButton
-                                edge="start"
-                                className={componentStyle.menuButton}
-                                aria-label="menu"
-                                onClick={toggleSidePanel}
-                            >
-                                <Icon>
-                                    {context.siteIconCollection.get('menu')?.fontIcon || SiteDefaultIcon.fontIcon}
-                                </Icon>
-                            </IconButton>
-                        </div>
-                    )}
-                    {!navigationState.sidePanel && (
-                        <div className={componentStyle.title}>
-                            <TitleComponent horizontal={true} />
-                        </div>
-                    )}
-                </Toolbar>
-            </div>
-
-            {!trigger && (
-                <Toolbar variant="dense">
+                {trigger && (
                     <div className={componentStyle.menuButtonContainer}>
-                        <IconButton
-                            edge="start"
+                        <IonButton
+                            slot="start"
                             className={componentStyle.menuButton}
                             aria-label="menu"
                             onClick={toggleSidePanel}
                         >
-                            <Icon>{context.siteIconCollection.get('menu')?.fontIcon || SiteDefaultIcon.fontIcon}</Icon>
-                        </IconButton>
+                            <IonIcon>
+                                {context.siteIconCollection.get('menu')?.fontIcon || SiteDefaultIcon.fontIcon}
+                            </IonIcon>
+                        </IonButton>
+                    </div>
+                )}
+                {!navigationState.sidePanel && (
+                    <div className={componentStyle.title}>
+                        <TitleComponent horizontal={true} />
+                    </div>
+                )}
+            </div>
+
+            {!trigger && (
+                <IonToolbar>
+                    <div className={componentStyle.menuButtonContainer}>
+                        <IonButton
+                            slot="start"
+                            className={componentStyle.menuButton}
+                            aria-label="menu"
+                            onClick={toggleSidePanel}
+                        >
+                            <IonIcon>
+                                {context.siteIconCollection.get('menu')?.fontIcon || SiteDefaultIcon.fontIcon}
+                            </IonIcon>
+                        </IonButton>
                     </div>
                     <div className={componentStyle.menuRow}>
                         {!navigationState.sidePanel && (
                             <NavigationListComponent horizontal={true} displayIcons={false} />
                         )}
                     </div>
-                </Toolbar>
+                </IonToolbar>
             )}
-        </AppBar>
+        </div>
     );
 };

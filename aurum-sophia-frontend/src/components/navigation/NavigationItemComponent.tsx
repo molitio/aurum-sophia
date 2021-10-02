@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { ListItem, Button, Icon } from '@material-ui/core';
 import { NavigationItemComponentProps } from './interface/NavigationItemComponentProps';
 import { AppContext, SiteDefaultIcon } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
+import { IonButton, IonIcon, IonItem, IonRouterLink } from '@ionic/react';
 
 export const NavigationItemComponent: React.FC<NavigationItemComponentProps> = ({
     siteFeature,
@@ -39,23 +39,19 @@ export const NavigationItemComponent: React.FC<NavigationItemComponentProps> = (
     return (
         <>
             {siteFeature && (
-                <ListItem button key={siteFeature.id} className={componentStyle.navListItem}>
-                    <Button
-                        className={componentStyle.navLinkButton}
-                        component={RouterLink}
-                        to={siteFeature.path}
-                        startIcon={
-                            displayIcons && (
-                                <Icon>
+                <IonItem button key={siteFeature.id} className={componentStyle.navListItem}>
+                    <IonButton className={componentStyle.navLinkButton}>
+                        <IonRouterLink href={siteFeature.path}>
+                            {displayIcons && (
+                                <IonIcon>
                                     {context.featureIconCollection.get(siteFeature.name)?.fontIcon ||
                                         SiteDefaultIcon.fontIcon}
-                                </Icon>
-                            )
-                        }
-                    >
-                        {siteFeature.displayName}
-                    </Button>
-                </ListItem>
+                                </IonIcon>
+                            )}
+                            {siteFeature.displayName}
+                        </IonRouterLink>
+                    </IonButton>
+                </IonItem>
             )}
         </>
     );

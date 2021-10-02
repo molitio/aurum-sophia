@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Typography } from '@material-ui/core';
 import { SiteLogoComponent } from './SiteLogoComponent';
 import { TitleComponentProps } from './interface/TitleComponentProps';
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
+import { IonText } from '@ionic/react';
 
 export const TitleComponent: React.FC<TitleComponentProps> = ({ horizontal }: TitleComponentProps) => {
     const context = React.useContext(AppContext);
@@ -58,10 +58,12 @@ export const TitleComponent: React.FC<TitleComponentProps> = ({ horizontal }: Ti
             <div className={componentStyle.titleContainer}>
                 <RouterLink to="/">
                     <div className={componentStyle.titleText}>
-                        <Typography variant="h5" component="h1">
-                            Aurum Sophia {!horizontal && <br />}
-                            Alapítvány
-                        </Typography>
+                        <IonText>
+                            <h5>
+                                Aurum Sophia {!horizontal && <br />}
+                                Alapítvány
+                            </h5>
+                        </IonText>
                     </div>
                 </RouterLink>
             </div>

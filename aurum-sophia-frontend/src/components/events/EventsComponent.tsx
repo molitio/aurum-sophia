@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core';
+import { IonText } from '@ionic/react';
 import React from 'react';
 import { AppContext, SiteDefaultPageContent } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
@@ -55,7 +55,9 @@ export const EventsComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProp
     return (
         <div className={componentStyle.events}>
             <div className={componentStyle.componentTitle}>
-                <Typography variant="h5">{eventsContent.title}</Typography>
+                <IonText>
+                    <h5>{eventsContent.title}</h5>
+                </IonText>
             </div>
             <br />
             {isExpanded ? (

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
 import { AppContext, SiteDefaultPageContent } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 import { PageTagProps } from '../common/interface/PageTagProps';
@@ -8,6 +7,7 @@ import membersImage from '../../images/membersImage.jpg';
 import { TComponentContent } from '../common/type/TComponentContent';
 import { TVideo } from '../common/type/TVideo';
 import YouTube from 'react-youtube';
+import { IonText } from '@ionic/react';
 
 export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps) => {
     const context = React.useContext(AppContext);
@@ -83,18 +83,22 @@ export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps
         <div className={componentStyle.contentContainer}>
             <div className={componentStyle.aboutContent}>
                 <div className={componentStyle.aboutText}>
-                    <Typography variant="h5">
-                        <b>{aboutContent?.title}</b>
-                    </Typography>
+                    <IonText>
+                        <h5>
+                            <b>{aboutContent?.title}</b>
+                        </h5>
+                    </IonText>
                     <br />
-                    <Typography variant="h6">{aboutContent?.textContent}</Typography>
+                    <IonText>
+                        <h6>{aboutContent?.textContent}</h6>
+                    </IonText>
                     <br />
                     {Array.from([...(aboutContent?.componentContent ?? new Map<string, TComponentContent>())]).map(
                         (content) => (
                             <div key={content[0]}>
-                                <Typography variant="body1" component="p">
-                                    {content[1].textContent}
-                                </Typography>
+                                <IonText>
+                                    <p>{content[1].textContent}</p>
+                                </IonText>
                                 <br />
                             </div>
                         ),

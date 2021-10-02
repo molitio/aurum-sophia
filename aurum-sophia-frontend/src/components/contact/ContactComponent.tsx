@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Link, Typography } from '@material-ui/core';
+import { IonCard, IonCardContent, IonCardHeader, IonImg, IonRouterLink, IonText } from '@ionic/react';
 import React from 'react';
 import treeShape from '../../images/treeShape.svg';
 import { AppContext, SiteDefaultContactPageContent } from '../../services/siteDefaultsService';
@@ -65,22 +65,21 @@ export const ContactComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagPro
 
     return (
         <div className={componentStyle.root}>
-            <Card className={componentStyle.card}>
+            <IonCard className={componentStyle.card}>
                 <div className={componentStyle.contentContainer}>
                     <div className={componentStyle.cardMedia}>
-                        <CardMedia
-                            component="img"
-                            alt={contactContent.title}
-                            image={treeShape}
-                            title={contactContent.title}
-                        />
+                        <IonCardHeader>
+                            <IonImg alt={contactContent.title} src={treeShape} title={contactContent.title}></IonImg>
+                        </IonCardHeader>
                     </div>
                     <div className={componentStyle.cardContent}>
-                        <CardContent>
-                            <Typography gutterBottom variant="h6">
-                                {contactContent.title}
-                            </Typography>
-                            <Typography variant="subtitle1">{`Telefonos elérhetőségeink:`}</Typography>
+                        <IonCardContent>
+                            <IonText>
+                                <h6>{contactContent.title}</h6>
+                            </IonText>
+                            <IonText>
+                                <h6>{`Telefonos elérhetőségeink:`}</h6>
+                            </IonText>
                             {Array.from([...(contactContent.contacts ?? new Map<string, TContactInfo>())]).map(
                                 (contact) => (
                                     <div key={contact[0]}>
@@ -89,25 +88,28 @@ export const ContactComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagPro
                                     </div>
                                 ),
                             )}
-                            <Typography variant="body2" className={componentStyle.cardInfo}>
-                                {`Email címünk: `}
-                                <Link href={`mailto:${contactContent.recruitFormUrl}`} onClick={preventDefault}>
+                            <IonText className={componentStyle.cardInfo}>
+                                <h6>{`Email címünk: `}</h6>
+                                <IonRouterLink
+                                    href={`mailto:${contactContent.recruitFormUrl}`}
+                                    onClick={preventDefault}
+                                >
                                     {`${contactContent.siteContact?.emailAddress}`}
-                                </Link>
-                            </Typography>
+                                </IonRouterLink>
+                            </IonText>
 
-                            <Typography variant="body2" className={componentStyle.cardInfo}>
-                                <Link href={contactContent.recruitFormUrl} onClick={preventDefault}>
+                            <IonText className={componentStyle.cardInfo}>
+                                <IonRouterLink href={contactContent.recruitFormUrl} onClick={preventDefault}>
                                     {`Csatlakozás az alapítványhoz`}
-                                </Link>
-                            </Typography>
-                            <Typography variant="body2" className={componentStyle.cardInfo}>
+                                </IonRouterLink>
+                            </IonText>
+                            <IonText className={componentStyle.cardInfo}>
                                 {`Székhely és levelezési cím: ${contactContent.siteContact?.address}`}
-                            </Typography>
-                        </CardContent>
+                            </IonText>
+                        </IonCardContent>
                     </div>
                 </div>
-            </Card>
+            </IonCard>
         </div>
     );
 };
