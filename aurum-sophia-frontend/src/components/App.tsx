@@ -1,5 +1,5 @@
 import React from 'react';
-import { useScrollTrigger } from '@material-ui/core';
+import { Grid, useScrollTrigger } from '@material-ui/core';
 import { FooterComponent } from './common/FooterComponent';
 import { NavigationTopComponent } from './navigation/NavigationTopComponent';
 import { SiteRoutesComponent } from './common/SiteRoutesComponent';
@@ -17,66 +17,39 @@ export const App: React.FC = () => {
     const theme = context.selectedTheme;
     const pageStyle = createSiteStyle({
         appRoot: {
-            display: 'flex',
-            flexDirection: 'column',
-            alignContent: 'space-between',
             alignItems: 'stretch',
             minHeight: '100vh',
         },
         navContainer: {
-            flex: '1 1 auto',
             alignSelf: 'flex-start',
-            height: '100%',
             position: 'sticky',
+            zIndex: 100,
             top: 0,
-            /*   display: 'flex',
-            flexDirection: 'column',
-            height: 'inherit', */
-            /* alignItems: 'stretch',
-            '& :after': {
-                display: 'block',
-                clear: 'both',
-            }, */
-            /*     zIndex: 100, */
         },
-        appContainer: {
-            /*  paddingTop: trigger ? '48px' : '164px', */
-        },
-        appContentContainer: {
-            flex: '1 1 auto',
+        siteRoutes: {
             marginTop: '5px',
-            [theme.breakpoints.up('sm')]: {
-                paddingLeft: '5vw',
-                paddingRight: '5vw',
-            },
-            [theme.breakpoints.up('lg')]: {
-                paddingLeft: '15vw',
-                paddingRight: '15vw',
-            },
         },
         footerContainer: {
-            flex: '1 1 auto',
             alignSelf: 'flex-end',
-            width: '100vw',
             maxHeight: 24,
             ...theme.themeGradientBackground,
         },
     });
 
     return (
-        <>
-            <div className={pageStyle.appRoot}>
-                <div className={pageStyle.navContainer}>
+        <div>
+            <Grid container justifyContent="center" className={pageStyle.appRoot}>
+                <Grid item xs={12} className={pageStyle.navContainer}>
                     <NavigationTopComponent />
-                </div>
-                <main className={pageStyle.appContentContainer}>
+                </Grid>
+                <Grid item sm={10} lg={8} className={pageStyle.siteRoutes}>
                     <SiteRoutesComponent />
-                </main>
-                <div className={pageStyle.footerContainer}>
+                </Grid>
+                <Grid item xs={12} className={pageStyle.footerContainer}>
                     <FooterComponent />
-                </div>
-            </div>
+                </Grid>
+            </Grid>
             {context.isImageBackgroundEnabled ? <ImagePageBackground /> : <ThemePageBackground />}
-        </>
+        </div>
     );
 };

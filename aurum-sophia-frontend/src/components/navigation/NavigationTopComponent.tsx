@@ -60,9 +60,7 @@ export const NavigationTopComponent: React.FC = () => {
         <AppBar className={componentStyle.appBar}>
             <div>
                 <NavigationSideComponent navigationState={navigationState} toggle={toggleSidePanel} />
-                {/*     <Collapse appear={true} in={!trigger}> */}
-                <Toolbar variant="dense"></Toolbar>
-                {/* </Collapse> */}
+                {!trigger && <Toolbar variant="dense"></Toolbar>}
             </div>
             <div className={componentStyle.titleToolBar}>
                 <Toolbar variant="dense">
