@@ -123,7 +123,6 @@ export const EventCardComponent: React.FC<ContentCardComponentProps> = ({
                                             </Typography>
                                         </div>
                                     ))}
-                                {console.log(content[1])}
                                 {isExpanded && content[1].presentations && (
                                     <div>
                                         <Typography gutterBottom variant="subtitle1">

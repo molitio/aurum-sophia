@@ -20,7 +20,6 @@ export const EventsComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProp
         const content = context.contentCollection?.get(pageTag) ?? SiteDefaultPageContent;
         setEventsContent(content);
         const events = content?.componentContent ?? new Map<string, TEvent>();
-        console.log(events);
         setEvents(events);
     }, [context.contentCollection, pageTag]);
 

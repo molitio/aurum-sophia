@@ -25,15 +25,23 @@ export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps
     React.useEffect(() => {
         const content = context.contentCollection.get(pageTag) ?? SiteDefaultPageContent;
         setAboutContent(content);
-        console.log(content);
+        console.log(`content: ${JSON.stringify(content)}`);
+
+        const youTubeIds = content?.youTubeIds || new Map<string, TVideo>();
+
+        if (content?.youTubeIds && content?.youTubeIds.has('about_video')) {
+            const aboutVideo = youTubeIds.has('about_video') ? youTubeIds.get('about_video') : { videoId: '' };
+            setAboutVideoId({ videoId: 'a96bbFkT9_k' });
+        }
     }, [context.contentCollection, pageTag]);
 
-    React.useEffect(() => {
-        const youTubeIds = aboutContent?.youTubeIds ?? new Map<string, TVideo>();
-        console.log(youTubeIds);
-        //const aboutVideo = youTubeIds.get('about_video') ?? { videoId: '' };
-        setAboutVideoId({ videoId: 'a96bbFkT9_k' });
-    }, [aboutContent]);
+    const resizeVideo = () => {
+        videoOptions.width = '200';
+    };
+
+    const mediaWatch = window.matchMedia('max-width: 100px');
+
+    console.log(mediaWatch);
 
     const componentStyle = createSiteStyle({
         contentContainer: {
@@ -46,10 +54,15 @@ export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps
             opacity: 1,
             display: 'flex',
             flexWrap: 'nowrap',
-            [theme.breakpoints.down('sm')]: { flexDirection: 'column' },
+            [theme.breakpoints.down('sm')]: {
+                flexDirection: 'column',
+                videoSize: resizeVideo(),
+            },
             textShadow: `1px 1px ${theme.palette.secondary.main}`,
         },
         aboutText: {
+            marginRight: '24px',
+            marginLeft: '24px',
             flex: 8,
         },
         aboutImageContainer: {
@@ -60,13 +73,15 @@ export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps
             borderWidth: 0,
             borderRadius: '10px',
             borderStyle: 'solid',
+            /* display: 'flex', */
             '& img': {
                 borderColor: theme.palette.secondary.main,
                 opacity: 0.8,
                 flex: 1,
-                display: 'block',
+                maxWidth: '420px',
+                /*  display: 'block',
                 maxWidth: '100%',
-                maxHeight: '100%',
+                maxHeight: '100%', */
                 [theme.breakpoints.down('sm')]: {
                     width: '420px',
                 },
@@ -105,7 +120,6 @@ export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps
                 </div>
             </div>
             <div className={componentStyle.aboutVideoContainer}>
-                {console.log(aboutVideoId)}
                 {aboutVideoId.videoId && (
                     <YouTube className={componentStyle.aboutVideo} videoId={aboutVideoId.videoId} opts={videoOptions} />
                 )}

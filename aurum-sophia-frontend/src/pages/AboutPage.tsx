@@ -5,7 +5,7 @@ import { createSiteStyle } from '../styles/siteStyleBuilder';
 import { AboutComponent } from '../components/about/AboutComponent';
 
 const ABOUT_PAGE_TAG = 'aurum-sophia-about-page';
-const ABOUT_MEMBERS_TAG = 'aurum-sophia-about-members-page';
+const ABOUT_MEMBERS_TAG = 'aurum-sophia -about-members-page';
 
 export const AboutPage: React.FC = () => {
     const context = React.useContext(AppContext);
@@ -16,7 +16,6 @@ export const AboutPage: React.FC = () => {
             display: 'flex',
             flexDirection: 'column',
             color: theme.palette.text.primary,
-            padding: '10px 0px',
             marginBottom: '10px',
             border: 0,
             borderStyle: 'solid',
@@ -29,10 +28,10 @@ export const AboutPage: React.FC = () => {
         },
         aboutContent: {
             flex: 1,
-            display: 'flex',
+            /* display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
-            alignItems: 'left',
+            alignItems: 'left', */
         },
         memberContent: {
             flex: 1,

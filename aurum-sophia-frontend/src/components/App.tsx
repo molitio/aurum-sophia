@@ -9,7 +9,7 @@ import { createSiteStyle as createSiteStyle } from '../styles/siteStyleBuilder';
 import { ThemePageBackground } from './background/ThemePageBackground';
 
 export const App: React.FC = () => {
-    const trigger = useScrollTrigger({
+    useScrollTrigger({
         disableHysteresis: true,
         threshold: 20,
     });
