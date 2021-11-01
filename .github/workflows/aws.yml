@@ -25,7 +25,7 @@ jobs:
     - name: push aurum-sophia-ui
       uses: actions/upload-artifact@v2
       with: 
-        name: aurum-sophia
+        name: aurum-sophia-ui
         path: dist
         retention-days: 1
     - name: push task-definition
@@ -53,10 +53,10 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
-    - name: pull aurum-sophia
+    - name: pull aurum-sophia-ui
       uses: actions/download-artifact@v2
       with:
-        name: aurum-sophia
+        name: aurum-sophia-ui
 
     - name: pull task-definition
       uses: actions/download-artifact@v2
