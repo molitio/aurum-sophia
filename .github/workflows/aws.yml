@@ -26,7 +26,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with: 
         name: aurum-sophia-ui
-        path: dist
+        path: build
         retention-days: 1
     - name: push task-definition
       uses: actions/upload-artifact@v2
