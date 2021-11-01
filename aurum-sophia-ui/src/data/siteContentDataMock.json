@@ -652,27 +652,6 @@
                                 ]
                             ]
                         }
-                    ],
-                    [
-                        "koller_andrea",
-                        {
-                            "memberName": "Koller Andrea",
-                            "memberTitle": "x",
-                            "memberMotto": "y",
-                            "memeberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/greenHand.jpg",
-                            "memberContact": {
-                                "phoneNumber": "+36 (70) 942-9635",
-                                "emailAddress": "email@gmail.com"
-                            },
-                            "memberBioSections": [
-                                [
-                                    "bio1",
-                                    {
-                                        "textSection": "leiras"
-                                    }
-                                ]
-                            ]
-                        }
                     ]
                 ]
             }

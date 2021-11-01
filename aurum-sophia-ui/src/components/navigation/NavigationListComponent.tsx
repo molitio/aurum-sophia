@@ -7,7 +7,10 @@ import { NavigationListComponentProps } from './interface/NavigationListComponen
 import { AppContext } from '../../services/siteDefaultsService';
 import { createSiteStyle } from '../../styles/siteStyleBuilder';
 
-export const NavigationListComponent = ({ horizontal, displayIcons }: NavigationListComponentProps) => {
+export const NavigationListComponent: React.FC<NavigationListComponentProps> = ({
+    horizontal,
+    displayIcons,
+}: NavigationListComponentProps) => {
     const context = React.useContext(AppContext);
     const theme = context.selectedTheme;
 
