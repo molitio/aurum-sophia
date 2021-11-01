@@ -51,8 +51,8 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({ children
 
                 setAppContext(context);
                 setIsContentLoaded(true);
-            } catch (error: any) {
-                console.log(error.message);
+            } catch (error) {
+                //TODO; log error
             }
         }
     }, [isContentLoaded, setSelectedTheme]);

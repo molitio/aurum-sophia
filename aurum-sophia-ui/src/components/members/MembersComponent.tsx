@@ -71,7 +71,7 @@ export const MembersComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagPro
                 />
             ) : (
                 <div className={componentStyle.membersContainer}>
-                    {Array.from([...members]).map((member, i) => (
+                    {Array.from([...members]).map((member) => (
                         <MemberCardComponent
                             key={member[0]}
                             content={member}

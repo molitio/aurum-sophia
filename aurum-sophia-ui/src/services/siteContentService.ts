@@ -11,7 +11,7 @@ export const sitePageContentCollection = async (): Promise<Map<string, TPageCont
     try {
         const content = getMockDataCollection();
         return content;
-    } catch (error: any) {
-        console.log(error.message);
+    } catch (error) {
+        //TODO: log error
     }
 };
