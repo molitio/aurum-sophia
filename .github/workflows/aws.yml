@@ -3,7 +3,7 @@ name: aurum-sophia-ui CI
 on:
   push:
     branches: 
-      - release
+      - main
 
 jobs:
 
