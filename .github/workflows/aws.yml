@@ -32,7 +32,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with: 
         name: task-definition
-        path: aurum-sophia-ui/task-definition.json
+        path: task-definition.json
 
   deployToAws:
     name: Deploy
