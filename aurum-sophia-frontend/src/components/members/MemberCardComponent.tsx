@@ -35,6 +35,7 @@ export const MemberCardComponent: React.FC<ContentCardComponentProps> = ({
         },
         contentContainer: {
             display: 'flex',
+            alignSelf: 'flex-start',
             flexDirection: isExpanded ? 'row' : 'column',
         },
         cardMedia: {
@@ -42,6 +43,17 @@ export const MemberCardComponent: React.FC<ContentCardComponentProps> = ({
             margin: '5px',
             '& img': {
                 borderRadius: '50%',
+                /*                 [theme.breakpoints.down('xs')]: {
+                    height: '150px',
+                    width: '150px',
+                },
+                [theme.breakpoints.up('sm')]: {
+                    height: '300px',
+                    width: '300px',
+                },
+                [theme.breakpoints.up('lg')]: {},
+                [theme.breakpoints.up('xl')]: {}, */
+
                 border: 1,
                 borderStyle: 'solid',
                 borderColor: theme.palette.primary.main,
@@ -51,14 +63,19 @@ export const MemberCardComponent: React.FC<ContentCardComponentProps> = ({
             },
         },
         cardContent: {
-            flex: 3,
             textShadow: `1px 1px ${theme.palette.secondary.main}`,
         },
         cardInfo: {
             color: theme.palette.text.secondary,
         },
         cardButton: {
-            color: theme.palette.text.primary,
+            display: 'flex',
+        },
+        memberMotto: {
+            overflowWrap: 'break-word',
+        },
+        cardGutter: {
+            flex: 1,
         },
     });
 
@@ -69,11 +86,17 @@ export const MemberCardComponent: React.FC<ContentCardComponentProps> = ({
 
     return (
         <Card className={componentStyle.card}>
-            <CardActionArea>
+            <CardActionArea className={componentStyle.cardButton}>
                 <div className={componentStyle.contentContainer} onClick={() => handleExpand()}>
                     <div className={componentStyle.cardMedia}>
-                        <CardMedia component="img" alt="Member Image" image={greenHand} title={content[1].memberName} />
+                        <CardMedia
+                            component="img"
+                            alt="Member Image"
+                            src={content[1].memeberProfilePicture}
+                            title={content[1].memberName}
+                        />
                     </div>
+
                     <div className={componentStyle.cardContent}>
                         <CardContent>
                             <Typography gutterBottom variant="h6">
@@ -83,15 +106,12 @@ export const MemberCardComponent: React.FC<ContentCardComponentProps> = ({
                                 {content[1].memberTitle}
                             </Typography>
                             {content[1].memberMotto && (
-                                <Typography variant="body2">
-                                    {`"`}
-                                    {content[1].memberMotto}
-                                    {`"`}
-                                </Typography>
+                                <Typography
+                                    className={componentStyle.memberMotto}
+                                    variant="body2"
+                                >{`"${content[1].memberMotto}"`}</Typography>
                             )}
-                            {/*    <Typography variant="body2" className={componentStyle.cardInfo}>
-                                {content.memberSummary}...
-                            </Typography> */}
+
                             {isExpanded &&
                                 Array.from([
                                     ...(content[1].memberBioSections ?? new Map<string, TContentParagraph>()),
@@ -108,6 +128,7 @@ export const MemberCardComponent: React.FC<ContentCardComponentProps> = ({
                                 ))}
                             {isExpanded && <MemberContactCardComponent memberContact={content[1].memberContact} />}
                         </CardContent>
+                        <div className={componentStyle.cardGutter}></div>
                     </div>
                 </div>
             </CardActionArea>

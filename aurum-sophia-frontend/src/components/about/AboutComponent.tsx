@@ -21,23 +21,15 @@ export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps
 
     const [aboutContent, setAboutContent] = React.useState<TPageContent>(SiteDefaultPageContent);
     const [aboutVideoId, setAboutVideoId] = React.useState<TVideo>({ videoId: '' });
-    const [mediaWatchSm, setMediaWatchSm] = React.useState<boolean>(window.matchMedia('(max-width: 600px)').matches);
 
     React.useEffect(() => {
         const content = context.contentCollection.get(pageTag) ?? SiteDefaultPageContent;
         setAboutContent(content);
-        console.log(`content: ${JSON.stringify(content)}`);
 
         const youTubeIds = new Map([...Array.from(content?.youTubeIds ?? new Map<string, TVideo>())]);
 
         setAboutVideoId(youTubeIds.get('about_video') ?? { videoId: '' });
     }, [context.contentCollection, pageTag]);
-
-    React.useEffect(() => {
-        videoOptions.width = '200';
-    }, [mediaWatchSm]);
-
-    console.log(mediaWatchSm);
 
     const componentStyle = createSiteStyle({
         contentContainer: {
@@ -86,7 +78,13 @@ export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps
         },
 
         aboutVideoContainer: { flex: 1, paddings: '20px', display: 'flex', justifyContent: 'center' },
-        aboutVideo: { flex: 1, opacity: 0.9 },
+        aboutVideo: {
+            [theme.breakpoints.down('sm')]: {
+                width: '420px',
+            },
+            flex: 1,
+            opacity: 0.9,
+        },
     });
 
     return (

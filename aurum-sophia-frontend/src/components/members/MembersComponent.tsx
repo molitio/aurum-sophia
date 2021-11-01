@@ -36,15 +36,21 @@ export const MembersComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagPro
             textShadow: `1px 1px ${theme.palette.secondary.main}`,
         },
         membersContainer: {
-            display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            alignItems: 'stretch',
-            justifyContent: 'center',
+            display: 'grid',
+            [theme.breakpoints.down('xs')]: {
+                gridTemplateColumns: 'auto',
+            },
+            [theme.breakpoints.up('sm')]: {
+                gridTemplateColumns: 'auto auto',
+            },
+            [theme.breakpoints.up('lg')]: {
+                gridTemplateColumns: 'auto auto auto auto',
+            },
+            [theme.breakpoints.up('xl')]: {
+                gridTemplateColumns: 'auto auto auto auto auto auto',
+            },
             paddingLeft: '5vw',
             paddingRight: '5vw',
-            [theme.breakpoints.down('md')]: {},
-            [theme.breakpoints.down('xs')]: {},
         },
     });
 

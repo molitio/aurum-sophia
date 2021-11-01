@@ -5,7 +5,7 @@ import { createSiteStyle } from '../styles/siteStyleBuilder';
 import { AboutComponent } from '../components/about/AboutComponent';
 
 const ABOUT_PAGE_TAG = 'aurum-sophia-about-page';
-const ABOUT_MEMBERS_TAG = 'aurum-sophia -about-members-page';
+const ABOUT_MEMBERS_TAG = 'aurum-sophia-about-members-page';
 
 export const AboutPage: React.FC = () => {
     const context = React.useContext(AppContext);
