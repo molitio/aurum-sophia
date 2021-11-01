@@ -26,13 +26,13 @@ jobs:
       uses: actions/upload-artifact@v2
       with: 
         name: aurum-sophia-ui
-        path: build
+        path: aurum-sophia-ui/build
         retention-days: 1
     - name: push task-definition
       uses: actions/upload-artifact@v2
       with: 
         name: task-definition
-        path: task-definition.json
+        path: aurum-sophia-ui/task-definition.json
 
   deployToAws:
     name: Deploy
