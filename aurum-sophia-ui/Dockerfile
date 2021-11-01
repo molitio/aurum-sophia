@@ -9,4 +9,4 @@ COPY security-headers.conf /etc/nginx/security-headers.conf
 
 
 # used by ci with anticipated artifact path
-COPY /molitio-ui /usr/dist/nginx/html
+COPY /aurum-sophia-ui /usr/dist/nginx/html
