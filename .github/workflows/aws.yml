@@ -21,6 +21,7 @@ jobs:
     - run: |
         npm ci
         npm run build-prod
+      working-directory: aurum-sophia-ui
     - name: push aurum-sophia-ui
       uses: actions/upload-artifact@v2
       with: 
