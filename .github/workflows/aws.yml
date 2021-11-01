@@ -20,7 +20,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: |
         npm ci
-        npm run build-prod
+        npm run build
       working-directory: aurum-sophia-ui
     - name: push aurum-sophia-ui
       uses: actions/upload-artifact@v2
