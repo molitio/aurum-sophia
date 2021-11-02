@@ -4,9 +4,7 @@ on:
   push:
     branches: 
       - main
-
 jobs:
-
   buildUiProd:
     runs-on: ubuntu-latest
     strategy:
@@ -26,7 +24,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with: 
         name: aurum-sophia-ui
-        path: aurum-sophia-ui/build
+        path: aurum-sophia-ui
         retention-days: 1
     - name: push task-definition
       uses: actions/upload-artifact@v2
