@@ -70,7 +70,7 @@ export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps
                 maxWidth: '100%',
                 maxHeight: '100%', */
                 [theme.breakpoints.down('sm')]: {
-                    width: '420px',
+                    width: '90vw',
                 },
                 borderRadius: '20px',
                 border: 1,
@@ -80,7 +80,7 @@ export const AboutComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProps
         aboutVideoContainer: { flex: 1, paddings: '20px', display: 'flex', justifyContent: 'center' },
         aboutVideo: {
             [theme.breakpoints.down('sm')]: {
-                width: '420px',
+                width: '90vw',
             },
             flex: 1,
             opacity: 0.9,
