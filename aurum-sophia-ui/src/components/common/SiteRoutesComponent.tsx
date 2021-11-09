@@ -10,9 +10,6 @@ export const SiteRoutesComponent: React.FC = () => {
     return (
         <main>
             <Switch>
-                <Route exact path="/">
-                    <ActualsPage />
-                </Route>
                 {Array.from([...context.featureCollection]).map((route) => (
                     <Route
                         component={context.componentCollection.get(route[0])}
@@ -26,6 +23,9 @@ export const SiteRoutesComponent: React.FC = () => {
                         <ErrorPage error={{ ...errorData[1] }} />
                     </Route>
                 ))}
+                <Route path="/">
+                    <ActualsPage />
+                </Route>
                 <Redirect to="/error/404" />
             </Switch>
         </main>
