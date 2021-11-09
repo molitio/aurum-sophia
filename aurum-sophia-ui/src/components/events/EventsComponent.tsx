@@ -33,21 +33,21 @@ export const EventsComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProp
             textShadow: `1px 1px ${theme.palette.secondary.main}`,
         },
         eventsContainer: {
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'stretch',
-            flexWrap: 'wrap',
+            display: 'grid',
+            [theme.breakpoints.down('xs')]: {
+                gridTemplateColumns: 'auto',
+            },
+            [theme.breakpoints.up('sm')]: {
+                gridTemplateColumns: 'auto auto',
+            },
+            [theme.breakpoints.up('lg')]: {
+                gridTemplateColumns: 'auto auto auto auto',
+            },
+            [theme.breakpoints.up('xl')]: {
+                gridTemplateColumns: 'auto auto auto auto auto auto',
+            },
             paddingLeft: '5vw',
             paddingRight: '5vw',
-            [theme.breakpoints.between('lg', 'xl')]: {},
-            [theme.breakpoints.between('md', 'lg')]: {},
-            [theme.breakpoints.between('sm', 'md')]: {
-                flexDirection: 'column',
-                flex: isExpanded ? '1 1 80vw' : '1 1 30vw',
-            },
-            [theme.breakpoints.down('xs')]: {
-                flex: isExpanded ? '1 1 80vw' : '1 1 40vw',
-            },
         },
     });
 

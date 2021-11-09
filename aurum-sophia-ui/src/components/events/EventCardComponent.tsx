@@ -17,14 +17,6 @@ export const EventCardComponent: React.FC<ContentCardComponentProps> = ({
 
     const componentStyle = createSiteStyle({
         content: {
-            [theme.breakpoints.between('lg', 'xl')]: {},
-            [theme.breakpoints.between('md', 'lg')]: {},
-            [theme.breakpoints.between('sm', 'md')]: {
-                flex: isExpanded ? '1 1 80vw' : '1 1 30vw',
-            },
-            [theme.breakpoints.between('xs', 'sm')]: {
-                flex: isExpanded ? '1 1 80vw' : '1 1 20vw',
-            },
             color: theme.palette.text.primary,
             margin: '10px',
             border: 0,
