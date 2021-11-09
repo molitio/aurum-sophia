@@ -24,110 +24,129 @@
                 "title": "Aktuális Események",
                 "componentContent": [
                     [
-                        "event0",
+                        "event1",
                         {
-                            "title": "I. Tudatfejlesztés konferencia",
-                            "eventTime": "2021. 10. 24.",
-                            "eventSummary": "Fedezd fel a benned rejlő erőt!",
+                            "title": "Varázslatos Tea Szertartás - meditáció",
+                            "eventSummary": "Mi a tea szertartás?",
+                            "eventTime": "Két hetente kedd vagy csütörtök, 17:00-tól",
                             "eventContentSections": [
                                 [
-                                    "description",
+                                    "summary",
                                     {
-                                        "textSection": "A személyes erő felvállalása és helyes használata lesz a fókuszban, az idei évben első alkalommal megrendezésre kerülő konferenciánkon."
+                                        "textSection": "KAPCSOLÓDÁS - ELMÉLYÜLÉS - ÖRÖM - egyben!"
                                     }
                                 ],
                                 [
-                                    "time-alocation",
+                                    "sec1",
                                     {
-                                        "textSection": "Időpont: 2021. október 24., Vasárnap  9:30-18.30"
+                                        "textSection": "A két órás összejövetelből ~1,5 óra a meditáció, ami alatt nem beszélünk, csak teázunk és befelé figyelünk."
                                     }
                                 ],
                                 [
-                                    "location",
+                                    "sec2",
                                     {
-                                        "textSection": "Helyszín: Lurdy Konferencia- és Rendezvényközpont 1097 Budapest, Könyves Kálmán krt. 12-14. "
+                                        "textSection": "A szertartáshoz használt tea(10-15 éves Yunnan-i pu'erh) segít az elmélyülésben, az érzékelés finomításában, a tudat kiterjesztésében, tisztítja és feltölti a test energiarendszerét. Tartós belső csend állapot, felismerések, víziók, szellemi élmények jöhetnek!"
                                     }
                                 ],
                                 [
-                                    "desc1",
+                                    "sec4",
                                     {
-                                        "textSection": "Az előadóteremben egész napos kiállítói vásárt rendezünk, ahol különböző termékek, könyvek, kiadványok is megvásárolhatók lesznek."
+                                        "textSection": "Előzetes meditációs gyakorlat javasolt, de nem feltétel."
                                     }
                                 ],
                                 [
-                                    "desc2",
+                                    "sec5",
                                     {
-                                        "textSection": "A rendezvény napján, a helyszínen is lehet majd jegyet vásárolni! További információk és elővételi jegyvásárlás: aurumsophia@gmail.com "
+                                        "textSection": "A felhasznált tea csökkent koffein tartalmú, a hosszú tárolásnak köszönhetően. Szélsőséges koffein érzékenység esetén azonban csak saját felelősségre javasolt."
                                     }
                                 ],
                                 [
-                                    "welcome",
+                                    "sec6",
                                     {
-                                        "textSection": "Mindenkit nagy szeretettel várunk!"
+                                        "textSection": "Szertartás vezető: Köves Dávid - tudatfejlesztő mentor, parapszichológus"
                                     }
                                 ],
                                 [
-                                    "modifications",
+                                    "sec7",
                                     {
-                                        "textSection": "A változtatás jogát fenntartjuk!"
+                                        "textSection": "Helyszín: Flow stúdió, VII.ker. Damjanich utca 38. (lécsőház melletti félszuterén)"
+                                    }
+                                ],
+                                [
+                                    "sec8",
+                                    {
+                                        "textSection": "Hozzájárulás: 3e Ft/fő"
+                                    }
+                                ],
+                                [
+                                    "sec",
+                                    {
+                                        "textSection": "A következő időpontért és a helyed biztosítása céljából kérjük jelezd részvételi szándékod az alábbi elérhetőségek egyikén: - Email: kapcsolat@tudatfejlesztés.hu - Telefon: +36 30 9661844"
                                     }
                                 ]
                             ],
-                            "presentations": [
+                            "dateCreated": "2021-07-01"
+                        }
+                    ],
+                    [
+                        "event2",
+                        {
+                            "title": "Varázslatos Tea Szertartás - meditáció",
+                            "eventSummary": "Mi a tea szertartás?",
+                            "eventTime": "Két hetente kedd vagy csütörtök, 17:00-tól",
+                            "eventContentSections": [
                                 [
-                                    "salay",
+                                    "summary",
                                     {
-                                        "presenter": "Szalay György Sándor és Szalay Csaba",
-                                        "topic": "Mi a dolgom? Használd a teremtőerőd!",
-                                        "timeTable": "1 óra"
+                                        "textSection": "KAPCSOLÓDÁS - ELMÉLYÜLÉS - ÖRÖM - egyben!"
                                     }
                                 ],
                                 [
-                                    "balogh",
+                                    "sec1",
                                     {
-                                        "presenter": "Balogh Béla",
-                                        "topic": " A Teremtő Teremtőnek Teremtett Téged!",
-                                        "timeTable": "1 óra"
+                                        "textSection": "A két órás összejövetelből ~1,5 óra a meditáció, ami alatt nem beszélünk, csak teázunk és befelé figyelünk."
                                     }
                                 ],
                                 [
-                                    "pozsgai",
+                                    "sec2",
                                     {
-                                        "presenter": "Pozsgai Nikoletta",
-                                        "topic": "A Női Erő Ébredése",
-                                        "timeTable": "1 óra"
+                                        "textSection": "A szertartáshoz használt tea(10-15 éves Yunnan-i pu'erh) segít az elmélyülésben, az érzékelés finomításában, a tudat kiterjesztésében, tisztítja és feltölti a test energiarendszerét. Tartós belső csend állapot, felismerések, víziók, szellemi élmények jöhetnek!"
                                     }
                                 ],
                                 [
-                                    "dienes",
+                                    "sec4",
                                     {
-                                        "presenter": "Dienes István",
-                                        "topic": "Létezik-e tudat vagy tudatosság, s ha igen miként fejlődik?",
-                                        "timeTable": "1 óra"
+                                        "textSection": "Előzetes meditációs gyakorlat javasolt, de nem feltétel."
                                     }
                                 ],
                                 [
-                                    "paksi",
+                                    "sec5",
                                     {
-                                        "presenter": "Paksi Zoltán",
-                                        "topic": "A kozmikus energiák az égen és a személyiségben",
-                                        "timeTable": "1 óra"
+                                        "textSection": "A felhasznált tea csökkent koffein tartalmú, a hosszú tárolásnak köszönhetően. Szélsőséges koffein érzékenység esetén azonban csak saját felelősségre javasolt."
                                     }
                                 ],
                                 [
-                                    "szottfired",
+                                    "sec6",
                                     {
-                                        "presenter": "Szottfried Ádám",
-                                        "topic": "A Változás Szele - Globális Krízisből Evolúció",
-                                        "timeTable": "1 óra"
+                                        "textSection": "Szertartás vezető: Köves Dávid - tudatfejlesztő mentor, parapszichológus"
                                     }
                                 ],
                                 [
-                                    "koves",
+                                    "sec7",
                                     {
-                                        "presenter": "Köves Dávid",
-                                        "topic": "A szellem hatalma az anyag felett",
-                                        "timeTable": "1 óra"
+                                        "textSection": "Helyszín: Flow stúdió, VII.ker. Damjanich utca 38. (lécsőház melletti félszuterén)"
+                                    }
+                                ],
+                                [
+                                    "sec8",
+                                    {
+                                        "textSection": "Hozzájárulás: 3e Ft/fő"
+                                    }
+                                ],
+                                [
+                                    "sec",
+                                    {
+                                        "textSection": "A következő időpontért és a helyed biztosítása céljából kérjük jelezd részvételi szándékod az alábbi elérhetőségek egyikén: - Email: kapcsolat@tudatfejlesztés.hu - Telefon: +36 30 9661844"
                                     }
                                 ]
                             ],
@@ -137,108 +156,127 @@
                     [
                         "event1",
                         {
-                            "title": "I. Tudatfejlesztés konferencia",
-                            "eventTime": "2021. 10. 24.",
-                            "eventSummary": "Fedezd fel a benned rejlő erőt!",
+                            "title": "Varázslatos Tea Szertartás - meditáció",
+                            "eventSummary": "Mi a tea szertartás?",
+                            "eventTime": "Két hetente kedd vagy csütörtök, 17:00-tól",
                             "eventContentSections": [
                                 [
-                                    "description",
+                                    "summary",
                                     {
-                                        "textSection": "A személyes erő felvállalása és helyes használata lesz a fókuszban, az idei évben első alkalommal megrendezésre kerülő konferenciánkon."
+                                        "textSection": "KAPCSOLÓDÁS - ELMÉLYÜLÉS - ÖRÖM - egyben!"
                                     }
                                 ],
                                 [
-                                    "time-alocation",
+                                    "sec1",
                                     {
-                                        "textSection": "Időpont: 2021. október 24., Vasárnap  9:30-18.30"
+                                        "textSection": "A két órás összejövetelből ~1,5 óra a meditáció, ami alatt nem beszélünk, csak teázunk és befelé figyelünk."
                                     }
                                 ],
                                 [
-                                    "location",
+                                    "sec2",
                                     {
-                                        "textSection": "Helyszín: Lurdy Konferencia- és Rendezvényközpont 1097 Budapest, Könyves Kálmán krt. 12-14. "
+                                        "textSection": "A szertartáshoz használt tea(10-15 éves Yunnan-i pu'erh) segít az elmélyülésben, az érzékelés finomításában, a tudat kiterjesztésében, tisztítja és feltölti a test energiarendszerét. Tartós belső csend állapot, felismerések, víziók, szellemi élmények jöhetnek!"
                                     }
                                 ],
                                 [
-                                    "desc1",
+                                    "sec4",
                                     {
-                                        "textSection": "Az előadóteremben egész napos kiállítói vásárt rendezünk, ahol különböző termékek, könyvek, kiadványok is megvásárolhatók lesznek."
+                                        "textSection": "Előzetes meditációs gyakorlat javasolt, de nem feltétel."
                                     }
                                 ],
                                 [
-                                    "desc2",
+                                    "sec5",
                                     {
-                                        "textSection": "A rendezvény napján, a helyszínen is lehet majd jegyet vásárolni! További információk és elővételi jegyvásárlás: aurumsophia@gmail.com "
+                                        "textSection": "A felhasznált tea csökkent koffein tartalmú, a hosszú tárolásnak köszönhetően. Szélsőséges koffein érzékenység esetén azonban csak saját felelősségre javasolt."
                                     }
                                 ],
                                 [
-                                    "welcome",
+                                    "sec6",
                                     {
-                                        "textSection": "Mindenkit nagy szeretettel várunk!"
+                                        "textSection": "Szertartás vezető: Köves Dávid - tudatfejlesztő mentor, parapszichológus"
                                     }
                                 ],
                                 [
-                                    "modifications",
+                                    "sec7",
                                     {
-                                        "textSection": "A változtatás jogát fenntartjuk!"
+                                        "textSection": "Helyszín: Flow stúdió, VII.ker. Damjanich utca 38. (lécsőház melletti félszuterén)"
+                                    }
+                                ],
+                                [
+                                    "sec8",
+                                    {
+                                        "textSection": "Hozzájárulás: 3e Ft/fő"
+                                    }
+                                ],
+                                [
+                                    "sec",
+                                    {
+                                        "textSection": "A következő időpontért és a helyed biztosítása céljából kérjük jelezd részvételi szándékod az alábbi elérhetőségek egyikén: - Email: kapcsolat@tudatfejlesztés.hu - Telefon: +36 30 9661844"
                                     }
                                 ]
                             ],
-                            "presentations": [
+                            "dateCreated": "2021-07-01"
+                        }
+                    ],
+                    [
+                        "event2",
+                        {
+                            "title": "Varázslatos Tea Szertartás - meditáció",
+                            "eventSummary": "Mi a tea szertartás?",
+                            "eventTime": "Két hetente kedd vagy csütörtök, 17:00-tól",
+                            "eventContentSections": [
                                 [
-                                    "salay",
+                                    "summary",
                                     {
-                                        "presenter": "Szalay György Sándor és Szalay Csaba",
-                                        "topic": "Mi a dolgom? Használd a teremtőerőd!",
-                                        "timeTable": "1 óra"
+                                        "textSection": "KAPCSOLÓDÁS - ELMÉLYÜLÉS - ÖRÖM - egyben!"
                                     }
                                 ],
                                 [
-                                    "balogh",
+                                    "sec1",
                                     {
-                                        "presenter": "Balogh Béla",
-                                        "topic": " A Teremtő Teremtőnek Teremtett Téged!",
-                                        "timeTable": "1 óra"
+                                        "textSection": "A két órás összejövetelből ~1,5 óra a meditáció, ami alatt nem beszélünk, csak teázunk és befelé figyelünk."
                                     }
                                 ],
                                 [
-                                    "pozsgai",
+                                    "sec2",
                                     {
-                                        "presenter": "Pozsgai Nikoletta",
-                                        "topic": "A Női Erő Ébredése",
-                                        "timeTable": "1 óra"
+                                        "textSection": "A szertartáshoz használt tea(10-15 éves Yunnan-i pu'erh) segít az elmélyülésben, az érzékelés finomításában, a tudat kiterjesztésében, tisztítja és feltölti a test energiarendszerét. Tartós belső csend állapot, felismerések, víziók, szellemi élmények jöhetnek!"
                                     }
                                 ],
                                 [
-                                    "dienes",
+                                    "sec4",
                                     {
-                                        "presenter": "Dienes István",
-                                        "topic": "Létezik-e tudat vagy tudatosság, s ha igen miként fejlődik?",
-                                        "timeTable": "1 óra"
+                                        "textSection": "Előzetes meditációs gyakorlat javasolt, de nem feltétel."
                                     }
                                 ],
                                 [
-                                    "paksi",
+                                    "sec5",
                                     {
-                                        "presenter": "Paksi Zoltán",
-                                        "topic": "A kozmikus energiák az égen és a személyiségben",
-                                        "timeTable": "1 óra"
+                                        "textSection": "A felhasznált tea csökkent koffein tartalmú, a hosszú tárolásnak köszönhetően. Szélsőséges koffein érzékenység esetén azonban csak saját felelősségre javasolt."
                                     }
                                 ],
                                 [
-                                    "szottfired",
+                                    "sec6",
                                     {
-                                        "presenter": "Szottfried Ádám",
-                                        "topic": "A Változás Szele - Globális Krízisből Evolúció",
-                                        "timeTable": "1 óra"
+                                        "textSection": "Szertartás vezető: Köves Dávid - tudatfejlesztő mentor, parapszichológus"
                                     }
                                 ],
                                 [
-                                    "koves",
+                                    "sec7",
                                     {
-                                        "presenter": "Köves Dávid",
-                                        "topic": "A szellem hatalma az anyag felett",
-                                        "timeTable": "1 óra"
+                                        "textSection": "Helyszín: Flow stúdió, VII.ker. Damjanich utca 38. (lécsőház melletti félszuterén)"
+                                    }
+                                ],
+                                [
+                                    "sec8",
+                                    {
+                                        "textSection": "Hozzájárulás: 3e Ft/fő"
+                                    }
+                                ],
+                                [
+                                    "sec",
+                                    {
+                                        "textSection": "A következő időpontért és a helyed biztosítása céljából kérjük jelezd részvételi szándékod az alábbi elérhetőségek egyikén: - Email: kapcsolat@tudatfejlesztés.hu - Telefon: +36 30 9661844"
                                     }
                                 ]
                             ],
@@ -254,117 +292,6 @@
                 "molitioId": { "molitioTag": "events02" },
                 "title": "Események",
                 "componentContent": [
-                    [
-                        "event0",
-                        {
-                            "title": "I. Tudatfejlesztés konferencia",
-                            "eventTime": "2021. 10. 24.",
-                            "eventSummary": "Fedezd fel a benned rejlő erőt!",
-                            "eventContentSections": [
-                                [
-                                    "description",
-                                    {
-                                        "textSection": "A személyes erő felvállalása és helyes használata lesz a fókuszban, az idei évben első alkalommal megrendezésre kerülő konferenciánkon."
-                                    }
-                                ],
-                                [
-                                    "time-alocation",
-                                    {
-                                        "textSection": "Időpont: 2021. október 24., Vasárnap  9:30-18.30"
-                                    }
-                                ],
-                                [
-                                    "location",
-                                    {
-                                        "textSection": "Helyszín: Lurdy Konferencia- és Rendezvényközpont 1097 Budapest, Könyves Kálmán krt. 12-14. "
-                                    }
-                                ],
-                                [
-                                    "desc1",
-                                    {
-                                        "textSection": "Az előadóteremben egész napos kiállítói vásárt rendezünk, ahol különböző termékek, könyvek, kiadványok is megvásárolhatók lesznek."
-                                    }
-                                ],
-                                [
-                                    "desc2",
-                                    {
-                                        "textSection": "A rendezvény napján, a helyszínen is lehet majd jegyet vásárolni! További információk és elővételi jegyvásárlás: aurumsophia@gmail.com "
-                                    }
-                                ],
-                                [
-                                    "welcome",
-                                    {
-                                        "textSection": "Mindenkit nagy szeretettel várunk!"
-                                    }
-                                ],
-                                [
-                                    "modifications",
-                                    {
-                                        "textSection": "A változtatás jogát fenntartjuk!"
-                                    }
-                                ]
-                            ],
-                            "presentations": [
-                                [
-                                    "salay",
-                                    {
-                                        "presenter": "Szalay György Sándor és Szalay Csaba",
-                                        "topic": "Mi a dolgom? Használd a teremtőerőd!",
-                                        "timeTable": "1 óra"
-                                    }
-                                ],
-                                [
-                                    "balogh",
-                                    {
-                                        "presenter": "Balogh Béla",
-                                        "topic": " A Teremtő Teremtőnek Teremtett Téged!",
-                                        "timeTable": "1 óra"
-                                    }
-                                ],
-                                [
-                                    "pozsgai",
-                                    {
-                                        "presenter": "Pozsgai Nikoletta",
-                                        "topic": "A Női Erő Ébredése",
-                                        "timeTable": "1 óra"
-                                    }
-                                ],
-                                [
-                                    "dienes",
-                                    {
-                                        "presenter": "Dienes István",
-                                        "topic": "Létezik-e tudat vagy tudatosság, s ha igen miként fejlődik?",
-                                        "timeTable": "1 óra"
-                                    }
-                                ],
-                                [
-                                    "paksi",
-                                    {
-                                        "presenter": "Paksi Zoltán",
-                                        "topic": "A kozmikus energiák az égen és a személyiségben",
-                                        "timeTable": "1 óra"
-                                    }
-                                ],
-                                [
-                                    "szottfired",
-                                    {
-                                        "presenter": "Szottfried Ádám",
-                                        "topic": "A Változás Szele - Globális Krízisből Evolúció",
-                                        "timeTable": "1 óra"
-                                    }
-                                ],
-                                [
-                                    "koves",
-                                    {
-                                        "presenter": "Köves Dávid",
-                                        "topic": "A szellem hatalma az anyag felett",
-                                        "timeTable": "1 óra"
-                                    }
-                                ]
-                            ],
-                            "dateCreated": "2021-07-01"
-                        }
-                    ],
                     [
                         "event1",
                         {
