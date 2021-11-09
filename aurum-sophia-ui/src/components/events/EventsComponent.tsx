@@ -34,6 +34,7 @@ export const EventsComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagProp
         },
         eventsContainer: {
             display: 'grid',
+            alignItems: 'center',
             [theme.breakpoints.down('xs')]: {
                 gridTemplateColumns: 'auto',
             },
