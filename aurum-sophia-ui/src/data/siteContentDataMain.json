@@ -329,7 +329,7 @@
                             "memberName": "Köves Dávid",
                             "memberTitle": "Parapszichológus, Tudatfejesztő Mentor",
                             "memberMotto": "Mindig is több leszel, mint akivé valaha válhatsz a feltételekhez kötött létezésben",
-                            "memeberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/koves_david.jpg",
+                            "memberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/koves_david.jpg",
                             "memberContact": {
                                 "phoneNumber": "+36 (30) 966 1844",
                                 "emailAddress": "kapcsolat@tudatfejlesztes.hu",
@@ -357,6 +357,7 @@
                         {
                             "memberName": "Nagy Csaba Loránd",
                             "memberTitle": "Holisztikus Asztrológus",
+                            "memberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/nagy_csaba_lorand.jpg",
                             "memberContact": {
                                 "phoneNumber": "+36 (70) 656-5284",
                                 "emailAddress": "csnagy1974@gmail.com"
@@ -376,6 +377,7 @@
                         {
                             "memberName": "Bróda Titusz",
                             "memberTitle": "Ájurvédikus Terapeuta",
+                            "memberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/broda_titusz.jpg",
                             "memberContact": {
                                 "phoneNumber": "+36 (20) 355 7222",
                                 "emailAddress": "tituszb73@gmail.com"
@@ -394,8 +396,8 @@
                         "bekas_beatrix",
                         {
                             "memberName": "Békás Beatrix",
-                            "memberTitle": "kristályterapeuta",
-                            "memeberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/bekas_beatrix_trixi.jpg",
+                            "memberTitle": "Kristályterapeuta",
+                            "memberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/bekas_beatrix_trixi.jpg",
                             "memberContact": {
                                 "phoneNumber": "+36 (70) 633 1634",
                                 "emailAddress": "artrixekszer@gmail.com"
@@ -414,8 +416,8 @@
                         "nyizsnyi_zsolt",
                         {
                             "memberName": "Nyizsnyi Zsolt",
-                            "memberTitle": "tudatfejlesztés",
-                            "memeberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/nyizsnyi_zsolt.jpg",
+                            "memberTitle": "Tudatfejlesztés",
+                            "memberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/nyizsnyi_zsolt.jpg",
                             "memberContact": {
                                 "phoneNumber": "+36 (70) 340 1981",
                                 "emailAddress": "okozsolt@gmail.com"
@@ -434,8 +436,8 @@
                         "szalait_csaba",
                         {
                             "memberName": "Szalay Csaba",
-                            "memberTitle": "coach, tréner, szervezetfejlesztő, konfliktuskezelő",
-                            "memeberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/szalay_csaba.jpg",
+                            "memberTitle": "Coach, Tréner, Szervezetfejlesztő, Konfliktuskezelő",
+                            "memberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/szalay_csaba.jpg",
                             "memberContact": {
                                 "phoneNumber": "+36 (20) 228 4771",
                                 "emailAddress": "szalay.csaba692@gmail.com",
@@ -462,6 +464,7 @@
                         {
                             "memberName": "Somogyi Kriszta",
                             "memberTitle": "Kineziológus",
+                            "memberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/somogyi_kriszta.jpg",
                             "memberContact": {
                                 "phoneNumber": "+36 (30) 624 6093",
                                 "emailAddress": "vadrózs11@vipmail.hu"
@@ -480,9 +483,9 @@
                         "mohacsi_lizi",
                         {
                             "memberName": "Mohácsi Lizi",
-                            "memberTitle": "mentál higiénikus",
+                            "memberTitle": "Mentál Higiénikus",
                             "memberMotto": "Tedd rendbe a lelked és rendben lesz az életed.",
-                            "memeberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/mohacsi_erzsebet_lizi.jpg",
+                            "memberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/mohacsi_erzsebet_lizi.jpg",
                             "memberContact": {
                                 "phoneNumber": "+36 (70) 942-9635",
                                 "emailAddress": "mohacsi.lizi@gmail.com"
