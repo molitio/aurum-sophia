@@ -91,7 +91,7 @@ export const MemberCardComponent: React.FC<ContentCardComponentProps> = ({
                         <CardMedia
                             component="img"
                             alt="Member Image"
-                            src={content[1].memeberProfilePicture}
+                            src={content[1].memberProfilePicture}
                             title={content[1].memberName}
                         />
                     </div>
