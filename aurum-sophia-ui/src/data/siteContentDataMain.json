@@ -87,105 +87,6 @@
                             ],
                             "dateCreated": "2021-07-01"
                         }
-<<<<<<< HEAD:aurum-sophia-ui/src/data/siteContentDataMock.json
-                    ],
-                    [
-                        "event2",
-                        {
-                            "title": "Varázslatos Tea Szertartás - meditáció",
-                            "eventSummary": "Mi a tea szertartás?",
-                            "eventTime": "Két hetente kedd vagy csütörtök, 17:00-tól",
-                            "eventContentSections": [
-                                [
-                                    "summary",
-                                    {
-                                        "textSection": "KAPCSOLÓDÁS - ELMÉLYÜLÉS - ÖRÖM - egyben!"
-                                    }
-                                ],
-                                [
-                                    "sec1",
-                                    {
-                                        "textSection": "A két órás összejövetelből ~1,5 óra a meditáció, ami alatt nem beszélünk, csak teázunk és befelé figyelünk."
-                                    }
-                                ],
-                                [
-                                    "sec2",
-                                    {
-                                        "textSection": "A szertartáshoz használt tea(10-15 éves Yunnan-i pu'erh) segít az elmélyülésben, az érzékelés finomításában, a tudat kiterjesztésében, tisztítja és feltölti a test energiarendszerét. Tartós belső csend állapot, felismerések, víziók, szellemi élmények jöhetnek!"
-                                    }
-                                ],
-                                [
-                                    "sec4",
-                                    {
-                                        "textSection": "Előzetes meditációs gyakorlat javasolt, de nem feltétel."
-                                    }
-                                ],
-                                [
-                                    "sec5",
-                                    {
-                                        "textSection": "A felhasznált tea csökkent koffein tartalmú, a hosszú tárolásnak köszönhetően. Szélsőséges koffein érzékenység esetén azonban csak saját felelősségre javasolt."
-                                    }
-                                ],
-                                [
-                                    "sec6",
-                                    {
-                                        "textSection": "Szertartás vezető: Köves Dávid - tudatfejlesztő mentor, parapszichológus"
-                                    }
-                                ],
-                                [
-                                    "sec7",
-                                    {
-                                        "textSection": "Helyszín: Flow stúdió, VII.ker. Damjanich utca 38. (lécsőház melletti félszuterén)"
-                                    }
-                                ],
-                                [
-                                    "sec8",
-                                    {
-                                        "textSection": "Hozzájárulás: 3e Ft/fő"
-                                    }
-                                ],
-                                [
-                                    "sec",
-                                    {
-                                        "textSection": "A következő időpontért és a helyed biztosítása céljából kérjük jelezd részvételi szándékod az alábbi elérhetőségek egyikén: - Email: kapcsolat@tudatfejlesztés.hu - Telefon: +36 30 9661844"
-                                    }
-                                ]
-                            ],
-                            "dateCreated": "2021-07-01"
-                        }
-                    ],
-                    [
-                        "event1",
-                        {
-                            "title": "Varázslatos Tea Szertartás - meditáció",
-                            "eventSummary": "Mi a tea szertartás?",
-                            "eventTime": "Két hetente kedd vagy csütörtök, 17:00-tól",
-                            "eventContentSections": [
-                                [
-                                    "summary",
-                                    {
-                                        "textSection": "KAPCSOLÓDÁS - ELMÉLYÜLÉS - ÖRÖM - egyben!"
-                                    }
-                                ],
-                                [
-                                    "sec1",
-                                    {
-                                        "textSection": "A két órás összejövetelből ~1,5 óra a meditáció, ami alatt nem beszélünk, csak teázunk és befelé figyelünk."
-                                    }
-                                ],
-                                [
-                                    "sec2",
-                                    {
-                                        "textSection": "A szertartáshoz használt tea(10-15 éves Yunnan-i pu'erh) segít az elmélyülésben, az érzékelés finomításában, a tudat kiterjesztésében, tisztítja és feltölti a test energiarendszerét. Tartós belső csend állapot, felismerések, víziók, szellemi élmények jöhetnek!"
-                                    }
-                                ],
-                                [
-                                    "sec4",
-                                    {
-                                        "textSection": "Előzetes meditációs gyakorlat javasolt, de nem feltétel."
-                                    }
-                                ],
-=======
                     ]
                 ]
             }
@@ -203,7 +104,6 @@
                             "eventTime": "2021. 10. 24.",
                             "eventSummary": "Fedezd fel a benned rejlő erőt!",
                             "eventContentSections": [
->>>>>>> 619321f (typo corrections):aurum-sophia-ui/src/data/siteContentDataMain.json
                                 [
                                     "sec5",
                                     {
@@ -456,12 +356,7 @@
                         "nagy_csaba_lorand",
                         {
                             "memberName": "Nagy Csaba Loránd",
-<<<<<<< HEAD:aurum-sophia-ui/src/data/siteContentDataMock.json
-                            "memberTitle": "holisztikus Asztrológus",
-                            "memeberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/nagy_csaba_lorand.jpg",
-=======
                             "memberTitle": "Holisztikus Asztrológus",
->>>>>>> 619321f (typo corrections):aurum-sophia-ui/src/data/siteContentDataMain.json
                             "memberContact": {
                                 "phoneNumber": "+36 (70) 656-5284",
                                 "emailAddress": "csnagy1974@gmail.com"
@@ -480,12 +375,7 @@
                         "broda_titusz",
                         {
                             "memberName": "Bróda Titusz",
-<<<<<<< HEAD:aurum-sophia-ui/src/data/siteContentDataMock.json
-                            "memberTitle": "ájurvédikus terapeuta",
-                            "memeberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/broda_titusz.jpg",
-=======
                             "memberTitle": "Ájurvédikus Terapeuta",
->>>>>>> 619321f (typo corrections):aurum-sophia-ui/src/data/siteContentDataMain.json
                             "memberContact": {
                                 "phoneNumber": "+36 (20) 355 7222",
                                 "emailAddress": "tituszb73@gmail.com"
@@ -571,12 +461,7 @@
                         "somogyi_kriszta",
                         {
                             "memberName": "Somogyi Kriszta",
-<<<<<<< HEAD:aurum-sophia-ui/src/data/siteContentDataMock.json
-                            "memberTitle": "kineziológiás",
-                            "memeberProfilePicture": "https://s3.eu-west-1.amazonaws.com/filestore.molitio.org/aurum-sophia/profile-pictures/somogyi_kriszta.jpg",
-=======
                             "memberTitle": "Kineziológus",
->>>>>>> 619321f (typo corrections):aurum-sophia-ui/src/data/siteContentDataMain.json
                             "memberContact": {
                                 "phoneNumber": "+36 (30) 624 6093",
                                 "emailAddress": "vadrózs11@vipmail.hu"
