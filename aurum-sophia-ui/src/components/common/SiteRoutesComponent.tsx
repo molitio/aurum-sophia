@@ -13,7 +13,7 @@ export const SiteRoutesComponent: React.FC = () => {
                 {Array.from([...context.featureCollection]).map((route) => (
                     <Route
                         component={context.componentCollection.get(route[0])}
-                        path={route[1].path}
+                        path={route[1].isRedirect ? '/' : route[1].path}
                         exact
                         key={route[0]}
                     />
