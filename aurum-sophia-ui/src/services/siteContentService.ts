@@ -1,8 +1,8 @@
 import { TPageContent } from '../components/common/type/TPageContent';
-import * as siteContentDataMain from '../data/siteContentDataMain.json';
+import * as siteContentDataRelease from '../data/siteContentDataRelease.json';
 
 const getMockDataCollection = (): Map<string, TPageContent> => {
-    const contentString = JSON.stringify(siteContentDataMain.pageContentCollection);
+    const contentString = JSON.stringify(siteContentDataRelease.pageContentCollection);
     const contentDataCollection = new Map<string, TPageContent>(JSON.parse(contentString));
     return new Map([...contentDataCollection]);
 };

@@ -54,8 +54,6 @@ export const ActualsComponent: React.FC<PageTagProps> = ({ pageTag }: PageTagPro
                         <Typography variant="body2" component="p">
                             {content[1].textContent}
                         </Typography>
-
-                        <br />
                     </div>
                 ))}
         </div>

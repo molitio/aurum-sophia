@@ -7,11 +7,40 @@
                 "title": "Aktuális",
                 "componentContent": [
                     [
-                        "introduction",
+                        "textSegment00",
                         {
                             "title": "2021. 04.14",
-                            "textContent": "Örömmel tudatjuk, hogy 2021. Április 13-án a bírósági bejegyzés által hivatalosan is megalakult az alapítványunk. A lényeget viszont továbbra sem a hivatali ügyekben és formai keretekben látjuk, hanem a valódi értékeken alapuló emberi közösségben. Jó látni a víziónkat a szervezeten belül már most megvalósulni! A 10-12 fő létszámú tagokból, küldetés-társakból, önkéntes segítőkből álló csapatunkban minden egyes találkozó alatt tanúi lehetünk a tudatos fejlődésben együttműködő örömteli emberi közösség erejének.Erre hívunk mindenkit, hogy vegyen rész ebben a felemelő folyamatban akár támogatóként, küldetés-társként, vagy programjainkra jelentkezőként.Mi alakítjuk ki magunkban és magunk körül azt a világot, amiben élni szeretnénk. A jövőt a tiszta és kölcsönösen előnyös együttműködésekre építjük! Tarts velünk!",
-                            "dateCreated": "2021-07-01"
+                            "textContent": "Örömmel tudatjuk, hogy 2021. Április 13-án hivatalosan is bejegyzésre került az alapítványunk."
+                        }
+                    ],
+                    [
+                        "textSegment01",
+                        {
+                            "textContent": "A lényeget továbbra is a valódi értékeken alapuló emberi közösségben látjuk."
+                        }
+                    ],
+                    [
+                        "textSegment03",
+                        {
+                            "textContent": "A küldetésünket látjuk megvalósulni. A tagokból, küldetés-társakból, önkéntes segítőkből álló csapatunkban minden egyes találkozó alatt tanúi lehetünk a tudatos fejlődésben együttműködő örömteli emberi közösség erejének."
+                        }
+                    ],
+                    [
+                        "textSegment04",
+                        {
+                            "textContent": "Erre hívunk mindenkit, hogy vegyen rész ebben a felemelő folyamatban akár támogatóként, küldetés-társként, vagy programjainkon résztvevőként."
+                        }
+                    ],
+                    [
+                        "textSegment05",
+                        {
+                            "textContent": "Mi alakítjuk ki magunkban és magunk körül azt a világot, amiben élni szeretnénk. A jövőt a tiszta és kölcsönösen előnyös együttműködésekre építjük!"
+                        }
+                    ],
+                    [
+                        "textSegment06",
+                        {
+                            "textContent": "Tarts velünk!"
                         }
                     ]
                 ]
@@ -207,80 +236,6 @@
             }
         ],
         [
-            "aurum-sophia-events-page",
-            {
-                "molitioId": { "molitioTag": "events02" },
-                "title": "Események",
-                "componentContent": [
-                    [
-                        "event1",
-                        {
-                            "title": "Varázslatos Tea Szertartás - meditáció",
-                            "eventSummary": "Mi a tea szertartás?",
-                            "eventTime": "Két hetente kedd vagy csütörtök, 17:00-tól",
-                            "eventContentSections": [
-                                [
-                                    "summary",
-                                    {
-                                        "textSection": "KAPCSOLÓDÁS - ELMÉLYÜLÉS - ÖRÖM - egyben!"
-                                    }
-                                ],
-                                [
-                                    "sec1",
-                                    {
-                                        "textSection": "A két órás összejövetelből ~1,5 óra a meditáció, ami alatt nem beszélünk, csak teázunk és befelé figyelünk."
-                                    }
-                                ],
-                                [
-                                    "sec2",
-                                    {
-                                        "textSection": "A szertartáshoz használt tea(10-15 éves Yunnan-i pu'erh) segít az elmélyülésben, az érzékelés finomításában, a tudat kiterjesztésében, tisztítja és feltölti a test energiarendszerét. Tartós belső csend állapot, felismerések, víziók, szellemi élmények jöhetnek!"
-                                    }
-                                ],
-                                [
-                                    "sec4",
-                                    {
-                                        "textSection": "Előzetes meditációs gyakorlat javasolt, de nem feltétel."
-                                    }
-                                ],
-                                [
-                                    "sec5",
-                                    {
-                                        "textSection": "A felhasznált tea csökkent koffein tartalmú, a hosszú tárolásnak köszönhetően. Szélsőséges koffein érzékenység esetén azonban csak saját felelősségre javasolt."
-                                    }
-                                ],
-                                [
-                                    "sec6",
-                                    {
-                                        "textSection": "Szertartás vezető: Köves Dávid - tudatfejlesztő mentor, parapszichológus"
-                                    }
-                                ],
-                                [
-                                    "sec7",
-                                    {
-                                        "textSection": "Helyszín: Flow stúdió, VII.ker. Damjanich utca 38. (lécsőház melletti félszuterén)"
-                                    }
-                                ],
-                                [
-                                    "sec8",
-                                    {
-                                        "textSection": "Hozzájárulás: 3e Ft/fő"
-                                    }
-                                ],
-                                [
-                                    "sec",
-                                    {
-                                        "textSection": "A következő időpontért és a helyed biztosítása céljából kérjük jelezd részvételi szándékod az alábbi elérhetőségek egyikén: - Email: kapcsolat@tudatfejlesztés.hu - Telefon: +36 30 9661844"
-                                    }
-                                ]
-                            ],
-                            "dateCreated": "2021-07-01"
-                        }
-                    ]
-                ]
-            }
-        ],
-        [
             "aurum-sophia-about-page",
             {
                 "molitioId": { "molitioTag": "about-page" },
@@ -297,13 +252,13 @@
                     [
                         "textSegment01",
                         {
-                            "textContent": "A névben az „Aurum” szó a Nap és arany férfias minőségekre utal, a „Sophia” pedig a bölcsesség női oldalát képviseli. Az Aurum Sophia-ban tehát a női és férfi pólusok egyesítve, egymás mellé rendelve jelennek meg. Az alapítvány tevékenységének elsődleges céljaként azon dolgozunk, hogy az Egyetemes Tudatfejlesztés szemléletét, alapelveit és módszereit bárki számára elérhetővé tegyük. Így vállaljuk globális szintű küldetésünket is: a tudatos, felszabadult, egészséges és boldog emberek együttműködő közösségének létrehozását."
+                            "textContent": "Az alapítvány tevékenységének elsődleges céljaként azon dolgozunk, hogy az Egyetemes Tudatfejlesztés szemléletét, alapelveit és módszereit bárki számára elérhetővé tegyük. Ezzel vállaljuk globális szintű küldetésünket is: a tudatos, felszabadult, egészséges és boldog emberek együttműködő közösségének létrehozását!"
                         }
                     ],
                     [
                         "textSegment02",
                         {
-                            "textContent": "Egyéni és csoportos mentoring programjaink, műhelymunkáink,elvonulásaink és táboraink, valamint konferenciáink során a kapcsolódás és közös tapasztalás pótolhatatlan élményének lehetőségeit teremtjük meg a résztvevők számára, hozzájárulva ezzel az egyéni és kollektív tudati fejlődés folyamatához"
+                            "textContent": "Legyen egyéni segítség, csoportos műhelymunka, elvonulás és táborozás, vagy konferencia: minden programunkon a kapcsolódás és közös tapasztalás pótolhatatlan élményének lehetőségeit teremtjük meg a résztvevők számára, hozzájárulva ezzel az egyéni és kollektív tudati fejlődés folyamatához."
                         }
                     ]
                 ]
