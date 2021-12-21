@@ -8,5 +8,5 @@ export type TMember = {
     memberTitle?: string;
     memberBioSections?: Map<string, TContentParagraph>;
     memberContact?: TContactInfo;
-    memeberProfilePicture?: string;
+    memberProfilePicture?: string;
 };

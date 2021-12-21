@@ -1,10 +1,10 @@
 import { TPageContent } from '../components/common/type/TPageContent';
-import * as siteContentDataMock from '../data/siteContentDataMock.json';
+import * as siteContentDataRelease from '../data/siteContentDataRelease.json';
 
 const getMockDataCollection = (): Map<string, TPageContent> => {
-    const mockContentString = JSON.stringify(siteContentDataMock.pageContentCollection);
-    const mockContentDataCollection = new Map<string, TPageContent>(JSON.parse(mockContentString));
-    return new Map([...mockContentDataCollection]);
+    const contentString = JSON.stringify(siteContentDataRelease.pageContentCollection);
+    const contentDataCollection = new Map<string, TPageContent>(JSON.parse(contentString));
+    return new Map([...contentDataCollection]);
 };
 
 export const sitePageContentCollection = async (): Promise<Map<string, TPageContent> | undefined> => {
