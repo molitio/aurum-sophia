@@ -36,6 +36,13 @@ export const NavigationItemComponent: React.FC<NavigationItemComponentProps> = (
         },
     });
 
+    const redirectToExternal = (url: string) => {
+        const windowObject = window.open(url, '_blank');
+        if (windowObject) {
+            windowObject.focus();
+        }
+    };
+
     return (
         <>
             {siteFeature && (
@@ -44,6 +51,15 @@ export const NavigationItemComponent: React.FC<NavigationItemComponentProps> = (
                         className={componentStyle.navLinkButton}
                         component={RouterLink}
                         to={siteFeature.path}
+                        onClick={
+                            siteFeature.isRedirect
+                                ? () => {
+                                      redirectToExternal(siteFeature.path);
+                                  }
+                                : () => {
+                                      return;
+                                  }
+                        }
                         startIcon={
                             displayIcons && (
                                 <Icon>
